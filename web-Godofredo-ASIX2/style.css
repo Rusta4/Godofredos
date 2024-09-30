@@ -1,0 +1,694 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+
+*{
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+
+/*Estilos de: h1,h2,h3,p,ul,li*/
+h1{ font-size: 3.5em;}
+h2{ font-size: 2.7em;}
+h3{ font-size: 2em;}
+p{ font-size: 1.25em;}
+ul{ list-style: none;}
+li{ font-size: 1.25em;}
+
+
+
+/*Estilos y animaciones del banner*/
+
+
+
+/*Estilos del botón*/
+#banner-bienvenida-web button {
+    font-size: 1.75em;
+    font-weight: bold;
+    padding: 15px 50px;
+    background-color: #1e88e5; /* Azul intenso */
+    border-radius: 30px;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+#banner-bienvenida-web button:hover {
+    background-color: #1565c0; 
+    transform: scale(1.05); 
+ }
+
+
+#banner-bienvenida-web h1,
+#servicios-de-godofredo h2,
+#seccion-quienes-somos h2,
+#final h2 {
+    animation: fadeInUp 1s ease-in-out;
+    opacity: 0; 
+    animation-fill-mode: forwards; 
+}
+
+/* Ajustar la animación de botones */
+#banner-bienvenida-web button,
+#servicios-de-godofredo .carta button,
+#final button {
+    animation: fadeInUp 1.2s ease-in-out;
+    opacity: 0; 
+    animation-fill-mode: forwards;
+}
+
+
+
+
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); 
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); 
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px); 
+    }
+}
+
+/*Hasta aquí los estilos y animaciones del banner*/
+
+/*video del scroller*/
+
+.scroll-animation {
+    opacity: 0;
+    transform: translateY(50px); /* Empieza un poco más abajo */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Transición suave */
+}
+
+.scroll-animation.visible {
+    opacity: 1;
+    transform: translateY(0); /* Vuelve a su posición original */
+}
+
+
+
+/*hover del button*/
+
+.contenedor-general{
+    max-width: 1400px;
+    margin: auto;
+}
+
+.color-acento{ color:orange}
+
+
+
+header {
+    background-color: transparent;
+    position: relative;
+    z-index: 10; /* Asegura que el header esté encima del video */
+}
+
+header .logo{
+    margin: 0;
+    padding: 25px 30px;
+    font-weight: bold;
+    color: wheat;
+    font-size: 1.6em;
+}
+
+header .contenedor-general{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header nav{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+header a{
+    padding: 5px 12px;
+    text-decoration: none;
+    font-weight: bold;
+    color: wheat;
+    /*color: rgba(255, 255, 255, 0.781);*/
+}
+
+header a:hover{
+    color: white;
+}
+
+#banner-bienvenida-web {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+#video-banner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    transform: translate(-50%, -50%);       
+    background-size: cover;
+}
+
+.contenido-banner {
+    z-index: 1;
+    color: white;
+}
+
+#banner-bienvenida-web h1 {
+    color: white;
+    font-size: 3em;
+}
+
+#banner-bienvenida-web button {
+    font-size: 1.75em;
+}
+
+
+#banner-bienvenida-web h1{
+    color: white;
+}
+
+#banner-bienvenida-web button{
+    font-size: 1.75em;
+}
+ /*Estilos de quienes somos*/
+/* Estilos de la sección 'Quienes Somos' */
+#seccion-quienes-somos {
+    position: relative;
+    width: 100%;
+    height: 600px; /* Ajusta la altura según lo que necesites */
+    background-size: cover; /* Asegura que la imagen cubra todo el fondo */
+    background-position: center center; /* Centra la imagen de fondo */
+    background-attachment: fixed; /* La imagen de fondo permanece fija durante el
+     desplazamiento */
+    color: black; /* Asegura que el texto sea visible sobre la imagen de fondo */
+    background-color: rgba(245, 222, 179, 0.377);
+}
+
+#seccion-quienes-somos .contenedor-general {
+    position: relative;
+    z-index: 1; /* Asegura que el contenido esté por encima de la imagen de fondo */
+    text-align: center;
+    padding: 100px 20px; /* Ajusta el relleno según sea necesario */
+}
+
+#seccion-quienes-somos .texto {
+    margin-bottom: 20px; /* Espacio entre el texto y la imagen de contenido */
+}
+
+#seccion-quienes-somos h2,
+#seccion-quienes-somos p {
+    animation: fadeInUp 1s ease-in-out;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+#seccion-quienes-somos img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Centra las imágenes dentro del contenedor */
+}
+
+/* Animaciones para los elementos en la sección */
+.scroll-animation {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-animation.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+#servicios-de-godofredo {
+    background-color: rgb(30, 30, 30);
+    color: white;
+    text-align: center;
+}
+
+#servicios-de-godofredo .contenedor-general {
+    padding: 150px 12px;
+}
+
+#servicios-de-godofredo h2 {
+    margin-top: 0;
+    font-size: 3.2em;
+}
+
+#servicios-de-godofredo .carta {
+    display: block;
+    position: relative;
+    background-position: center center;
+    background-size: cover;
+    padding: 50px;
+    margin: 30px;
+    border-radius: 15px;
+    overflow: hidden; /* Asegura que el contenido no se desborde */
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    color: white; /* Color de texto por defecto */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+#servicios-de-godofredo .carta img {
+    max-width: 100%;
+    height: auto;
+}
+
+#servicios-de-godofredo .carta h3, 
+#servicios-de-godofredo .carta p,
+#servicios-de-godofredo .carta button {
+    transition: opacity 0.3s ease;
+}
+
+#servicios-de-godofredo .carta:hover {
+    transform: scale(1.05);
+}
+
+#servicios-de-godofredo .carta:hover h3, 
+#servicios-de-godofredo .carta:hover p, 
+#servicios-de-godofredo .carta:hover button {
+    opacity: 0;
+}
+
+#servicios-de-godofredo .carta:hover img {
+    opacity: 1;
+}
+
+/* Estilo específico para la imagen dentro de la carta */
+#servicios-de-godofredo .carta img {
+    transition: opacity 0.3s ease;
+}
+
+/* Opcional: agregar un overlay al pasar el ratón */
+#servicios-de-godofredo .carta::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#servicios-de-godofredo .carta:hover::before {
+    opacity: 1;
+}
+
+#servicios-de-godofredo .carta:hover img {
+    opacity: 0.3;
+}
+
+
+
+
+#caracteristicas .contenedor-general{
+    text-align: center;
+    padding: 250px 12px;
+}
+
+#caracteristicas li{
+    margin: 16px 0px;
+    font-weight: bold;
+}
+
+#final{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(30,30,30);
+    color: white;
+    height: 80vh;
+}
+
+#final h2{
+    font-size: 9vw;
+}
+
+#final button{
+    font-size: 5vw;
+}
+
+footer{
+    background-color: rgb(230,230,230);
+}
+
+footer p{
+    margin: 0;
+    padding: 12px;
+    color: rgb(100,100,100);
+}
+
+footer .contenedor-general{
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+@media (min-width: 850px){
+    header{
+        position: fixed;
+        width: 100%;
+    }
+
+    header .contenedor-general{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    header nav{
+        flex-direction: row;
+        padding-bottom: 0;
+        padding-right: 20px;
+    }
+
+    #hero h1{
+        font-size: 5em;
+    }
+
+    #seccion-quienes-somos .contenedor-general{
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    #seccion-quienes-somos .texto{
+        width: 50%;
+        max-width: 600px;
+        text-align: initial;
+        padding-left: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #seccion-quienes-somos h2{
+        margin-top: 0px;
+    }
+
+    #seccion-quienes-somos .img-contenedor-principal{
+        background-image: url("media/somos-proya.jpg");
+        background-size: cover;
+        background-position: center center;
+        height: 500px;
+        width: 400px; 
+    }
+
+    #servicios-de-godofredo .servicios{
+        display: flex;
+        justify-content: center;
+    }
+
+    #servicios-de-godofredo p{
+        display: block;
+        margin-bottom: 30px;
+    }
+
+    #servicios-de-godofredo h2{
+        font-size: 4em;
+    }
+
+    #servicios-de-godofredo h3{
+        margin-top: 0;
+    }
+
+    #servicios-de-godofredo .carta{
+        padding: 50px;
+        background-size: 100% 150px;
+        background-repeat: no-repeat;
+        background-position-y: 0;
+        background-color: rgba(50, 50, 50, 1);
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    }
+
+
+    #caracteristicas{
+        background-image: url("media/background-2.jpeg");
+        background-repeat: no-repeat;
+        background-size: 500px 400px;
+        background-position: calc(100vw - 500px) 120px;
+    }
+
+    #caracteristicas .contenedor-general{
+        text-align: initial;
+    }
+
+    #caracteristicas ul{
+        margin-left: 100px;
+    }
+
+    #final h2{
+        font-size: 5em;
+    }
+
+    #final button{
+        font-size: 2em;
+    }
+
+    footer .contenedor-general{
+        justify-content: flex-end;
+    }
+}
+
+@media (min-width: 1200px) {
+    #caracteristicas{
+        background-position-x: calc(100vw - 800px);
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    h1 { font-size: 2.2em; }
+    h2 { font-size: 1.8em; }
+    h3 { font-size: 1.5em; }
+    p { font-size: 1em; }
+
+    /* Ajustamos el tamaño del video banner */
+    #video-banner {
+        min-width: 100%;
+        min-height: 100%;
+    }
+
+    #banner-bienvenida-web {
+        height: auto; /* Deja que la altura se ajuste automáticamente en pantallas pequeñas */
+    }
+
+    #banner-bienvenida-web h1 {
+        font-size: 2em;
+    }
+
+    #banner-bienvenida-web button {
+        font-size: 1.2em;
+        padding: 10px 30px;
+    }
+
+    /* Servicios (cartas) */
+    #servicios-de-godofredo .carta {
+        margin: 10px;
+        padding: 20px;
+        font-size: 1em;
+    }
+
+    #servicios-de-godofredo .servicios {
+        flex-direction: column;
+        padding: 20px 0;
+    }
+
+    #servicios-de-godofredo h2 {
+        font-size: 2.2em;
+    }
+}
+
+/* Ajustes para tablets o pantallas medianas */
+@media (min-width: 600px) and (max-width: 850px) {
+
+    h1 { font-size: 3em; }
+    h2 { font-size: 2.2em; }
+    h3 { font-size: 1.8em; }
+    p { font-size: 1.1em; }
+
+    #banner-bienvenida-web h1 {
+        font-size: 2.5em;
+    }
+
+    #banner-bienvenida-web button {
+        font-size: 1.5em;
+        padding: 12px 40px;
+    }
+
+    #servicios-de-godofredo .servicios {
+        flex-direction: column;
+    }
+
+    #servicios-de-godofredo .carta {
+        margin: 15px;
+        padding: 30px;
+        font-size: 1.1em;
+    }
+
+    #servicios-de-godofredo h2 {
+        font-size: 3em;
+    }
+}
+
+/* Pantallas más grandes (como laptops y desktops) */
+@media (min-width: 850px) {
+
+    /* Ya tienes algunos estilos definidos aquí, pero se pueden ajustar más cosas si es necesario. */
+
+    header .contenedor-general {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    header nav {
+        flex-direction: row;
+    }
+
+    /* Servicios en línea horizontal */
+    #servicios-de-godofredo .servicios {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    #servicios-de-godofredo .carta {
+        flex: 1;
+        margin: 20px;
+    }
+}
+
+@media (max-width: 850px) {
+    /* Estilos para las cartas */
+    .carta {
+        margin: 10px; /* Añade un margen entre las cartas */
+        padding: 15px;
+        border-radius: 10px; /* Bordes redondeados */
+        background-color: rgba(128, 128, 128, 0.192);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añade una sombra para destacar */
+    }
+
+    /* Espaciado entre secciones */
+    section {
+        margin-bottom: 20px; /* Espaciado adicional entre secciones */
+    }
+
+    /* Otros estilos del diseño que podrían mejorar la vista en pantallas pequeñas */
+    #menu-principal a {
+        padding: 15px 0; /* Aumenta el padding para los elementos del menú */
+    }
+}
+
+/* Para pantallas más grandes (mayor a 850px) */
+@media (min-width: 850px) {
+    .carta {
+        margin: 20px; /* Un margen mayor en pantallas grandes */
+        padding: 20px;
+        border: none; /* Si prefieres que no tengan bordes en pantallas grandes */
+        box-shadow: none; /* Sin sombra en pantallas grandes */
+    }
+}
+
+
+
+@media (max-width: 850px) {
+    /* Espaciado entre secciones */
+    section {
+        margin-bottom: 20px; /* Ajusta según necesites */
+    }
+
+    /* Ocultar menú normal y mostrar menú hamburguesa */
+    #menu-principal {
+        display: none; /* Oculta el menú principal en pantallas pequeñas */
+    }
+
+    #menu-hamburguesa {
+        display: block;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+    }
+     }
+
+
+
+/* Menú desplegable oculto por defecto en móviles */
+#menu-principal {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+@media (max-width: 850px) {
+    #menu-principal a{
+        color:black ;
+    }
+     }
+
+
+#menu-principal.oculto {
+    display: none;
+}
+
+/* Mostrar menú en pantallas grandes */
+@media (min-width: 850px) {
+    #menu-hamburguesa {
+        display: none; /* Oculto el botón hamburguesa en pantallas grandes */
+    }
+
+    #menu-principal {
+        display: flex; /* Menú horizontal en pantallas grandes */
+        flex-direction: row;
+    }
+}
+

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Godofredo's foro</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    
+    <header>
+        <div class="contenedor-general">
+            <p class="logo">GodoFredo's</p>
+            <nav id="menu-principal">
+                <a href="#">Inicio</a>
+                <a href="#">About us</a>
+                <a href="#">Iniciar sesión</a>
+                <a href="#">Registrarse</a>
+            </nav>
+        </div>
+    </header>
+    
+
+    <section id="banner-bienvenida-web">
+        <video autoplay muted loop id="video-banner">
+            <source src="./img/videoplayback.mp4" type="video/mp4">
+            Tu navegador no soporta la etiqueta de video.
+        </video>
+        <div class="contenido-banner">
+            <h1 class="scroll-animation">Visita nuestro foro <br>con los Mejores repositórios</h1>
+            <a href="#" target="_blank">
+                <button class="scroll-animation"><b>¡Descubre nuestros servicios!</b></button>
+            </a>
+        </div>
+    </section>
+
+    
+    <!-- Aplica la clase "scroll-animation" a los demás elementos -->
+    
+
+    <section id="servicios-de-godofredo" class="scroll-animation">
+        <div class="contenedor-general">
+            <h2>¡Elige un tema!</h2>
+            <div class="servicios">
+                <a href="enlace-al-detalle-front-end.html" class="carta">
+                    <h3>Docker</h3>
+                    
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <img src="./img/docker-img.png" alt="">
+                    
+                </a>
+                
+                <a href="enlace-al-detalle-full-stack.html" class="carta">
+                    <h3>Hacking tools</h3>
+                    <img src="./img/full-stack-img.png" alt="">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <img src="./img/hackinkg-tools.png" alt="">
+
+                </a>
+                
+                <a href="enlace-al-detalle-python.html" class="carta">
+                    <h3>ISO files</h3>
+                    <img src="./img/python-img.png" alt="">
+                    <p>Lorem ipsum dolor sit amet consectetur...</p>
+                    
+                </a>  
+            </div>
+        </div>
+    </section>
+
+
+    
+
+    <footer>
+        <div class="contenedor-general">
+            <p>&copy; Godofredo's 2024</p>
+        </div>
+    </footer>
+
+
+
+
+    <script>
+        // Función para observar elementos en el viewport
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.scroll-animation');
+    
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible'); // Agrega la clase visible cuando el elemento es visible
+                    } else {
+                        entry.target.classList.remove('visible'); // Opcional: quita la clase cuando el elemento ya no es visible
+                    }
+                });
+            }, { threshold: 0.1 }); // El umbral define qué tan visible debe estar el elemento
+    
+            elements.forEach(el => observer.observe(el));
+        });
+
+        
+    </script>
+
+    
+    
+</body>
+</html>
