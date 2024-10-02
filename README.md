@@ -26,7 +26,7 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 <h4>Edward Murphy:</h4>
 <h5> - CSS (Cascading Style Sheets):</h5>
 <p>Utilizado para diseñar y dar estilo a las páginas web, asegurando que la presentación sea atractiva y responsiva.</p>
-<h5> - MongoDB:</h5>
+<h5> - Firebase:</h5>
 <p>Base de datos NoSQL que permite almacenar datos de manera flexible y escalable, ideal para manejar grandes volúmenes de información y facilitar la recuperación de datos.</p>
 
 <h2>Tecnologias Usadas:</h2>
@@ -47,7 +47,7 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 <h4>5. CSS (Cascading Style Sheets):</h4>
 <p>Utilizado para diseñar y dar estilo a las páginas web, asegurando que la presentación sea atractiva y responsiva.</p>
 
-<h4>6. MongoDB:</h4>
+<h4>6. Firebase:</h4>
 <p>Base de datos NoSQL que permite almacenar datos de manera flexible y escalable, ideal para manejar grandes volúmenes de información y facilitar la recuperación de datos.</p>
 
 <h4>Conclusión:</h4>
