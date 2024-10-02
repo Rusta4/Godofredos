@@ -11,6 +11,24 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 
 <h2>Organizacion:</h2>
 
+<h4>Nicolás Guerra:</h4>
+<h5> - Proxmox:</h5>
+<p>Plataforma de virtualización que permite gestionar máquinas virtuales y contenedores, optimizando el uso de recursos y facilitando la administración de entornos.</p>
+<h5> - PHP:</h5>
+<p>Lenguaje de programación del lado del servidor que gestiona la lógica de negocio y las interacciones del usuario, generando contenido dinámico.</p>
+
+<h4>Adrià Trillo:</h4>
+<h5> - Máquinas Virtuales (VM):</h5>
+<p>Se utilizan para simular entornos independientes, mejorando la seguridad y la escalabilidad del sistema al permitir que diferentes componentes funcionen de manera aislada.</p>
+<h5> - HTML (HyperText Markup Language):</h5>
+<p>Lenguaje de marcado utilizado para estructurar el contenido de las páginas web, proporcionando la base para la interfaz de usuario.</p>
+
+<h4>Edward Murphy:</h4>
+<h5> - CSS (Cascading Style Sheets):</h5>
+<p>Utilizado para diseñar y dar estilo a las páginas web, asegurando que la presentación sea atractiva y responsiva.</p>
+<h5> - MongoDB:</h5>
+<p>Base de datos NoSQL que permite almacenar datos de manera flexible y escalable, ideal para manejar grandes volúmenes de información y facilitar la recuperación de datos.</p>
+
 <h2>Tecnologias Usadas:</h2>
 <p>En este proyecto, se han seleccionado las siguientes tecnologías para crear un entorno virtualizado y una aplicación web efectiva:</p>
 
