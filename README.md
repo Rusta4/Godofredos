@@ -11,7 +11,29 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 
 <h2>Organizacion</h2>
 
-<h2>Tecnologias</h2>
+<h2>Tecnologias Usadas</h2>
+<p>En este proyecto, se han seleccionado las siguientes tecnologías para crear un entorno virtualizado y una aplicación web efectiva:</p>
+
+<h4>1. Proxmox:</h4>
+<p>Plataforma de virtualización que permite gestionar máquinas virtuales y contenedores, optimizando el uso de recursos y facilitando la administración de entornos.</p>
+
+<h4>2. Máquinas Virtuales (VM):</h4>
+<p>Se utilizan para simular entornos independientes, mejorando la seguridad y la escalabilidad del sistema al permitir que diferentes componentes funcionen de manera aislada.</p>
+
+<h4>3. PHP:</h4>
+<p>Lenguaje de programación del lado del servidor que gestiona la lógica de negocio y las interacciones del usuario, generando contenido dinámico.</p>
+
+<h4>4. HTML (HyperText Markup Language):</h4>
+<p>Lenguaje de marcado utilizado para estructurar el contenido de las páginas web, proporcionando la base para la interfaz de usuario.</p>
+
+<h4>5. CSS (Cascading Style Sheets):</h4>
+<p>Utilizado para diseñar y dar estilo a las páginas web, asegurando que la presentación sea atractiva y responsiva.</p>
+
+<h4>6. MongoDB:</h4>
+<p>Base de datos NoSQL que permite almacenar datos de manera flexible y escalable, ideal para manejar grandes volúmenes de información y facilitar la recuperación de datos.</p>
+
+<h4>Conclusión:</h4>
+<p>Estas tecnologías garantizan un entorno sólido y flexible, permitiendo el desarrollo de una aplicación web dinámica y eficiente que cumple con los objetivos del proyecto.</p>
 
 
 <br>
