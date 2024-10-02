@@ -9,9 +9,9 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 <h2>Nuestros Objetivo:</h2>
 <p>Nuestro objetivo es proporcionar una herramienta que no solo centralice el desarrollo en ciberseguridad, sino que también fomente una colaboración más efectiva entre expertos y entusiastas de la seguridad informática. Al concentrar los recursos, herramientas y proyectos en un solo lugar, buscamos facilitar el acceso a soluciones innovadoras y prácticas que puedan ser utilizadas por toda la comunidad.</p>
 
-<h2>Organizacion</h2>
+<h2>Organizacion:</h2>
 
-<h2>Tecnologias Usadas</h2>
+<h2>Tecnologias Usadas:</h2>
 <p>En este proyecto, se han seleccionado las siguientes tecnologías para crear un entorno virtualizado y una aplicación web efectiva:</p>
 
 <h4>1. Proxmox:</h4>
