@@ -78,41 +78,49 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 <p>
 Estas son las siguientes IP's dentro de los bridges de nuestra red:
   
-<img src="https://github.com/user-attachments/assets/d3b779ba-4444-4fef-8b57-d859c45d2e1b" alt="LOGO-GODO" width="400" height="400" />
+<img src="https://github.com/user-attachments/assets/d3b779ba-4444-4fef-8b57-d859c45d2e1b" alt="LOGO-GODO" width="800" height="400" />
 
-Crear Red Interna en Proxmox:  Hemos creado una red interna en Proxmox, con el fin de poder manejar la conectividad de las VM en una red interna.
+Hemos creado una <b>red interna</b> en Proxmox, con el fin de poder manejar la conectividad de las VM en una red interna.
 <img src="https://github.com/user-attachments/assets/2eab6a67-2fdb-49d8-b8ac-9dbb79721d44" alt="LOGO-GODO" width="700" height="400" />
 
-Crear un Router en Proxmox: Hemos añadido un router virtual en Proxmox. Actúa como un punto central para gestionar el tráfico de la red interna y también para mantener la comunicación por fuera de la red interna creada.
+Hemos añadido un <b>router virtual</b> en Proxmox. Actúa como un punto central para gestionar el tráfico de la red interna y también para mantener la comunicación por fuera de la red interna creada.
+
+<img src="https://github.com/user-attachments/assets/85217131-03cd-4772-a3a0-dcf624145ae9" alt="LOGO-GODO" width="700" height="400" />
 
 Configurar Interfaces de Red: Hemos configurado las interfaces de red tanto en el router como en el cliente. Gracias a dicha configuración, las máquinas virtuales y otros dispositivos en la red interna pudieran conectarse entre sí y con el router.
+
+Tras conseguir la conexión entre las máquinas hemos realizado ping entre ellas:
+
+<img src="https://github.com/user-attachments/assets/f95da3ba-bfc4-4488-a961-08f3ab36d132" alt="LOGO-GODO" width="700" height="400" />
 
 Configuración de IPTables
 Para la configuración de las reglas del firewall y redirección de tráfico, hemos utilizado IPTables:
 
-Habilitar reenvío de IP (IP Forwarding): Para empezar, hemos modificado el archivo "/etc/sysctl.conf" descomentando la siguiente línea: net.ipv4.ip_forward=1
+Habilitar reenvío de IP (IP Forwarding): Para empezar, hemos modificado el archivo "/etc/sysctl.conf" descomentando la siguiente línea: <b>net.ipv4.ip_forward=1</b>
 Este ajuste nos ha permitido a que el router establecido en Proxmox reenvíe tráfico entre diferentes interfaces de red. 
 Una vez realizada la modificación, mediante el comando <b>sudo sysctl -p</b>
 
+<img src="https://github.com/user-attachments/assets/d062a00a-aaae-4e64-a2c4-17988b710dc6" alt="LOGO-GODO" width="700" height="400" />
 
 También hemos configurado una regla para permitir que el tráfico desde la red interna fluya hacia el exterior (Internet) a través de la interfaz de red especificada:
-sudo iptables -A FORWARD -i ens19 -o ens18 -j ACCEPT
+<b>sudo iptables -A FORWARD -i ens19 -o ens18 -j ACCEPT </b>
 
 Además, se añadió una regla para permitir que las respuestas a las solicitudes que se originan desde la red interna puedan regresar sin problemas. Esta regla es esencial para la comunicación bidireccional:
-sudo iptables -A FORWARD -i eth0 -o eth1 -m state --state ESTABLISHED,RELATED -j ACCEPT
+<b>sudo iptables -A FORWARD -i eth0 -o eth1 -m state --state ESTABLISHED,RELATED -j ACCEPT</b>
 
 Después de configurar las reglas necesarias, hemos guardado los cambios realizados mediante el comando: sudo iptables-save
 
-Persistencia de las Reglas: Para que las reglas de IPTables se mantuvieran después de reiniciar el sistema, hemos procedido a instalar el paquete "iptables-persistent" mediante el siguiente comando: sudo apt install iptables-persistent -y
+Persistencia de las Reglas: Para que las reglas de IPTables se mantuvieran después de reiniciar el sistema, hemos procedido a instalar el paquete "iptables-persistent" mediante el siguiente comando: <b>sudo apt install iptables-persistent -y</b>
 
 Cambio de IP del Router
-Se asignó una nueva dirección IP al router en Proxmox (.120), realizando previamente una consulta de las direcciones IP activas con el comando arp -a en un sistema Windows 10.
+Se asignó una nueva dirección IP al router en Proxmox (.120), realizando previamente una consulta de las direcciones IP activas con el comando <b>arp -a</b> en un sistema Windows 10.
 
 Configuración Adicional en la Máquina Cliente
-Instalación de QEMU Guest Agent: En la máquina cliente, se instaló el paquete qemu-guest-agent mediante el siguiente comando: sudo apt install qemu-guest-agent
+Instalación de QEMU Guest Agent: En la máquina cliente, se instaló el paquete qemu-guest-agent mediante el siguiente comando: 
+<b>sudo apt install qemu-guest-agent</b>
 Esta herramienta es útil para la administración de máquinas virtuales y su integración con el sistema Proxmox.
 
-Modificación de las Opciones de la VM Cliente: Tras la instalación del qemu-guest-agent (sudo apt install qemu-guest-agent), hemos realizado ajustes en las opciones de configuración de la máquina virtual cliente en Proxmox.
+Modificación de las Opciones de la VM Cliente: Tras la instalación del qemu-guest-agent, hemos realizado ajustes en las opciones de configuración de la máquina virtual cliente en Proxmox.
 
 <img src="https://github.com/user-attachments/assets/aba1ca56-4c0f-403b-9ad9-fdb9fe35e1ad" alt="LOGO-GODO" width="1000" height="500" />
 
