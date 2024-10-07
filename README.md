@@ -73,8 +73,50 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 <p>Usaremos el primer logo para nuestra web porque refleja simplicidad y profesionalismo, alineándose con el estilo minimalista de marcas tecnológicas modernas. El diseño en blanco y negro aporta una estética limpia y elegante, lo que facilita su integración en diferentes plataformas. Además, el animal icónico en el logo le da personalidad y un toque distintivo sin sobrecargar el diseño.</p>
 <img src="https://github.com/user-attachments/assets/a8580f0e-db47-4891-bf4a-0d3fd1cccb1d" alt="LOGO-GODO" width="400" height="400" />
 
-
+    
 <h1>Proxmox:</h1>
-<p>Este documento describe la configuración de un entorno en Proxmox con dos máquinas virtuales: un router y un cliente. El router tiene dos interfaces de red (WAN y LAN), mientras que el cliente cuenta con una única interfaz clonada del router.
-El router conecta a la red externa mediante eth0 y a la interna con eth1 (IP estática: 192.168.1.1). El cliente, con eth0 (IP: 192.168.1.2), puede comunicarse con el router y otros dispositivos en la LAN. Se validó la conectividad usando ping y se probó el acceso a internet desde el cliente. Este entorno nos esta permitiendo experimentar con configuraciones de red y entender principios de conectividad y enrutamiento.</p>
+<p>
+Estas son las siguientes IP's dentro de los bridges de nuestra red:
+  
+<img src="https://github.com/user-attachments/assets/d3b779ba-4444-4fef-8b57-d859c45d2e1b" alt="LOGO-GODO" width="400" height="400" />
+
+Crear Red Interna en Proxmox:  Hemos creado una red interna en Proxmox, con el fin de poder manejar la conectividad de las VM en una red interna.
+<img src="https://github.com/user-attachments/assets/2eab6a67-2fdb-49d8-b8ac-9dbb79721d44" alt="LOGO-GODO" width="700" height="400" />
+
+Crear un Router en Proxmox: Hemos añadido un router virtual en Proxmox. Actúa como un punto central para gestionar el tráfico de la red interna y también para mantener la comunicación por fuera de la red interna creada.
+
+Configurar Interfaces de Red: Hemos configurado las interfaces de red tanto en el router como en el cliente. Gracias a dicha configuración, las máquinas virtuales y otros dispositivos en la red interna pudieran conectarse entre sí y con el router.
+
+Configuración de IPTables
+Para la configuración de las reglas del firewall y redirección de tráfico, hemos utilizado IPTables:
+
+Habilitar reenvío de IP (IP Forwarding): Para empezar, hemos modificado el archivo "/etc/sysctl.conf" descomentando la siguiente línea: net.ipv4.ip_forward=1
+Este ajuste nos ha permitido a que el router establecido en Proxmox reenvíe tráfico entre diferentes interfaces de red. 
+Una vez realizada la modificación, mediante el comando <b>sudo sysctl -p</b>
+
+
+También hemos configurado una regla para permitir que el tráfico desde la red interna fluya hacia el exterior (Internet) a través de la interfaz de red especificada:
+sudo iptables -A FORWARD -i ens19 -o ens18 -j ACCEPT
+
+Además, se añadió una regla para permitir que las respuestas a las solicitudes que se originan desde la red interna puedan regresar sin problemas. Esta regla es esencial para la comunicación bidireccional:
+sudo iptables -A FORWARD -i eth0 -o eth1 -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+Después de configurar las reglas necesarias, hemos guardado los cambios realizados mediante el comando: sudo iptables-save
+
+Persistencia de las Reglas: Para que las reglas de IPTables se mantuvieran después de reiniciar el sistema, hemos procedido a instalar el paquete "iptables-persistent" mediante el siguiente comando: sudo apt install iptables-persistent -y
+
+Cambio de IP del Router
+Se asignó una nueva dirección IP al router en Proxmox (.120), realizando previamente una consulta de las direcciones IP activas con el comando arp -a en un sistema Windows 10.
+
+Configuración Adicional en la Máquina Cliente
+Instalación de QEMU Guest Agent: En la máquina cliente, se instaló el paquete qemu-guest-agent mediante el siguiente comando: sudo apt install qemu-guest-agent
+Esta herramienta es útil para la administración de máquinas virtuales y su integración con el sistema Proxmox.
+
+Modificación de las Opciones de la VM Cliente: Tras la instalación del qemu-guest-agent (sudo apt install qemu-guest-agent), hemos realizado ajustes en las opciones de configuración de la máquina virtual cliente en Proxmox.
+
+<img src="https://github.com/user-attachments/assets/aba1ca56-4c0f-403b-9ad9-fdb9fe35e1ad" alt="LOGO-GODO" width="1000" height="500" />
+
+
+
+</p>
 
