@@ -78,20 +78,20 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 <p>
 Estas son las siguientes IP's dentro de los bridges de nuestra red:
   
-<img src="https://github.com/user-attachments/assets/d3b779ba-4444-4fef-8b57-d859c45d2e1b" alt="LOGO-GODO" width="800" height="400" />
+<img src="https://github.com/user-attachments/assets/d3b779ba-4444-4fef-8b57-d859c45d2e1b" alt="LOGO-GODO" width="900" height="400" />
 
-Hemos creado una <b>red interna</b> en Proxmox, con el fin de poder manejar la conectividad de las VM en una red interna.
-<img src="https://github.com/user-attachments/assets/2eab6a67-2fdb-49d8-b8ac-9dbb79721d44" alt="LOGO-GODO" width="700" height="400" />
+Hemos creado una <b>red interna</b> en Proxmox, con el fin de poder manejar la conectividad de las VM.
+<img src="https://github.com/user-attachments/assets/2eab6a67-2fdb-49d8-b8ac-9dbb79721d44" alt="LOGO-GODO" width="800" height="400" />
 
 Hemos añadido un <b>router virtual</b> en Proxmox. Actúa como un punto central para gestionar el tráfico de la red interna y también para mantener la comunicación por fuera de la red interna creada.
 
-<img src="https://github.com/user-attachments/assets/85217131-03cd-4772-a3a0-dcf624145ae9" alt="LOGO-GODO" width="700" height="400" />
+<img src="https://github.com/user-attachments/assets/85217131-03cd-4772-a3a0-dcf624145ae9" alt="LOGO-GODO" width="900" height="500" />
 
 Configurar Interfaces de Red: Hemos configurado las interfaces de red tanto en el router como en el cliente. Gracias a dicha configuración, las máquinas virtuales y otros dispositivos en la red interna pudieran conectarse entre sí y con el router.
 
 Tras conseguir la conexión entre las máquinas hemos realizado ping entre ellas:
 
-<img src="https://github.com/user-attachments/assets/f95da3ba-bfc4-4488-a961-08f3ab36d132" alt="LOGO-GODO" width="700" height="400" />
+<img src="https://github.com/user-attachments/assets/f95da3ba-bfc4-4488-a961-08f3ab36d132" alt="LOGO-GODO" width="1000" height="700" />
 
 Configuración de IPTables
 Para la configuración de las reglas del firewall y redirección de tráfico, hemos utilizado IPTables:
@@ -100,7 +100,7 @@ Habilitar reenvío de IP (IP Forwarding): Para empezar, hemos modificado el arch
 Este ajuste nos ha permitido a que el router establecido en Proxmox reenvíe tráfico entre diferentes interfaces de red. 
 Una vez realizada la modificación, mediante el comando <b>sudo sysctl -p</b>
 
-<img src="https://github.com/user-attachments/assets/d062a00a-aaae-4e64-a2c4-17988b710dc6" alt="LOGO-GODO" width="700" height="400" />
+<img src="https://github.com/user-attachments/assets/d062a00a-aaae-4e64-a2c4-17988b710dc6" alt="LOGO-GODO" width="900" height="600" />
 
 También hemos configurado una regla para permitir que el tráfico desde la red interna fluya hacia el exterior (Internet) a través de la interfaz de red especificada:
 <b>sudo iptables -A FORWARD -i ens19 -o ens18 -j ACCEPT </b>
@@ -108,7 +108,7 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 <img src="https://github.com/user-attachments/assets/980bf8bf-f41f-4b93-a915-bccffde9d45e" alt="LOGO-GODO" width="1000" height="500" />
 
 Además, se añadió una regla para permitir que las respuestas a las solicitudes que se originan desde la red interna puedan regresar sin problemas. Esta regla es esencial para la comunicación bidireccional:
-<b>sudo iptables -A FORWARD -i eth0 -o eth1 -m state --state ESTABLISHED,RELATED -j ACCEPT</b>
+<b>sudo iptables -A FORWARD -i ens18 -o ens19 -m state --state ESTABLISHED,RELATED -j ACCEPT</b>
 
 Después de configurar las reglas necesarias, hemos guardado los cambios realizados mediante el comando: <b>sudo iptables-save</b>
 
