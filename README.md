@@ -74,3 +74,7 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 <img src="https://github.com/user-attachments/assets/a8580f0e-db47-4891-bf4a-0d3fd1cccb1d" alt="LOGO-GODO" width="400" height="400" />
 
 
+<h1>Proxmox:</h1>
+<p>Este documento describe la configuración de un entorno en Proxmox con dos máquinas virtuales: un router y un cliente. El router tiene dos interfaces de red (WAN y LAN), mientras que el cliente cuenta con una única interfaz clonada del router.
+El router conecta a la red externa mediante eth0 y a la interna con eth1 (IP estática: 192.168.1.1). El cliente, con eth0 (IP: 192.168.1.2), puede comunicarse con el router y otros dispositivos en la LAN. Se validó la conectividad usando ping y se probó el acceso a internet desde el cliente. Este entorno nos esta permitiendo experimentar con configuraciones de red y entender principios de conectividad y enrutamiento.</p>
+
