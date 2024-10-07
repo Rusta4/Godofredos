@@ -105,10 +105,12 @@ Una vez realizada la modificación, mediante el comando <b>sudo sysctl -p</b>
 También hemos configurado una regla para permitir que el tráfico desde la red interna fluya hacia el exterior (Internet) a través de la interfaz de red especificada:
 <b>sudo iptables -A FORWARD -i ens19 -o ens18 -j ACCEPT </b>
 
+<img src="https://github.com/user-attachments/assets/980bf8bf-f41f-4b93-a915-bccffde9d45e" alt="LOGO-GODO" width="1000" height="500" />
+
 Además, se añadió una regla para permitir que las respuestas a las solicitudes que se originan desde la red interna puedan regresar sin problemas. Esta regla es esencial para la comunicación bidireccional:
 <b>sudo iptables -A FORWARD -i eth0 -o eth1 -m state --state ESTABLISHED,RELATED -j ACCEPT</b>
 
-Después de configurar las reglas necesarias, hemos guardado los cambios realizados mediante el comando: sudo iptables-save
+Después de configurar las reglas necesarias, hemos guardado los cambios realizados mediante el comando: <b>sudo iptables-save</b>
 
 Persistencia de las Reglas: Para que las reglas de IPTables se mantuvieran después de reiniciar el sistema, hemos procedido a instalar el paquete "iptables-persistent" mediante el siguiente comando: <b>sudo apt install iptables-persistent -y</b>
 
