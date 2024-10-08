@@ -110,9 +110,11 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 <img src="https://github.com/user-attachments/assets/980bf8bf-f41f-4b93-a915-bccffde9d45e" alt="LOGO-GODO" width="600" height="300" />
 
 <p>Además, se añadió una regla para permitir que las respuestas a las solicitudes que se originan desde la red interna puedan regresar sin problemas. Esta regla es esencial para la comunicación bidireccional. Hacemos el comando <b>sudo iptables -A FORWARD -i ens18 -o ens19 -m state --state ESTABLISHED,RELATED -j ACCEPT</b> para aceptar las reglas que hemos puesto. Después de configurar las reglas necesarias, hemos guardado los cambios realizados mediante el comando <b>sudo iptables-save</b>.</p> Una vez hecho esto deberia funcionar la conexion entre maquina Router - Cliente y el Cliente deberia tener conexion hacia fuera. Para comprobarlo podemos hacer un ping a Google.com desde la maquina cliente.
+<img src="https://github.com/user-attachments/assets/eccf8c13-227f-44d6-901c-a7e328effdb8" alt="LOGO-GODO" width="1200" height="400" />
 
 <h2>Reglas Permanentes:</h2>
 <p>Para que las reglas de IPTables se mantuvieran después de reiniciar el sistema, hemos procedido a instalar el paquete <b>iptables-persistent</b> mediante el siguiente comando <b>sudo apt install iptables-persistent -y</b></p>
+<img src="https://github.com/user-attachments/assets/f7bc6414-ad7c-4fba-8651-15f21ec70b74" alt="LOGO-GODO" width="900" height="400" />
 
 <h2>Configuracion QEMU Cliente:</h2>
 <p>En la máquina cliente, se instaló el paquete <b>qemu-guest-agent</b> mediante el comando <b>sudo apt install qemu-guest-agent</b>. Esta herramienta es útil para la administración de máquinas virtuales y su integración con el sistema Proxmox. Tras la instalación del qemu-guest-agent, hemos realizado ajustes en las opciones de configuración de la máquina virtual cliente en Proxmox.</p>
