@@ -14,8 +14,8 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 <h4>Nicolás Guerra:</h4>
 <h5> - Proxmox:</h5>
 <p>Plataforma de virtualización que permite gestionar máquinas virtuales y contenedores, optimizando el uso de recursos y facilitando la administración de entornos.</p>
-<h5> - BOOTSTRAP:</h5>
-<p>Lenguaje de programación del lado del servidor que gestiona la lógica de negocio y las interacciones del usuario, generando contenido dinámico.</p>
+<h5> - DOKERS:</h5>
+<p>Docker es un sistema operativo para contenedores. Crearemos imagenes </p>
 
 <h4>Adrià Trillo:</h4>
 <h5> - Máquinas Virtuales (VM):</h5>
@@ -28,6 +28,8 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 <p>Utilizado para diseñar y dar estilo a las páginas web, asegurando que la presentación sea atractiva y responsiva.</p>
 <h5> - Firebase:</h5>
 <p>Base de datos NoSQL que permite almacenar datos de manera flexible y escalable, ideal para manejar grandes volúmenes de información y facilitar la recuperación de datos.</p>
+<h5> - BOOTSTRAP:</h5>
+<p>Lenguaje de programación del lado del servidor que gestiona la lógica de negocio y las interacciones del usuario, generando contenido dinámico.</p>
 
 <h2>Tecnologias Usadas:</h2>
 <p>En este proyecto, se han seleccionado las siguientes tecnologías para crear un entorno virtualizado y una aplicación web efectiva:</p>
