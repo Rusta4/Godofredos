@@ -78,11 +78,13 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 <h1>Proxmox:</h1>
 
 <h2>Imagen Arquitectura:</h2>
-<img src="https://github.com/user-attachments/assets/34654b21-03ec-4736-94e9-6ef3c57615ce" alt="LOGO-GODO" width="900" height="500" />
+<img src="https://github.com/user-attachments/assets/a285de31-caa5-445e-b36f-88f0eb6e404c" alt="LOGO-GODO" width="900" height="500" />
+
 
 <h2>IP`s PROXMOX (Interna y Externa):</h2>
 <p>Estas son las siguientes IP's dentro de los bridges de nuestra red, las cuales la <b>VMBR0</b> y la <b>VMBR1</b> iran en el Router y la <b>VMBR1</b> solo ira en el cliente (estas ip`s la hemos generado nosotros para que sea la red interna).</p>
 <img src="https://github.com/user-attachments/assets/d3b779ba-4444-4fef-8b57-d859c45d2e1b" alt="LOGO-GODO" width="1000" height="400" />
+
 
 <h2>Configuracion Netplan Cliente:</h2>
 <p>Hemos creado una <b>red interna</b> en Proxmox, con el fin de poder manejar la conectividad de las VM. Esta es la configuracion del el <b>Cliente</b> con la que ponemos la ip que en nuestro caso es <b>10.20.40.2/24</b>. Despues ponemos la via que seria la ip del router que en nuestro caso es <b>10.20.40.1/24</b> </p>
