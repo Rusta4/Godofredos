@@ -8,6 +8,7 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 
 <h2>Nuestros Objetivo:</h2>
 <p>Nuestro objetivo es proporcionar una herramienta que no solo centralice el desarrollo en ciberseguridad, sino que también fomente una colaboración más efectiva entre expertos y entusiastas de la seguridad informática. Al concentrar los recursos, herramientas y proyectos en un solo lugar, buscamos facilitar el acceso a soluciones innovadoras y prácticas que puedan ser utilizadas por toda la comunidad.</p>
+<img src="https://github.com/user-attachments/assets/222bf100-c324-4f2e-86e5-ef21598cb985" alt="LOGO-GODO" width="800" height="600" />
 
 <h2>Organizacion:</h2>
 
