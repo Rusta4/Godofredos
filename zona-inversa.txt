@@ -1,0 +1,11 @@
+$TTL    604800
+@       IN      SOA     ns.godofredo.com. admin.godofredo.com. (
+                              1         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+; Registros de Nombre Inversos
+@       IN      NS      ns.godofredo.com.
+3       IN      PTR     godofredo.com.
+20      IN      PTR     www.godofredo.com.
