@@ -183,6 +183,16 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 </pre>
 <img src="https://github.com/user-attachments/assets/4e502ffc-d1b1-4d7f-8934-62c71aebd739" alt="LOGO-GODO" width="1000" height="500" />
 
+<br>
+
+<p>Para ver los proyectos que tienes en firebase puedes utilizar el comando:</p>
+<pre>
+<code>
+<b>firebase projects:list</b>
+</code>
+</pre>
+
+
 <h1>DNS: </h1>
 
 
