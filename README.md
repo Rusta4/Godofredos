@@ -128,15 +128,63 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 <img src="https://github.com/user-attachments/assets/aba1ca56-4c0f-403b-9ad9-fdb9fe35e1ad" alt="LOGO-GODO" width="1000" height="500" />
 
 <h1>Firebase: </h1>
-<p>sudo apt-get install nodejs -y</p>
-<p>sudo apt install npm -y</p>
-<p>npm install -g firebase-tools</p>
-<p>fiebase --version</p>
-<p>firebase login --no-localhost</p>
+<p>Firebase Realtime Database es una base de datos NoSQL alojada en la nube. Los datos se almacenan en formato JSON y se sincronizan en tiempo real con cada cliente conectado y se mantienen disponibles cuando la aplicación no tiene conexión.</p>
+<p>Primero tenemos que intslar una maquina ubuntu y actualizarla. Para actualizarla tenemos que utilizar el comando <b>update && upgrade</b>. Despues de eso la maquina ya estaria actualizada para poder instalar el firebase.</p>
+<pre>
+<code>
+<b>sudo apt update && sudo apt upgrade -y</b>
+</code>
+</pre>
 
+
+<p>Despues de todo necesitamos instalar el nodejs para que funcione (la version importa). Para tener la version mas nueva de nodejs necesitamos ejecutar el siguiente comando:</p>
+<pre>
+<code>
+<b>sudo apt-get install nodejs -y</b>
+</code>
+</pre>
+
+<p>Despues de que ya se haya intalado el node js necesitaremos intsalar el npm para poder instalar el firebase-tools. Tendremos que ejecutar el siguiente comando:</p>
+<pre>
+<code>
+<b>sudo apt install npm -y</b>
+</code>
+</pre>
+
+<p>Una vez intnstalado el npm solo queda una instalacion mas para que funcione el fire base que es el <b>firebase-tools</b>. Se intala con el siguiente comando:</p>
+<pre>
+<code>
+<b>npm install -g firebase-tools</b>
+</code>
+</pre>
+
+<p>Despues de haber instalado el firebase, tenemos que comprobar si es compatible ambas versiones. Para ver que la version sea compatible con nodejs es:</p>
+<pre>
+<code>
+<b>firebase --version</b>
+</code>
+</pre>
+<img src="https://github.com/user-attachments/assets/dedc83ef-6b2c-475f-9a1a-43854b50cc0b" alt="LOGO-GODO" width="800" height="200" />
+
+<p>Una vez todo esta instalado y hemos comrobado que las versiones son compatibles tenemos que loguearnos con nuestra cuenta. Para eso tenemos que escribir lo siguiente:</p>
+<pre>
+<code>
+<b>firebase login --no-localhost</b>
+</code>
+</pre>
+<img src="https://github.com/user-attachments/assets/b6d07467-ddda-4377-ac9b-f4bc4284e849" alt="LOGO-GODO" width="800" height="100" />
+
+<p>Una vez logueado tenemos que inicializarlo con el siguiente comando:</p>
+<pre>
+<code>
+<b>firebase init</b>
+</code>
+</pre>
+<img src="https://github.com/user-attachments/assets/4e502ffc-d1b1-4d7f-8934-62c71aebd739" alt="LOGO-GODO" width="1000" height="500" />
 
 <h1>FTP: </h1>
 sudo apt install vsftpd
 
 <h1>NGINX: (WEB)</h1>
 sudo apt install nginx
+
