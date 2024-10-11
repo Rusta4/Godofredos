@@ -213,3 +213,6 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 
 <h1>FTP: </h1>
 sudo apt install vsftpd
+![Captura de pantalla 2024-10-11 173202](https://github.com/user-attachments/assets/44fa31d8-f648-41b3-8c44-991a0dd55ea1)
+![Captura de pantalla 2024-10-11 173512](https://github.com/user-attachments/assets/d6d7caba-3324-4a0e-a4c5-3ef7ee8c3afb)
+
