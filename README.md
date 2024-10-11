@@ -135,29 +135,28 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 <b>sudo apt update && sudo apt upgrade -y</b>
 </code>
 </pre>
-
-
+<br>
 <p>Despues de todo necesitamos instalar el nodejs para que funcione (la version importa). Para tener la version mas nueva de nodejs necesitamos ejecutar el siguiente comando:</p>
 <pre>
 <code>
 <b>sudo apt-get install nodejs -y</b>
 </code>
 </pre>
-
+<br>
 <p>Despues de que ya se haya intalado el node js necesitaremos intsalar el npm para poder instalar el firebase-tools. Tendremos que ejecutar el siguiente comando:</p>
 <pre>
 <code>
 <b>sudo apt install npm -y</b>
 </code>
 </pre>
-
+<br>
 <p>Una vez intnstalado el npm solo queda una instalacion mas para que funcione el fire base que es el <b>firebase-tools</b>. Se intala con el siguiente comando:</p>
 <pre>
 <code>
 <b>npm install -g firebase-tools</b>
 </code>
 </pre>
-
+<br>
 <p>Despues de haber instalado el firebase, tenemos que comprobar si es compatible ambas versiones. Para ver que la version sea compatible con nodejs es:</p>
 <pre>
 <code>
@@ -165,7 +164,7 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 </code>
 </pre>
 <img src="https://github.com/user-attachments/assets/dedc83ef-6b2c-475f-9a1a-43854b50cc0b" alt="LOGO-GODO" width="800" height="200" />
-
+<br>
 <p>Una vez todo esta instalado y hemos comrobado que las versiones son compatibles tenemos que loguearnos con nuestra cuenta. Para eso tenemos que escribir lo siguiente:</p>
 <pre>
 <code>
@@ -173,6 +172,8 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 </code>
 </pre>
 <img src="https://github.com/user-attachments/assets/b6d07467-ddda-4377-ac9b-f4bc4284e849" alt="LOGO-GODO" width="800" height="100" />
+
+<br>
 
 <p>Una vez logueado tenemos que inicializarlo con el siguiente comando:</p>
 <pre>
@@ -184,8 +185,6 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 
 <h1>DNS: </h1>
 
-<h1>FTP: </h1>
-sudo apt install vsftpd
 
 <h1>NGINX: (WEB)</h1>
 <p>Una vez logueado tenemos que inicializarlo con el siguiente comando:</p>
@@ -194,6 +193,7 @@ sudo apt install vsftpd
 <b>sudo apt install nginx</b>
 </code>
 </pre>
+<br>
 <p>Una vez logueado tenemos que inicializarlo con el siguiente comando:</p>
 <pre>
 <code>
@@ -201,7 +201,7 @@ sudo apt install vsftpd
 </code>
 </pre>
 <img src="https://github.com/user-attachments/assets/1e6851e1-c1b4-4b9c-a475-e40e7e256d56" alt="LOGO-GODO" width="1000" height="500" />
-
+<br>
 <p>Desde otra maquina renemos que poner el siguente codigo para saber si funciona. Nosotros hemos utilizado la nuestra de cliente. Nosotros hemos utilizado nustra ip donde esta el NGINX con el puerto 80.</p>
 <pre>
 <code>
@@ -211,3 +211,5 @@ sudo apt install vsftpd
 <img src="https://github.com/user-attachments/assets/854199e9-fe1d-4be1-b4a7-74cf63c45f8a" alt="LOGO-GODO" width="1000" height="500" />
 
 
+<h1>FTP: </h1>
+sudo apt install vsftpd
