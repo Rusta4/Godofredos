@@ -128,7 +128,13 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 <img src="https://github.com/user-attachments/assets/aba1ca56-4c0f-403b-9ad9-fdb9fe35e1ad" alt="LOGO-GODO" width="1000" height="500" />
 
 <h1>Firebase: </h1>
-<p>sudo apt-get install nodejs -y </p>
+<p>
+sudo apt-get install nodejs -y 
+sudo apt install npm -y
+npm install -g firebase-tools
+fiebase --version
+firebase login --no-localhost
+</p>
 
 
 <h1>FTP: </h1>
