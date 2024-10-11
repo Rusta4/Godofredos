@@ -190,4 +190,5 @@ sudo apt install vsftpd
 <h1>NGINX: (WEB)</h1>
 sudo apt install nginx
 sudo systemctl status nginx
+<img src="https://github.com/user-attachments/assets/1e6851e1-c1b4-4b9c-a475-e40e7e256d56" alt="LOGO-GODO" width="1000" height="500" />
 
