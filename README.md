@@ -212,7 +212,30 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 
 
 <h1>FTP: </h1>
-sudo apt install vsftpd
-![Captura de pantalla 2024-10-11 173202](https://github.com/user-attachments/assets/44fa31d8-f648-41b3-8c44-991a0dd55ea1)
-![Captura de pantalla 2024-10-11 173512](https://github.com/user-attachments/assets/d6d7caba-3324-4a0e-a4c5-3ef7ee8c3afb)
+
+<pre>
+<code>
+<b>sudo apt install vsftpd</b>
+</code>
+</pre>
+
+
+<img src="https://github.com/user-attachments/assets/44fa31d8-f648-41b3-8c44-991a0dd55ea1" alt="LOGO-GODO" width="1000" height="500" />
+
+<pre>
+<code>
+<b>ftp 10.20.40.6</b>
+</code>
+</pre>
+
+<img src="https://github.com/user-attachments/assets/d6d7caba-3324-4a0e-a4c5-3ef7ee8c3afb" alt="LOGO-GODO" width="1000" height="500" />
+
+<pre>
+<code>
+<b>sudo adduser redeszone</b>
+</code>
+</pre>
+
+<p>Desde la maquina cliente acedemos al ftp como antes y con el usuario que creamos en el apartado anterior lo utilizamos.</p>
+<img src="https://github.com/user-attachments/assets/237b3758-89e7-469c-89f4-12aa462d5f71" alt="LOGO-GODO" width="1000" height="500" />
 
