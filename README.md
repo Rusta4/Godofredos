@@ -212,30 +212,44 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 
 
 <h1>FTP: </h1>
-
+<p>Para instalar el FTP en tu maquina tenemos que poner este comando:</p>
 <pre>
 <code>
 <b>sudo apt install vsftpd</b>
 </code>
 </pre>
 
+<br>
 
-<img src="https://github.com/user-attachments/assets/44fa31d8-f648-41b3-8c44-991a0dd55ea1" alt="LOGO-GODO" width="1000" height="500" />
+<p>Una vez ya instalado para ver si esta activo y va todo bien ponemos el siguente comando:</p>
+<pre>
+<code>
+<b>sudo systemctl status vsftpd</b>
+</code>
+</pre>
+<img src="https://github.com/user-attachments/assets/44fa31d8-f648-41b3-8c44-991a0dd55ea1" alt="LOGO-GODO" width="900" height="500" />
 
+<br>
+
+<p>Para ver si funciona la conexion desde la maquina cliente tenemos que poner el siguente comando para ver si accede a nustro FTP:</p>
 <pre>
 <code>
 <b>ftp 10.20.40.6</b>
 </code>
 </pre>
+<img src="https://github.com/user-attachments/assets/d6d7caba-3324-4a0e-a4c5-3ef7ee8c3afb" alt="LOGO-GODO" width="600" height="200" />
 
-<img src="https://github.com/user-attachments/assets/d6d7caba-3324-4a0e-a4c5-3ef7ee8c3afb" alt="LOGO-GODO" width="1000" height="500" />
+<br>
 
+<p>Para poder acceder tenemos que crear un usuario desde la maquina donde tenemos el FTP. Para eso utilizamos el siguiente comando:</p>
 <pre>
 <code>
 <b>sudo adduser redeszone</b>
 </code>
 </pre>
 
-<p>Desde la maquina cliente acedemos al ftp como antes y con el usuario que creamos en el apartado anterior lo utilizamos.</p>
-<img src="https://github.com/user-attachments/assets/237b3758-89e7-469c-89f4-12aa462d5f71" alt="LOGO-GODO" width="1000" height="500" />
+<br>
+
+<p>Desde la maquina Cliente acedemos al ftp como antes y con el usuario que creamos en el apartado anterior y lo utilizamos.</p>
+<img src="https://github.com/user-attachments/assets/237b3758-89e7-469c-89f4-12aa462d5f71" alt="LOGO-GODO" width="800" height="300" />
 
