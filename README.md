@@ -189,4 +189,5 @@ sudo apt install vsftpd
 
 <h1>NGINX: (WEB)</h1>
 sudo apt install nginx
+sudo systemctl status nginx
 
