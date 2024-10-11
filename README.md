@@ -188,7 +188,26 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 sudo apt install vsftpd
 
 <h1>NGINX: (WEB)</h1>
-sudo apt install nginx
-sudo systemctl status nginx
+<p>Una vez logueado tenemos que inicializarlo con el siguiente comando:</p>
+<pre>
+<code>
+<b>sudo apt install nginx</b>
+</code>
+</pre>
+<p>Una vez logueado tenemos que inicializarlo con el siguiente comando:</p>
+<pre>
+<code>
+<b>sudo systemctl status nginx</b>
+</code>
+</pre>
 <img src="https://github.com/user-attachments/assets/1e6851e1-c1b4-4b9c-a475-e40e7e256d56" alt="LOGO-GODO" width="1000" height="500" />
+
+<p>Desde otra maquina renemos que poner el siguente codigo para saber si funciona. Nosotros hemos utilizado la nuestra de cliente. Nosotros hemos utilizado nustra ip donde esta el NGINX con el puerto 80.</p>
+<pre>
+<code>
+<b>curl 10.20.40.6:80</b>
+</code>
+</pre>
+<img src="https://github.com/user-attachments/assets/854199e9-fe1d-4be1-b4a7-74cf63c45f8a" alt="LOGO-GODO" width="1000" height="500" />
+
 
