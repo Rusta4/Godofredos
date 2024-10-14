@@ -103,6 +103,22 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 <b>sudo apt-get install nodejs -y</b>
 </code>
 </pre>
+<p>Como bien hemos mencionado en el comando anterior, este conjunto de comandos garantiza que se utilicen versiones específicas y compatibles de Node.js y npm, evitando posibles fallos debidos a incompatibilidades entre versiones.</p>
+<pre>
+<code>
+# installs fnm (Fast Node Manager)
+<b>curl -fsSL https://fnm.vercel.app/install | bash</b>
+# activate fnm
+<b>source ~/.bashrc</b>
+# download and install Node.js
+<b>fnm use --install-if-missing 20</b>
+# verifies the right Node.js version is in the environment
+<b>node -v # should print `v20.18.0`</b>
+# verifies the right npm version is in the environment
+<b>npm -v # should print `10.8.2`</b>
+</code>
+</pre>
+
 <br>
 <p>Despues de que ya se haya intalado el node js necesitaremos intsalar el npm para poder instalar el firebase-tools. Tendremos que ejecutar el siguiente comando:</p>
 <pre>
@@ -234,7 +250,7 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 
 
 
-<h2 id="Instalación de Proxmox">Instalación de Proxmox</h2>
+<h1 id="Instalación de Proxmox">Instalación de Proxmox</h1>
 <p> Aqui podrá encontrar presente toda la información sobre la instalación que hemos llevado a curso con Proxmox</p>
 <h2>IP`s PROXMOX (Interna y Externa)</h2>
 <p>Estas son las siguientes IP's dentro de los bridges de nuestra red, las cuales la <b>VMBR0</b> y la <b>VMBR1</b> iran en el Router y la <b>VMBR1</b> solo ira en el cliente (estas ip`s la hemos generado nosotros para que sea la red interna).</p>
