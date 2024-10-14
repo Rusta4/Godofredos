@@ -180,6 +180,137 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 
 <h1>DNS</h1>
 
+<p>Un servidor DNS es una herramienta muy importante en un proyecto de IT, ya que nos permite realizar funciones como la resolución de nombres directa o inversa. Además, nos permitirá poder tener acceso a la web del proyecto mediante el nombre de dominio o la IP, ya que lo configuraremos para que el servidor DNS y WEB funcionen al unísono.</p>
+
+<h3>Actualización del sistema e instalación de Bind9</h3>
+<pre>
+<code>
+<b>sudo apt update && sudo apt upgrade -y</b>
+</code>
+</pre>
+
+<pre>
+<code>
+<b>sudo apt install bind9 bind9utils bind9-doc</b>
+</code>
+</pre>
+
+<h3>Configuración named.conf.options</h3>
+
+<p>Accedemos al archivo "/etc/bind/named.conf.options" y editamos los forwardes para agregar el servidor de google como un servidor externo. <br>
+<img foto de los forwarders>
+    
+<p>Añadimos una pequeña configuración para permitir consultas de cualquier IP:</p></p>
+
+<pre>
+<code>
+<b>allow-query { any; };</b>
+</code>
+</pre>
+
+<h3>Edición del archivo named.conf.local</h3>
+<p>Una vez editado este archivo procederemos a editar el siguiente "sudo nano /etc/bind/named.conf.local". En este archivo declararemos las zonas ( dominios ) tanto directas como inversas y declararemos el servidor como autoritativo.</p>
+
+<p>Además, aunque no hayamos creado aún el archivo de configuración de la zona vamos adelatando trabajo y declaramos que dicho archivo de configuración se llamará db.godofredo.com y db.10.20.40</p>
+
+<img archivo.conf.local>
+
+<br>
+<h3>Configuración de la zona directa e inversa</h3>
+
+<p>El siguiente paso crearemos una carpeta ( para tenerlo todo mejor organizado ) donde pondremos los archivos de configuración de la zona directa e inversa, esta carpeta se llamará "zones"</p>
+
+<pre>
+<code>
+<b>sudo mkdir /etc/bind/zones</b>
+</code>
+</pre>
+
+<h4>Zona directa</h4>
+<p>Además, copiaremos un archivo de configuración de zona directa e inversa que viene con una configuración predeterminada con la instalación de Bind9 para utilizarlo como prototipo y editarlo a nuestro gusto.</p>
+
+<pre>
+<code>
+<b>sudo cp /etc/bind/db.local /etc/bind/zones/db.godofredo.com</b>
+</code>
+</pre>
+
+<p>En este archivo configuramos nuestro dominio ( nombre de la zona ) y además le indicamos que tiene que ser el servidor autotitavio con "ns.godofredo.com".</p>
+
+<p>Además, aunque lo hemos dejado con la configuración default, se puede configurar parámetros para el registro SOA como: el Serial, el Refresh de los servidores o el tiempo que se almacena una repuesta negativa en la caché, entre muchos otros.</p>
+
+<p>Por último, realizamos el registro de nombre. Estos, registros son necesários para que el servidor asocie la dirección IP con el nombre de dominio y el nombre de dominio con la IP. También, adelantamos trabajo a futuro y le indicamos que asocie el subdominio www.godofred.com con la dirección IP del servidor WEB.</p>
+
+<img  de el archivo de configuración de la zona directa>
+
+<h4>Zona inversa</h4>
+
+<p>A continuación, editaremos el archivo de zona inversa, que es muy similar a la configuración de la zona directa.</p>
+
+<p>En este archivo podemos configurar exactamente los mismo parámetros que en el de la zona directa. Sin embargo, sólo configuraremos registros PTR y NS para que el servidor asocie la IP del servidor DNS al nombre de dominio godofredo.com, es decir la resolución inversa.</p>
+
+<h3>Edición del archivo named</h3>
+<p>Ya casi finalizamos, pero antes debemos de modificar un pequeño parámetro del archivo "/etc/default/named", donde especificaremos la opción -4, por lo que obliga al servidor a utilizar IPv4 y evitar errores de red por direccionamiento de IPv6.</p>
+
+<img de -4>
+
+
+<h3>Edición del archivo resolv.conf y enlaces simbólicos</h3>
+<p>Llegados a este punto si le hacemos un nslookup a godofredo.com nos dará error y nos devolvera 127.0.0.1 . Para que esto no pase, debemos de configurar el archivo "/run/systemd/resolve/resolv.conf" con la IP de nuestro servidor y el nombre de dominio.</p>
+
+<img de resolv.conf>
+
+<p>Para finalizar la configuración, creamos un enlace simbólico al archivo de configuración de resolución de nombres de systemd-resolved en el archivo /etc/resolv.conf</p>
+
+<pre>
+<code>
+<b>sudo ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf</b>
+</code>
+</pre>
+
+<h3>Verificación de la configuración</h3>
+
+<p>Una vez editado todos los archivos comprobamos que todos los archivos están bien configurados.</p>
+
+<pre>
+<code>
+<b>Verificar sintxis: sudo named-checkconf</b>
+</code>
+</pre>
+
+
+<pre>
+<code>
+<b>sudo named-checkzone godofredo.com /etc/bind/zones/db.godofredo.com</b>
+</code>
+</pre>
+
+
+<pre>
+<code>
+<b>sudo named-checkzone 40.20.10.in-addr.arpa /etc/bind/db.10.20.40</b>
+</code>
+</pre>
+
+
+<h3>Reiniciamos Bind9</h3>
+
+<p>Reiniciamos el bind9 para aplicar los cambios</p>
+
+ <pre>
+<code>
+<b>sudo systemctl restart bind9</b>
+</code>
+</pre>
+
+<p>Y miramos el estado del servidor</p>
+
+ <pre>
+<code>
+<b>sudo systemctl restart bind9</b>
+</code>
+</pre>
+
 
 <h1>NGINX (WEB)</h1>
 <p>Una vez logueado tenemos que inicializarlo con el siguiente comando:</p>
