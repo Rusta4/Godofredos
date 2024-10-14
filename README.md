@@ -14,23 +14,23 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 
 <h4>Nicolás Guerra</h4>
 <h5> - Proxmox</h5>
-<p>Plataforma de virtualización que permite gestionar máquinas virtuales y contenedores, optimizando el uso de recursos y facilitando la administración de entornos.</p>
+<p>Proxmox es una plataforma de virtualización de código abierto que combina la gestión de máquinas virtuales y contenedores en un entorno centralizado. Ofrece una solución integral para optimizar el uso de los recursos del servidor, permitiendo administrar múltiples entornos desde una única interfaz. Además, facilita la creación de copias de seguridad, la migración en vivo de máquinas y la gestión avanzada de almacenamiento, lo que la convierte en una herramienta robusta para centros de datos y servidores privados.</p>
 <h5> - DOKERS</h5>
-<p>Docker es un sistema operativo para contenedores. Crearemos imagenes </p>
+<p>Docker es una plataforma que utiliza contenedores para simplificar el desarrollo, despliegue y ejecución de aplicaciones. Permite empaquetar una aplicación y todas sus dependencias en una "imagen", asegurando que funcione de manera consistente en diferentes entornos. Al usar Docker, se reduce la necesidad de configurar entornos específicos en cada servidor, lo que agiliza la implementación y mejora la escalabilidad y portabilidad de las aplicaciones.</p>
 
 <h4>Adrià Trillo</h4>
 <h5> - Máquinas Virtuales (VM)</h5>
-<p>Se utilizan para simular entornos independientes, mejorando la seguridad y la escalabilidad del sistema al permitir que diferentes componentes funcionen de manera aislada.</p>
+<p>Las máquinas virtuales permiten ejecutar varios sistemas operativos independientes en un único hardware físico. Esto es útil tanto para pruebas como para la implementación de aplicaciones en entornos aislados, garantizando que los fallos o cambios en una máquina no afecten a las demás. Además, las VM mejoran la seguridad y flexibilidad del sistema, permitiendo la asignación dinámica de recursos y facilitando la escalabilidad según las necesidades del proyecto.</p>
 <h5> - HTML (HyperText Markup Language)</h5>
-<p>Lenguaje de marcado utilizado para estructurar el contenido de las páginas web, proporcionando la base para la interfaz de usuario.</p>
+<p>HTML es el lenguaje de marcado fundamental para la creación de páginas web. Define la estructura básica del contenido mediante etiquetas, como encabezados, párrafos, imágenes y enlaces, que los navegadores web interpretan para mostrar el contenido de manera visual. Es el pilar de cualquier sitio web, proporcionando la base sobre la cual se construyen elementos interactivos y visuales mediante otras tecnologías como CSS y JavaScript.</p>
 
 <h4>Edward Murphy</h4>
 <h5> - CSS (Cascading Style Sheets)</h5>
-<p>Utilizado para diseñar y dar estilo a las páginas web, asegurando que la presentación sea atractiva y responsiva.</p>
+<p>CSS es el lenguaje utilizado para controlar la presentación y diseño de las páginas web. Permite separar el contenido (HTML) de la presentación, facilitando el mantenimiento y la actualización del estilo visual de un sitio. Con CSS se puede ajustar el diseño, los colores, las fuentes y el espaciado de los elementos, asegurando que las páginas web sean atractivas y responsivas, adaptándose a diferentes tamaños de pantalla y dispositivos.</p>
 <h5> - Firebase</h5>
-<p>Base de datos NoSQL que permite almacenar datos de manera flexible y escalable, ideal para manejar grandes volúmenes de información y facilitar la recuperación de datos.</p>
+<p>Firebase es una plataforma de desarrollo de aplicaciones basada en la nube, que incluye una base de datos NoSQL en tiempo real. Es ideal para aplicaciones que requieren un manejo eficiente de grandes volúmenes de datos, ya que permite almacenar, sincronizar y recuperar información de forma rápida y escalable. Además, proporciona herramientas para la autenticación, hosting y analítica, lo que facilita el desarrollo completo de aplicaciones web y móviles.</p>
 <h5> - BOOTSTRAP</h5>
-<p>Lenguaje de programación del lado del servidor que gestiona la lógica de negocio y las interacciones del usuario, generando contenido dinámico.</p>
+<p>Bootstrap es un framework de diseño front-end que facilita la creación de interfaces web responsivas y modernas. Proporciona un conjunto predefinido de componentes de diseño, como botones, formularios, tablas y menús, que permiten a los desarrolladores construir sitios web atractivos con menos esfuerzo. Su uso de un sistema de rejillas y su enfoque "mobile-first" aseguran que los sitios web se adapten adecuadamente a cualquier dispositivo, mejorando la experiencia del usuario.</p>
 
 <h2>Tecnologias Usadas</h2>
 <p>En este proyecto, se han seleccionado las siguientes tecnologías para crear un entorno virtualizado y una aplicación web efectiva:</p>
