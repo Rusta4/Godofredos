@@ -37,8 +37,6 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 <h4>Conclusión</h4>
 <p>Estas tecnologías garantizan un entorno sólido y flexible, permitiendo el desarrollo de una aplicación web dinámica y eficiente que cumple con los objetivos del proyecto.</p>
 
-[Ir a Sección 1](#sección-1)
-
 
 
 <br>
@@ -267,10 +265,6 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 </pre>
 
 <br>
-<p>## Sección 1
-Aquí va el contenido de la sección 1.
-</p>
-
 
 <p>Desde la maquina Cliente acedemos al ftp como antes y con el usuario que creamos en el apartado anterior y lo utilizamos.</p>
 <img src="https://github.com/user-attachments/assets/237b3758-89e7-469c-89f4-12aa462d5f71" alt="LOGO-GODO" width="800" height="300" />
