@@ -202,6 +202,7 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 <img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/netplan-dns.png" alt="LOGO-GODO" width="500" height="300" />
 
 <br>
+<br>
 <h3>Configuración named.conf.options</h3>
 
 <p>Accedemos al archivo "/etc/bind/named.conf.options" y editamos los forwardes para agregar el servidor de google como un servidor externo. <br>
