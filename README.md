@@ -81,52 +81,9 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 <h1>Proxmox</h1>
 
 <h2>Imagen Arquitectura</h2>
-<p>Nuestra arquitectura esta basada en una red virtual, la cual consta de un cliente (MV CLIENTE) que se conecta a Firebase mediante una máquina virtual que funciona como router (MV ROUTER) y un router físico conectado a Internet. Dicho enrutador consta con una dirección IP pública dinámica (100.77.20.X), la cual permite la conexión a Internet. MV ROUTER administra dos interfaces: una (VMBR0) externa con IP pública (100.77.20.120) conectada al router físico y otra (VMBR1) interna con IP privada (10.20.40.1) para la comunicación en la red local con el cliente (IP 10.20.40.2). La creación de estas dos redes permite al cliente el acceso a servicios externos, como Firebase, mediante la infraestructura virtual y física. Nosotros lo hemos realizado de la siguiente manera <a href="#Instalación de Proxmox">blabla</a></p>
+<p>Nuestra arquitectura esta basada en una red virtual, la cual consta de un cliente (MV CLIENTE) que se conecta a Firebase mediante una máquina virtual que funciona como router (MV ROUTER) y un router físico conectado a Internet. Dicho enrutador consta con una dirección IP pública dinámica (100.77.20.X), la cual permite la conexión a Internet. MV ROUTER administra dos interfaces: una (VMBR0) externa con IP pública (100.77.20.120) conectada al router físico y otra (VMBR1) interna con IP privada (10.20.40.1) para la comunicación en la red local con el cliente (IP 10.20.40.2). La creación de estas dos redes permite al cliente el acceso a servicios externos, como Firebase, mediante la infraestructura virtual y física. Nosotros lo hemos realizado de la siguiente manera,<a href="#Instalación de Proxmox">aquí</a></p>
 <img src="https://github.com/user-attachments/assets/a285de31-caa5-445e-b36f-88f0eb6e404c" alt="LOGO-GODO" width="900" height="500" />
 
-
-<h2>IP`s PROXMOX (Interna y Externa)</h2>
-<p>Estas son las siguientes IP's dentro de los bridges de nuestra red, las cuales la <b>VMBR0</b> y la <b>VMBR1</b> iran en el Router y la <b>VMBR1</b> solo ira en el cliente (estas ip`s la hemos generado nosotros para que sea la red interna).</p>
-<img src="https://github.com/user-attachments/assets/d3b779ba-4444-4fef-8b57-d859c45d2e1b" alt="LOGO-GODO" width="1000" height="400" />
-
-
-<h2>Configuracion Netplan Cliente</h2>
-<p>Hemos creado una <b>red interna</b> en Proxmox, con el fin de poder manejar la conectividad de las VM. Esta es la configuracion del el <b>Cliente</b> con la que ponemos la ip que en nuestro caso es <b>10.20.40.2/24</b>. Despues ponemos la via que seria la ip del router que en nuestro caso es <b>10.20.40.1/24</b> </p>
-<img src="https://github.com/user-attachments/assets/2eab6a67-2fdb-49d8-b8ac-9dbb79721d44" alt="LOGO-GODO" width="900" height="400" />
-
-<h2>Configuracion Netplan Router</h2>
-<p>Hemos añadido un <b>router virtual</b> en Proxmox. Actúa como un punto central para gestionar el tráfico de la red interna y también para mantener la comunicación por fuera de la red interna creada.</p>
-<img src="https://github.com/user-attachments/assets/85217131-03cd-4772-a3a0-dcf624145ae9" alt="LOGO-GODO" width="900" height="500" />
-
-<h2>Conexion Entre Maquinas</h2>
-<p> Hemos configurado las interfaces de red tanto en el router como en el cliente. Gracias a dicha configuración, las máquinas virtuales y otros dispositivos en la red interna pudieran conectarse entre sí y con el router. Tras conseguir la conexión entre las máquinas hemos realizado ping entre ellas para ver que funciona la configuracion del netplan. Tambien el router deberia tener conexion hacia fuera, para eso hacemos un ping a Google.com desde el router para ver que funciona</p>
-<img src="https://github.com/user-attachments/assets/f95da3ba-bfc4-4488-a961-08f3ab36d132" alt="LOGO-GODO" width="1100" height="600" />
-
-<h2>Configuración de IPTables</h2>
-<p>Para la configuración de las reglas del firewall y redirección de tráfico, hemos utilizado IPTables y hemos modificado el archivo "/etc/sysctl.conf" descomentando la linea <b>net.ipv4.ip_forward=1</b>. Este ajuste nos ha permitido a que el router establecido en Proxmox reenvíe tráfico entre diferentes interfaces de red.</p>
-<img src="https://github.com/user-attachments/assets/d062a00a-aaae-4e64-a2c4-17988b710dc6" alt="LOGO-GODO" width="900" height="600" />
-
-<br>
-<br>
-
-<p>Una vez realizada la modificación, mediante el comando <b>sudo sysctl -p</b>
-También hemos configurado una regla para permitir que el tráfico desde la red interna fluya hacia el exterior (Internet) a través de la interfaz de red especificada:
-<b>sudo iptables -A FORWARD -i ens19 -o ens18 -j ACCEPT </b> </p>
-<img src="https://github.com/user-attachments/assets/980bf8bf-f41f-4b93-a915-bccffde9d45e" alt="LOGO-GODO" width="600" height="300" />
-
-<br>
-<br>
-
-<p>Además, se añadió una regla para permitir que las respuestas a las solicitudes que se originan desde la red interna puedan regresar sin problemas. Esta regla es esencial para la comunicación bidireccional. Hacemos el comando <b>sudo iptables -A FORWARD -i ens18 -o ens19 -m state --state ESTABLISHED,RELATED -j ACCEPT</b> para aceptar las reglas que hemos puesto. Después de configurar las reglas necesarias, hemos guardado los cambios realizados mediante el comando <b>sudo iptables-save</b>.</p> Una vez hecho esto deberia funcionar la conexion entre maquina Router - Cliente y el Cliente deberia tener conexion hacia fuera. Para comprobarlo podemos hacer un ping a Google.com desde la maquina cliente.
-<img src="https://github.com/user-attachments/assets/eccf8c13-227f-44d6-901c-a7e328effdb8" alt="LOGO-GODO" width="1200" height="400" />
-
-<h2>Reglas Permanentes</h2>
-<p>Para que las reglas de IPTables se mantuvieran después de reiniciar el sistema, hemos procedido a instalar el paquete <b>iptables-persistent</b> mediante el siguiente comando <b>sudo apt install iptables-persistent -y</b></p>
-<img src="https://github.com/user-attachments/assets/f7bc6414-ad7c-4fba-8651-15f21ec70b74" alt="LOGO-GODO" width="900" height="400" />
-
-<h2>Configuracion QEMU Cliente</h2>
-<p>En la máquina cliente, se instaló el paquete <b>qemu-guest-agent</b> mediante el comando <b>sudo apt install qemu-guest-agent</b>. Esta herramienta es útil para la administración de máquinas virtuales y su integración con el sistema Proxmox. Tras la instalación del qemu-guest-agent, hemos realizado ajustes en las opciones de configuración de la máquina virtual cliente en Proxmox.</p>
-<img src="https://github.com/user-attachments/assets/aba1ca56-4c0f-403b-9ad9-fdb9fe35e1ad" alt="LOGO-GODO" width="1000" height="500" />
 
 <h1>Firebase</h1>
 <p>Firebase Realtime Database es una base de datos NoSQL alojada en la nube. Los datos se almacenan en formato JSON y se sincronizan en tiempo real con cada cliente conectado y se mantienen disponibles cuando la aplicación no tiene conexión.</p>
@@ -274,4 +231,47 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 
 
 
-<h2 id="Instalación de Proxmox">blabla</h2>
+<h2 id="Instalación de Proxmox">Instalación de Proxmox</h2>
+<p> Aqui podrá encontrar presente toda la información sobre la instalación que hemos llevado a curso con Proxmox</p>
+<h2>IP`s PROXMOX (Interna y Externa)</h2>
+<p>Estas son las siguientes IP's dentro de los bridges de nuestra red, las cuales la <b>VMBR0</b> y la <b>VMBR1</b> iran en el Router y la <b>VMBR1</b> solo ira en el cliente (estas ip`s la hemos generado nosotros para que sea la red interna).</p>
+<img src="https://github.com/user-attachments/assets/d3b779ba-4444-4fef-8b57-d859c45d2e1b" alt="LOGO-GODO" width="1000" height="400" />
+
+
+<h2>Configuracion Netplan Cliente</h2>
+<p>Hemos creado una <b>red interna</b> en Proxmox, con el fin de poder manejar la conectividad de las VM. Esta es la configuracion del el <b>Cliente</b> con la que ponemos la ip que en nuestro caso es <b>10.20.40.2/24</b>. Despues ponemos la via que seria la ip del router que en nuestro caso es <b>10.20.40.1/24</b> </p>
+<img src="https://github.com/user-attachments/assets/2eab6a67-2fdb-49d8-b8ac-9dbb79721d44" alt="LOGO-GODO" width="900" height="400" />
+
+<h2>Configuracion Netplan Router</h2>
+<p>Hemos añadido un <b>router virtual</b> en Proxmox. Actúa como un punto central para gestionar el tráfico de la red interna y también para mantener la comunicación por fuera de la red interna creada.</p>
+<img src="https://github.com/user-attachments/assets/85217131-03cd-4772-a3a0-dcf624145ae9" alt="LOGO-GODO" width="900" height="500" />
+
+<h2>Conexion Entre Maquinas</h2>
+<p> Hemos configurado las interfaces de red tanto en el router como en el cliente. Gracias a dicha configuración, las máquinas virtuales y otros dispositivos en la red interna pudieran conectarse entre sí y con el router. Tras conseguir la conexión entre las máquinas hemos realizado ping entre ellas para ver que funciona la configuracion del netplan. Tambien el router deberia tener conexion hacia fuera, para eso hacemos un ping a Google.com desde el router para ver que funciona</p>
+<img src="https://github.com/user-attachments/assets/f95da3ba-bfc4-4488-a961-08f3ab36d132" alt="LOGO-GODO" width="1100" height="600" />
+
+<h2>Configuración de IPTables</h2>
+<p>Para la configuración de las reglas del firewall y redirección de tráfico, hemos utilizado IPTables y hemos modificado el archivo "/etc/sysctl.conf" descomentando la linea <b>net.ipv4.ip_forward=1</b>. Este ajuste nos ha permitido a que el router establecido en Proxmox reenvíe tráfico entre diferentes interfaces de red.</p>
+<img src="https://github.com/user-attachments/assets/d062a00a-aaae-4e64-a2c4-17988b710dc6" alt="LOGO-GODO" width="900" height="600" />
+
+<br>
+<br>
+
+<p>Una vez realizada la modificación, mediante el comando <b>sudo sysctl -p</b>
+También hemos configurado una regla para permitir que el tráfico desde la red interna fluya hacia el exterior (Internet) a través de la interfaz de red especificada:
+<b>sudo iptables -A FORWARD -i ens19 -o ens18 -j ACCEPT </b> </p>
+<img src="https://github.com/user-attachments/assets/980bf8bf-f41f-4b93-a915-bccffde9d45e" alt="LOGO-GODO" width="600" height="300" />
+
+<br>
+<br>
+
+<p>Además, se añadió una regla para permitir que las respuestas a las solicitudes que se originan desde la red interna puedan regresar sin problemas. Esta regla es esencial para la comunicación bidireccional. Hacemos el comando <b>sudo iptables -A FORWARD -i ens18 -o ens19 -m state --state ESTABLISHED,RELATED -j ACCEPT</b> para aceptar las reglas que hemos puesto. Después de configurar las reglas necesarias, hemos guardado los cambios realizados mediante el comando <b>sudo iptables-save</b>.</p> Una vez hecho esto deberia funcionar la conexion entre maquina Router - Cliente y el Cliente deberia tener conexion hacia fuera. Para comprobarlo podemos hacer un ping a Google.com desde la maquina cliente.
+<img src="https://github.com/user-attachments/assets/eccf8c13-227f-44d6-901c-a7e328effdb8" alt="LOGO-GODO" width="1200" height="400" />
+
+<h2>Reglas Permanentes</h2>
+<p>Para que las reglas de IPTables se mantuvieran después de reiniciar el sistema, hemos procedido a instalar el paquete <b>iptables-persistent</b> mediante el siguiente comando <b>sudo apt install iptables-persistent -y</b></p>
+<img src="https://github.com/user-attachments/assets/f7bc6414-ad7c-4fba-8651-15f21ec70b74" alt="LOGO-GODO" width="900" height="400" />
+
+<h2>Configuracion QEMU Cliente</h2>
+<p>En la máquina cliente, se instaló el paquete <b>qemu-guest-agent</b> mediante el comando <b>sudo apt install qemu-guest-agent</b>. Esta herramienta es útil para la administración de máquinas virtuales y su integración con el sistema Proxmox. Tras la instalación del qemu-guest-agent, hemos realizado ajustes en las opciones de configuración de la máquina virtual cliente en Proxmox.</p>
+<img src="https://github.com/user-attachments/assets/aba1ca56-4c0f-403b-9ad9-fdb9fe35e1ad" alt="LOGO-GODO" width="1000" height="500" />
