@@ -1,3 +1,5 @@
+<li><a href="#instalacion">blabla</a></li>
+
 <h1>ASIX2 Primer Proyecto Pagina Web - Godofredo`s</h1>
 
 <h2>Explicacion idea del proyecto</h2>
@@ -269,3 +271,6 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 <p>Desde la maquina Cliente acedemos al ftp como antes y con el usuario que creamos en el apartado anterior y lo utilizamos.</p>
 <img src="https://github.com/user-attachments/assets/237b3758-89e7-469c-89f4-12aa462d5f71" alt="LOGO-GODO" width="800" height="300" />
 
+
+
+<h2 id="instalacion">blabla</h2>
