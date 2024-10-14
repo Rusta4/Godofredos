@@ -194,11 +194,18 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 <b>sudo apt install bind9 bind9utils bind9-doc</b>
 </code>
 </pre>
+<br>
 
+<h3>Configuración del netplan</h3>
+
+<p>Accedemos al archivo "/etc/netplan/00-network-manager-all.yaml" y le indicamos que coja la dirección IP con el dhcp4 que ya hemos configurado. <br>
+<img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/netplan-dns.png" alt="LOGO-GODO" width="500" height="300" />
+
+<br>
 <h3>Configuración named.conf.options</h3>
 
 <p>Accedemos al archivo "/etc/bind/named.conf.options" y editamos los forwardes para agregar el servidor de google como un servidor externo. <br>
-<img foto de los forwarders>
+<img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/forwarders.png" alt="LOGO-GODO" width="500" height="200" />
     
 <p>Añadimos una pequeña configuración para permitir consultas de cualquier IP:</p></p>
 
@@ -207,13 +214,13 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 <b>allow-query { any; };</b>
 </code>
 </pre>
-
+<br>
 <h3>Edición del archivo named.conf.local</h3>
 <p>Una vez editado este archivo procederemos a editar el siguiente "sudo nano /etc/bind/named.conf.local". En este archivo declararemos las zonas ( dominios ) tanto directas como inversas y declararemos el servidor como autoritativo.</p>
 
 <p>Además, aunque no hayamos creado aún el archivo de configuración de la zona vamos adelatando trabajo y declaramos que dicho archivo de configuración se llamará db.godofredo.com y db.10.20.40</p>
 
-<img archivo.conf.local>
+<img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/archivo-conf.local.png" alt="LOGO-GODO" width="550" height="500" />
 
 <br>
 <h3>Configuración de la zona directa e inversa</h3>
@@ -225,7 +232,7 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 <b>sudo mkdir /etc/bind/zones</b>
 </code>
 </pre>
-
+<p> </p>
 <h4>Zona directa</h4>
 <p>Además, copiaremos un archivo de configuración de zona directa e inversa que viene con una configuración predeterminada con la instalación de Bind9 para utilizarlo como prototipo y editarlo a nuestro gusto.</p>
 
@@ -241,24 +248,31 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 
 <p>Por último, realizamos el registro de nombre. Estos, registros son necesários para que el servidor asocie la dirección IP con el nombre de dominio y el nombre de dominio con la IP. También, adelantamos trabajo a futuro y le indicamos que asocie el subdominio www.godofred.com con la dirección IP del servidor WEB.</p>
 
-<img  de el archivo de configuración de la zona directa>
-
+<img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/zona-directa.png" alt="LOGO-GODO" width="700" height="400" />
+<p> </p>
+<p> </p>
 <h4>Zona inversa</h4>
 
 <p>A continuación, editaremos el archivo de zona inversa, que es muy similar a la configuración de la zona directa.</p>
 
 <p>En este archivo podemos configurar exactamente los mismo parámetros que en el de la zona directa. Sin embargo, sólo configuraremos registros PTR y NS para que el servidor asocie la IP del servidor DNS al nombre de dominio godofredo.com, es decir la resolución inversa.</p>
 
+<img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/zona-inversa.png" alt="LOGO-GODO" width="700" height="400" />
+
+
+<br>
 <h3>Edición del archivo named</h3>
 <p>Ya casi finalizamos, pero antes debemos de modificar un pequeño parámetro del archivo "/etc/default/named", donde especificaremos la opción -4, por lo que obliga al servidor a utilizar IPv4 y evitar errores de red por direccionamiento de IPv6.</p>
 
-<img de -4>
+<img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/-4.png" alt="LOGO-GODO" width="500" height="200" />
 
+<br>
 
 <h3>Edición del archivo resolv.conf y enlaces simbólicos</h3>
 <p>Llegados a este punto si le hacemos un nslookup a godofredo.com nos dará error y nos devolvera 127.0.0.1 . Para que esto no pase, debemos de configurar el archivo "/run/systemd/resolve/resolv.conf" con la IP de nuestro servidor y el nombre de dominio.</p>
 
-<img de resolv.conf>
+<img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/resolv.conf.png" alt="LOGO-GODO" width="400" height="200" />
+
 
 <p>Para finalizar la configuración, creamos un enlace simbólico al archivo de configuración de resolución de nombres de systemd-resolved en el archivo /etc/resolv.conf</p>
 
@@ -267,7 +281,7 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 <b>sudo ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf</b>
 </code>
 </pre>
-
+<br>
 <h3>Verificación de la configuración</h3>
 
 <p>Una vez editado todos los archivos comprobamos que todos los archivos están bien configurados.</p>
@@ -292,7 +306,7 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 </code>
 </pre>
 
-
+<br>
 <h3>Reiniciamos Bind9</h3>
 
 <p>Reiniciamos el bind9 para aplicar los cambios</p>
