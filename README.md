@@ -37,7 +37,7 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 <h4>Conclusión</h4>
 <p>Estas tecnologías garantizan un entorno sólido y flexible, permitiendo el desarrollo de una aplicación web dinámica y eficiente que cumple con los objetivos del proyecto.</p>
 
-[Ir a Sección 1](#Sección-1)
+[Ir a Sección 1](#sección-1)
 
 
 
