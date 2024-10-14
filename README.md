@@ -273,5 +273,5 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 <img src="https://github.com/user-attachments/assets/237b3758-89e7-469c-89f4-12aa462d5f71" alt="LOGO-GODO" width="800" height="300" />
 
 
-<li><a href="#instalacion">blabla</a></li>
-<h2 id="instalacion">blabla</h2>
+
+<h2 id="Instalacion de Proxmox">blabla</h2>
