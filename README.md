@@ -1,5 +1,3 @@
-
-
 <h1>ASIX2 Primer Proyecto Pagina Web - Godofredo`s</h1>
 
 <h2>Explicacion idea del proyecto</h2>
@@ -172,9 +170,10 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 <br>
 
 <h3>Mas comandos Firebase Ubuntu</h3>
-<img src="https://github.com/user-attachments/assets/a0f1dd28-3f3e-4572-8b6f-0860a6c2dba7" alt="LOGO-GODO" width="1000" height="500" />
-<img src="https://github.com/user-attachments/assets/20df8c32-8a2c-4b21-84a8-ea318b2f604a" alt="LOGO-GODO" width="1000" height="600" />
-<img src="https://github.com/user-attachments/assets/3cba3967-6794-47de-9d6d-8fba99f35991" alt="LOGO-GODO" width="1000" height="700" />
+<p>Despues de saber los proyectos que tenemos lo que hacemos es subir los archivos html a nuestra carpeta public y iniciamos el host para poder subir nuestra pagina web con la base de datos subida que se modifica con scripts.</p>
+<img src="https://github.com/user-attachments/assets/f75b8951-c442-4734-97a4-f8ae2b5dd3aa" alt="LOGO-GODO" width="1000" height="500" />
+<img src="https://github.com/user-attachments/assets/519e8939-ee60-4a38-ae6b-e80cbfb70cdd" alt="LOGO-GODO" width="1000" height="500" />
+
 
 <h2>Diagrama NoSql</h2>
 <p>Al haber utilizado Firebase, que tal como hemos comentado anteriormente, es un tipo de base de datos <b>NOSQL</b>. Así que la manera de realizar el diagrama es totalmente distinto, y en nuestro caso, lo hemos realizado desde el mismo cloud de Firebase. A continuación, os vamos a mostrar como han quedado estructuradas el conjunto de colecciones (tablas) con todos sus documentos y campos.</p>
