@@ -549,7 +549,7 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 <p>Para ello, deberemos de ir a la ruta <b>/var/www/html/godofredo.com</b> y añadimos todos los archivos de nuestra web, tanto .html, .css, .jpg ......</p>
 
 <img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/archivos-web.png" alt="LOGO-GODO" width="650" height="70" />
-    
+<br>
 
 
 <h1 id="Instalación FTP">Instalación FTP</h1>
