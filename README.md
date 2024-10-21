@@ -1,5 +1,38 @@
 <h1>ASIX2 Primer Proyecto Pagina Web - Godofredo`s</h1>
 
+<h2>INDEX</h2>
+<ul>
+    <li><b>Explicacion idea del proyecto</b></li>
+    <li><b>Nuestros Objetivo</b></li>
+    <li><b>Tecnologias Usadas</b></li>
+    <li><b>Organizacion</b></li>
+    <li><b>Paginaweb:</b></li>
+    <ul>
+        <li>Mockup</li>
+        <li>Diagrama Web</li>
+        <li>Paleta Colores</li>
+        <li>Logo</li>
+    </ul>
+    <li><b>Proxmox:</b></li>
+    <ul>
+        <li>Imagen Arquitectura</li>
+        <li>Firebase</li>
+        <li>Diagrama NoSql</li>
+    </ul>
+    <li><b>DNS</b></li>
+    <li><b>NGINX (Web)</b></li>
+    <li><b>FTP</b></li>
+    <li><b>Intalaciones:</b></li>
+    <ul>
+        <li>Instalacion Proxmox</li>
+        <li>Instalacion DNS</li>
+        <li>Instalacion NGINX</li>
+        <li>Instalacion FTP</li>
+    </ul>
+</ul>
+
+
+
 <h2>Explicacion idea del proyecto</h2>
 <p>Estamos creando una plataforma web similar a GitHub, pero totalmente enfocada en el campo de la ciberseguridad. Como equipo, nuestra misión es ofrecer un espacio donde los profesionales de la seguridad informática puedan colaborar, compartir herramientas, scripts y proyectos que aborden distintas áreas de ciberseguridad, desde la evaluación de vulnerabilidades hasta la automatización de auditorías.
 
