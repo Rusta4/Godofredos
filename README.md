@@ -20,18 +20,19 @@
     </ul>
     <li><b><a href="#Proxmox">Proxmox:</a></b></li>
     <ul>
-        <li>Imagen Arquitectura</li>
+        <li><a href="#Imagen Arquitectura">Imagen Arquitectura</a></li>
     </ul>
-    <li><b>Firebase</b></li>
-    <li><b>DNS</b></li>
-    <li><b>NGINX (Web)</b></li>
-    <li><b>FTP</b></li>
-    <li><b>Intalaciones:</b></li>
+    <li><b><a href="#Firebase">Firebase</a></b></li>
+    <li><b><a href="#DNS">DNS</a></b></li>
+    <li><b><a href="#NGINX (Web)">NGINX (Web)</a></b></li>
+    <li><b><a href="#FTP">FTP</a></b></li>
+    <li><b><a href="#Instalaciones">Instalaciones:</a></b></li>
     <ul>
         <li><a href="#Instalación de Proxmox">Instalacion Proxmox</a></li>
-        <li>Instalacion DNS</li>
-        <li>Instalacion NGINX</li>
-        <li>Instalacion FTP</li>
+        <li><a href="#Instalación de Firebase">Instalacion Firebase</a></li>
+        <li><a href="#Instalación de DNS">Instalacion DNS</a></li>
+        <li><a href="#Instalación de NGINX">Instalacion NGINX</a></li>
+        <li><a href="#Instalación de FTP">Instalacion FTP</a></li>
     </ul>
 </ul>
 
