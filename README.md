@@ -402,7 +402,7 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 <p>En la máquina cliente, se instaló el paquete <b>qemu-guest-agent</b> mediante el comando <b>sudo apt install qemu-guest-agent</b>. Esta herramienta es útil para la administración de máquinas virtuales y su integración con el sistema Proxmox. Tras la instalación del qemu-guest-agent, hemos realizado ajustes en las opciones de configuración de la máquina virtual cliente en Proxmox.</p>
 <img src="https://github.com/user-attachments/assets/aba1ca56-4c0f-403b-9ad9-fdb9fe35e1ad" alt="LOGO-GODO" width="1000" height="500" />
 
-
+<h1 id="Instalación Firebase">Instalación Firebase</h1>
 <h2>Funcionamiento interno</h2>
 
 <pre>
