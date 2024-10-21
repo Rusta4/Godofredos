@@ -135,92 +135,7 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 <p>Firebase Realtime Database es una base de datos NoSQL alojada en la nube. Los datos se almacenan en formato JSON y se sincronizan en tiempo real con cada cliente conectado y se mantienen disponibles cuando la aplicación no tiene conexión.</p>
 <p>Primero tenemos que intslar una maquina ubuntu y actualizarla. Para actualizarla tenemos que utilizar el comando <b>update && upgrade</b>. Despues de eso la maquina ya estaria actualizada para poder instalar el firebase.</p>
 
-<h2>Funcionamiento interno</h2>
 
-<pre>
-<code>
-<b>sudo apt update && sudo apt upgrade -y</b>
-</code>
-</pre>
-<br>
-<p>Despues de todo necesitamos instalar el nodejs para que funcione (la version importa). Para tener la version mas nueva de nodejs necesitamos ejecutar el siguiente comando:</p>
-<pre>
-<code>
-<b>sudo apt-get install nodejs -y</b>
-</code>
-</pre>
-<p>Como bien hemos mencionado en el comando anterior, este conjunto de comandos garantiza que se utilicen versiones específicas y compatibles de Node.js y npm, evitando posibles fallos debidos a incompatibilidades entre versiones.</p>
-<pre>
-<code>
-# installs fnm (Fast Node Manager)
-<b>curl -fsSL https://fnm.vercel.app/install | bash</b>
-# activate fnm
-<b>source ~/.bashrc</b>
-# download and install Node.js
-<b>fnm use --install-if-missing 20</b>
-# verifies the right Node.js version is in the environment
-<b>node -v # should print `v20.18.0`</b>
-# verifies the right npm version is in the environment
-<b>npm -v # should print `10.8.2`</b>
-</code>
-</pre>
-
-<br>
-<p>Despues de que ya se haya intalado el node js necesitaremos intsalar el npm para poder instalar el firebase-tools. Tendremos que ejecutar el siguiente comando:</p>
-<pre>
-<code>
-<b>sudo apt install npm -y</b>
-</code>
-</pre>
-<br>
-<p>Una vez intnstalado el npm solo queda una instalacion mas para que funcione el fire base que es el <b>firebase-tools</b>. Se intala con el siguiente comando:</p>
-<pre>
-<code>
-<b>npm install -g firebase-tools</b>
-</code>
-</pre>
-<br>
-<p>Despues de haber instalado el firebase, tenemos que comprobar si es compatible ambas versiones. Para ver que la version sea compatible con nodejs es:</p>
-<pre>
-<code>
-<b>firebase --version</b>
-</code>
-</pre>
-<img src="https://github.com/user-attachments/assets/dedc83ef-6b2c-475f-9a1a-43854b50cc0b" alt="LOGO-GODO" width="800" height="200" />
-<br>
-<p>Una vez todo esta instalado y hemos comrobado que las versiones son compatibles tenemos que loguearnos con nuestra cuenta. Para eso tenemos que escribir lo siguiente:</p>
-<pre>
-<code>
-<b>firebase login --no-localhost</b>
-</code>
-</pre>
-<img src="https://github.com/user-attachments/assets/b6d07467-ddda-4377-ac9b-f4bc4284e849" alt="LOGO-GODO" width="800" height="100" />
-
-<br>
-
-<p>Una vez logueado tenemos que inicializarlo con el siguiente comando:</p>
-<pre>
-<code>
-<b>firebase init</b>
-</code>
-</pre>
-<img src="https://github.com/user-attachments/assets/4e502ffc-d1b1-4d7f-8934-62c71aebd739" alt="LOGO-GODO" width="1000" height="500" />
-
-<br>
-
-<p>Para ver los proyectos que tienes en firebase puedes utilizar el comando:</p>
-<pre>
-<code>
-<b>firebase projects:list</b>
-</code>
-</pre>
-
-<br>
-
-<h3>Mas comandos Firebase Ubuntu</h3>
-<p>Despues de saber los proyectos que tenemos lo que hacemos es subir los archivos html a nuestra carpeta public y iniciamos el host para poder subir nuestra pagina web con la base de datos subida que se modifica con scripts.</p>
-<img src="https://github.com/user-attachments/assets/f75b8951-c442-4734-97a4-f8ae2b5dd3aa" alt="LOGO-GODO" width="1000" height="500" />
-<img src="https://github.com/user-attachments/assets/519e8939-ee60-4a38-ae6b-e80cbfb70cdd" alt="LOGO-GODO" width="1000" height="500" />
 
 
 
@@ -487,3 +402,93 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 <h2>Configuracion QEMU Cliente</h2>
 <p>En la máquina cliente, se instaló el paquete <b>qemu-guest-agent</b> mediante el comando <b>sudo apt install qemu-guest-agent</b>. Esta herramienta es útil para la administración de máquinas virtuales y su integración con el sistema Proxmox. Tras la instalación del qemu-guest-agent, hemos realizado ajustes en las opciones de configuración de la máquina virtual cliente en Proxmox.</p>
 <img src="https://github.com/user-attachments/assets/aba1ca56-4c0f-403b-9ad9-fdb9fe35e1ad" alt="LOGO-GODO" width="1000" height="500" />
+
+
+<h1 id="Instalación de Firebase>Instalacion Firebase</h1>
+<h2>Funcionamiento interno</h2>
+
+<pre>
+<code>
+<b>sudo apt update && sudo apt upgrade -y</b>
+</code>
+</pre>
+<br>
+<p>Despues de todo necesitamos instalar el nodejs para que funcione (la version importa). Para tener la version mas nueva de nodejs necesitamos ejecutar el siguiente comando:</p>
+<pre>
+<code>
+<b>sudo apt-get install nodejs -y</b>
+</code>
+</pre>
+<p>Como bien hemos mencionado en el comando anterior, este conjunto de comandos garantiza que se utilicen versiones específicas y compatibles de Node.js y npm, evitando posibles fallos debidos a incompatibilidades entre versiones.</p>
+<pre>
+<code>
+# installs fnm (Fast Node Manager)
+<b>curl -fsSL https://fnm.vercel.app/install | bash</b>
+# activate fnm
+<b>source ~/.bashrc</b>
+# download and install Node.js
+<b>fnm use --install-if-missing 20</b>
+# verifies the right Node.js version is in the environment
+<b>node -v # should print `v20.18.0`</b>
+# verifies the right npm version is in the environment
+<b>npm -v # should print `10.8.2`</b>
+</code>
+</pre>
+
+<br>
+<p>Despues de que ya se haya intalado el node js necesitaremos intsalar el npm para poder instalar el firebase-tools. Tendremos que ejecutar el siguiente comando:</p>
+<pre>
+<code>
+<b>sudo apt install npm -y</b>
+</code>
+</pre>
+<br>
+<p>Una vez intnstalado el npm solo queda una instalacion mas para que funcione el fire base que es el <b>firebase-tools</b>. Se intala con el siguiente comando:</p>
+<pre>
+<code>
+<b>npm install -g firebase-tools</b>
+</code>
+</pre>
+<br>
+<p>Despues de haber instalado el firebase, tenemos que comprobar si es compatible ambas versiones. Para ver que la version sea compatible con nodejs es:</p>
+<pre>
+<code>
+<b>firebase --version</b>
+</code>
+</pre>
+<img src="https://github.com/user-attachments/assets/dedc83ef-6b2c-475f-9a1a-43854b50cc0b" alt="LOGO-GODO" width="800" height="200" />
+<br>
+<p>Una vez todo esta instalado y hemos comrobado que las versiones son compatibles tenemos que loguearnos con nuestra cuenta. Para eso tenemos que escribir lo siguiente:</p>
+<pre>
+<code>
+<b>firebase login --no-localhost</b>
+</code>
+</pre>
+<img src="https://github.com/user-attachments/assets/b6d07467-ddda-4377-ac9b-f4bc4284e849" alt="LOGO-GODO" width="800" height="100" />
+
+<br>
+
+<p>Una vez logueado tenemos que inicializarlo con el siguiente comando:</p>
+<pre>
+<code>
+<b>firebase init</b>
+</code>
+</pre>
+<img src="https://github.com/user-attachments/assets/4e502ffc-d1b1-4d7f-8934-62c71aebd739" alt="LOGO-GODO" width="1000" height="500" />
+
+<br>
+
+<p>Para ver los proyectos que tienes en firebase puedes utilizar el comando:</p>
+<pre>
+<code>
+<b>firebase projects:list</b>
+</code>
+</pre>
+
+<br>
+
+<h3>Mas comandos Firebase Ubuntu</h3>
+<p>Despues de saber los proyectos que tenemos lo que hacemos es subir los archivos html a nuestra carpeta public y iniciamos el host para poder subir nuestra pagina web con la base de datos subida que se modifica con scripts.</p>
+<img src="https://github.com/user-attachments/assets/f75b8951-c442-4734-97a4-f8ae2b5dd3aa" alt="LOGO-GODO" width="1000" height="500" />
+<img src="https://github.com/user-attachments/assets/519e8939-ee60-4a38-ae6b-e80cbfb70cdd" alt="LOGO-GODO" width="1000" height="500" />
+
