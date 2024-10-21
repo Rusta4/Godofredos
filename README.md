@@ -132,15 +132,13 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 
 
 <h1 id="Firebase">Firebase</h1>
-<p>Firebase Realtime Database es una base de datos NoSQL alojada en la nube. Los datos se almacenan en formato JSON y se sincronizan en tiempo real con cada cliente conectado y se mantienen disponibles cuando la aplicación no tiene conexión.</p>
-<p>Primero tenemos que intslar una maquina ubuntu y actualizarla. Para actualizarla tenemos que utilizar el comando <b>update && upgrade</b>. Despues de eso la maquina ya estaria actualizada para poder instalar el firebase.</p>
+<p>Firebase Database es una base de datos NoSQL alojada en la nube. Los datos se almacenan en formato JSON y se sincronizan en tiempo real con cada cliente conectado y se mantienen disponibles cuando la aplicación no tiene conexión. Nosotros utilizamos Firebase para tener la BBDD ahi dentro. Firebase utiliza Scripts de .JSON para poder hacer consultas a la pagina web.  </p>
 
 
 
 
 
 <h1 id="DNS">DNS</h1>
-
 <p>Un servidor DNS es una herramienta muy importante en un proyecto de IT, ya que nos permite realizar funciones como la resolución de nombres directa o inversa. Además, nos permitirá poder tener acceso a la web del proyecto mediante el nombre de dominio o la IP, ya que lo configuraremos para que el servidor DNS y WEB funcionen al unísono.</p>
 
 
@@ -152,6 +150,10 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 
 <h1 id="FTP">FTP</h1>
 <p></p>
+
+
+
+
 
 
 
@@ -203,7 +205,7 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 
 <h1 id="Instalación Firebase">Instalación Firebase</h1>
 <h2>Funcionamiento interno</h2>
-
+<p>Primero tenemos que intslar una maquina ubuntu y actualizarla. Para actualizarla tenemos que utilizar el comando <b>update && upgrade</b>. Despues de eso la maquina ya estaria actualizada para poder instalar el firebase.</p>
 <pre>
 <code>
 <b>sudo apt update && sudo apt upgrade -y</b>
