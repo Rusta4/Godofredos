@@ -28,11 +28,11 @@
     <li><b><a href="#FTP">FTP</a></b></li>
     <li><b><a href="#Instalaciones">Instalaciones:</a></b></li>
     <ul>
-        <li><a href="#Instalación de Proxmox">Instalacion Proxmox</a></li>
-        <li><a href="#Instalación de Firebase">Instalacion Firebase</a></li>
-        <li><a href="#Instalación de DNS">Instalacion DNS</a></li>
-        <li><a href="#Instalación de NGINX">Instalacion NGINX</a></li>
-        <li><a href="#Instalación de FTP">Instalacion FTP</a></li>
+        <li><a href="#Instalación Proxmox">Instalacion Proxmox</a></li>
+        <li><a href="#Instalación Firebase">Instalacion Firebase</a></li>
+        <li><a href="#Instalación DNS">Instalacion DNS</a></li>
+        <li><a href="#Instalación NGINX">Instalacion NGINX</a></li>
+        <li><a href="#Instalación FTP">Instalacion FTP</a></li>
     </ul>
 </ul>
 
@@ -358,7 +358,7 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 
 
 <h1 id="Instalaciones">Instalaciones</h1>
-<h1 id="Instalación de Proxmox">Instalación de Proxmox</h1>
+<h1 id="Instalación Proxmox">Instalación Proxmox</h1>
 <p> Aqui podrá encontrar presente toda la información sobre la instalación que hemos llevado a curso con Proxmox</p>
 <h2>IP`s PROXMOX (Interna y Externa)</h2>
 <p>Estas son las siguientes IP's dentro de los bridges de nuestra red, las cuales la <b>VMBR0</b> y la <b>VMBR1</b> iran en el Router y la <b>VMBR1</b> solo ira en el cliente (estas ip`s la hemos generado nosotros para que sea la red interna).</p>
@@ -404,7 +404,7 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 <img src="https://github.com/user-attachments/assets/aba1ca56-4c0f-403b-9ad9-fdb9fe35e1ad" alt="LOGO-GODO" width="1000" height="500" />
 
 
-<h1 id="Instalación de Firebase>Instalacion Firebase</h1>
+<h1 id="Instalación Firebase>Instalacion Firebase</h1>
 <h2>Funcionamiento interno</h2>
 
 <pre>
