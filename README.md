@@ -8,6 +8,7 @@
     <li><b>Organizacion:</b></li>
     <ul>
         <li>Diagrama Gantt</li>
+        <li>Diagrama NoSql</li>
     </ul>
     <li><b>Paginaweb:</b></li>
     <ul>
@@ -19,9 +20,8 @@
     <li><b>Proxmox:</b></li>
     <ul>
         <li>Imagen Arquitectura</li>
-        <li>Firebase</li>
-        <li>Diagrama NoSql</li>
     </ul>
+    <li>Firebase</li>
     <li><b>DNS</b></li>
     <li><b>NGINX (Web)</b></li>
     <li><b>FTP</b></li>
@@ -77,7 +77,7 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 
 <br>
 
-<h2>Organizacion</h2>
+<h2 id="Organizacion">Organizacion</h2>
 
 <h4>Nicolás Guerra</h4>
 <h5>  - Proxmox</h5>
@@ -92,34 +92,46 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 <h5>  - Firebase</h5>
 <h5>  - BOOTSTRAP</h5>
 
+<h2 id="Diagrama Gantt">Diagrama Gantt</h2>
 
-<h1>Pagina Web</h1>
+<h2 id="Diagrama NoSql">Diagrama NoSql</h2>
+<p>Al haber utilizado Firebase, que tal como hemos comentado anteriormente, es un tipo de base de datos <b>NOSQL</b>. Así que la manera de realizar el diagrama es totalmente distinto, y en nuestro caso, lo hemos realizado desde el mismo cloud de Firebase. A continuación, os vamos a mostrar como han quedado estructuradas el conjunto de colecciones (tablas) con todos sus documentos y campos.</p>
 
-<h2>Mockup</h2>
+<img src="https://github.com/user-attachments/assets/56b66400-d640-4b77-87d8-6df387f9c247" alt="LOGO-GODO" width="1000" height="500" />
+<img src="https://github.com/user-attachments/assets/1c5a2ee1-1f9f-4540-858a-4dd2a3334718" alt="LOGO-GODO" width="1000" height="500" />
+<img src="https://github.com/user-attachments/assets/4ea8488b-9647-413d-b05f-04bcfa4805bc" alt="LOGO-GODO" width="1000" height="500" />
+<img src="https://github.com/user-attachments/assets/b3020efc-6d73-4622-aa33-34a2ffb66727" alt="LOGO-GODO" width="1000" height="500" />
+<img src="https://github.com/user-attachments/assets/1ad4121e-51dd-4f97-bd8e-cfc334f9510d" alt="LOGO-GODO" width="1000" height="500" />
+<img src="https://github.com/user-attachments/assets/acaca4fd-4094-4c29-a917-e81d2e7d605a" alt="LOGO-GODO" width="1000" height="500" />
+
+
+<h1 id="Pagina Web">Pagina Web</h1>
+
+<h2 id="Mockup">Mockup</h2>
 <img src="https://github.com/Rusta4/Godofredos/blob/main/mokcups/conjunto-mockup%C3%A7.png" alt="LOGO-GODO" width="1000" height="500" />
 
-<h2>Diagrama Web</h2>
+<h2 id="Diagrama Web">Diagrama Web</h2>
 <p>El mapa del sitio presenta una estructura técnica organizada alrededor de la página principal (HOME), que actúa como nodo central para acceder a cinco secciones clave: recursos técnicos, gestión de usuarios y páginas informativas. Los recursos técnicos incluyen Hacking tools, Docker, y ISO files, que enlazan a un foro de hacking, una página sobre Docker y descargas de archivos ISO, respectivamente. La gestión de usuarios se centra en la sección INICIAR SESIÓN, que permite autenticarse, registrarse o recuperar contraseñas mediante un código de verificación. Además, desde diferentes áreas del sitio se puede acceder al Perfil de usuario, donde es posible modificar credenciales como el usuario, la contraseña o el correo. La sección About Us proporciona información sobre el sitio, con enlaces hacia la autenticación y registro. La estructura facilita un flujo de navegación eficiente, priorizando tanto el acceso a recursos técnicos como la administración de la cuenta del usuario de manera clara y modular.</p>
 <img src="https://github.com/user-attachments/assets/e90dfc7f-f809-465d-98d9-5063af0227a1" alt="LOGO-GODO" width="900" height="500" />
 
-<h2>Paleta Colores</h2>
+<h2 id="Paleta Colores">Paleta Colores</h2>
 <p>Esta paleta de colores combina el blanco, gris claro, azul oscuro y verde fuerte para equilibrar simplicidad, profesionalismo y dinamismo. El blanco aporta claridad y limpieza, mientras que el gris claro ofrece neutralidad y elegancia sin desentonar. El azul oscuro transmite confianza y seriedad, siendo ideal para entornos corporativos, y el verde fuerte añade energía y frescura, destacando elementos clave como llamadas a la acción. En conjunto, crean una armonía visual que es funcional y atractiva.</p>
 <img src="https://github.com/user-attachments/assets/4a00d276-8ad7-4cf6-a7fb-11ecbbd096f1" alt="LOGO-GODO" width="900" height="250" />
 
-<h2>Logo</h2>
+<h2 id="Logo">Logo</h2>
 <p>Usaremos el primer logo para nuestra web porque refleja simplicidad y profesionalismo, alineándose con el estilo minimalista de marcas tecnológicas modernas. El diseño en blanco y negro aporta una estética limpia y elegante, lo que facilita su integración en diferentes plataformas. Además, el animal icónico en el logo le da personalidad y un toque distintivo sin sobrecargar el diseño.</p>
 <img src="https://github.com/user-attachments/assets/a8580f0e-db47-4891-bf4a-0d3fd1cccb1d" alt="LOGO-GODO" width="400" height="400" />
 
 <br>
     
-<h1>Proxmox</h1>
+<h1 id="Proxmox">Proxmox</h1>
 
-<h2>Imagen Arquitectura</h2>
+<h2 id="Imagen Arquitectura">Imagen Arquitectura</h2>
 <p>Nuestra arquitectura esta basada en una red virtual, la cual consta de un cliente (MV CLIENTE) que se conecta a Firebase mediante una máquina virtual que funciona como router (MV ROUTER) y un router físico conectado a Internet. Dicho enrutador consta con una dirección IP pública dinámica (100.77.20.X), la cual permite la conexión a Internet. MV ROUTER administra dos interfaces: una (VMBR0) externa con IP pública (100.77.20.120) conectada al router físico y otra (VMBR1) interna con IP privada (10.20.40.1) para la comunicación en la red local con el cliente (IP 10.20.40.2). La creación de estas dos redes permite al cliente el acceso a servicios externos, como Firebase, mediante la infraestructura virtual y física. Nosotros lo hemos realizado de la siguiente manera, </p>.
 <img src="https://github.com/user-attachments/assets/a285de31-caa5-445e-b36f-88f0eb6e404c" alt="LOGO-GODO" width="900" height="500" />
 
 
-<h1>Firebase</h1>
+<h1 id="Firebase">Firebase</h1>
 <p>Firebase Realtime Database es una base de datos NoSQL alojada en la nube. Los datos se almacenan en formato JSON y se sincronizan en tiempo real con cada cliente conectado y se mantienen disponibles cuando la aplicación no tiene conexión.</p>
 <p>Primero tenemos que intslar una maquina ubuntu y actualizarla. Para actualizarla tenemos que utilizar el comando <b>update && upgrade</b>. Despues de eso la maquina ya estaria actualizada para poder instalar el firebase.</p>
 
@@ -211,15 +223,6 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 <img src="https://github.com/user-attachments/assets/519e8939-ee60-4a38-ae6b-e80cbfb70cdd" alt="LOGO-GODO" width="1000" height="500" />
 
 
-<h2>Diagrama NoSql</h2>
-<p>Al haber utilizado Firebase, que tal como hemos comentado anteriormente, es un tipo de base de datos <b>NOSQL</b>. Así que la manera de realizar el diagrama es totalmente distinto, y en nuestro caso, lo hemos realizado desde el mismo cloud de Firebase. A continuación, os vamos a mostrar como han quedado estructuradas el conjunto de colecciones (tablas) con todos sus documentos y campos.</p>
-
-<img src="https://github.com/user-attachments/assets/56b66400-d640-4b77-87d8-6df387f9c247" alt="LOGO-GODO" width="1000" height="500" />
-<img src="https://github.com/user-attachments/assets/1c5a2ee1-1f9f-4540-858a-4dd2a3334718" alt="LOGO-GODO" width="1000" height="500" />
-<img src="https://github.com/user-attachments/assets/4ea8488b-9647-413d-b05f-04bcfa4805bc" alt="LOGO-GODO" width="1000" height="500" />
-<img src="https://github.com/user-attachments/assets/b3020efc-6d73-4622-aa33-34a2ffb66727" alt="LOGO-GODO" width="1000" height="500" />
-<img src="https://github.com/user-attachments/assets/1ad4121e-51dd-4f97-bd8e-cfc334f9510d" alt="LOGO-GODO" width="1000" height="500" />
-<img src="https://github.com/user-attachments/assets/acaca4fd-4094-4c29-a917-e81d2e7d605a" alt="LOGO-GODO" width="1000" height="500" />
 
 <h1>DNS</h1>
 
