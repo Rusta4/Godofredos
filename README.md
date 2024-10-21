@@ -143,6 +143,155 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 
 <p>Un servidor DNS es una herramienta muy importante en un proyecto de IT, ya que nos permite realizar funciones como la resolución de nombres directa o inversa. Además, nos permitirá poder tener acceso a la web del proyecto mediante el nombre de dominio o la IP, ya que lo configuraremos para que el servidor DNS y WEB funcionen al unísono.</p>
 
+
+
+
+<h1 id="NGINX (Web)">NGINX (WEB)</h1>
+<p></p>
+
+
+<h1 id="FTP">FTP</h1>
+<p></p>
+
+
+
+<h1 id="Instalaciones">Instalaciones</h1>
+<h1 id="Instalación Proxmox">Instalación Proxmox</h1>
+<p> Aqui podrá encontrar presente toda la información sobre la instalación que hemos llevado a curso con Proxmox</p>
+<h2>IP`s PROXMOX (Interna y Externa)</h2>
+<p>Estas son las siguientes IP's dentro de los bridges de nuestra red, las cuales la <b>VMBR0</b> y la <b>VMBR1</b> iran en el Router y la <b>VMBR1</b> solo ira en el cliente (estas ip`s la hemos generado nosotros para que sea la red interna).</p>
+<img src="https://github.com/user-attachments/assets/d3b779ba-4444-4fef-8b57-d859c45d2e1b" alt="LOGO-GODO" width="1000" height="400" />
+
+
+<h2>Configuracion Netplan Cliente</h2>
+<p>Hemos creado una <b>red interna</b> en Proxmox, con el fin de poder manejar la conectividad de las VM. Esta es la configuracion del el <b>Cliente</b> con la que ponemos la ip que en nuestro caso es <b>10.20.40.2/24</b>. Despues ponemos la via que seria la ip del router que en nuestro caso es <b>10.20.40.1/24</b> </p>
+<img src="https://github.com/user-attachments/assets/2eab6a67-2fdb-49d8-b8ac-9dbb79721d44" alt="LOGO-GODO" width="900" height="400" />
+
+<h2>Configuracion Netplan Router</h2>
+<p>Hemos añadido un <b>router virtual</b> en Proxmox. Actúa como un punto central para gestionar el tráfico de la red interna y también para mantener la comunicación por fuera de la red interna creada.</p>
+<img src="https://github.com/user-attachments/assets/85217131-03cd-4772-a3a0-dcf624145ae9" alt="LOGO-GODO" width="900" height="500" />
+
+<h2>Conexion Entre Maquinas</h2>
+<p> Hemos configurado las interfaces de red tanto en el router como en el cliente. Gracias a dicha configuración, las máquinas virtuales y otros dispositivos en la red interna pudieran conectarse entre sí y con el router. Tras conseguir la conexión entre las máquinas hemos realizado ping entre ellas para ver que funciona la configuracion del netplan. Tambien el router deberia tener conexion hacia fuera, para eso hacemos un ping a Google.com desde el router para ver que funciona</p>
+<img src="https://github.com/user-attachments/assets/f95da3ba-bfc4-4488-a961-08f3ab36d132" alt="LOGO-GODO" width="1100" height="600" />
+
+<h2>Configuración de IPTables</h2>
+<p>Para la configuración de las reglas del firewall y redirección de tráfico, hemos utilizado IPTables y hemos modificado el archivo "/etc/sysctl.conf" descomentando la linea <b>net.ipv4.ip_forward=1</b>. Este ajuste nos ha permitido a que el router establecido en Proxmox reenvíe tráfico entre diferentes interfaces de red.</p>
+<img src="https://github.com/user-attachments/assets/d062a00a-aaae-4e64-a2c4-17988b710dc6" alt="LOGO-GODO" width="900" height="600" />
+
+<br>
+<br>
+
+<p>Una vez realizada la modificación, mediante el comando <b>sudo sysctl -p</b>
+También hemos configurado una regla para permitir que el tráfico desde la red interna fluya hacia el exterior (Internet) a través de la interfaz de red especificada:
+<b>sudo iptables -A FORWARD -i ens19 -o ens18 -j ACCEPT </b> </p>
+<img src="https://github.com/user-attachments/assets/980bf8bf-f41f-4b93-a915-bccffde9d45e" alt="LOGO-GODO" width="600" height="300" />
+
+<br>
+<br>
+
+<p>Además, se añadió una regla para permitir que las respuestas a las solicitudes que se originan desde la red interna puedan regresar sin problemas. Esta regla es esencial para la comunicación bidireccional. Hacemos el comando <b>sudo iptables -A FORWARD -i ens18 -o ens19 -m state --state ESTABLISHED,RELATED -j ACCEPT</b> para aceptar las reglas que hemos puesto. Después de configurar las reglas necesarias, hemos guardado los cambios realizados mediante el comando <b>sudo iptables-save</b>.</p> Una vez hecho esto deberia funcionar la conexion entre maquina Router - Cliente y el Cliente deberia tener conexion hacia fuera. Para comprobarlo podemos hacer un ping a Google.com desde la maquina cliente.
+<img src="https://github.com/user-attachments/assets/eccf8c13-227f-44d6-901c-a7e328effdb8" alt="LOGO-GODO" width="1200" height="400" />
+
+<h2>Reglas Permanentes</h2>
+<p>Para que las reglas de IPTables se mantuvieran después de reiniciar el sistema, hemos procedido a instalar el paquete <b>iptables-persistent</b> mediante el siguiente comando <b>sudo apt install iptables-persistent -y</b></p>
+<img src="https://github.com/user-attachments/assets/f7bc6414-ad7c-4fba-8651-15f21ec70b74" alt="LOGO-GODO" width="900" height="400" />
+
+<h2>Configuracion QEMU Cliente</h2>
+<p>En la máquina cliente, se instaló el paquete <b>qemu-guest-agent</b> mediante el comando <b>sudo apt install qemu-guest-agent</b>. Esta herramienta es útil para la administración de máquinas virtuales y su integración con el sistema Proxmox. Tras la instalación del qemu-guest-agent, hemos realizado ajustes en las opciones de configuración de la máquina virtual cliente en Proxmox.</p>
+<img src="https://github.com/user-attachments/assets/aba1ca56-4c0f-403b-9ad9-fdb9fe35e1ad" alt="LOGO-GODO" width="1000" height="500" />
+
+<h1 id="Instalación Firebase">Instalación Firebase</h1>
+<h2>Funcionamiento interno</h2>
+
+<pre>
+<code>
+<b>sudo apt update && sudo apt upgrade -y</b>
+</code>
+</pre>
+<br>
+<p>Despues de todo necesitamos instalar el nodejs para que funcione (la version importa). Para tener la version mas nueva de nodejs necesitamos ejecutar el siguiente comando:</p>
+<pre>
+<code>
+<b>sudo apt-get install nodejs -y</b>
+</code>
+</pre>
+<p>Como bien hemos mencionado en el comando anterior, este conjunto de comandos garantiza que se utilicen versiones específicas y compatibles de Node.js y npm, evitando posibles fallos debidos a incompatibilidades entre versiones.</p>
+<pre>
+<code>
+# installs fnm (Fast Node Manager)
+<b>curl -fsSL https://fnm.vercel.app/install | bash</b>
+# activate fnm
+<b>source ~/.bashrc</b>
+# download and install Node.js
+<b>fnm use --install-if-missing 20</b>
+# verifies the right Node.js version is in the environment
+<b>node -v # should print `v20.18.0`</b>
+# verifies the right npm version is in the environment
+<b>npm -v # should print `10.8.2`</b>
+</code>
+</pre>
+
+<br>
+<p>Despues de que ya se haya intalado el node js necesitaremos intsalar el npm para poder instalar el firebase-tools. Tendremos que ejecutar el siguiente comando:</p>
+<pre>
+<code>
+<b>sudo apt install npm -y</b>
+</code>
+</pre>
+<br>
+<p>Una vez intnstalado el npm solo queda una instalacion mas para que funcione el fire base que es el <b>firebase-tools</b>. Se intala con el siguiente comando:</p>
+<pre>
+<code>
+<b>npm install -g firebase-tools</b>
+</code>
+</pre>
+<br>
+<p>Despues de haber instalado el firebase, tenemos que comprobar si es compatible ambas versiones. Para ver que la version sea compatible con nodejs es:</p>
+<pre>
+<code>
+<b>firebase --version</b>
+</code>
+</pre>
+<img src="https://github.com/user-attachments/assets/dedc83ef-6b2c-475f-9a1a-43854b50cc0b" alt="LOGO-GODO" width="800" height="200" />
+<br>
+<p>Una vez todo esta instalado y hemos comrobado que las versiones son compatibles tenemos que loguearnos con nuestra cuenta. Para eso tenemos que escribir lo siguiente:</p>
+<pre>
+<code>
+<b>firebase login --no-localhost</b>
+</code>
+</pre>
+<img src="https://github.com/user-attachments/assets/b6d07467-ddda-4377-ac9b-f4bc4284e849" alt="LOGO-GODO" width="800" height="100" />
+
+<br>
+
+<p>Una vez logueado tenemos que inicializarlo con el siguiente comando:</p>
+<pre>
+<code>
+<b>firebase init</b>
+</code>
+</pre>
+<img src="https://github.com/user-attachments/assets/4e502ffc-d1b1-4d7f-8934-62c71aebd739" alt="LOGO-GODO" width="1000" height="500" />
+
+<br>
+
+<p>Para ver los proyectos que tienes en firebase puedes utilizar el comando:</p>
+<pre>
+<code>
+<b>firebase projects:list</b>
+</code>
+</pre>
+
+<br>
+
+<h3>Mas comandos Firebase Ubuntu</h3>
+<p>Despues de saber los proyectos que tenemos lo que hacemos es subir los archivos html a nuestra carpeta public y iniciamos el host para poder subir nuestra pagina web con la base de datos subida que se modifica con scripts.</p>
+<img src="https://github.com/user-attachments/assets/f75b8951-c442-4734-97a4-f8ae2b5dd3aa" alt="LOGO-GODO" width="1000" height="500" />
+<img src="https://github.com/user-attachments/assets/519e8939-ee60-4a38-ae6b-e80cbfb70cdd" alt="LOGO-GODO" width="1000" height="500" />
+
+
+
+<h1 id="Instalación DNS">Instalación DNS</h1>
 <h3>Actualización del sistema e instalación de Bind9</h3>
 <pre>
 <code>
@@ -286,8 +435,7 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 </code>
 </pre>
 
-
-<h1 id="NGINX (Web)">NGINX (WEB)</h1>
+<h1 id="Instalación NGINX">Instalación NGINX</h1>
 <p>Una vez logueado tenemos que inicializarlo con el siguiente comando:</p>
 <pre>
 <code>
@@ -312,7 +460,7 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 <img src="https://github.com/user-attachments/assets/854199e9-fe1d-4be1-b4a7-74cf63c45f8a" alt="LOGO-GODO" width="1000" height="500" />
 
 
-<h1 id="FTP">FTP</h1>
+<h1 id="Instalación FTP">Instalación FTP</h1>
 <p>Para instalar el FTP en tu maquina tenemos que poner este comando:</p>
 <pre>
 <code>
@@ -353,140 +501,3 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 
 <p>Desde la maquina Cliente acedemos al ftp como antes y con el usuario que creamos en el apartado anterior y lo utilizamos.</p>
 <img src="https://github.com/user-attachments/assets/237b3758-89e7-469c-89f4-12aa462d5f71" alt="LOGO-GODO" width="800" height="300" />
-
-
-
-<h1 id="Instalaciones">Instalaciones</h1>
-<h1 id="Instalación Proxmox">Instalación Proxmox</h1>
-<p> Aqui podrá encontrar presente toda la información sobre la instalación que hemos llevado a curso con Proxmox</p>
-<h2>IP`s PROXMOX (Interna y Externa)</h2>
-<p>Estas son las siguientes IP's dentro de los bridges de nuestra red, las cuales la <b>VMBR0</b> y la <b>VMBR1</b> iran en el Router y la <b>VMBR1</b> solo ira en el cliente (estas ip`s la hemos generado nosotros para que sea la red interna).</p>
-<img src="https://github.com/user-attachments/assets/d3b779ba-4444-4fef-8b57-d859c45d2e1b" alt="LOGO-GODO" width="1000" height="400" />
-
-
-<h2>Configuracion Netplan Cliente</h2>
-<p>Hemos creado una <b>red interna</b> en Proxmox, con el fin de poder manejar la conectividad de las VM. Esta es la configuracion del el <b>Cliente</b> con la que ponemos la ip que en nuestro caso es <b>10.20.40.2/24</b>. Despues ponemos la via que seria la ip del router que en nuestro caso es <b>10.20.40.1/24</b> </p>
-<img src="https://github.com/user-attachments/assets/2eab6a67-2fdb-49d8-b8ac-9dbb79721d44" alt="LOGO-GODO" width="900" height="400" />
-
-<h2>Configuracion Netplan Router</h2>
-<p>Hemos añadido un <b>router virtual</b> en Proxmox. Actúa como un punto central para gestionar el tráfico de la red interna y también para mantener la comunicación por fuera de la red interna creada.</p>
-<img src="https://github.com/user-attachments/assets/85217131-03cd-4772-a3a0-dcf624145ae9" alt="LOGO-GODO" width="900" height="500" />
-
-<h2>Conexion Entre Maquinas</h2>
-<p> Hemos configurado las interfaces de red tanto en el router como en el cliente. Gracias a dicha configuración, las máquinas virtuales y otros dispositivos en la red interna pudieran conectarse entre sí y con el router. Tras conseguir la conexión entre las máquinas hemos realizado ping entre ellas para ver que funciona la configuracion del netplan. Tambien el router deberia tener conexion hacia fuera, para eso hacemos un ping a Google.com desde el router para ver que funciona</p>
-<img src="https://github.com/user-attachments/assets/f95da3ba-bfc4-4488-a961-08f3ab36d132" alt="LOGO-GODO" width="1100" height="600" />
-
-<h2>Configuración de IPTables</h2>
-<p>Para la configuración de las reglas del firewall y redirección de tráfico, hemos utilizado IPTables y hemos modificado el archivo "/etc/sysctl.conf" descomentando la linea <b>net.ipv4.ip_forward=1</b>. Este ajuste nos ha permitido a que el router establecido en Proxmox reenvíe tráfico entre diferentes interfaces de red.</p>
-<img src="https://github.com/user-attachments/assets/d062a00a-aaae-4e64-a2c4-17988b710dc6" alt="LOGO-GODO" width="900" height="600" />
-
-<br>
-<br>
-
-<p>Una vez realizada la modificación, mediante el comando <b>sudo sysctl -p</b>
-También hemos configurado una regla para permitir que el tráfico desde la red interna fluya hacia el exterior (Internet) a través de la interfaz de red especificada:
-<b>sudo iptables -A FORWARD -i ens19 -o ens18 -j ACCEPT </b> </p>
-<img src="https://github.com/user-attachments/assets/980bf8bf-f41f-4b93-a915-bccffde9d45e" alt="LOGO-GODO" width="600" height="300" />
-
-<br>
-<br>
-
-<p>Además, se añadió una regla para permitir que las respuestas a las solicitudes que se originan desde la red interna puedan regresar sin problemas. Esta regla es esencial para la comunicación bidireccional. Hacemos el comando <b>sudo iptables -A FORWARD -i ens18 -o ens19 -m state --state ESTABLISHED,RELATED -j ACCEPT</b> para aceptar las reglas que hemos puesto. Después de configurar las reglas necesarias, hemos guardado los cambios realizados mediante el comando <b>sudo iptables-save</b>.</p> Una vez hecho esto deberia funcionar la conexion entre maquina Router - Cliente y el Cliente deberia tener conexion hacia fuera. Para comprobarlo podemos hacer un ping a Google.com desde la maquina cliente.
-<img src="https://github.com/user-attachments/assets/eccf8c13-227f-44d6-901c-a7e328effdb8" alt="LOGO-GODO" width="1200" height="400" />
-
-<h2>Reglas Permanentes</h2>
-<p>Para que las reglas de IPTables se mantuvieran después de reiniciar el sistema, hemos procedido a instalar el paquete <b>iptables-persistent</b> mediante el siguiente comando <b>sudo apt install iptables-persistent -y</b></p>
-<img src="https://github.com/user-attachments/assets/f7bc6414-ad7c-4fba-8651-15f21ec70b74" alt="LOGO-GODO" width="900" height="400" />
-
-<h2>Configuracion QEMU Cliente</h2>
-<p>En la máquina cliente, se instaló el paquete <b>qemu-guest-agent</b> mediante el comando <b>sudo apt install qemu-guest-agent</b>. Esta herramienta es útil para la administración de máquinas virtuales y su integración con el sistema Proxmox. Tras la instalación del qemu-guest-agent, hemos realizado ajustes en las opciones de configuración de la máquina virtual cliente en Proxmox.</p>
-<img src="https://github.com/user-attachments/assets/aba1ca56-4c0f-403b-9ad9-fdb9fe35e1ad" alt="LOGO-GODO" width="1000" height="500" />
-
-<h1 id="Instalación Firebase">Instalación Firebase</h1>
-<h2>Funcionamiento interno</h2>
-
-<pre>
-<code>
-<b>sudo apt update && sudo apt upgrade -y</b>
-</code>
-</pre>
-<br>
-<p>Despues de todo necesitamos instalar el nodejs para que funcione (la version importa). Para tener la version mas nueva de nodejs necesitamos ejecutar el siguiente comando:</p>
-<pre>
-<code>
-<b>sudo apt-get install nodejs -y</b>
-</code>
-</pre>
-<p>Como bien hemos mencionado en el comando anterior, este conjunto de comandos garantiza que se utilicen versiones específicas y compatibles de Node.js y npm, evitando posibles fallos debidos a incompatibilidades entre versiones.</p>
-<pre>
-<code>
-# installs fnm (Fast Node Manager)
-<b>curl -fsSL https://fnm.vercel.app/install | bash</b>
-# activate fnm
-<b>source ~/.bashrc</b>
-# download and install Node.js
-<b>fnm use --install-if-missing 20</b>
-# verifies the right Node.js version is in the environment
-<b>node -v # should print `v20.18.0`</b>
-# verifies the right npm version is in the environment
-<b>npm -v # should print `10.8.2`</b>
-</code>
-</pre>
-
-<br>
-<p>Despues de que ya se haya intalado el node js necesitaremos intsalar el npm para poder instalar el firebase-tools. Tendremos que ejecutar el siguiente comando:</p>
-<pre>
-<code>
-<b>sudo apt install npm -y</b>
-</code>
-</pre>
-<br>
-<p>Una vez intnstalado el npm solo queda una instalacion mas para que funcione el fire base que es el <b>firebase-tools</b>. Se intala con el siguiente comando:</p>
-<pre>
-<code>
-<b>npm install -g firebase-tools</b>
-</code>
-</pre>
-<br>
-<p>Despues de haber instalado el firebase, tenemos que comprobar si es compatible ambas versiones. Para ver que la version sea compatible con nodejs es:</p>
-<pre>
-<code>
-<b>firebase --version</b>
-</code>
-</pre>
-<img src="https://github.com/user-attachments/assets/dedc83ef-6b2c-475f-9a1a-43854b50cc0b" alt="LOGO-GODO" width="800" height="200" />
-<br>
-<p>Una vez todo esta instalado y hemos comrobado que las versiones son compatibles tenemos que loguearnos con nuestra cuenta. Para eso tenemos que escribir lo siguiente:</p>
-<pre>
-<code>
-<b>firebase login --no-localhost</b>
-</code>
-</pre>
-<img src="https://github.com/user-attachments/assets/b6d07467-ddda-4377-ac9b-f4bc4284e849" alt="LOGO-GODO" width="800" height="100" />
-
-<br>
-
-<p>Una vez logueado tenemos que inicializarlo con el siguiente comando:</p>
-<pre>
-<code>
-<b>firebase init</b>
-</code>
-</pre>
-<img src="https://github.com/user-attachments/assets/4e502ffc-d1b1-4d7f-8934-62c71aebd739" alt="LOGO-GODO" width="1000" height="500" />
-
-<br>
-
-<p>Para ver los proyectos que tienes en firebase puedes utilizar el comando:</p>
-<pre>
-<code>
-<b>firebase projects:list</b>
-</code>
-</pre>
-
-<br>
-
-<h3>Mas comandos Firebase Ubuntu</h3>
-<p>Despues de saber los proyectos que tenemos lo que hacemos es subir los archivos html a nuestra carpeta public y iniciamos el host para poder subir nuestra pagina web con la base de datos subida que se modifica con scripts.</p>
-<img src="https://github.com/user-attachments/assets/f75b8951-c442-4734-97a4-f8ae2b5dd3aa" alt="LOGO-GODO" width="1000" height="500" />
-<img src="https://github.com/user-attachments/assets/519e8939-ee60-4a38-ae6b-e80cbfb70cdd" alt="LOGO-GODO" width="1000" height="500" />
-
