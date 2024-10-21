@@ -132,28 +132,32 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 
 
 <h1 id="Firebase">Firebase</h1>
-<p>Firebase Database es una base de datos NoSQL alojada en la nube. Los datos se almacenan en formato JSON y se sincronizan en tiempo real con cada cliente conectado y se mantienen disponibles cuando la aplicación no tiene conexión. Nosotros utilizamos Firebase para tener la BBDD ahi dentro. Firebase utiliza Scripts de .JSON para poder hacer consultas a la pagina web.  </p>
+<p>Firebase Database es una base de datos NoSQL alojada en la nube. Los datos se almacenan en formato JSON y se sincronizan en tiempo real con cada cliente conectado, manteniéndose disponibles incluso cuando la aplicación no tiene conexión. Nosotros utilizamos Firebase para tener la BBDD ahí dentro. Firebase utiliza scripts de .JSON para poder hacer consultas a la página web.</p> 
+
+<p>Entre sus características principales, destaca la sincronización en tiempo real, la escalabilidad para manejar grandes volúmenes de datos y una estructura flexible que facilita la organización. Además, ofrece ventajas como la fácil integración con otros servicios de Firebase, reglas de seguridad para controlar el acceso a los datos y la capacidad de almacenamiento offline, permitiendo a los usuarios interactuar con la aplicación sin conexión a Internet. Este servicio es ideal para aplicaciones de chat, sistemas de gestión de contenidos y juegos multijugador, garantizando una experiencia fluida y dinámica.</p>
 
 
 
 
 
 <h1 id="DNS">DNS</h1>
-<p>Un servidor DNS es una herramienta muy importante en un proyecto de IT, ya que nos permite realizar funciones como la resolución de nombres directa o inversa. Además, nos permitirá poder tener acceso a la web del proyecto mediante el nombre de dominio o la IP, ya que lo configuraremos para que el servidor DNS y WEB funcionen al unísono.</p>
+<p>Un servidor DNS es una herramienta muy importante en un proyecto de IT, ya que nos permite realizar funciones como la resolución de nombres directa o inversa. Además, nos permitirá tener acceso a la web del proyecto mediante el nombre de dominio o la IP, ya que lo configuraremos para que el servidor DNS y WEB funcionen al unísono.</p> 
+
+<p>El DNS actúa como un directorio telefónico de Internet, traduciendo nombres de dominio amigables (como www.ejemplo.com) a direcciones IP que las computadoras pueden entender. Esto no solo facilita el acceso a sitios web, sino que también mejora la experiencia del usuario al evitar la necesidad de recordar direcciones IP numéricas. Además, los servidores DNS pueden proporcionar características adicionales como la redundancia, aumentando la disponibilidad y fiabilidad del servicio. También permiten gestionar registros de tipo A, CNAME, MX, entre otros, lo que es esencial para configurar correos electrónicos y otros servicios asociados. En resumen, un servidor DNS bien configurado es fundamental para asegurar el funcionamiento eficiente y accesible de cualquier proyecto web.</p>
 
 
 
 
 <h1 id="NGINX (Web)">NGINX (WEB)</h1>
-<p></p>
+<p>NGINX es un servidor web y un proxy inverso muy importante en un proyecto de IT, ya que ofrece funcionalidades clave como la gestión de solicitudes HTTP, balanceo de carga y terminación de SSL. Su arquitectura asíncrona permite manejar múltiples conexiones simultáneamente, lo que lo hace ideal para aplicaciones con alto tráfico. Además, NGINX puede servir contenido estático de manera eficiente y también funciona como un servidor de proxy para aplicaciones dinámicas. Lo utilizamos para tener nuestro codigo de la web ahi y que la gente pueda verlo desde sus casas</p> 
+
+<p>Una de las principales ventajas de NGINX es su capacidad para optimizar el rendimiento y reducir la latencia en la entrega de contenido. También se integra fácilmente con otros servicios, como servidores de aplicaciones, bases de datos y herramientas de almacenamiento en caché. A través de su configuración, puedes implementar reglas para la redirección de URLs, optimizar la compresión de archivos y habilitar características de seguridad como el filtrado de solicitudes. En resumen, NGINX no solo mejora la eficiencia y velocidad de las aplicaciones web, sino que también ofrece un alto grado de flexibilidad y control sobre el tráfico, siendo una herramienta esencial para cualquier proyecto web moderno.</p>
 
 
 <h1 id="FTP">FTP</h1>
-<p></p>
+<p>FTP es un protocolo de red fundamental en un proyecto de IT, ya que permite la transferencia de archivos entre un cliente y un servidor de manera eficiente. A través de FTP, los usuarios pueden cargar y descargar archivos, facilitando la gestión de contenido en servidores web y otros entornos de almacenamiento. Además, este protocolo soporta la transferencia de archivos grandes y la posibilidad de reanudar cargas interrumpidas. Nosotros utilizaremos el ftp para que se almacenen ahi los archivos de la gente y la gente pueda descargarlos.</p> 
 
-
-
-
+<p>Una de las principales ventajas de FTP es su simplicidad y amplia compatibilidad con diferentes sistemas operativos y plataformas. Permite la autenticación mediante credenciales, lo que garantiza la seguridad en la transferencia de datos. Además, con la variante SFTP (SSH File Transfer Protocol), se puede añadir una capa de cifrado, protegiendo así la información sensible durante el tránsito. FTP también ofrece funciones como la posibilidad de cambiar permisos de archivos y directorios, lo que permite una gestión más granular del acceso a los datos. En resumen, FTP es una herramienta esencial para la administración de archivos en proyectos web, asegurando una transferencia eficiente y segura de datos.</p>
 
 
 
