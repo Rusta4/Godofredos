@@ -5,20 +5,20 @@
     <li><b><a href="#Explicacion idea del proyecto">Explicacion idea del proyecto</a></b></li>
     <li><b><a href="#Nuestros Objetivos">Nuestros Objetivos</a></b></li>
     <li><b><a href="#Tecnologias Usadas">Tecnologias Usadas</a></b></li>
-    <li><b>Organizacion:</b></li>
+    <li><b><a href="#Organizacion">Organizacion:</a></b></li>
     <ul>
-        <li>Diagrama Gantt</li>
-        <li>Diagrama NoSql</li>
+        <li><a href="#Diagrama Gantt">Diagrama Gantt</a></li>
+        <li><a href="#Diagrama NoSql">Diagrama NoSql</a></li>
     </ul>
-    <li><b>Paginaweb:</b></li>
+    <li><b><a href="#Paginaweb">Paginaweb:</a></b></li>
     <ul>
-        <li>Mockup</li>
-        <li>Diagrama Web</li>
-        <li>Paleta Colores</li>
-        <li>Logo</li>
-        <li>Funcionalidades Web</li>
+        <li><a href="#Mockup">Mockup</a></li>
+        <li><a href="#Diagrama Web">Diagrama Web</a></li>
+        <li><a href="#Paleta Colores">Paleta Colores</a></li>
+        <li><a href="#Logo">Logo</a></li>
+        <li><a href="#Funcionalidades Web">Funcionalidades Web</a></li>
     </ul>
-    <li><b>Proxmox:</b></li>
+    <li><b><a href="#Proxmox">Proxmox:</a></b></li>
     <ul>
         <li>Imagen Arquitectura</li>
     </ul>
