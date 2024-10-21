@@ -194,7 +194,6 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 <b>sudo mkdir /etc/bind/zones</b>
 </code>
 </pre>
-<p> </p>
 <h4>Zona directa</h4>
 <p>Además, copiaremos un archivo de configuración de zona directa e inversa que viene con una configuración predeterminada con la instalación de Bind9 para utilizarlo como prototipo y editarlo a nuestro gusto.</p>
 
@@ -404,7 +403,6 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 <img src="https://github.com/user-attachments/assets/aba1ca56-4c0f-403b-9ad9-fdb9fe35e1ad" alt="LOGO-GODO" width="1000" height="500" />
 
 
-<h1 id="Instalación Firebase>Instalacion Firebase</h1>
 <h2>Funcionamiento interno</h2>
 
 <pre>
