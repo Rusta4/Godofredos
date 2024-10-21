@@ -2,10 +2,13 @@
 
 <h2>INDEX</h2>
 <ul>
-    <li><b>Explicacion idea del proyecto</b></li>
-    <li><b>Nuestros Objetivo</b></li>
-    <li><b>Tecnologias Usadas</b></li>
-    <li><b>Organizacion</b></li>
+    <li><b><a href="#Explicacion idea del proyecto">Explicacion idea del proyecto</a></b></li>
+    <li><b><a href="#Nuestros Objetivos">Nuestros Objetivos</a></b></li>
+    <li><b><a href="#Tecnologias Usadas">Tecnologias Usadas</a></b></li>
+    <li><b>Organizacion:</b></li>
+    <ul>
+        <li>Diagrama Gantt</li>
+    </ul>
     <li><b>Paginaweb:</b></li>
     <ul>
         <li>Mockup</li>
@@ -24,7 +27,7 @@
     <li><b>FTP</b></li>
     <li><b>Intalaciones:</b></li>
     <ul>
-        <li>Instalacion Proxmox</li>
+        <li><a href="#Instalación de Proxmox">Instalacion Proxmox</a></li>
         <li>Instalacion DNS</li>
         <li>Instalacion NGINX</li>
         <li>Instalacion FTP</li>
@@ -33,17 +36,17 @@
 
 
 
-<h2>Explicacion idea del proyecto</h2>
+<h2 id="Explicacion idea del proyecto">Explicacion idea del proyecto</h2>
 <p>Estamos creando una plataforma web similar a GitHub, pero totalmente enfocada en el campo de la ciberseguridad. Como equipo, nuestra misión es ofrecer un espacio donde los profesionales de la seguridad informática puedan colaborar, compartir herramientas, scripts y proyectos que aborden distintas áreas de ciberseguridad, desde la evaluación de vulnerabilidades hasta la automatización de auditorías.
 
 Una de las características clave de nuestra plataforma es el uso de imágenes Docker, lo que permitirá a los usuarios crear y compartir entornos preconfigurados de manera rápida y sencilla. Con esto, cualquier miembro de la comunidad podrá replicar de forma precisa estos entornos para realizar pruebas de seguridad, sin necesidad de configuraciones complejas. Además, esto facilitará la colaboración entre profesionales, ya que los entornos Docker garantizan que todo el mundo trabaje en el mismo entorno aislado y seguro.</p>
 
 
-<h2>Nuestros Objetivo</h2>
+<h2 id="Nuestros Objetivos">Nuestros Objetivo</h2>
 <p>Nuestro objetivo es proporcionar una herramienta que no solo centralice el desarrollo en ciberseguridad, sino que también fomente una colaboración más efectiva entre expertos y entusiastas de la seguridad informática. Al concentrar los recursos, herramientas y proyectos en un solo lugar, buscamos facilitar el acceso a soluciones innovadoras y prácticas que puedan ser utilizadas por toda la comunidad.</p>
 <img src="https://github.com/user-attachments/assets/222bf100-c324-4f2e-86e5-ef21598cb985" alt="LOGO-GODO" width="800" height="600" />
 
-<h2>Tecnologias Usadas</h2>
+<h2 id="Tecnologias Usadas">Tecnologias Usadas</h2>
 <p>En este proyecto, se han seleccionado las siguientes tecnologías para crear un entorno virtualizado y una aplicación web efectiva:</p>
 
 <h4>1. Proxmox</h4>
@@ -112,7 +115,7 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 <h1>Proxmox</h1>
 
 <h2>Imagen Arquitectura</h2>
-<p>Nuestra arquitectura esta basada en una red virtual, la cual consta de un cliente (MV CLIENTE) que se conecta a Firebase mediante una máquina virtual que funciona como router (MV ROUTER) y un router físico conectado a Internet. Dicho enrutador consta con una dirección IP pública dinámica (100.77.20.X), la cual permite la conexión a Internet. MV ROUTER administra dos interfaces: una (VMBR0) externa con IP pública (100.77.20.120) conectada al router físico y otra (VMBR1) interna con IP privada (10.20.40.1) para la comunicación en la red local con el cliente (IP 10.20.40.2). La creación de estas dos redes permite al cliente el acceso a servicios externos, como Firebase, mediante la infraestructura virtual y física. Nosotros lo hemos realizado de la siguiente manera, <a href="#Instalación de Proxmox">aquí</a></p>.
+<p>Nuestra arquitectura esta basada en una red virtual, la cual consta de un cliente (MV CLIENTE) que se conecta a Firebase mediante una máquina virtual que funciona como router (MV ROUTER) y un router físico conectado a Internet. Dicho enrutador consta con una dirección IP pública dinámica (100.77.20.X), la cual permite la conexión a Internet. MV ROUTER administra dos interfaces: una (VMBR0) externa con IP pública (100.77.20.120) conectada al router físico y otra (VMBR1) interna con IP privada (10.20.40.1) para la comunicación en la red local con el cliente (IP 10.20.40.2). La creación de estas dos redes permite al cliente el acceso a servicios externos, como Firebase, mediante la infraestructura virtual y física. Nosotros lo hemos realizado de la siguiente manera, </p>.
 <img src="https://github.com/user-attachments/assets/a285de31-caa5-445e-b36f-88f0eb6e404c" alt="LOGO-GODO" width="900" height="500" />
 
 
