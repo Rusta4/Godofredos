@@ -16,12 +16,13 @@
         <li>Diagrama Web</li>
         <li>Paleta Colores</li>
         <li>Logo</li>
+        <li>Funcionalidades Web</li>
     </ul>
     <li><b>Proxmox:</b></li>
     <ul>
         <li>Imagen Arquitectura</li>
     </ul>
-    <li>Firebase</li>
+    <li><b>Firebase</b></li>
     <li><b>DNS</b></li>
     <li><b>NGINX (Web)</b></li>
     <li><b>FTP</b></li>
@@ -72,8 +73,6 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 
 <h4>Conclusión</h4>
 <p>Estas tecnologías garantizan un entorno sólido y flexible, permitiendo el desarrollo de una aplicación web dinámica y eficiente que cumple con los objetivos del proyecto.</p>
-
-
 
 <br>
 
@@ -224,7 +223,7 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 
 
 
-<h1>DNS</h1>
+<h1 id="DNS">DNS</h1>
 
 <p>Un servidor DNS es una herramienta muy importante en un proyecto de IT, ya que nos permite realizar funciones como la resolución de nombres directa o inversa. Además, nos permitirá poder tener acceso a la web del proyecto mediante el nombre de dominio o la IP, ya que lo configuraremos para que el servidor DNS y WEB funcionen al unísono.</p>
 
@@ -373,7 +372,7 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 </pre>
 
 
-<h1>NGINX (WEB)</h1>
+<h1 id="NGINX (Web)">NGINX (WEB)</h1>
 <p>Una vez logueado tenemos que inicializarlo con el siguiente comando:</p>
 <pre>
 <code>
@@ -398,7 +397,7 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 <img src="https://github.com/user-attachments/assets/854199e9-fe1d-4be1-b4a7-74cf63c45f8a" alt="LOGO-GODO" width="1000" height="500" />
 
 
-<h1>FTP</h1>
+<h1 id="FTP">FTP</h1>
 <p>Para instalar el FTP en tu maquina tenemos que poner este comando:</p>
 <pre>
 <code>
@@ -442,6 +441,7 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 
 
 
+<h1 id="Instalaciones">Instalaciones</h1>
 <h1 id="Instalación de Proxmox">Instalación de Proxmox</h1>
 <p> Aqui podrá encontrar presente toda la información sobre la instalación que hemos llevado a curso con Proxmox</p>
 <h2>IP`s PROXMOX (Interna y Externa)</h2>
