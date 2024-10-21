@@ -10,7 +10,7 @@
         <li><a href="#Diagrama Gantt">Diagrama Gantt</a></li>
         <li><a href="#Diagrama NoSql">Diagrama NoSql</a></li>
     </ul>
-    <li><b><a href="#Paginaweb">Paginaweb:</a></b></li>
+    <li><b><a href="#Pagina Web">Pagina Web:</a></b></li>
     <ul>
         <li><a href="#Mockup">Mockup</a></li>
         <li><a href="#Diagrama Web">Diagrama Web</a></li>
