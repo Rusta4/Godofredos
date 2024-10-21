@@ -454,7 +454,7 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 <b>sudo systemctl restart bind9</b>
 </code>
 </pre>
-----------------------------------------------------------------------------------------------------------------------
+
 <h1 id="Instalación NGINX">Instalación NGINX</h1>
 <h3>Actualización del sistema e instalación de Nginx</h3>
 <pre>
@@ -513,6 +513,10 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 </code>
 </pre>
 
+<p>Nos debería de quedar algo así:</p>
+
+<img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/enlace-simbolico.png" alt="LOGO-GODO" width="650" height="70" />
+
 <h3>Verificación de la configuración</h3>
 
 <p>Para asegurarnos que no hemos cometido ningún error, aplicaremos el sigueinte comando:</p>
@@ -542,11 +546,11 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 <h3>Configuración visual de nuestra web</h3>
 
 <p>Ahora que ya hemos configurado el servidor, tenemos que añadir los archivos de nuestra web para que, al buscarla en el navegador, aparezca directamente la web que hemos desarrollado.</p>
-<p>Para ello, deberemos de ir a la ruta <br>/var/www/html/godofredo.com</br> y añadimos todos los archivos de nuestra web, tanto .html, .css, .jpg ......</p>
+<p>Para ello, deberemos de ir a la ruta <b>/var/www/html/godofredo.com</b> y añadimos todos los archivos de nuestra web, tanto .html, .css, .jpg ......</p>
 
-<img archivos de la web>
+<img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/archivos-web.png" alt="LOGO-GODO" width="650" height="70" />
     
-----------------------------------------------------------------------------------------------------------------------------
+
 
 <h1 id="Instalación FTP">Instalación FTP</h1>
 <p>Para instalar el FTP en tu maquina tenemos que poner este comando:</p>
