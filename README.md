@@ -93,6 +93,7 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 <h5>  - BOOTSTRAP</h5>
 
 <h2 id="Diagrama Gantt">Diagrama Gantt</h2>
+<img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/diagrama-grantt.png" alt="LOGO-GODO" width="800" height="500" />
 
 <h2 id="Diagrama NoSql">Diagrama NoSql</h2>
 <p>Al haber utilizado Firebase, que tal como hemos comentado anteriormente, es un tipo de base de datos <b>NOSQL</b>. Así que la manera de realizar el diagrama es totalmente distinto, y en nuestro caso, lo hemos realizado desde el mismo cloud de Firebase. A continuación, os vamos a mostrar como han quedado estructuradas el conjunto de colecciones (tablas) con todos sus documentos y campos.</p>
