@@ -501,7 +501,7 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 </pre>
 
 <p>Con la siguiente configuración:</p>
-<img foto del archivo nginx>
+<img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/sites-available.png" alt="LOGO-GODO" width="450" height="300" />
 
 <h3>Creación del enlace simbólico</h3>
 
