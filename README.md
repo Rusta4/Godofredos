@@ -454,31 +454,99 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 <b>sudo systemctl restart bind9</b>
 </code>
 </pre>
-
+----------------------------------------------------------------------------------------------------------------------
 <h1 id="Instalación NGINX">Instalación NGINX</h1>
-<p>Una vez logueado tenemos que inicializarlo con el siguiente comando:</p>
+<h3>Actualización del sistema e instalación de Nginx</h3>
+<pre>
+<code>
+<b>sudo apt update && sudo apt upgrade -y</b>
+</code>
+</pre>
+
 <pre>
 <code>
 <b>sudo apt install nginx</b>
 </code>
 </pre>
 <br>
-<p>Una vez logueado tenemos que inicializarlo con el siguiente comando:</p>
-<pre>
-<code>
-<b>sudo systemctl status nginx</b>
-</code>
-</pre>
-<img src="https://github.com/user-attachments/assets/1e6851e1-c1b4-4b9c-a475-e40e7e256d56" alt="LOGO-GODO" width="1000" height="500" />
-<br>
-<p>Desde otra maquina renemos que poner el siguente codigo para saber si funciona. Nosotros hemos utilizado la nuestra de cliente. Nosotros hemos utilizado nustra ip donde esta el NGINX con el puerto 80.</p>
-<pre>
-<code>
-<b>curl 10.20.40.6:80</b>
-</code>
-</pre>
-<img src="https://github.com/user-attachments/assets/854199e9-fe1d-4be1-b4a7-74cf63c45f8a" alt="LOGO-GODO" width="1000" height="500" />
 
+<h3>Creación de la carpeta de nuestro dominio</h3>
+
+<p>Creamos una carpeta en el directorio <b>/var/www/html/godofredo.com</b></p><br>
+<pre>
+<code>
+<b>sudo mkdir -p /var/www/html/godofredo.com</b>
+</code>
+</pre>
+
+<br>
+<br>
+<h3>Cambiamos los permisos de la carpeta</h3>
+
+<p>Para que, en el momento de acceder a la web desde nuestro navegador, no nos devuleva un error 403 ( forbidden ) deberemos de otorgarle permisos a la carpeta recién creada. Además, cambiar la propiedad del directorio a nuestro usuario permite que se pueda gestionar los archivos sin necesidad de privilegios de superusuario.</p> <br>
+<pre>
+<code>
+<b>sudo chown -R godofredo:godofredo /var/www/godofredo.com</b>
+</code>
+</pre>
+    
+
+<h3>Creación del archivo de configuración de Nginx</h3>
+<p>Este archivo es un punto clave a la hora de de configurar Nginx, ya que con este archivo definiremos la manera en cómo Nginx maneja las solicitudes que lleguen al dominio o la dirección IP</p>
+<p><br>
+<pre>
+<code>
+<b>sudo nano godofredo.com</b>
+</code>
+</pre>
+
+<p>Con la siguiente configuración:</p>
+<img foto del archivo nginx>
+
+<h3>Creación del enlace simbólico</h3>
+
+<p>Creamos un enlace simbólico en sites-enables para indicarle a Nginx que incluya automáticamente la configuración que estamos aplicando al inciar el servicio.</p>
+
+<pre>
+<code>
+<b>sudo ln -s /etc/nginx/sites-available/godofredo.com /etc/nginx/sites-enabled/</b>
+</code>
+</pre>
+
+<h3>Verificación de la configuración</h3>
+
+<p>Para asegurarnos que no hemos cometido ningún error, aplicaremos el sigueinte comando:</p>
+
+<pre>
+<code>
+<b>sudo nginx -t</b>
+</code>
+</pre>
+<p>Si nos devuelve un "Successful", singificará que no hay ningún error en la configuración. Sin embargo, para asegurarnos de que todo está bien ejecutaremos otro comando.</p>
+
+<pre>
+<code>
+<b>systemctl restart nginx</b>
+</code>
+</pre>
+
+<p>y</p>
+
+<pre>
+<code>
+<b> systemctl status nginx</b>
+</code>
+</pre>
+
+
+<h3>Configuración visual de nuestra web</h3>
+
+<p>Ahora que ya hemos configurado el servidor, tenemos que añadir los archivos de nuestra web para que, al buscarla en el navegador, aparezca directamente la web que hemos desarrollado.</p>
+<p>Para ello, deberemos de ir a la ruta <br>/var/www/html/godofredo.com</br> y añadimos todos los archivos de nuestra web, tanto .html, .css, .jpg ......</p>
+
+<img archivos de la web>
+    
+----------------------------------------------------------------------------------------------------------------------------
 
 <h1 id="Instalación FTP">Instalación FTP</h1>
 <p>Para instalar el FTP en tu maquina tenemos que poner este comando:</p>
