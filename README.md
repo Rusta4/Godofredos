@@ -82,6 +82,7 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 <h4>Nicolás Guerra</h4>
 <h5>  - Proxmox</h5>
 <h5>  - DOCKERS</h5>
+<h5>  - Firebase</h5>
 
 <h4>Adrià Trillo</h4>
 <h5>  - Máquinas Virtuales (VM)</h5>
@@ -89,7 +90,6 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 
 <h4>Edward Murphy</h4>
 <h5>  - CSS (Cascading Style Sheets)</h5>
-<h5>  - Firebase</h5>
 <h5>  - BOOTSTRAP</h5>
 
 <h2 id="Diagrama Gantt">Diagrama Gantt</h2>
