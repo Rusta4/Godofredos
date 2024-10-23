@@ -131,3 +131,19 @@ h1 {
 .close-btn i {
     font-size: 24px;
 }
+
+.link {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .link a {
+    color: white; /* Link color */
+    text-decoration: none;
+  }
+  
+  .link a:hover {
+    text-decoration: underline;
+    color: white; /* Hover color for links */
+  }
+  
