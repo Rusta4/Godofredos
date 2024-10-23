@@ -240,8 +240,7 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 
 <h2>Configuración del ens19</h2>
 <p>En primer lugar, configuraremos la interfaz de red ens19 para poder tener conexión con el exterior. Para ello, aplicaremos la siguiente configuración del netplan:</p>
-<img src="[https://github.com/user-attachments/assets/aba1ca56-4c0f-403b-9ad9-fdb9fe35e1ad](https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/netplan-ens19.png
-)" alt="LOGO-GODO" width="468" height="239" />
+<img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/netplan-ens19.png" alt="LOGO-GODO" width="468" height="239" />
 
 <p>Hemos configurado el ens19 con la IP 100.77.20.20, que, está dentro de la red que nos permite la conexión con internet. Además, le indicamos que no queremos coger la IP por DHCP para evitar que el router tenga una IP diferente cada vez que se inicia. </p>
 
@@ -284,9 +283,8 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 <b>ping 8.8.8.8</b>
 </code>
 </pre>
-<img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/ping-nginx.png
-" alt="LOGO-GODO" width="509" height="175" />
-
+<img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/ping-nginx.png" alt="LOGO-GODO" width="509" height="175" />
+<br>
 <h2>Reglas permanentes</h2>
 <p>Para que las reglas de IPTables se mantengan después de reiniciar el sistema, instalamos el paquete iptables-persistent</p>
 
