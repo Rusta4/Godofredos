@@ -30,8 +30,8 @@
     <ul>
         <li><a href="#Instalación Proxmox">Instalacion Proxmox</a></li>
         <li><a href="#Instalación Firebase">Instalacion Firebase</a></li>
-        <li><a href="#Instalación DNS">Instalacion DNS</a></li>
-        <li><a href="#Instalación NGINX">Instalacion NGINX</a></li>
+        <li><a href="#Instalación DNS">Instalacion DNS</a>
+        <li><a href="#Instalación NGINX">Instalacion NGINX y SSL</a></li>
         <li><a href="#Instalación FTP">Instalacion FTP</a></li>
     </ul>
 </ul>
@@ -552,7 +552,75 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 <img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/archivos-web.png" alt="LOGO-GODO" width="650" height="70" />
 <br>
 
+<h3>Resultado final</h3>
+<img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/resultado-nginx.png" alt="LOGO-GODO" width="750" height="650" />
 
+
+<h3>Implementación de un certificado SSL</h3>
+
+<h2>¿Qué es un certificado SSL?</h2>
+<p>Ahora que ya hemos configurado nuestra página web, tnemos que garantizar que el acceso a esta sea lo más seguro posible. Hasta el momento hemos estado estableciendo la conexión mediante http ( puerto 80 ), una muy mala práctica, ya que no tenemos seguridad alguna. Para añadir esta pequeña capa de seguridad extra a nuestro sitio web añadiremos un certificado ssl, que no es más que un archivo que asegura que la conexión entre el navegador web y el servidor es totalmente seguro.</p>
+
+<p>Mediante la utilización de este tipo de certificados, podemos cifrar la información que se transmite, así como los datos personales y contraseñas, para que no puedan ser interceptados. Por últimio, nos permite autenticar que el sitio web es legítimo, por lo que los usuarios podrán navegar tranquilamente y aumentaremos la confianza de los visitantes.</p>
+
+<h2>Creación de la carpeta "ssl-certs"</h3>
+<p>El primer paso y, el más importante de todos es crear una carpeta donde poder guardar nuestros certificados, de esta forma podemos trabajar en un entorno mucho más organizado y, a la hora de definir el path en el archivo de configuración será todo mucho más sencillo.</p>
+
+<pre>
+<code>
+<b> sudo mkdir /ec/nginx/ssl-certs/</b>
+</code>
+</pre>
+
+<h2>openssl</h2>
+<p>Una vez que ya tenemos nuestro entorno organizado, crearemos un certificado autofirmado junto con la clave mediante la utilización de openssl. Para ello, ejecutaremos el siguiente comando: </p>
+
+<pre>
+<code>
+<b> sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl-certs/godofredo.com.key -out /etc/nginx/ssl-certs/godofredo.com.crt</b>
+</code>
+</pre>
+
+<ul>
+<li>req -x509: indica que estamos generando un certificado en formato X.509, que es un estándar utilizado para certificados digitales.</li>
+
+<li>-nodes: significa "no cifrar la clave privada", lo que implica que la clave generada no estará protegida por una contraseña.</li>
+
+<li>-days 365: establece la duración de validez del certificado, en este caso, un año (365 días).</li>
+
+<li>-newkey rsa:2048: indica que se generará una nueva clave utilizando el algoritmo RSA, y que la longitud de esta clave será de 2048 bits.</li>
+
+<li>-keyout /etc/nginx/ssl-certs/kirby.com.key: define la ubicación completa donde se guardará la clave RSA generada.</li>
+
+<li>-out /etc/nginx/ssl-certs/kirby.com.crt: especifica la ubicación completa del archivo donde se almacenará el certificado creado.</li>
+
+</ul>
+
+<h2>Configuración del archivo de dominio </h2>
+<p>Una vez que ya hemos generado nuestro certificado privado debemos indicarle a nginx que utilice este arhivo. Para ello, abriremos el archivo ""etc/nginx/sites-enabled/godofredo.com" y aplicaremos la siguiente configuración:</p>
+<img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/conf-ssl.png" alt="LOGO-GODO" width="594" height="316" />
+
+<h2>Comprobación y reinicio</h2>
+
+<p>Una vez realizada toda la configuración comprobamos que todo esté bien con el siguiente comando:</p>
+<pre>
+<code>
+<b> nginx -t</b>
+</code>
+</pre>
+
+<p>Si nos devuelve todo "Successful" significará que tenemos toda la configuración bien y que ya podemos reiniciar</p>
+<pre>
+<code>
+<b> sudo systemctl restart nginx</b>
+</code>
+</pre>
+
+<h2>Resultado final</h2>
+<p>Una vez que ya hemos hecho todo esto, comprobamos que funciona todo correctamente accediendo a nuestra web con https://godofredo.com</p>
+<img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/ssl-evidencia-web.png" alt="LOGO-GODO" width="1205" height="770" />
+
+----------------------------------------------------------------------------
 <h1 id="Instalación FTP">Instalación FTP</h1>
 <p>Para instalar el FTP en tu maquina tenemos que poner este comando:</p>
 <pre>
