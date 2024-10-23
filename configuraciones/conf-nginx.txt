@@ -1,0 +1,11 @@
+server {
+    listen 80;
+    server_name tudominio.com www.tudominio.com;
+
+    root /var/www/tudominio; # Asegúrate de que esta ruta sea correcta
+    index index.html index.htm;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}

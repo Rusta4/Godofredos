@@ -22,6 +22,17 @@ ul{ list-style: none;}
 li{ font-size: 1.25em;}
 
 
+#logout-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0; /* Ajusta el padding según lo necesites */
+}
+
+#logout-button i {
+    font-size: 20px; /* Tamaño del ícono */
+    color: white; /* Color del ícono */
+}
 
 /*Estilos y animaciones del banner*/
 
