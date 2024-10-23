@@ -294,6 +294,63 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 </code>
 </pre>
 
+<h1>Instalación del DHCP</h1>
+<p>Ahora que ya hemos configurado el router, es hora de configurar el servicio DHCP para que brinde las IP a todos los clientes que vayamos agregando a lo largo del proyecto.</p>
+
+<h2>Actualización del sistema e instalador del servicio DHCP</h2>
+<p>Nos aseguramos de que nuestro router está actualizado y le instalamos el DHCP</p>
+
+<pre>
+<code>
+<b>sudo apt update && sudo apt upgrade -y</b>
+</code>
+</pre>
+
+y 
+
+<pre>
+<code>
+<b>sudo apt install isc-dhcp-server</b>
+</code>
+</pre>
+
+<h2>Configuración del dhcpd.cong</h2>
+<p>Una vez instalado el servicio DHCP nos dirigimos al archivo de configuración,que se encuentra en la ruta <b>"/etc/dhcp/dhcpd.conf"</b>. En este archivo delcararemos la siguiente configuración: </p>
+
+<ul>
+<li><b>El rango de IPs</b></li>
+
+<li><b>El gateway de la red interna</b></li>
+
+<li><b>La IP del servidor DNS</b></li>
+
+<li><b>El nombre de dominio </b>( Godofredo.com) </li>
+
+<li><b>La resolución inversa del DNS</b></li>
+
+</ul>
+
+<h2>Direcciones estáticas por MAC</h2>
+<p>Durante la configuración de algunos servidores, hemos tenido problemas con las direcciones IP, ya que se cambiaban las IP cada día y no podíamos establecer ninguna configuración definitiva en ningún servidor. Para que esto no pase, hemos configurado algunas direcciones por MAC, de esta forma el DHCP siempre le brindará la misma dirección IP a los servidor.</p>
+
+<p>Para aplicar esto debemos de indicar el nombre del servidor, su MAC address y qué IP queremos que el DHCP le asigne cada vez que se enciende. </p>
+
+<img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/mac-dhcp.png" alt="LOGO-GODO" width="380" height="299" />
+
+<h2>Reiniciamos el servidior y miramamos el estado</h2>
+<pre>
+<code>
+<b>sudo systemctl restart isc-dhcp-server</b>
+</code>
+</pre>
+<p>y</p>
+<pre>
+<code>
+<b>sudo systemctl status isc-dhcp-server</b>
+</code>
+</pre>
+
+
 <h1 id="Instalación Firebase">Instalación Firebase</h1>
 <h2>Funcionamiento interno</h2>
 <p>Primero tenemos que intslar una maquina ubuntu y actualizarla. Para actualizarla tenemos que utilizar el comando <b>update && upgrade</b>. Despues de eso la maquina ya estaria actualizada para poder instalar el firebase.</p>
