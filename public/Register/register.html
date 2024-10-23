@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link rel="stylesheet" href="register.css"> <!-- Asegúrate de enlazar correctamente tu archivo CSS -->
+</head>
+
+<body>
+    <div class="signup">
+        <form id="create">
+            <label for="input-email">
+                <span class="label-text">Email</span>
+            </label>
+            <input id="input-email" name="task-title" type="email" placeholder="email@address.com" required />
+
+            <label for="input-password">
+                <span class="label-text">Password</span>
+            </label>
+            <input id="input-password" name="task-description" type="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required />
+            
+            <label for="input-confirm-password">
+                <span class="label-text">Confirm Password</span>
+            </label>
+            <input id="input-confirm-password" name="confirm-password" type="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required />
+
+            <button type="submit">Create Your Account</button>
+        </form>
+    </div>
+
+    <!-- Enlace a tu archivo JS -->
+    <script type="module" src="./register.js"></script>
+</body>
+
+</html>
