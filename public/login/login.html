@@ -4,17 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="login.css"> <!-- Añade el CSS en este archivo -->
 </head>
 <body>
-    <form id="login">
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="password" name="password" placeholder="Contraseña" required>
-        <button type="submit">Iniciar sesión</button>
-    </form>    
-    
+    <div class="login">
+        <div class="login-triangle"></div>
+
+        <h2 class="login-header">Log in</h2>
+
+        <form id="login" class="login-container">
+            <p><input type="email" name="email" placeholder="Email" required></p>
+            <p><input type="password" name="password" placeholder="Contraseña" required></p>
+            <p><button type="submit">Iniciar sesión</button></p>
+        </form>
+    </div>
 
     <!-- Enlace a firebaseConfig.js -->
     <script type="module" src="./login.js"></script>
-
 </body>
 </html>
