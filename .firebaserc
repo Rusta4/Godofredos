@@ -1,6 +1,7 @@
 {
   "projects": {
-    "godo": "godofredo-a880f"
+    "godo": "godofredo-a880f",
+    "default": "godofredo-a880f"
   },
   "targets": {},
   "etags": {}
