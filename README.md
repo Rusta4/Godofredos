@@ -233,6 +233,67 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 <p>En la máquina cliente, se instaló el paquete <b>qemu-guest-agent</b> mediante el comando <b>sudo apt install qemu-guest-agent</b>. Esta herramienta es útil para la administración de máquinas virtuales y su integración con el sistema Proxmox. Tras la instalación del qemu-guest-agent, hemos realizado ajustes en las opciones de configuración de la máquina virtual cliente en Proxmox.</p>
 <img src="https://github.com/user-attachments/assets/aba1ca56-4c0f-403b-9ad9-fdb9fe35e1ad" alt="LOGO-GODO" width="1000" height="500" />
 
+<h1>Instalación del Router</h1>
+<p>Para la instalación del router no tenemos que extendernos mucho, ya que únicamente hay que configurar el netplan y el iptables.</p>
+
+<h2>Configuración del ens19</h2>
+<p>En primer lugar, configuraremos la interfaz de red ens19 para poder tener conexión con el exterior. Para ello, aplicaremos la siguiente configuración del netplan:</p>
+<img src="[https://github.com/user-attachments/assets/aba1ca56-4c0f-403b-9ad9-fdb9fe35e1ad](https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/netplan-ens19.png
+)" alt="LOGO-GODO" width="468" height="239" />
+
+<p>Hemos configurado el ens19 con la IP 100.77.20.20, que, está dentro de la red que nos permite la conexión con internet. Además, le indicamos que no queremos coger la IP por DHCP para evitar que el router tenga una IP diferente cada vez que se inicia. </p>
+
+<h2>Configuración del ens18</h2>
+<p>En segundo lugar, configuaremos el adaptador de red en18 para que se comunique con la red interna. Esta red es la 10.20.40.0/24 y, tiene como gateway el gateway de la red real que nos permite la conexión a internet ( 100.77.20.1 ). </p>
+
+<img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/netplan-ens18.png" alt="LOGO-GODO" width="513" height="238" />
+
+<h2>Resultado final del netplan del router</h2>
+
+<img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/netplan-router-all.png" alt="LOGO-GODO" width="635" height="525" />
+
+<h2>Iptables y forwarding</h2>
+<p>Una vez configurado los adaptadores de red, hay que configurar el iptables para que los clientes de la red interna tenga acceso a internet.</p>
+
+<h2>Archivo sysctl.conf</h2>
+<p>La primera configuración es el arcvhivo "/etc/sysctl.conf", donde descomentaremos la línea <b>net.ipv4.ip.forward=1</b> para permitir el reenvío de tráfico entre las diferentes interaces de red.</p>
+<img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/sysctl-cong.png" alt="LOGO-GODO" width="247" height="93" />
+
+<h2>Conexión de la red interna con el exterior</h2>
+<p>Una vez realizada esta configuración, utilizaremos ip tables para que el tráfico de la red interna fluya hacia el exterior a través de la red especificada. </p>
+
+<pre>
+<code>
+<b>sudo iptables -A FORWARD -i ens19 -o ens18 -j ACCEPT</b>
+</code>
+</pre>
+
+<p>Además, se añadió una regla para permitir que las respuestas a las solicitudes que se originan desde la red interna puedan regresar sin problemas. Esta regla es esencial para la comunicación bidireccional.</p>
+
+<pre>
+<code>
+<b>sudo iptables -A FORWARD -i ens18 -o ens19 -m state --state ESTABLISHED,RELATED -j ACCEPT</b>
+</code>
+</pre>
+
+<p>Una vez hecho esto, reiniciamos el router y comrpobamos la conexión.</p>
+<pre>
+<code>
+<b>ping 8.8.8.8</b>
+</code>
+</pre>
+<img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/ping-nginx.png
+" alt="LOGO-GODO" width="509" height="175" />
+
+<h2>Reglas permanentes</h2>
+<p>Para que las reglas de IPTables se mantengan después de reiniciar el sistema, instalamos el paquete iptables-persistent</p>
+
+<pre>
+<code>
+<b>sudo apt install iptables-persistent -y</b>
+</code>
+</pre>
+
 <h1 id="Instalación Firebase">Instalación Firebase</h1>
 <h2>Funcionamiento interno</h2>
 <p>Primero tenemos que intslar una maquina ubuntu y actualizarla. Para actualizarla tenemos que utilizar el comando <b>update && upgrade</b>. Despues de eso la maquina ya estaria actualizada para poder instalar el firebase.</p>
