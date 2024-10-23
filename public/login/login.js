@@ -1,5 +1,6 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js';
 import { getFirestore, collection, query, where, getDocs } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js';
+import { getAuth, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
 
 // Configuración de Firebase (reutiliza tu configuración)
 const firebaseConfig = {
@@ -15,6 +16,7 @@ const firebaseConfig = {
 // Inicializa Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const auth = getAuth(app); // Inicializa Firebase Auth
 
 // Función para generar un hash de la contraseña usando la API Crypto
 async function hashPassword(password, salt = crypto.getRandomValues(new Uint8Array(16))) {
@@ -85,7 +87,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Compara las contraseñas
                 if (hashedInputPassword === hashedPassword) {
                     console.log('Inicio de sesión exitoso!');
-                
 
                     // Aquí se guarda el estado de inicio de sesión en localStorage
                     localStorage.setItem('isLoggedIn', 'true');
@@ -112,4 +113,27 @@ function hexToBuffer(hex) {
         arr[i / 2] = parseInt(hex.substr(i, 2), 16);
     }
     return arr.buffer;
+}
+
+// Función para enviar el correo de restablecimiento de contraseña
+async function sendPasswordReset() {
+    const email = document.querySelector('input[name="email"]').value;
+
+    if (!email) {
+        alert('Por favor, introduce tu correo electrónico.');
+        return;
+    }
+
+    try {
+        await sendPasswordResetEmail(auth, email);
+        alert('Se ha enviado un enlace de restablecimiento de contraseña a tu correo electrónico.');
+    } catch (error) {
+        console.error("Error al enviar el correo de restablecimiento: ", error);
+        alert('Ocurrió un error al intentar enviar el correo. Inténtalo de nuevo más tarde.');
+    }
+}
+
+// Lógica del cierre de formulario
+function closeLoginForm() {
+    window.location.href = '../index.html';
 }

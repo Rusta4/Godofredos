@@ -8,26 +8,41 @@
 html, body {
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(to bottom right, #111E25 0%, #111 100%);
     font-family: 'Lato', sans-serif;
+    position: relative; /* Necesario para posicionar el video */
 }
-  
+
+/* Video de fondo */
+#bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+}
+
 .signup {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
-  
+
 form {
+    position: relative;
     width: 70vw;
     max-width: 400px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(89, 102, 172, 0.7); /* Fondo semitransparente */
     padding: 2rem;
     border-radius: 10px;
     overflow: hidden;
 }
-  
+
 input,
 button {
     display: block;
@@ -37,7 +52,7 @@ button {
     font-size: 1rem;
     color: white;
     background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.75); /* Rojo primario */
+    border: 1px solid rgba(255, 255, 255, 0.75);
     border-radius: 5px;
     transition: 0.4s ease;
 }
@@ -45,12 +60,12 @@ button {
 input::placeholder {
     color: #44bb15;
 }
-  
+
 input:focus {
-    border-color: #111; /* Color más claro del primario */
+    border-color: #111;
     outline: none;
 }
-  
+
 button {
     background-color: #44bb15;
     cursor: pointer;
@@ -58,11 +73,11 @@ button {
     font-size: 1.2rem;
     transition: background 0.3s ease;
 }
-  
+
 button:hover {
-    background-color: #44bb15; /* Color más oscuro en hover */
+    background-color: #34a60a;
 }
-  
+
 .label-text {
     display: block;
     margin-bottom: 0.5rem;
@@ -70,7 +85,7 @@ button:hover {
     font-size: 0.9rem;
     letter-spacing: 0.05rem;
 }
-  
+
 .tip {
     text-align: right;
     color: #44bb15;
@@ -78,30 +93,41 @@ button:hover {
     margin-top: -1rem;
     margin-bottom: 1rem;
 }
-  
 
-
-/* Estilos adicionales para mejorar la estética */
-label {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
+/* Estilos adicionales */
 .logo-container {
     display: flex;
     align-items: center;
-    margin-bottom: 20px; /* Espaciado entre el logo y el formulario */
+    margin-bottom: 20px;
 }
 
 .logo {
-    width: 100px; /* Ajusta el tamaño del logo según lo necesites */
-    height: auto; /* Mantiene la proporción del logo */
-    margin-right: 10px; /* Espacio entre el logo y el texto */
+    width: 100px;
+    height: auto;
+    margin-right: 10px;
 }
 
 h1 {
-    font-size: 50px; /* Ajusta el tamaño del texto */
-    margin: 0; /* Elimina márgenes por defecto */
-    color: white; /* Cambia el color del texto a blanco */
+    font-size: 50px;
+    margin: 0;
+    color: white;
+}
+
+/* Estilo del botón de cierre */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: red;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.close-btn:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.close-btn i {
+    font-size: 24px;
 }
