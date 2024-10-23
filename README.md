@@ -22,6 +22,8 @@
     <ul>
         <li><a href="#Imagen Arquitectura">Imagen Arquitectura</a></li>
     </ul>
+    <li><b><a href="#Router">Router</a></b></li>
+    <li><b><a href="#DHCP">DHCP</a></b></li>
     <li><b><a href="#Firebase">Firebase</a></b></li>
     <li><b><a href="#DNS">DNS</a></b></li>
     <li><b><a href="#NGINX (Web)">NGINX (Web)</a></b></li>
@@ -143,6 +145,15 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 <h2 id="Imagen Arquitectura">Imagen Arquitectura</h2>
 <p>Nuestra arquitectura esta basada en una red virtual, la cual consta de un cliente (MV CLIENTE) que se conecta a Firebase mediante una máquina virtual que funciona como router (MV ROUTER) y un router físico conectado a Internet. Dicho enrutador consta con una dirección IP pública dinámica (100.77.20.X), la cual permite la conexión a Internet. MV ROUTER administra dos interfaces: una (VMBR0) externa con IP pública (100.77.20.120) conectada al router físico y otra (VMBR1) interna con IP privada (10.20.40.1) para la comunicación en la red local con el cliente (IP 10.20.40.2). La creación de estas dos redes permite al cliente el acceso a servicios externos, como Firebase, mediante la infraestructura virtual y física. Nosotros lo hemos realizado de la siguiente manera, </p>.
 <img src="https://github.com/user-attachments/assets/fe519f3a-bd52-4966-bbc3-93b77aabf96b" alt="LOGO-GODO" width="900" height="600" />
+
+
+<h1 id="Router">Router</h1>
+<p>La incorporación de un router en nuestro proyecto es fundamental para su desarrollo, ya que necesitamos un dispositivo que actúe como puente y permita la conexión entre la red interna y el internet. Para lograr esto, configuraremos dos adaptadores: el primero establecerá la conexión con una red que tenga acceso a internet, mientras que el segundo se comunicará con la red interna. A través de la utilización de iptables, podremos habilitar el reenvío de paquetes, permitiendo así que los dispositivos de la red interna accedan a internet.</p>
+
+
+
+<h1 id="DHCP">DHCP</h1>
+<p>La integración de un servidor DHCP en nuestro proyecto es esencial para facilitar la gestión de direcciones IP en la red. Este dispositivo se encargará de asignar automáticamente direcciones IP a los dispositivos que se conectan a la red, simplificando así la configuración de cada uno. Al establecer un rango de direcciones disponibles y configurar el tiempo de concesión, el servidor DHCP asegura que cada dispositivo reciba una IP única sin conflictos</p>
 
 
 
