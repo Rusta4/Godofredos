@@ -31,6 +31,8 @@
     <li><b><a href="#Instalaciones">Instalaciones:</a></b></li>
     <ul>
         <li><a href="#Instalación Proxmox">Instalacion Proxmox</a></li>
+        <li><a href="#Instalación Router">Instalacion Router</a></li>
+        <li><a href="#Instalación DHCP">Instalacion DHCP</a></li>
         <li><a href="#Instalación Firebase">Instalacion Firebase</a></li>
         <li><a href="#Instalación DNS">Instalacion DNS</a>
         <li><a href="#Instalación NGINX">Instalacion NGINX y SSL</a></li>
@@ -233,7 +235,7 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 <p>En la máquina cliente, se instaló el paquete <b>qemu-guest-agent</b> mediante el comando <b>sudo apt install qemu-guest-agent</b>. Esta herramienta es útil para la administración de máquinas virtuales y su integración con el sistema Proxmox. Tras la instalación del qemu-guest-agent, hemos realizado ajustes en las opciones de configuración de la máquina virtual cliente en Proxmox.</p>
 <img src="https://github.com/user-attachments/assets/aba1ca56-4c0f-403b-9ad9-fdb9fe35e1ad" alt="LOGO-GODO" width="1000" height="500" />
 
-<h1>Instalación del Router</h1>
+<h1 id="Instalación Router">Instalación del Router</h1>
 <p>Para la instalación del router no tenemos que extendernos mucho, ya que únicamente hay que configurar el netplan y el iptables.</p>
 
 <h2>Configuración del ens19</h2>
@@ -294,7 +296,7 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 </code>
 </pre>
 
-<h1>Instalación del DHCP</h1>
+<h1 id="Instalación DHCP">Instalación del DHCP </h1>
 <p>Ahora que ya hemos configurado el router, es hora de configurar el servicio DHCP para que brinde las IP a todos los clientes que vayamos agregando a lo largo del proyecto.</p>
 
 <h2>Actualización del sistema e instalador del servicio DHCP</h2>
@@ -314,7 +316,7 @@ y
 </code>
 </pre>
 
-<h2>Configuración del dhcpd.cong</h2>
+<h2>Configuración del dhcpd.conf</h2>
 <p>Una vez instalado el servicio DHCP nos dirigimos al archivo de configuración,que se encuentra en la ruta <b>"/etc/dhcp/dhcpd.conf"</b>. En este archivo delcararemos la siguiente configuración: </p>
 
 <ul>
