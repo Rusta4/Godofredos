@@ -30,8 +30,8 @@
     <ul>
         <li><a href="#Instalación Proxmox">Instalacion Proxmox</a></li>
         <li><a href="#Instalación Firebase">Instalacion Firebase</a></li>
-        <li><a href="#Instalación DNS">Instalacion DNS</a></li>
-        <li><a href="#Instalación NGINX">Instalacion NGINX</a></li>
+        <li><a href="#Instalación DNS">Instalacion DNS</a>
+        <li><a href="#Instalación NGINX">Instalacion NGINX y SSL</a></li>
         <li><a href="#Instalación FTP">Instalacion FTP</a></li>
     </ul>
 </ul>
@@ -313,7 +313,7 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 
 
 <h1 id="Instalación DNS">Instalación DNS</h1>
-<h3>Actualización del sistema e instalación de Bind9</h3>
+<h2>Actualización del sistema e instalación de Bind9</h2>
 <pre>
 <code>
 <b>sudo apt update && sudo apt upgrade -y</b>
@@ -327,14 +327,14 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 </pre>
 <br>
 
-<h3>Configuración del netplan</h3>
+<h2>Configuración del netplan</h2>
 
 <p>Accedemos al archivo "/etc/netplan/00-network-manager-all.yaml" y le indicamos que coja la dirección IP con el dhcp4 que ya hemos configurado. <br>
 <img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/netplan-dns.png" alt="LOGO-GODO" width="500" height="300" />
 
 <br>
 <br>
-<h3>Configuración named.conf.options</h3>
+<h2>Configuración named.conf.options</h2>
 
 <p>Accedemos al archivo "/etc/bind/named.conf.options" y editamos los forwardes para agregar el servidor de google como un servidor externo. <br>
 <img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/forwarders.png" alt="LOGO-GODO" width="500" height="200" />
@@ -347,7 +347,7 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 </code>
 </pre>
 <br>
-<h3>Edición del archivo named.conf.local</h3>
+<h2>Edición del archivo named.conf.local</h2>
 <p>Una vez editado este archivo procederemos a editar el siguiente "sudo nano /etc/bind/named.conf.local". En este archivo declararemos las zonas ( dominios ) tanto directas como inversas y declararemos el servidor como autoritativo.</p>
 
 <p>Además, aunque no hayamos creado aún el archivo de configuración de la zona vamos adelatando trabajo y declaramos que dicho archivo de configuración se llamará db.godofredo.com y db.10.20.40</p>
@@ -355,7 +355,7 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 <img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/archivo-conf.local.png" alt="LOGO-GODO" width="550" height="500" />
 
 <br>
-<h3>Configuración de la zona directa e inversa</h3>
+<h2>Configuración de la zona directa e inversa</h2>
 
 <p>El siguiente paso crearemos una carpeta ( para tenerlo todo mejor organizado ) donde pondremos los archivos de configuración de la zona directa e inversa, esta carpeta se llamará "zones"</p>
 
@@ -392,14 +392,14 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 
 
 <br>
-<h3>Edición del archivo named</h3>
+<h2>Edición del archivo named</h2>
 <p>Ya casi finalizamos, pero antes debemos de modificar un pequeño parámetro del archivo "/etc/default/named", donde especificaremos la opción -4, por lo que obliga al servidor a utilizar IPv4 y evitar errores de red por direccionamiento de IPv6.</p>
 
 <img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/-4.png" alt="LOGO-GODO" width="500" height="200" />
 
 <br>
 
-<h3>Edición del archivo resolv.conf y enlaces simbólicos</h3>
+<h2>Edición del archivo resolv.conf y enlaces simbólicos</h2>
 <p>Llegados a este punto si le hacemos un nslookup a godofredo.com nos dará error y nos devolvera 127.0.0.1 . Para que esto no pase, debemos de configurar el archivo "/run/systemd/resolve/resolv.conf" con la IP de nuestro servidor y el nombre de dominio.</p>
 
 <img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/resolv.conf.png" alt="LOGO-GODO" width="400" height="200" />
@@ -438,7 +438,7 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 </pre>
 
 <br>
-<h3>Reiniciamos Bind9</h3>
+<h2>Reiniciamos Bind9</h2>
 
 <p>Reiniciamos el bind9 para aplicar los cambios</p>
 
@@ -471,7 +471,7 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 </pre>
 <br>
 
-<h3>Creación de la carpeta de nuestro dominio</h3>
+<h2>Creación de la carpeta de nuestro dominio</h2>
 
 <p>Creamos una carpeta en el directorio <b>/var/www/html/godofredo.com</b></p><br>
 <pre>
@@ -492,7 +492,7 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 </pre>
     
 
-<h3>Creación del archivo de configuración de Nginx</h3>
+<h2>Creación del archivo de configuración de Nginx</h2>
 <p>Este archivo es un punto clave a la hora de de configurar Nginx, ya que con este archivo definiremos la manera en cómo Nginx maneja las solicitudes que lleguen al dominio o la dirección IP</p>
 <p><br>
 <pre>
@@ -504,7 +504,7 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 <p>Con la siguiente configuración:</p>
 <img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/sites-available.png" alt="LOGO-GODO" width="450" height="300" />
 
-<h3>Creación del enlace simbólico</h3>
+<h2>Creación del enlace simbólico</h2>
 
 <p>Creamos un enlace simbólico en sites-enables para indicarle a Nginx que incluya automáticamente la configuración que estamos aplicando al inciar el servicio.</p>
 
@@ -518,7 +518,7 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 
 <img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/enlace-simbolico.png" alt="LOGO-GODO" width="650" height="70" />
 
-<h3>Verificación de la configuración</h3>
+<h2>Verificación de la configuración</h2>
 
 <p>Para asegurarnos que no hemos cometido ningún error, aplicaremos el sigueinte comando:</p>
 
@@ -544,7 +544,7 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 </pre>
 
 
-<h3>Configuración visual de nuestra web</h3>
+<h2>Configuración visual de nuestra web</h2>
 
 <p>Ahora que ya hemos configurado el servidor, tenemos que añadir los archivos de nuestra web para que, al buscarla en el navegador, aparezca directamente la web que hemos desarrollado.</p>
 <p>Para ello, deberemos de ir a la ruta <b>/var/www/html/godofredo.com</b> y añadimos todos los archivos de nuestra web, tanto .html, .css, .jpg ......</p>
@@ -552,6 +552,74 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 <img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/archivos-web.png" alt="LOGO-GODO" width="650" height="70" />
 <br>
 
+<h2>Resultado final</h2>
+<img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/resultado-nginx.png" alt="LOGO-GODO" width="750" height="650" />
+<br>
+
+<h1>Implementación de un certificado SSL</h1>
+
+<h2>¿Qué es un certificado SSL?</h2>
+<p>Ahora que ya hemos configurado nuestra página web, tnemos que garantizar que el acceso a esta sea lo más seguro posible. Hasta el momento hemos estado estableciendo la conexión mediante http ( puerto 80 ), una muy mala práctica, ya que no tenemos seguridad alguna. Para añadir esta pequeña capa de seguridad extra a nuestro sitio web añadiremos un certificado ssl, que no es más que un archivo que asegura que la conexión entre el navegador web y el servidor es totalmente seguro.</p>
+
+<p>Mediante la utilización de este tipo de certificados, podemos cifrar la información que se transmite, así como los datos personales y contraseñas, para que no puedan ser interceptados. Por últimio, nos permite autenticar que el sitio web es legítimo, por lo que los usuarios podrán navegar tranquilamente y aumentaremos la confianza de los visitantes.</p>
+<br>
+<h2>Creación de la carpeta "ssl-certs"</h3>
+<p>El primer paso y, el más importante de todos es crear una carpeta donde poder guardar nuestros certificados, de esta forma podemos trabajar en un entorno mucho más organizado y, a la hora de definir el path en el archivo de configuración será todo mucho más sencillo.</p>
+
+<pre>
+<code>
+<b> sudo mkdir /ec/nginx/ssl-certs/</b>
+</code>
+</pre>
+<br>
+<h2>openssl</h2>
+<p>Una vez que ya tenemos nuestro entorno organizado, crearemos un certificado autofirmado junto con la clave mediante la utilización de openssl. Para ello, ejecutaremos el siguiente comando: </p>
+
+<pre>
+<code>
+<b> sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl-certs/godofredo.com.key -out /etc/nginx/ssl-certs/godofredo.com.crt</b>
+</code>
+</pre>
+
+<ul>
+<li><b>req</b> -x509: indica que estamos generando un certificado en formato X.509, que es un estándar utilizado para certificados digitales.</li>
+
+<li><b>-nodes:</b> significa "no cifrar la clave privada", lo que implica que la clave generada no estará protegida por una contraseña.</li>
+
+<li><b>-days 365:</b> establece la duración de validez del certificado, en este caso, un año (365 días).</li>
+
+<li><b>-newkey rsa:2048:</b> indica que se generará una nueva clave utilizando el algoritmo RSA, y que la longitud de esta clave será de 2048 bits.</li>
+
+<li><b>-keyout /etc/nginx/ssl-certs/kirby.com.key:</b> define la ubicación completa donde se guardará la clave RSA generada.</li>
+
+<li><b>-out /etc/nginx/ssl-certs/kirby.com.crt:</b> especifica la ubicación completa del archivo donde se almacenará el certificado creado.</li>
+
+</ul>
+<br>
+<h2>Configuración del archivo de dominio </h2>
+<p>Una vez que ya hemos generado nuestro certificado privado debemos indicarle a nginx que utilice este arhivo. Para ello, abriremos el archivo ""etc/nginx/sites-enabled/godofredo.com" y aplicaremos la siguiente configuración:</p>
+<img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/conf-ssl.png" alt="LOGO-GODO" width="594" height="316" />
+<br>
+<h2>Comprobación y reinicio</h2>
+
+<p>Una vez realizada toda la configuración comprobamos que todo esté bien con el siguiente comando:</p>
+<pre>
+<code>
+<b> nginx -t</b>
+</code>
+</pre>
+
+<p>Si nos devuelve todo "Successful" significará que tenemos toda la configuración bien y que ya podemos reiniciar</p>
+<pre>
+<code>
+<b> sudo systemctl restart nginx</b>
+</code>
+</pre>
+<br>
+<h2>Resultado final</h2>
+<p>Una vez que ya hemos hecho todo esto, comprobamos que funciona todo correctamente accediendo a nuestra web con https://godofredo.com</p>
+<img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/ssl-evidencia-web.png" alt="LOGO-GODO" width="1205" height="770" />
+<br>
 
 <h1 id="Instalación FTP">Instalación FTP</h1>
 <p>Para instalar el FTP en tu maquina tenemos que poner este comando:</p>
