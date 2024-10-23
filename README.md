@@ -554,9 +554,9 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 
 <h2>Resultado final</h2>
 <img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/resultado-nginx.png" alt="LOGO-GODO" width="750" height="650" />
+<br>
 
-
-<h3>Implementación de un certificado SSL</h3>
+<h1>Implementación de un certificado SSL</h1>
 
 <h2>¿Qué es un certificado SSL?</h2>
 <p>Ahora que ya hemos configurado nuestra página web, tnemos que garantizar que el acceso a esta sea lo más seguro posible. Hasta el momento hemos estado estableciendo la conexión mediante http ( puerto 80 ), una muy mala práctica, ya que no tenemos seguridad alguna. Para añadir esta pequeña capa de seguridad extra a nuestro sitio web añadiremos un certificado ssl, que no es más que un archivo que asegura que la conexión entre el navegador web y el servidor es totalmente seguro.</p>
