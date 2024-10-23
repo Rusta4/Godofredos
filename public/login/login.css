@@ -1,95 +1,108 @@
-/* 'Open Sans' font from Google Fonts */
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+/* Estilos generales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-body {
-  background: #000; /* Negro */
-  font-family: 'Open Sans', sans-serif;
+html, body {
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to bottom right, #111E25 0%, #111 100%);
+  font-family: 'Open Sans', sans-serif; /* Cambié a Open Sans */
   color: #fff; /* Blanco */
 }
 
 .login {
-  width: 400px;
-  margin: 16px auto;
-  font-size: 16px;
-}
-
-/* Reset top and bottom margins from certain elements */
-.login-header,
-.login p {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-/* The triangle form is achieved by a CSS hack */
-.login-triangle {
-  width: 0;
-  margin-right: auto;
-  margin-left: auto;
-  border: 12px solid transparent;
-  border-bottom-color: #006; /* Azul oscuro */
-}
-
-.login-header {
-  background: #006; /* Azul oscuro */
-  padding: 20px;
-  font-size: 1.4em;
-  font-weight: normal;
-  text-align: center;
-  text-transform: uppercase;
-  color: #fff; /* Blanco */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .login-container {
-  background: #d3d3d3; /* Gris claro */
-  padding: 12px;
+  width: 70vw; /* Cambiado a 70vw */
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.1); /* Fondo semitransparente */
+  padding: 2rem;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-/* Every row inside .login-container is defined with p tags */
-.login p {
-  padding: 12px;
-}
-
-.login input {
-  box-sizing: border-box;
+input,
+button {
   display: block;
   width: 100%;
-  border-width: 1px;
-  border-style: solid;
-  padding: 16px;
-  outline: 0;
-  font-family: inherit;
-  font-size: 0.95em;
+  padding: 0.75rem;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  color: white;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.75); /* Cambiado a color semitransparente */
+  border-radius: 5px;
+  transition: 0.4s ease;
 }
 
-.login input[type="email"],
-.login input[type="password"] {
-  background: #fff; /* Blanco */
-  border-color: #bbb;
-  color: #333; /* Gris oscuro */
+input::placeholder {
+  color: #44bb15; /* Color del placeholder */
 }
 
-/* Text fields' focus effect */
-.login input[type="email"]:focus,
-.login input[type="password"]:focus {
-  border-color: #888;
+input:focus {
+  border-color: #111; /* Color más claro del primario */
+  outline: none;
 }
 
-.login button {
-  background: #0f0; /* Verde fuerte */
-  border: none;
-  color: #000; /* Negro */
+button {
+  background-color: #44bb15; /* Color de fondo del botón */
   cursor: pointer;
-  padding: 16px;
-  width: 100%;
-  font-size: 0.95em;
   text-transform: uppercase;
+  font-size: 1.2rem; /* Ajustado al tamaño del texto */
+  transition: background 0.3s ease;
 }
 
-.login button:hover {
-  background: #0c0; /* Verde fuerte, ligeramente más oscuro */
+button:hover {
+  background-color: #34a60a; /* Color más oscuro en hover */
 }
 
-/* Buttons' focus effect */
-.login button:focus {
-  border-color: #009; /* Azul oscuro */
+.label-text {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+}
+
+.tip {
+  text-align: right;
+  color: #44bb15;
+  font-size: 0.75rem;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+}
+
+/* Estilos adicionales para mejorar la estética */
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centra el logo y el texto */
+  margin-bottom: 20px; /* Espaciado entre el logo y el formulario */
+}
+
+.logo {
+  width: 100px; /* Ajusta el tamaño del logo según lo necesites */
+  height: auto; /* Mantiene la proporción del logo */
+  margin-left: -100px;
+  margin-right: 20px; /* Espacio entre el logo y el texto */
+}
+
+.login-text {
+  font-size: 24px; /* Ajusta el tamaño del texto */
+  font-weight: bold; /* Negrita para el texto */
+  margin-top: 10px; /* Espacio entre el logo y el texto */
+}
+
+h1 {
+  font-size: 50px; /* Ajusta el tamaño del texto */
+  margin: 0; /* Elimina márgenes por defecto */
+  color: white; /* Cambia el color del texto a blanco */
 }

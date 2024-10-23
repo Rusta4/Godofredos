@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
 
                 console.log('Cuenta creada con éxito!');
-                alert("Cuenta creada con éxito!");
+                
 
                 // Redirecciona a la página de inicio de sesión
                 window.location.href = "../login/login.html";

@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Compara las contraseñas
                 if (hashedInputPassword === hashedPassword) {
                     console.log('Inicio de sesión exitoso!');
-                    alert("Inicio de sesión exitoso!");
+                
 
                     // Aquí se guarda el estado de inicio de sesión en localStorage
                     localStorage.setItem('isLoggedIn', 'true');

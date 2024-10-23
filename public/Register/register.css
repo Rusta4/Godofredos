@@ -79,21 +79,29 @@ button:hover {
     margin-bottom: 1rem;
 }
   
-  
-/* Ajustes de margen para los nav-dots */
-label[for="input-email"] .nav-dot {
-    margin-top: 0px;
-}
-label[for="input-password"] .nav-dot {
-    margin-top: 10px;
-}
-label[for="input-confirm-password"] .nav-dot {
-    margin-top: 20px;
-}
-  
+
+
 /* Estilos adicionales para mejorar la estética */
 label {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; /* Espaciado entre el logo y el formulario */
+}
+
+.logo {
+    width: 100px; /* Ajusta el tamaño del logo según lo necesites */
+    height: auto; /* Mantiene la proporción del logo */
+    margin-right: 10px; /* Espacio entre el logo y el texto */
+}
+
+h1 {
+    font-size: 50px; /* Ajusta el tamaño del texto */
+    margin: 0; /* Elimina márgenes por defecto */
+    color: white; /* Cambia el color del texto a blanco */
 }
