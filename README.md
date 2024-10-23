@@ -31,6 +31,8 @@
     <li><b><a href="#Instalaciones">Instalaciones:</a></b></li>
     <ul>
         <li><a href="#Instalación Proxmox">Instalacion Proxmox</a></li>
+        <li><a href="#Instalación Router">Instalacion Router</a></li>
+        <li><a href="#Instalación DHCP">Instalacion DHCP</a></li>
         <li><a href="#Instalación Firebase">Instalacion Firebase</a></li>
         <li><a href="#Instalación DNS">Instalacion DNS</a>
         <li><a href="#Instalación NGINX">Instalacion NGINX y SSL</a></li>
@@ -233,7 +235,7 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 <p>En la máquina cliente, se instaló el paquete <b>qemu-guest-agent</b> mediante el comando <b>sudo apt install qemu-guest-agent</b>. Esta herramienta es útil para la administración de máquinas virtuales y su integración con el sistema Proxmox. Tras la instalación del qemu-guest-agent, hemos realizado ajustes en las opciones de configuración de la máquina virtual cliente en Proxmox.</p>
 <img src="https://github.com/user-attachments/assets/aba1ca56-4c0f-403b-9ad9-fdb9fe35e1ad" alt="LOGO-GODO" width="1000" height="500" />
 
-<h1>Instalación del Router</h1>
+<h1 id="Instalación Router">Instalación del Router</h1>
 <p>Para la instalación del router no tenemos que extendernos mucho, ya que únicamente hay que configurar el netplan y el iptables.</p>
 
 <h2>Configuración del ens19</h2>
@@ -293,6 +295,63 @@ También hemos configurado una regla para permitir que el tráfico desde la red 
 <b>sudo apt install iptables-persistent -y</b>
 </code>
 </pre>
+
+<h1 id="Instalación DHCP">Instalación del DHCP </h1>
+<p>Ahora que ya hemos configurado el router, es hora de configurar el servicio DHCP para que brinde las IP a todos los clientes que vayamos agregando a lo largo del proyecto.</p>
+
+<h2>Actualización del sistema e instalador del servicio DHCP</h2>
+<p>Nos aseguramos de que nuestro router está actualizado y le instalamos el DHCP</p>
+
+<pre>
+<code>
+<b>sudo apt update && sudo apt upgrade -y</b>
+</code>
+</pre>
+
+y 
+
+<pre>
+<code>
+<b>sudo apt install isc-dhcp-server</b>
+</code>
+</pre>
+
+<h2>Configuración del dhcpd.conf</h2>
+<p>Una vez instalado el servicio DHCP nos dirigimos al archivo de configuración,que se encuentra en la ruta <b>"/etc/dhcp/dhcpd.conf"</b>. En este archivo delcararemos la siguiente configuración: </p>
+
+<ul>
+<li><b>El rango de IPs</b></li>
+
+<li><b>El gateway de la red interna</b></li>
+
+<li><b>La IP del servidor DNS</b></li>
+
+<li><b>El nombre de dominio </b>( Godofredo.com) </li>
+
+<li><b>La resolución inversa del DNS</b></li>
+
+</ul>
+
+<h2>Direcciones estáticas por MAC</h2>
+<p>Durante la configuración de algunos servidores, hemos tenido problemas con las direcciones IP, ya que se cambiaban las IP cada día y no podíamos establecer ninguna configuración definitiva en ningún servidor. Para que esto no pase, hemos configurado algunas direcciones por MAC, de esta forma el DHCP siempre le brindará la misma dirección IP a los servidor.</p>
+
+<p>Para aplicar esto debemos de indicar el nombre del servidor, su MAC address y qué IP queremos que el DHCP le asigne cada vez que se enciende. </p>
+
+<img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/mac-dhcp.png" alt="LOGO-GODO" width="380" height="299" />
+
+<h2>Reiniciamos el servidior y miramamos el estado</h2>
+<pre>
+<code>
+<b>sudo systemctl restart isc-dhcp-server</b>
+</code>
+</pre>
+<p>y</p>
+<pre>
+<code>
+<b>sudo systemctl status isc-dhcp-server</b>
+</code>
+</pre>
+
 
 <h1 id="Instalación Firebase">Instalación Firebase</h1>
 <h2>Funcionamiento interno</h2>
