@@ -36,7 +36,7 @@ html, body {
 
 .login-container {
   width: 70vw; /* Cambiado a 70vw */
-  max-width: 400px;
+  max-width: 500px;
   background: rgba(89, 102, 172, 0.7); /* Fondo semitransparente */
   padding: 2rem;
   border-radius: 10px;
