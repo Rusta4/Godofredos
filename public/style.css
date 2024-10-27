@@ -13,6 +13,7 @@ html{
 
 body{
     font-family: 'Lexend Deca', sans-serif;
+    color: #caeef8;
     margin: 0;
 }
 
@@ -34,7 +35,7 @@ li{ font-size: 1.25em;}
 
 #logout-button i {
     font-size: 20px; /* Tamaño del ícono */
-    color: white; /* Color del ícono */
+    color: #caeef8; /* Color del ícono */
 }
 
 /*Estilos y animaciones del banner*/
@@ -48,7 +49,7 @@ li{ font-size: 1.25em;}
     padding: 15px 50px;
     background-color: #1e88e5; /* Azul intenso */
     border-radius: 30px;
-    color: white;
+    color: #caeef8;
     border: none;
     transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
@@ -126,7 +127,7 @@ li{ font-size: 1.25em;}
     margin: auto;
 }
 
-.color-acento{ color:orange}
+.color-acento{ color:#caeef8}
 
 
 
@@ -140,7 +141,7 @@ header .logo{
     margin: 0;
     padding: 25px 30px;
     font-weight: bold;
-    color: wheat;
+    color: #caeef8;
     font-size: 1.6em;
 }
 
@@ -161,12 +162,12 @@ header a{
     padding: 5px 12px;
     text-decoration: none;
     font-weight: bold;
-    color: wheat;
+    color: #caeef8;
     /*color: rgba(255, 255, 255, 0.781);*/
 }
 
 header a:hover{
-    color: white;
+    color: #caeef8;
 }
 
 #banner-bienvenida-web {
@@ -194,11 +195,11 @@ header a:hover{
 
 .contenido-banner {
     z-index: 1;
-    color: white;
+    color: #caeef8;
 }
 
 #banner-bienvenida-web h1 {
-    color: white;
+    color: #caeef8;
     font-size: 3em;
 }
 
@@ -208,7 +209,7 @@ header a:hover{
 
 
 #banner-bienvenida-web h1{
-    color: white;
+    color: #caeef8;
 }
 
 #banner-bienvenida-web button{
@@ -281,7 +282,7 @@ header a:hover{
 
 #servicios-de-godofredo {
     background-color: rgb(30, 30, 30);
-    color: white;
+    color: #caeef8;
     text-align: center;
 }
 
@@ -304,7 +305,7 @@ header a:hover{
     border-radius: 15px;
     overflow: hidden; /* Asegura que el contenido no se desborde */
     text-decoration: none; /* Elimina el subrayado de los enlaces */
-    color: white; /* Color de texto por defecto */
+    color: #caeef8; /* Color de texto por defecto */
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
@@ -379,7 +380,7 @@ header a:hover{
     align-items: center;
     text-align: center;
     background-color: rgb(30,30,30);
-    color: white;
+    color: #caeef8;
     height: 80vh;
 }
 
@@ -691,7 +692,7 @@ header a:hover{
 
 
 footer {
-    background-color: rgb(230, 230, 230);
+    background-color: #caeef8;
 }
 
 footer p {
