@@ -1,5 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+
+
+body{
+    font-family: 'Source Code Pro', sans-serif; /* Fuente predeterminada para todo el cuerpo */
+    margin: 0;
+}
 /* Estilos generales */
 * {
+    font-family: 'Source Code Pro', sans-serif; /* Fuente predeterminada para todo el cuerpo */
     margin: 0;
     padding: 0;
     box-sizing: border-box;

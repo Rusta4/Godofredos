@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
 
+
 *{
     box-sizing: border-box;
 }
@@ -9,7 +10,7 @@ html{
 }
 
 body{
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Code Pro', sans-serif; /* Fuente predeterminada para todo el cuerpo */
     margin: 0;
 }
 
@@ -388,22 +389,7 @@ header a:hover{
     font-size: 5vw;
 }
 
-footer{
-    background-color: rgb(230,230,230);
-}
 
-footer p{
-    margin: 0;
-    padding: 12px;
-    color: rgb(100,100,100);
-}
-
-footer .contenedor-general{
-    height: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-}
 
 @media (min-width: 850px){
     header{
@@ -504,9 +490,7 @@ footer .contenedor-general{
         font-size: 2em;
     }
 
-    footer .contenedor-general{
-        justify-content: flex-end;
-    }
+
 }
 
 @media (min-width: 1200px) {
@@ -704,4 +688,26 @@ footer .contenedor-general{
 }
 
 
-/*log in*/
+footer {
+    background-color: rgb(230, 230, 230);
+}
+
+footer p {
+    margin: 0;
+    padding: 12px;
+    color: rgb(100, 100, 100);
+}
+
+footer .contenedor-general {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+/* Ajustes para pantallas grandes */
+@media (min-width: 850px) {
+    footer .contenedor-general {
+        justify-content: flex-end;
+    }
+}
