@@ -56,7 +56,8 @@ li{ font-size: 1.25em;}
 }
 
 #banner-bienvenida-web button:hover {
-    background-color: #1565c0; 
+    background-color: #caeef8; 
+    color: #041d49;
     transform: scale(1.05); 
  }
 
