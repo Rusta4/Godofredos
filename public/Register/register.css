@@ -85,7 +85,8 @@ button {
 }
 
 button:hover {
-    background-color: #041d49;
+    background-color: #caeef8;
+    color: #041d49;
 }
 
 .label-text {

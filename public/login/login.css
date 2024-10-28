@@ -81,7 +81,8 @@ button {
 }
 
 button:hover {
-  background-color: #041d49; /* Color más oscuro en hover */
+  background-color: #caeef8;
+  color: #041d49; /* Color más oscuro en hover */
 }
 
 .label-text {
