@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil del Usuario</title>
+    <style>
+        /* Estilos básicos */
+        #change-password, #delete-account {
+            margin-top: 20px;
+        }
+        .editable {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .edit-icon {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Perfil del Usuario</h1>
+    <div id="user-profile">
+        <p>Email: <span id="email"></span></p>
+        <p>Nombre: <input type="text" id="name" class="editable" /> <span class="edit-icon" id="save-name-btn">💾</span></p>
+        <!-- Agrega otros campos que quieras mostrar -->
+    </div>
+
+    <div id="change-password">
+        <h2>Cambiar Contraseña</h2>
+        <input type="password" id="old-password" placeholder="Contraseña antigua" required>
+        <input type="password" id="new-password" placeholder="Nueva contraseña" required>
+        <input type="password" id="confirm-new-password" placeholder="Confirmar nueva contraseña" required>
+        <button id="change-password-btn">Cambiar Contraseña</button>
+    </div>
+
+    <div id="delete-account">
+        <h2>Eliminar Cuenta</h2>
+        <button id="delete-account-btn">Eliminar mi cuenta</button>
+    </div>
+    
+    <script src="profile.js" type="module"></script>
+</body>
+</html>

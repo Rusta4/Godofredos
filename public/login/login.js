@@ -73,11 +73,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (hashedInputPassword === hashedPassword) {
                     console.log('Inicio de sesión exitoso!');
 
-                    // Aquí se guarda el estado de inicio de sesión en localStorage
+                    // Guarda el estado de inicio de sesión y el correo del usuario en localStorage
                     localStorage.setItem('isLoggedIn', 'true');
+                    localStorage.setItem('userEmail', email);
 
-                    // Redirecciona a la página principal
-                    window.location.href = "../index.html";
+                    // Redirecciona a la página principal o perfil
+                    window.location.href = "../index.html";  // O "../profile.html" si prefieres que vaya directo al perfil
                 } else {
                     console.error("Contraseña incorrecta.");
                     alert("Por favor, inténtalo de nuevo. El Usuario o Contraseña no es correcto");
@@ -90,6 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
         console.error("El formulario con el ID 'login' no fue encontrado.");
     }
 });
+
 
 // Convierte un string hexadecimal a un ArrayBuffer
 function hexToBuffer(hex) {
