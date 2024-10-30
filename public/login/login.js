@@ -1,22 +1,7 @@
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js';
-import { getFirestore, collection, query, where, getDocs } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js';
-import { getAuth, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+// archivo principal
+import { db } from '../BBDD/firebaseConf.js';
+import { collection, query, where, getDocs } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js';
 
-// Configuración de Firebase (reutiliza tu configuración)
-const firebaseConfig = {
-    apiKey: "AIzaSyARcCiDcOJE4PSJQEE-RyLGr43P8QnMeoI",
-    authDomain: "godofredo-a880f.firebaseapp.com",
-    databaseURL: "https://godofredo-a880f-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "godofredo-a880f",
-    storageBucket: "godofredo-a880f.appspot.com",
-    messagingSenderId: "679438036638",
-    appId: "1:679438036638:web:8759dc32e09ed956b9d58f"
-};
-
-// Inicializa Firebase
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-const auth = getAuth(app); // Inicializa Firebase Auth
 
 // Función para generar un hash de la contraseña usando la API Crypto
 async function hashPassword(password, salt = crypto.getRandomValues(new Uint8Array(16))) {

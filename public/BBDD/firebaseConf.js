@@ -1,7 +1,8 @@
-// firebaseConfig.js
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-app.js";
+// firebaseConf.js
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js';
+import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js';
 
-// Firebase configuration
+// Configuración de Firebase
 const firebaseConfig = {
     apiKey: "AIzaSyARcCiDcOJE4PSJQEE-RyLGr43P8QnMeoI",
     authDomain: "godofredo-a880f.firebaseapp.com",
@@ -12,5 +13,9 @@ const firebaseConfig = {
     appId: "1:679438036638:web:8759dc32e09ed956b9d58f"
 };
 
-// Initialize Firebase
+// Inicializa Firebase y Firestore
 const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// Exporta la configuración de Firebase y la instancia de Firestore
+export { firebaseConfig, db };

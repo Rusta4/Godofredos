@@ -7,7 +7,28 @@
     <title>Login</title>
     <link rel="icon" href="../logo/hacker.png" type="image/x-icon">
     <link rel="stylesheet" href="./login.css"> <!-- Add your CSS file -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Font Awesome for icons -->
+    <!-- Aquí van tus scripts de bloqueo -->
+    <script>
+        // Deshabilita el menú contextual (clic derecho)
+        document.addEventListener("contextmenu", function (event) {
+            event.preventDefault();
+        });
+
+        // Deshabilita teclas como F12, Ctrl+Shift+I, Ctrl+U
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "F12") {
+                event.preventDefault();
+            }
+            if (event.ctrlKey && event.shiftKey && event.key === "I") {
+                event.preventDefault();
+            }
+            if (event.ctrlKey && event.key === "u") {
+                event.preventDefault();
+            }
+        });
+    </script>
 </head>
 
 <body>
@@ -30,7 +51,8 @@
             </div>
 
             <p><input type="email" name="email" placeholder="Email" required></p>
-            <p><input type="password" name="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required></p>
+            <p><input type="password" name="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required>
+            </p>
             <p><button type="submit">Login</button></p>
 
             <!-- Additional links -->
@@ -41,4 +63,5 @@
 
     <script type="module" src="./login.js"></script>
 </body>
+
 </html>
