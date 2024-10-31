@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: auto; /* Permitir desplazamiento si el contenido es demasiado grande */
+}
+
+#background-video {
+    position: fixed; /* Fijo para que se quede en la parte trasera */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ocupa todo el ancho */
+    height: 100%; /* Ocupa toda la altura */
+    object-fit: cover; /* Cubre todo el fondo */
+    z-index: -1; /* Envía el video al fondo */
+}
+
+#user-profile {
+    position: relative; /* Posicionamiento relativo para que los elementos dentro se posicionen correctamente */
+    z-index: 1; /* Asegúrate de que el contenido esté por encima del video */
+    padding: 20px; /* Agrega un poco de espacio */
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente para que el texto sea legible */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+
+
+h1, h2, p {
+    color: #caeef8; /* Color del texto */
+}
+
+/* Estilos generales */
+* {
+    font-family: 'Lexend Deca', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    color: #caeef8; /* Blanco */
+    position: relative;
+    background: url('ruta/a/tu/video.mp4') no-repeat center center fixed; /* Cambia la ruta a tu video */
+    background-size: cover;
+}
+
+/* Espaciado y contenedores */
+h1 {
+    margin-top: 40px;
+    text-align: center; /* Alinear a la izquierda */
+}
+
+#user-profile,
+#change-password,
+#delete-account {
+    margin: 20px auto;
+    max-width: 500px; /* Ancho máximo de los contenedores */
+    background: rgba(24, 120, 216, 0.7); /* Fondo semitransparente */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.edit-icon {
+    cursor: pointer;
+    margin-left: 10px; /* Espacio entre el texto y el ícono */
+    color: #caeef8; /* Color del ícono */
+}
+
+input,
+button {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    color: #caeef8;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 5px;
+    transition: 0.4s ease;
+}
+
+input::placeholder {
+    color: #041d49; /* Color del placeholder */
+}
+
+input:focus {
+    border-color: #111; /* Color más claro del primario */
+    outline: none;
+}
+
+button {
+    background-color: #041d49; /* Color de fondo del botón */
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background-color: #caeef8;
+    color: #041d49; /* Color más oscuro en hover */
+}
+
+/* Estilos adicionales para mejorar la estética */
+.modal-content {
+    background: rgba(24, 120, 216, 0.8); /* Fondo semitransparente azul como el resto de la página */
+    color: #caeef8; /* Color del texto dentro del modal */
+    padding: 20px;
+    border-radius: 10px; /* Bordes redondeados para el modal */
+    text-align: left; /* Alinear texto a la izquierda */
+}
+
+#delete-modal {
+    display: none; /* Ocultar modal por defecto */
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para oscurecer el fondo */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Asegurar que esté por encima de otros elementos */
+}
+#delete-account-btn {
+    background-color: #041d49; /* Color de fondo inicial */
+    color: #caeef8; /* Color del texto inicial */
+    transition: background 0.3s ease; /* Transición suave */
+}
+
+#delete-account-btn:hover {
+    background-color: red; /* Cambia el color de fondo a rojo en hover */
+    color: white; /* Cambia el color del texto a blanco en hover */
+}
