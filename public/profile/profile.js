@@ -318,3 +318,7 @@ async function hashPassword(password, salt) {
         salt: salt // Devuelves el salt para uso posterior
     };
 }
+
+document.getElementById('back-to-menu-btn').addEventListener('click', () => {
+    window.location.href = "../index.html";
+});

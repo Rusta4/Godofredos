@@ -714,3 +714,116 @@ footer .contenedor-general {
         justify-content: flex-end;
     }
 }
+
+/* Estilos adicionales para la sección Sobre Nosotros */
+.seccion-sobre-nosotros {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px;
+    background-color: black; /* Fondo ligero */
+    
+}
+
+.recuadro-principal {
+    background-color: rgba(245, 222, 179, 0.1); /* Color de fondo oscuro */
+    color: #caeef8; /* Texto claro */
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 800px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+}
+
+.recuadro-principal h2 {
+    margin-top: 0;
+    font-size: 2.5em;
+}
+
+.recuadro-principal p {
+    font-size: 1.2em;
+}
+
+.recuadros-secundarios {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.recuadro {
+    background-color: rgba(30, 30, 30, 0.8);
+    color: #caeef8;
+    flex: 1;
+    min-width: 200px; /* Tamaño mínimo reducido */
+    max-width: 250px; /* Limita el tamaño máximo */
+    margin: 10px;
+    padding: 15px; /* Espacio interno reducido */
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.recuadro img {
+    width: 100%; /* Imagen ocupa el ancho del recuadro */
+    height: auto;
+    border-radius: 8px; /* Bordes redondeados de la imagen */
+    margin-bottom: 10px; /* Espacio entre imagen y texto */
+}
+
+.recuadro p {
+    font-size: 0.9em; /* Tamaño de texto ligeramente reducido */
+}
+
+.recuadro h3 {
+    margin-top: 0;
+    font-size: 1.8em;
+}
+
+.recuadro p {
+    font-size: 1em;
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 600px) {
+    .recuadros-secundarios {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+.video-sobre-nosotros {
+    display: flex;
+    gap: 20px;
+    margin: 30px 0;
+    width: 90%;
+  }
+  
+  .video {
+    flex: 1;
+    max-width: 60%;
+  }
+  
+  .video video {
+    width: 100%;
+    height: auto;
+  }
+  
+  .sobre-nosotros {
+    flex: 1;
+    padding: 20px;
+    background-color: rgba(245, 222, 180, 0.2);
+    border-radius: 8px;
+  }
+  
+  .sobre-nosotros h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+  
+  .sobre-nosotros p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }

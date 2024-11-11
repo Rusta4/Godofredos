@@ -136,3 +136,25 @@ button:hover {
     background-color: red; /* Cambia el color de fondo a rojo en hover */
     color: white; /* Cambia el color del texto a blanco en hover */
 }
+
+#back-to-menu-btn {
+    position: fixed; /* Hace que se quede fijo en la pantalla */
+    top: 20px;
+    right: 10px; /* Ajusta la distancia a la derecha */
+    padding: 5px 12px; /* Menos padding para un tamaño más compacto */
+    background-color: #041d49;
+    color: #caeef8;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: background 0.3s ease;
+    font-size: 0.9rem;
+    width: auto; /* Se ajusta al contenido */
+    display: inline-block; /* Asegura que solo ocupe el espacio necesario */
+}
+
+#back-to-menu-btn:hover {
+    background-color: #caeef8;
+    color: #041d49;
+}

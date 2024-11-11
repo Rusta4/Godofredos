@@ -1,19 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About us</title>
     <link rel="icon" href="../logo/hacker.png" type="image/x-icon">
     <link rel="stylesheet" href="aboutus.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Agrega Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        // Deshabilita el menú contextual (clic derecho)
+        document.addEventListener("contextmenu", function (event) {
+            event.preventDefault();
+        });
+
+        // Deshabilita teclas como F12, Ctrl+Shift+I, Ctrl+U
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "F12") {
+                event.preventDefault();
+            }
+            if (event.ctrlKey && event.shiftKey && event.key === "I") {
+                event.preventDefault();
+            }
+            if (event.ctrlKey && event.key === "u") {
+                event.preventDefault();
+            }
+        });
+    </script>
 </head>
+
 <body>
 
     <header>
         <div class="contenedor-general">
             <p class="logo">
-                <img src="../logo/LOGO-GODO-AZUL.png" alt="Logo de GodoFredo" style="width: 70px; height: 70px; vertical-align: middle;">
+                <img src="../logo/LOGO-GODO-AZUL.png" alt="Logo de GodoFredo"
+                    style="width: 70px; height: 70px; vertical-align: middle;">
                 GodoFredo's
             </p>
             <nav id="menu-principal">
@@ -22,9 +44,10 @@
                 <a id="login-link" href="../login/login.html">Iniciar sesión</a>
                 <a id="register-link" href="../Register/register.html">Registrarse</a>
                 <div id="profile-container" style="display: none;">
-                    <a id="profile-link" href="../profile.html">Mi Perfil</a>
-                    <button id="logout-button" onclick="logout()" style="background: transparent; border: none; cursor: pointer;">
-                        <i class="fas fa-sign-out-alt" style="font-size: 20px; color: #caeef8;"></i> <!-- Ícono de cerrar sesión en blanco -->
+                    <a id="profile-link" href="./profile/profile.html">Mi Perfil</a>
+                    <button id="logout-button" onclick="logout()"
+                        style="background: transparent; border: none; cursor: pointer;">
+                        <i class="fas fa-sign-out-alt" style="font-size: 20px; color: #caeef8;"></i>
                     </button>
                 </div>
             </nav>
@@ -35,8 +58,89 @@
         <video autoplay muted loop id="video-banner">
             <source src="../img/videoplayback.mp4" type="video/mp4">
         </video>
+        <section class="video-sobre-nosotros">
+            <div class="video">
+                <video src="tu-video.mp4" controls></video>
+            </div>
+            <div class="sobre-nosotros">
+                <h2>Objetivos</h2>
+                <br>
+                <p>Nuestro objetivo es proporcionar una herramienta que no solo centralice el desarrollo en
+                    ciberseguridad, sino que también fomente una colaboración más efectiva entre expertos y entusiastas
+                    de la seguridad informática. Al concentrar los recursos, herramientas y proyectos en un solo lugar,
+                    buscamos facilitar el acceso a soluciones innovadoras y prácticas que puedan ser utilizadas por toda
+                    la comunidad.</p>
+
+            </div>
+        </section>
     </section>
-    
+
+
+    <!-- Sección Sobre Nosotros -->
+    <section class="seccion-sobre-nosotros">
+        <div class="recuadros-secundarios">
+            <div class="recuadro">
+                <img src="/img/images.jpg" alt="Descripción de la imagen">
+                <h3>Adrià</h3>
+                <p>Proporcionar productos de alta calidad que impacten positivamente en la vida de nuestros clientes.
+                </p>
+            </div>
+            <div class="recuadro">
+                <img src="/img/mclovin.jpg" alt="Descripción de la imagen">
+                <h3>Nicolas</h3>
+                <p>Convertirnos en referentes en el sector, destacándonos por nuestra dedicación y compromiso.</p>
+            </div>
+            <div class="recuadro">
+                <img src="/img/Seth_Superbad.jpg" alt="Descripción de la imagen">
+                <h3>Edward</h3>
+                <p>Integridad, innovación y atención al cliente son los pilares de nuestra filosofía.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="contenedor-general">
+            <p>&copy; Godofredo's 2024</p>
+        </div>
+    </footer>
+
+    <script>
+        // Verifica el estado de la sesión al cargar la página
+        document.addEventListener('DOMContentLoaded', function () {
+            const isLoggedIn = localStorage.getItem('isLoggedIn'); // Obtiene el estado de la sesión
+
+            if (isLoggedIn === 'true') {
+                // Si el usuario está logueado, muestra "Mi Perfil" y oculta "Iniciar sesión" y "Registrarse"
+                document.getElementById('profile-container').style.display = 'flex'; // Muestra el contenedor del perfil
+                document.getElementById('login-link').style.display = 'none';
+                document.getElementById('register-link').style.display = 'none';
+            }
+        });
+
+        // Función para manejar el cierre de sesión
+        function logout() {
+            localStorage.removeItem('isLoggedIn'); // Elimina el estado de la sesión
+            window.location.reload(); // Recarga la página
+        }
+
+        // Función para observar elementos en el viewport
+        document.addEventListener('DOMContentLoaded', function () {
+            const elements = document.querySelectorAll('.scroll-animation');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible'); // Agrega la clase visible cuando el elemento es visible
+                    } else {
+                        entry.target.classList.remove('visible'); // Opcional: quita la clase cuando el elemento ya no es visible
+                    }
+                });
+            }, { threshold: 0.1 }); // El umbral define qué tan visible debe estar el elemento
+
+            elements.forEach(el => observer.observe(el));
+        });
+    </script>
 
 </body>
+
 </html>
