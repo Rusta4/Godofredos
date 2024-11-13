@@ -7,6 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Enlace al archivo CSS -->
     <link rel="stylesheet" href="./HackingTools.css">
+    <script>
+        // Deshabilita el menú contextual (clic derecho)
+        document.addEventListener("contextmenu", function (event) {
+            event.preventDefault();
+        });
+
+        // Deshabilita teclas como F12, Ctrl+Shift+I, Ctrl+U
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "F12") {
+                event.preventDefault();
+            }
+            if (event.ctrlKey && event.shiftKey && event.key === "I") {
+                event.preventDefault();
+            }
+            if (event.ctrlKey && event.key === "u") {
+                event.preventDefault();
+            }
+        });
+    </script>
 </head>
 
 
