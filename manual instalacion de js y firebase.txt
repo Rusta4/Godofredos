@@ -1,0 +1,13 @@
+Instalo NodeJs desde internet
+
+pip install npm en la terminal de VSC
+
+Abrimos la PowerShell como Administrador
+
+Escribimos el comando --> "Set-ExecutionPolicy RemoteSigned" y escribimos "y"
+				(Permitirá la ejecución de los scripts locales y scripts descargados de intenet)
+
+Abrimos la terminal de VSC y ejecutamos el siguiente comando  --> npm install firebase
+
+(EN CASO QUE SE QUIERA VOLVER A RESTRINGIR LOS SCRIPTS LOCALS Y LOS DESCARGADOS DE INTERNET)
+ --> "Set-ExecutionPolicy Restricted"
