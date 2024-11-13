@@ -1,13 +1,19 @@
 Instalo NodeJs desde internet
 
-pip install npm en la terminal de VSC
+"pip install npm" en la terminal de VSC
 
 Abrimos la PowerShell como Administrador
 
-Escribimos el comando --> "Set-ExecutionPolicy RemoteSigned" y escribimos "y"
+Escribimos el comando --> "Set-ExecutionPolicy RemoteSigned" y escribimos "s"
 				(Permitirá la ejecución de los scripts locales y scripts descargados de intenet)
 
-Abrimos la terminal de VSC y ejecutamos el siguiente comando  --> npm install firebase
+Abrimos la terminal de VSC y ejecutamos el siguiente comando  --> "npm install firebase"
+
+Instalamos los tools de firebase de la siguiente manera --> "npm install -g firebase-tools"
+
+"firebase login" --> para loguearte
+
+Y finalmente para ejecutar la database --> "firebase deploy" 
 
 (EN CASO QUE SE QUIERA VOLVER A RESTRINGIR LOS SCRIPTS LOCALS Y LOS DESCARGADOS DE INTERNET)
  --> "Set-ExecutionPolicy Restricted"
