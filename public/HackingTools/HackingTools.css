@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
 
 * {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Lexend Deca', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -10,6 +10,12 @@
     text-decoration: none;
     text-transform: capitalize;
     transition: .2s linear;
+}
+
+body{
+        font-family: 'Lexend Deca', sans-serif;
+        color: #caeef8;
+        margin: 0;
 }
 
 .custom-container {
