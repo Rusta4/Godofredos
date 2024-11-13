@@ -38,8 +38,6 @@ li{ font-size: 1.25em;}
     color: #caeef8; /* Color del ícono */
 }
 
-/*Estilos y animaciones del banner*/
-
 
 
 /*Estilos del botón*/
@@ -80,33 +78,6 @@ li{ font-size: 1.25em;}
     animation-fill-mode: forwards;
 }
 
-
-
-
-
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(20px); 
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0); 
-    }
-}
-
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px); 
-    }
-}
-
-/*Hasta aquí los estilos y animaciones del banner*/
-
-/*video del scroller*/
 
 .scroll-animation {
     opacity: 0;
@@ -192,6 +163,7 @@ header a:hover{
     z-index: -1;
     transform: translate(-50%, -50%);       
     background-size: cover;
+    object-fit: cover
 }
 
 .contenido-banner {
@@ -216,7 +188,7 @@ header a:hover{
 #banner-bienvenida-web button{
     font-size: 1.75em;
 }
- /*Estilos de quienes somos*/
+
 /* Estilos de la sección 'Quienes Somos' */
 #seccion-quienes-somos {
     position: relative;
@@ -277,9 +249,6 @@ header a:hover{
         transform: translateY(0);
     }
 }
-
-
-
 
 #servicios-de-godofredo {
     background-color: rgb(30, 30, 30);
@@ -361,9 +330,6 @@ header a:hover{
     opacity: 0.3;
 }
 
-
-
-
 #caracteristicas .contenedor-general{
     text-align: center;
     padding: 250px 12px;
@@ -394,8 +360,8 @@ header a:hover{
 }
 
 
-
-@media (min-width: 850px){
+/* Pantallas más grandes (como laptops y desktops) */
+@media (min-width: 850px) {
     header{
         position: fixed;
         width: 100%;
@@ -412,6 +378,11 @@ header a:hover{
         padding-right: 20px;
     }
 
+    /* Servicios en línea horizontal */
+    #servicios-de-godofredo .servicios {
+        display: flex;
+        justify-content: space-evenly;
+    }
     #hero h1{
         font-size: 5em;
     }
@@ -435,14 +406,6 @@ header a:hover{
         margin-top: 0px;
     }
 
-    #seccion-quienes-somos .img-contenedor-principal{
-        background-image: url("media/somos-proya.jpg");
-        background-size: cover;
-        background-position: center center;
-        height: 500px;
-        width: 400px; 
-    }
-
     #servicios-de-godofredo .servicios{
         display: flex;
         justify-content: center;
@@ -462,6 +425,8 @@ header a:hover{
     }
 
     #servicios-de-godofredo .carta{
+        flex: 1;
+        margin: 20px;
         padding: 50px;
         background-size: 100% 150px;
         background-repeat: no-repeat;
@@ -470,14 +435,12 @@ header a:hover{
         box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
     }
 
-
     #caracteristicas{
-        background-image: url("media/background-2.jpeg");
+        background-image: url("/img/videoplayback.mp4");
         background-repeat: no-repeat;
         background-size: 500px 400px;
         background-position: calc(100vw - 500px) 120px;
     }
-
     #caracteristicas .contenedor-general{
         text-align: initial;
     }
@@ -493,67 +456,58 @@ header a:hover{
     #final button{
         font-size: 2em;
     }
-
-
 }
 
-@media (min-width: 1200px) {
-    #caracteristicas{
-        background-position-x: calc(100vw - 800px);
-    }
-}
-
-
-@media (max-width: 600px) {
-
-    h1 { font-size: 2.2em; }
-    h2 { font-size: 1.8em; }
-    h3 { font-size: 1.5em; }
-    p { font-size: 1em; }
-
-    /* Ajustamos el tamaño del video banner */
-    #video-banner {
-        min-width: 100%;
-        min-height: 100%;
+/* Pantallas pequeñas (como teléfonos) */
+@media (max-width: 849px) {
+    header {
+        background-color: rgba(50, 50, 50, 1);
+        position: relative;
+        width: 100%;
+        padding: 10px 0;
     }
 
-    #banner-bienvenida-web {
-        height: auto; /* Deja que la altura se ajuste automáticamente en pantallas pequeñas */
-    }
-
-    #banner-bienvenida-web h1 {
-        font-size: 2em;
-    }
-
-    #banner-bienvenida-web button {
-        font-size: 1.2em;
-        padding: 10px 30px;
-    }
-
-    /* Servicios (cartas) */
-    #servicios-de-godofredo .carta {
-        margin: 10px;
-        padding: 20px;
-        font-size: 1em;
-    }
-
-    #servicios-de-godofredo .servicios {
+    header .contenedor-general {
+        margin-left: 10px;
         flex-direction: column;
-        padding: 20px 0;
+        align-items: start;
     }
 
-    #servicios-de-godofredo h2 {
-        font-size: 2.2em;
+    header nav {
+        margin-top: 10px;
+        flex-direction: column;
+        text-align: start;
+        padding-bottom: 20px;
+        display: none; /* Ocultar el menú por defecto */
+        width: 100%;
+        background-color: rgba(50, 50, 50, 1); /* Fondo para el menú desplegable */
     }
-}
 
-/* Ajustes para tablets o pantallas medianas */
-@media (min-width: 600px) and (max-width: 850px) {
+    /* Mostrar el menú cuando el ícono de hamburguesa se active */
+    header nav.show {
+        display: flex;
+    }
 
-    h1 { font-size: 3em; }
-    h2 { font-size: 2.2em; }
-    h3 { font-size: 1.8em; }
-    p { font-size: 1.1em; }
+    header a {
+        padding: 8px 15px;
+        font-size: 1.1em;
+        color: #caeef8; /* Para que los enlaces sean visibles */
+        text-decoration: none;
+    }
+
+    /* Ícono del menú hamburguesa */
+    .menu-hamburguesa {
+        display: block;
+        cursor: pointer;
+        z-index: 1000;
+    }
+
+    .menu-hamburguesa div {
+        width: 30px;
+        height: 4px;
+        margin: 5px 0;
+        background-color: #caeef8;
+    }
 
     #banner-bienvenida-web h1 {
         font-size: 2.5em;
@@ -561,133 +515,98 @@ header a:hover{
 
     #banner-bienvenida-web button {
         font-size: 1.5em;
-        padding: 12px 40px;
+        padding: 12px 35px;
     }
 
-    #servicios-de-godofredo .servicios {
-        flex-direction: column;
+    /* Resto de los estilos */
+    #seccion-quienes-somos {
+        background-size: cover;
+        background-position: center center;
+        background-attachment: scroll;
+        color: black;
+        padding: 50px 20px;
     }
 
-    #servicios-de-godofredo .carta {
-        margin: 15px;
-        padding: 30px;
-        font-size: 1.1em;
-    }
-
-    #servicios-de-godofredo h2 {
-        font-size: 3em;
-    }
-}
-
-/* Pantallas más grandes (como laptops y desktops) */
-@media (min-width: 850px) {
-
-    /* Ya tienes algunos estilos definidos aquí, pero se pueden ajustar más cosas si es necesario. */
-
-    header .contenedor-general {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    header nav {
-        flex-direction: row;
-    }
-
-    /* Servicios en línea horizontal */
-    #servicios-de-godofredo .servicios {
+    #seccion-quienes-somos .contenedor-general {
+        padding: 20px 0;
         display: flex;
-        justify-content: space-evenly;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #seccion-quienes-somos .texto {
+        width: 90%;
+        text-align: center;
+        padding: 0;
+    }
+
+    #servicios-de-godofredo .servicios {
+        display: block;
+        margin-top: 30px;
     }
 
     #servicios-de-godofredo .carta {
-        flex: 1;
         margin: 20px;
-    }
-}
-
-@media (max-width: 850px) {
-    /* Estilos para las cartas */
-    .carta {
-        margin: 10px; /* Añade un margen entre las cartas */
-        padding: 15px;
-        border-radius: 10px; /* Bordes redondeados */
-        background-color: rgba(128, 128, 128, 0.192);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añade una sombra para destacar */
+        padding: 30px;
+        background-color: rgba(50, 50, 50, 1);
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        width: 100%;
     }
 
-    /* Espaciado entre secciones */
-    section {
-        margin-bottom: 20px; /* Espaciado adicional entre secciones */
+    #servicios-de-godofredo .carta img {
+        width: 100%;
     }
 
-    /* Otros estilos del diseño que podrían mejorar la vista en pantallas pequeñas */
-    #menu-principal a {
-        padding: 15px 0; /* Aumenta el padding para los elementos del menú */
+    #caracteristicas {
+        background-image: url("media/background-2.jpeg");
+        background-repeat: no-repeat;
+        background-size: 100% 200px;
+        background-position: center;
+        padding: 100px 20px;
     }
-}
 
-/* Para pantallas más grandes (mayor a 850px) */
-@media (min-width: 850px) {
-    .carta {
-        margin: 20px; /* Un margen mayor en pantallas grandes */
+    #caracteristicas .contenedor-general {
+        text-align: center;
         padding: 20px;
-        border: none; /* Si prefieres que no tengan bordes en pantallas grandes */
-        box-shadow: none; /* Sin sombra en pantallas grandes */
-    }
-}
-
-
-
-@media (max-width: 850px) {
-    /* Espaciado entre secciones */
-    section {
-        margin-bottom: 20px; /* Ajusta según necesites */
     }
 
-    /* Ocultar menú normal y mostrar menú hamburguesa */
-    #menu-principal {
-        display: none; /* Oculta el menú principal en pantallas pequeñas */
+    #caracteristicas ul {
+        margin-left: 0;
+        padding: 0;
     }
 
-    #menu-hamburguesa {
-        display: block;
-        background-color: transparent;
-        border: none;
-        cursor: pointer;
+    #final {
+        background-color: rgb(30, 30, 30);
+        color: #caeef8;
+        height: auto;
+        padding: 50px 20px;
+    }
+
+    #final h2 {
+        font-size: 6em;
+    }
+
+    #final button {
+        font-size: 1.5em;
+        padding: 10px 30px;
+    }
+
+    /* Ajustar elementos de contacto */
+    footer {
+        background-color: #caeef8;
         padding: 10px;
     }
-     }
 
-
-
-/* Menú desplegable oculto por defecto en móviles */
-#menu-principal {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    padding-bottom: 25px;
-}
-
-@media (max-width: 850px) {
-    #menu-principal a{
-        color:black ;
-    }
-     }
-
-
-#menu-principal.oculto {
-    display: none;
-}
-
-/* Mostrar menú en pantallas grandes */
-@media (min-width: 850px) {
-    #menu-hamburguesa {
-        display: none; /* Oculto el botón hamburguesa en pantallas grandes */
+    footer p {
+        font-size: 0.9em;
+        color: rgb(100, 100, 100);
     }
 
-    #menu-principal {
-        display: flex; /* Menú horizontal en pantallas grandes */
-        flex-direction: row;
+    footer .contenedor-general {
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 
@@ -707,11 +626,4 @@ footer .contenedor-general {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-}
-
-/* Ajustes para pantallas grandes */
-@media (min-width: 850px) {
-    footer .contenedor-general {
-        justify-content: flex-end;
-    }
 }

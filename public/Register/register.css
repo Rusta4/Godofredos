@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
 
-
-body{
+body {
     font-family: 'Lexend Deca', sans-serif;
     margin: 0;
 }
+
 /* Estilos generales */
 * {
     font-family: 'Lexend Deca', sans-serif;
@@ -16,7 +16,6 @@ body{
 html, body {
     width: 100%;
     height: 100%;
-    font-family: 'Lato', sans-serif;
     color: #caeef8; /* Blanco */
     position: relative; /* Necesario para posicionar el video */
 }
@@ -46,13 +45,14 @@ form {
     position: relative;
     width: 70vw;
     max-width: 500px;
-    background: rgb(24,120,216, 0.6); /* Fondo semitransparente */
+    background: rgba(24, 120, 216, 0.6); /* Fondo semitransparente */
     padding: 2rem;
     border-radius: 10px;
     overflow: hidden;
     color: #caeef8; /* Blanco */
 }
 
+/* Inputs y botones */
 input,
 button {
     display: block;
@@ -146,15 +146,79 @@ h1 {
 .link {
     text-align: center;
     margin-top: 10px;
-  }
-  
-  .link a {
+}
+
+.link a {
     color: #caeef8; /* Link color */
     text-decoration: none;
-  }
-  
-  .link a:hover {
+}
+
+.link a:hover {
     text-decoration: underline;
     color: #caeef8; /* Hover color for links */
-  }
-  
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    form {
+        width: 90vw; /* Increases form width on smaller screens */
+        padding: 1.5rem; /* Reduces padding */
+    }
+
+    /* Adjust the logo size */
+    .logo {
+        width: 80px; /* Smaller logo */
+    }
+
+    /* Adjust the heading size */
+    h1 {
+        font-size: 30px; /* Smaller heading */
+    }
+
+    /* Adjust button and input size */
+    input, button {
+        padding: 0.6rem;
+        font-size: 0.9rem; /* Smaller text */
+    }
+
+    .label-text {
+        font-size: 0.8rem; /* Smaller label text */
+    }
+
+    .tip {
+        font-size: 0.7rem; /* Smaller tip text */
+    }
+
+    /* Close button adjustments */
+    .close-btn {
+        font-size: 20px;
+        top: 5px;
+        right: 5px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    form {
+        width: 95vw; /* Almost full width */
+    }
+
+    .logo {
+        width: 60px; /* Even smaller logo */
+    }
+
+    h1 {
+        font-size: 24px; /* Further reduced heading size */
+    }
+
+    input, button {
+        font-size: 0.8rem; /* Smaller button/input text */
+    }
+
+    .label-text {
+        font-size: 0.7rem; /* Smaller labels */
+    }
+
+    .tip {
+        font-size: 0.65rem; /* Even smaller tip text */
+    }
+}

@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Godofredo's foro</title>
     <link rel="icon" href="./logo/hacker.png" type="image/x-icon">
     <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Agrega Font Awesome -->
-      <!-- Aquí van tus scripts de bloqueo -->
-      <script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Agrega Font Awesome -->
+    <script>
         // Deshabilita el menú contextual (clic derecho)
-        document.addEventListener("contextmenu", function(event) {
+        document.addEventListener("contextmenu", function (event) {
             event.preventDefault();
         });
 
         // Deshabilita teclas como F12, Ctrl+Shift+I, Ctrl+U
-        document.addEventListener("keydown", function(event) {
+        document.addEventListener("keydown", function (event) {
             if (event.key === "F12") {
                 event.preventDefault();
             }
@@ -27,15 +28,30 @@
             }
         });
     </script>
+    <script>
+        function toggleMenu() {
+            var menu = document.querySelector('header nav');
+            menu.classList.toggle('show'); // Cambiar la clase para mostrar/ocultar el menú
+        }
+    </script>
+    
 </head>
-<body>
 
+<body>
     <header>
         <div class="contenedor-general">
             <p class="logo">
-                <img src="./logo/LOGO-GODO-AZUL.png" alt="Logo de GodoFredo" style="width: 70px; height: 70px; vertical-align: middle;">
+                <img src="./logo/LOGO-GODO-AZUL.png" alt="Logo de GodoFredo"
+                    style="width: 70px; height: 70px; vertical-align: middle;">
                 GodoFredo's
             </p>
+
+            <!-- Ícono de menú hamburguesa -->
+            <div class="menu-hamburguesa" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
             <nav id="menu-principal">
                 <a href="/index.html">Inicio</a>
                 <a href="./aboutus/aboutus.html">Sobre Nosotros</a>
@@ -43,15 +59,17 @@
                 <a id="register-link" href="./Register/register.html">Registrarse</a>
                 <div id="profile-container" style="display: none;">
                     <a id="profile-link" href="./profile/profile.html">Mi Perfil</a>
-                    <button id="logout-button" onclick="logout()" style="background: transparent; border: none; cursor: pointer;">
-                        <i class="fas fa-sign-out-alt" style="font-size: 20px; color: #caeef8;"></i> <!-- Ícono de cerrar sesión en blanco -->
+                    <button id="logout-button" onclick="logout()"
+                        style="background: transparent; border: none; cursor: pointer;">
+                        <i class="fas fa-sign-out-alt" style="font-size: 20px; color: #caeef8;"></i>
                     </button>
                 </div>
             </nav>
         </div>
     </header>
-    
+
     <section id="banner-bienvenida-web">
+        <!-- Video de fondo -->
         <video autoplay muted loop id="video-banner">
             <source src="./img/videoplayback.mp4" type="video/mp4">
             Tu navegador no soporta la etiqueta de video.
@@ -70,21 +88,16 @@
             <div class="servicios">
                 <a href="enlace-al-detalle-front-end.html" class="carta">
                     <h3>Docker</h3>
-                    <br>
-                    <br>
-                    <br>
                     <img src="./img/docker-img.png" alt="">
                 </a>
-                
                 <a href="enlace-al-detalle-full-stack.html" class="carta">
                     <h3>Hacking tools</h3>
                     <img src="./img/hackinkg-tools.png" alt="">
                 </a>
-                
                 <a href="enlace-al-detalle-python.html" class="carta">
                     <h3>ISO files</h3>
                     <img src="./img/iso-removebg-preview.png" alt="">
-                </a>  
+                </a>
             </div>
         </div>
     </section>
@@ -97,11 +110,10 @@
 
     <script>
         // Verifica el estado de la sesión al cargar la página
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const isLoggedIn = localStorage.getItem('isLoggedIn'); // Obtiene el estado de la sesión
 
             if (isLoggedIn === 'true') {
-                // Si el usuario está logueado, muestra "Mi Perfil" y oculta "Iniciar sesión" y "Registrarse"
                 document.getElementById('profile-container').style.display = 'flex'; // Muestra el contenedor del perfil
                 document.getElementById('login-link').style.display = 'none';
                 document.getElementById('register-link').style.display = 'none';
@@ -115,21 +127,22 @@
         }
 
         // Función para observar elementos en el viewport
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const elements = document.querySelectorAll('.scroll-animation');
-    
+
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('visible'); // Agrega la clase visible cuando el elemento es visible
+                        entry.target.classList.add('visible');
                     } else {
-                        entry.target.classList.remove('visible'); // Opcional: quita la clase cuando el elemento ya no es visible
+                        entry.target.classList.remove('visible');
                     }
                 });
-            }, { threshold: 0.1 }); // El umbral define qué tan visible debe estar el elemento
-    
+            }, { threshold: 0.1 });
+
             elements.forEach(el => observer.observe(el));
         });
     </script>
 </body>
+
 </html>
