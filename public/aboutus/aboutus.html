@@ -27,6 +27,12 @@
             }
         });
     </script>
+    <script>
+        function toggleMenu() {
+            var menu = document.querySelector('header nav');
+            menu.classList.toggle('show'); // Cambiar la clase para mostrar/ocultar el menú
+        }
+    </script>
 </head>
 
 <body>
@@ -38,6 +44,12 @@
                     style="width: 70px; height: 70px; vertical-align: middle;">
                 GodoFredo's
             </p>
+            <!-- Ícono de menú hamburguesa -->
+            <div class="menu-hamburguesa" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
             <nav id="menu-principal">
                 <a href="../index.html">Inicio</a>
                 <a href="aboutus.html">Sobre Nosotros</a>

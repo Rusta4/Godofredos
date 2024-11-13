@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Enlace al archivo CSS -->
+    <link rel="stylesheet" href="./HackingTools.css">
+</head>
+
+
+<body>
+
+
+    <header>
+        <div class="contenedor-general">
+            <p class="logo">
+                <img src="../logo/LOGO-GODO-AZUL.png" alt="Logo de GodoFredo"
+                    style="width: 70px; height: 70px; vertical-align: middle;">
+                GodoFredo's
+            </p>
+            <nav id="menu-principal">
+                <a href="#">Inicio</a>
+                <a href="#">About us</a>
+                <a id="login-link" href="../login/login.html">Iniciar sesión</a>
+                <a id="register-link" href="../Register/register.html">Registrarse</a>
+                <div id="profile-container" style="display: none;">
+                    <a id="profile-link" href="../profile.html">Mi Perfil</a>
+                    <button id="logout-button" onclick="logout()"
+                        style="background: transparent; border: none; cursor: pointer;">
+                        <i class="fas fa-sign-out-alt" style="font-size: 20px; color: white;"></i>
+                        <!-- Ícono de cerrar sesión en blanco -->
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="custom-container">
+        <div class="custom-box-container">
+            <!-- Primera tarjeta -->
+
+
+            <div class="custom-box">
+                <div class="custom-image-container">
+                    <img src="./img-subida-web/1_5WAIKsOw-KzPQgm3m96k_g.jpg" alt="Aragog">
+                </div>
+                <div class="custom-content">
+                    <h3>Aragog</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
+                    <a href="./uploads/informe-aragog.pdf" class="custom-btn download-btn"
+                        download="informe-aragog.pdf">Descargar informe</a>
+                </div>
+            </div>
+
+            <!-- Añadir más tarjetas si es necesario -->
+            <div class="custom-box">
+                <div class="custom-image-container">
+                    <img src="./img-subida-web/1_5WAIKsOw-KzPQgm3m96k_g.jpg" alt="Aragog">
+                </div>
+                <div class="custom-content">
+                    <h3>Aragog</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
+                    <a href="./uploads/informe-aragog.pdf" class="custom-btn download-btn"
+                        download="informe-aragog.pdf">Descargar informe</a>
+                </div>
+            </div>
+
+
+
+            <div class="custom-box">
+                <div class="custom-image-container">
+                    <img src="./img-subida-web/1_5WAIKsOw-KzPQgm3m96k_g.jpg" alt="Aragog">
+                </div>
+                <div class="custom-content">
+                    <h3>Aragog</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
+                    <a href="./uploads/informe-aragog.pdf" class="custom-btn download-btn"
+                        download="informe-aragog.pdf">Descargar informe</a>
+                </div>
+            </div>
+
+
+
+            <div class="custom-box">
+                <div class="custom-image-container">
+                    <img src="./img-subida-web/1_5WAIKsOw-KzPQgm3m96k_g.jpg" alt="Aragog">
+                </div>
+                <div class="custom-content">
+                    <h3>Aragog</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
+                    <a href="./uploads/informe-aragog.pdf" class="custom-btn download-btn"
+                        download="informe-aragog.pdf">Descargar informe</a>
+                </div>
+            </div>
+
+            <!-- Añadir más tarjetas si es necesario -->
+            <div class="custom-box">
+                <div class="custom-image-container">
+                    <img src="./img-subida-web/1_5WAIKsOw-KzPQgm3m96k_g.jpg" alt="Aragog">
+                </div>
+                <div class="custom-content">
+                    <h3>Aragog</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
+                    <a href="./uploads/informe-aragog.pdf" class="custom-btn download-btn"
+                        download="informe-aragog.pdf">Descargar informe</a>
+                </div>
+            </div>
+
+
+
+            <div class="custom-box">
+                <div class="custom-image-container">
+                    <img src="./img-subida-web/1_5WAIKsOw-KzPQgm3m96k_g.jpg" alt="Aragog">
+                </div>
+                <div class="custom-content">
+                    <h3>Aragog</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
+                    <a href="./uploads/informe-aragog.pdf" class="custom-btn download-btn"
+                        download="informe-aragog.pdf">Descargar informe</a>
+                </div>
+            </div>
+
+
+
+            <!-- Añadir más tarjetas según sea necesario -->
+            <!-- Repite la estructura de la tarjeta para cada elemento -->
+        </div>
+    </div>
+
+    <script>
+        // Verifica el estado de la sesión al cargar la página
+        document.addEventListener('DOMContentLoaded', function () {
+            const isLoggedIn = localStorage.getItem('isLoggedIn'); // Obtiene el estado de la sesión
+
+            if (isLoggedIn === 'true') {
+                document.getElementById('profile-container').style.display = 'flex'; // Muestra el contenedor del perfil
+                document.getElementById('login-link').style.display = 'none';
+                document.getElementById('register-link').style.display = 'none';
+            }
+        });
+
+        // Función para manejar el cierre de sesión
+        function logout() {
+            localStorage.removeItem('isLoggedIn'); // Elimina el estado de la sesión
+            window.location.reload(); // Recarga la página
+        }
+
+        // Función para observar elementos en el viewport
+        document.addEventListener('DOMContentLoaded', function () {
+            const elements = document.querySelectorAll('.scroll-animation');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    } else {
+                        entry.target.classList.remove('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            elements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+
+</html>
