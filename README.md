@@ -28,6 +28,7 @@
     <li><b><a href="#DNS">DNS</a></b></li>
     <li><b><a href="#NGINX (Web)">NGINX (Web)</a></b></li>
     <li><b><a href="#FTP">FTP</a></b></li>
+    <li><b><a href="#Docker">Docker</a></b></li>
     <li><b><a href="#Instalaciones">Instalaciones:</a></b></li>
     <ul>
         <li><a href="#Instalación Proxmox">Instalacion Proxmox</a></li>
@@ -37,6 +38,7 @@
         <li><a href="#Instalación DNS">Instalacion DNS</a>
         <li><a href="#Instalación NGINX">Instalacion NGINX y SSL</a></li>
         <li><a href="#Instalación FTP">Instalacion FTP</a></li>
+        <li><a href="#Instalación Docker">Instalacion Docker</a></li>
     </ul>
 </ul>
 
