@@ -165,15 +165,10 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 <p>Entre sus características principales, destaca la sincronización en tiempo real, la escalabilidad para manejar grandes volúmenes de datos y una estructura flexible que facilita la organización. Además, ofrece ventajas como la fácil integración con otros servicios de Firebase, reglas de seguridad para controlar el acceso a los datos y la capacidad de almacenamiento offline, permitiendo a los usuarios interactuar con la aplicación sin conexión a Internet. Este servicio es ideal para aplicaciones de chat, sistemas de gestión de contenidos y juegos multijugador, garantizando una experiencia fluida y dinámica.</p>
 
 
-
-
-
 <h1 id="DNS">DNS</h1>
 <p>Un servidor DNS es una herramienta muy importante en un proyecto de IT, ya que nos permite realizar funciones como la resolución de nombres directa o inversa. Además, nos permitirá tener acceso a la web del proyecto mediante el nombre de dominio o la IP, ya que lo configuraremos para que el servidor DNS y WEB funcionen al unísono.</p> 
 
 <p>El DNS actúa como un directorio telefónico de Internet, traduciendo nombres de dominio amigables (como www.ejemplo.com) a direcciones IP que las computadoras pueden entender. Esto no solo facilita el acceso a sitios web, sino que también mejora la experiencia del usuario al evitar la necesidad de recordar direcciones IP numéricas. Además, los servidores DNS pueden proporcionar características adicionales como la redundancia, aumentando la disponibilidad y fiabilidad del servicio. También permiten gestionar registros de tipo A, CNAME, MX, entre otros, lo que es esencial para configurar correos electrónicos y otros servicios asociados. En resumen, un servidor DNS bien configurado es fundamental para asegurar el funcionamiento eficiente y accesible de cualquier proyecto web.</p>
-
-
 
 
 <h1 id="NGINX (Web)">NGINX (WEB)</h1>
@@ -185,7 +180,9 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 <h1 id="FTP">FTP</h1>
 <p>FTP es un protocolo de red fundamental en un proyecto de IT, ya que permite la transferencia de archivos entre un cliente y un servidor de manera eficiente. A través de FTP, los usuarios pueden cargar y descargar archivos, facilitando la gestión de contenido en servidores web y otros entornos de almacenamiento. Además, este protocolo soporta la transferencia de archivos grandes y la posibilidad de reanudar cargas interrumpidas. Nosotros utilizaremos el ftp para que se almacenen ahi los archivos de la gente y la gente pueda descargarlos.</p> 
 
+
 <p>Una de las principales ventajas de FTP es su simplicidad y amplia compatibilidad con diferentes sistemas operativos y plataformas. Permite la autenticación mediante credenciales, lo que garantiza la seguridad en la transferencia de datos. Además, con la variante SFTP (SSH File Transfer Protocol), se puede añadir una capa de cifrado, protegiendo así la información sensible durante el tránsito. FTP también ofrece funciones como la posibilidad de cambiar permisos de archivos y directorios, lo que permite una gestión más granular del acceso a los datos. En resumen, FTP es una herramienta esencial para la administración de archivos en proyectos web, asegurando una transferencia eficiente y segura de datos.</p>
+
 
 <h1 id="Dockers">Dockers</h1>
 <p>Docker es una plataforma de software que permite crear, desplegar y ejecutar aplicaciones dentro de contenedores. Los contenedores son entornos ligeros, portátiles y aislados que incluyen todo lo necesario para que una aplicación funcione: código, dependencias, bibliotecas y configuraciones.</p>
@@ -202,7 +199,7 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
     <li>Docker Hub:</li>
     <p>Es un repositorio público donde puedes encontrar imágenes de Docker listas para usar, como imágenes de bases de datos (MySQL, MongoDB), servidores web (Nginx, Apache), etc.</p>
 </ul>
-<img src="https://github.com/user-attachments/assets/ee34a6f1-98e1-4fd3-9f9d-3d241e743c9f" alt="LOGO-GODO" width="1000" height="400" />
+<img src="https://github.com/user-attachments/assets/ee34a6f1-98e1-4fd3-9f9d-3d241e743c9f" alt="LOGO-GODO" width="1000" height="500" />
 
 <h1 id="Instalaciones">Instalaciones</h1>
 <h1 id="Instalación Proxmox">Instalación Proxmox</h1>
@@ -819,4 +816,7 @@ y
 <p>Entraremos en una terminal linux. Si hacemos "ls" es para ver los archivos que hay dentro. Despues para entrar como root tenemos que ejcutar el sigiente comendo "mysql -u root -p" y cuando te pida la contraseña tendremos que poner la que definimos anterior mente</p>
 <p>Para ver las bbdd que hay dentro tenemos que ejecutar el siguente comendo "show databases;"</p>
 <p>Para crear una bbdd tenemos que hacer el sigiente comando "create database NOMBRE"</p>
+<p>Para crear otro run debemos de hacer lo sigiente: "docker run --name otroNombre -p 7777:3306 -e MYSQL_ROOT_PASSWORD=11111111 mysql" Esto lo que hace es que creamos otro contenedor con otro nombre y por el puerto que le pongamos. Se creara otra intalacion</p>
+<p>Intslar docker en visual studio code</p>
+
 
