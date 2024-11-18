@@ -177,9 +177,9 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 
 
 <h1 id="NGINX (Web)">NGINX (WEB)</h1>
-<p>NGINX desempeña un papel fundamental en un proyecto de IT, ya que es un servidor web crucial y un proxy inverso, que proporciona funciones clave como la gestión de solicitudes HTTP, el equilibrio de carga y la terminación SSL. Su diseño asíncrono le permite gestionar varias conexiones al mismo tiempo, lo cual lo convierte en la opción perfecta para aplicaciones con un elevado volumen de tráfico. Además, NGINX puede eficientemente distribuir contenido estático y actuar como un servidor proxy para aplicaciones dinámicas. En palabras sencillas, NGINX es un programa que facilita recibir peticiones de los usuarios a través de la red y proporcionarles material como páginas web, imágenes o archivos, directamente a sus navegadores. Nos sirve para alojar nuestro código en la web y permitir que las personas lo visualicen desde sus hogares.</p> 
+<p>NGINX es un servidor web y un proxy inverso muy importante en un proyecto de IT, ya que ofrece funcionalidades clave como la gestión de solicitudes HTTP, balanceo de carga y terminación de SSL. Su arquitectura asíncrona permite manejar múltiples conexiones simultáneamente, lo que lo hace ideal para aplicaciones con alto tráfico. Además, NGINX puede servir contenido estático de manera eficiente y también funciona como un servidor de proxy para aplicaciones dinámicas. Lo utilizamos para tener nuestro codigo de la web ahi y que la gente pueda verlo desde sus casas</p> 
 
-<p>Una de las principales fortalezas de NGINX radica en su habilidad para mejorar el desempeño y disminuir la latencia en la distribución de contenido. Además, se puede integrar sin problemas con otros servicios como servidores de aplicaciones, bases de datos y herramientas de almacenamiento en caché. A pesar de que el hosting almacena aplicaciones y sitios web, NGINX es esencial para su funcionamiento al gestionar solicitudes y distribuir tráfico de manera eficiente. En contraste con Apache, NGINX se destaca por su enfoque asincrónico y basado en eventos que lo hace más eficiente en situaciones de gran tráfico, a diferencia de Apache que emplea un modelo basado en procesos que podría ser menos efectivo en esos casos. En un portal web PHP, se ajusta NGINX para ofrecer contenido estático y enviar las peticiones dinámicas a un intérprete PHP como PHP-FPM, obteniendo un excelente rendimiento y una configuración sencilla. En pocas palabras, NGINX no solo optimiza el rendimiento y la rapidez de las aplicaciones web, sino que también proporciona un amplio nivel de versatilidad y gestión sobre el tráfico, convirtiéndose en una herramienta crucial para cualquier proyecto web contemporáneo.</p>
+<p>Una de las principales ventajas de NGINX es su capacidad para optimizar el rendimiento y reducir la latencia en la entrega de contenido. También se integra fácilmente con otros servicios, como servidores de aplicaciones, bases de datos y herramientas de almacenamiento en caché. A través de su configuración, puedes implementar reglas para la redirección de URLs, optimizar la compresión de archivos y habilitar características de seguridad como el filtrado de solicitudes. En resumen, NGINX no solo mejora la eficiencia y velocidad de las aplicaciones web, sino que también ofrece un alto grado de flexibilidad y control sobre el tráfico, siendo una herramienta esencial para cualquier proyecto web moderno.</p>
 
 
 <h1 id="FTP">FTP</h1>
@@ -187,7 +187,22 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 
 <p>Una de las principales ventajas de FTP es su simplicidad y amplia compatibilidad con diferentes sistemas operativos y plataformas. Permite la autenticación mediante credenciales, lo que garantiza la seguridad en la transferencia de datos. Además, con la variante SFTP (SSH File Transfer Protocol), se puede añadir una capa de cifrado, protegiendo así la información sensible durante el tránsito. FTP también ofrece funciones como la posibilidad de cambiar permisos de archivos y directorios, lo que permite una gestión más granular del acceso a los datos. En resumen, FTP es una herramienta esencial para la administración de archivos en proyectos web, asegurando una transferencia eficiente y segura de datos.</p>
 
-
+<h1 id="Dockers">Dockers</h1>
+<p>Docker es una plataforma de software que permite crear, desplegar y ejecutar aplicaciones dentro de contenedores. Los contenedores son entornos ligeros, portátiles y aislados que incluyen todo lo necesario para que una aplicación funcione: código, dependencias, bibliotecas y configuraciones.</p>
+<h3>Conceptos clave sobre Docker</h3>
+<ul>
+    <li>Contenedores:</li>
+    <p>Son como máquinas virtuales ligeras, pero más eficientes. A diferencia de una VM que incluye un sistema operativo completo, un contenedor comparte el kernel del sistema operativo del anfitrión, lo que los hace más rápidos y con menos consumo de recursos.</p>
+    <li>Imágenes de Docker:</li>
+    <p>Son plantillas inmutables que contienen todo lo necesario para ejecutar una aplicación. Piensa en ellas como "la receta" de un contenedor. A partir de estas imágenes se crean los contenedores.</p>
+    <li>Docker Engine:</li>
+    <p>Es el software principal que gestiona la creación, ejecución y eliminación de contenedores.</p>
+    <li>Dockerfile:</li>
+    <p>Es un archivo de texto que contiene instrucciones para construir una imagen de Docker. Por ejemplo, define qué sistema operativo usar, qué dependencias instalar y cómo ejecutar la aplicación.</p>
+    <li>Docker Hub:</li>
+    <p>Es un repositorio público donde puedes encontrar imágenes de Docker listas para usar, como imágenes de bases de datos (MySQL, MongoDB), servidores web (Nginx, Apache), etc.</p>
+</ul>
+<img src="https://github.com/user-attachments/assets/ee34a6f1-98e1-4fd3-9f9d-3d241e743c9f" alt="LOGO-GODO" width="1000" height="400" />
 
 <h1 id="Instalaciones">Instalaciones</h1>
 <h1 id="Instalación Proxmox">Instalación Proxmox</h1>
@@ -791,3 +806,17 @@ y
 
 <p>Desde la maquina Cliente acedemos al ftp como antes y con el usuario que creamos en el apartado anterior y lo utilizamos.</p>
 <img src="https://github.com/user-attachments/assets/237b3758-89e7-469c-89f4-12aa462d5f71" alt="LOGO-GODO" width="800" height="300" />
+
+
+<h1 id="Instalación Docker">Instalación Docker</h1>
+<p>Primero instalamos docker desktop desde su pagina oficial</p>
+<p>Despues miramos la version</p>
+<p>Despues miramos si va el hello-world con el comando "Docker run hello-world"</p>
+<p>El instalador lo puedes ejecutar las veces que quieras y cada uno tiene un puerto</p>
+<p>Si todo funciona ahora descargaremos imagenes pra despues convertirlas en contenedores</p>
+<p>ejecutamos este comando para que funcione mysql, en el apartado de contraseña ponemos la contraseña que queramos y en el apartado de mymysql tambien podemos escribir lo que uqeramos: docker run -e MYSQL_ROOT_PASSWORD=contraseña --named mymysql mysql</p>
+<p>Para ejecutar en modo iterctivo hay que hacer el sigiente comando: "docker exec -it mymysql bash" recuerda que el mymysql lo decides tu. El bash es porque la imagen se ejecuta desde un sistema operativo linux</p>
+<p>Entraremos en una terminal linux. Si hacemos "ls" es para ver los archivos que hay dentro. Despues para entrar como root tenemos que ejcutar el sigiente comendo "mysql -u root -p" y cuando te pida la contraseña tendremos que poner la que definimos anterior mente</p>
+<p>Para ver las bbdd que hay dentro tenemos que ejecutar el siguente comendo "show databases;"</p>
+<p>Para crear una bbdd tenemos que hacer el sigiente comando "create database NOMBRE"</p>
+
