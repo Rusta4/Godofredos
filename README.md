@@ -1,16 +1,16 @@
 <h1>ASIX2 Primer Proyecto Pagina Web - Godofredo`s</h1>
 
-<h2>INDEX</h2>
+<h2>ÍNDICE</h2>
 <ul>
-    <li><b><a href="#Explicacion idea del proyecto">Explicacion idea del proyecto</a></b></li>
+    <li><b><a href="#Explicación idea del proyecto">Explicación idea del proyecto</a></b></li>
     <li><b><a href="#Nuestros Objetivos">Nuestros Objetivos</a></b></li>
-    <li><b><a href="#Tecnologias Usadas">Tecnologias Usadas</a></b></li>
-    <li><b><a href="#Organizacion">Organizacion:</a></b></li>
+    <li><b><a href="#Tecnologías Usadas">Tecnologías Usadas</a></b></li>
+    <li><b><a href="#Organización">Organización:</a></b></li>
     <ul>
         <li><a href="#Diagrama Gantt">Diagrama Gantt</a></li>
         <li><a href="#Diagrama NoSql">Diagrama NoSql</a></li>
     </ul>
-    <li><b><a href="#Pagina Web">Pagina Web:</a></b></li>
+    <li><b><a href="#Página Web">Página Web:</a></b></li>
     <ul>
         <li><a href="#Mockup">Mockup</a></li>
         <li><a href="#Diagrama Web">Diagrama Web</a></li>
@@ -31,20 +31,20 @@
     <li><b><a href="#Docker">Docker</a></b></li>
     <li><b><a href="#Instalaciones">Instalaciones:</a></b></li>
     <ul>
-        <li><a href="#Instalación Proxmox">Instalacion Proxmox</a></li>
-        <li><a href="#Instalación Router">Instalacion Router</a></li>
-        <li><a href="#Instalación DHCP">Instalacion DHCP</a></li>
-        <li><a href="#Instalación Firebase">Instalacion Firebase</a></li>
-        <li><a href="#Instalación DNS">Instalacion DNS</a>
-        <li><a href="#Instalación NGINX">Instalacion NGINX y SSL</a></li>
-        <li><a href="#Instalación FTP">Instalacion FTP</a></li>
-        <li><a href="#Instalación Docker">Instalacion Docker</a></li>
+        <li><a href="#Instalación Proxmox">Instalación Proxmox</a></li>
+        <li><a href="#Instalación Router">Instalación Router</a></li>
+        <li><a href="#Instalación DHCP">Instalación DHCP</a></li>
+        <li><a href="#Instalación Firebase">Instalación Firebase</a></li>
+        <li><a href="#Instalación DNS">Instalación DNS</a>
+        <li><a href="#Instalación NGINX">Instalación NGINX y SSL</a></li>
+        <li><a href="#Instalación FTP">Instalación FTP</a></li>
+        <li><a href="#Instalación Docker">Instalación Docker</a></li>
     </ul>
 </ul>
 
 
 
-<h2 id="Explicacion idea del proyecto">Explicacion idea del proyecto</h2>
+<h2 id="Explicación idea del proyecto">Explicación idea del proyecto</h2>
 <p>Estamos creando una plataforma web similar a GitHub, pero totalmente enfocada en el campo de la ciberseguridad. Como equipo, nuestra misión es ofrecer un espacio donde los profesionales de la seguridad informática puedan colaborar, compartir herramientas, scripts y proyectos que aborden distintas áreas de ciberseguridad, desde la evaluación de vulnerabilidades hasta la automatización de auditorías.
 
 Una de las características clave de nuestra plataforma es el uso de imágenes Docker, lo que permitirá a los usuarios crear y compartir entornos preconfigurados de manera rápida y sencilla. Con esto, cualquier miembro de la comunidad podrá replicar de forma precisa estos entornos para realizar pruebas de seguridad, sin necesidad de configuraciones complejas. Además, esto facilitará la colaboración entre profesionales, ya que los entornos Docker garantizan que todo el mundo trabaje en el mismo entorno aislado y seguro.</p>
