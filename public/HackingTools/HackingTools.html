@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacking Tools</title>
+    <link rel="icon" href="../logo/hacker.png" type="image/x-icon">
+    <link rel="stylesheet" href="./HackingTools.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="HackingTools.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="contenedor-general">
+            <p class="logo">
+                <img src="../logo/LOGO-GODO-AZUL.png" alt="Logo de GodoFredo" style="width: 70px; height: 70px; vertical-align: middle;">
+                GodoFredo's
+            </p>
+            <div class="menu-hamburguesa" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <nav id="menu-principal">
+                <a href="../index.html">Inicio</a>
+                <a href="../aboutus/aboutus.html">Sobre Nosotros</a>
+                <a id="login-link" href="../login/login.html">Iniciar sesión</a>
+                <a id="register-link" href="../Register/register.html">Registrarse</a>
+                <div id="profile-container" style="display: none;">
+                    <a id="profile-link" href="../profile/profile.html">Mi Perfil</a>
+                    <button id="logout-button" onclick="logout()" style="background: transparent; border: none;">
+                        <i class="fas fa-sign-out-alt" style="font-size: 20px; color: #caeef8;"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section id="banner-bienvenida-web">
+        <video autoplay muted loop id="video-banner">
+            <source src="../img/videoplayback.mp4" type="video/mp4">
+            Tu navegador no soporta la etiqueta de video.
+        </video>
+        <div class="contenido-banner">
+            <h1 class="scroll-animation">Explora las Mejores Herramientas de Hacking</h1>
+        </div>
+    </section>
+
+    <section id="hacking-tools" class="scroll-animation">
+        <div class="contenedor-general">
+            <h2>Herramientas Disponibles</h2>
+            <div class="tools">
+                <div class="tool">
+                    <img src="../archivos/gobuster.png" alt="Gobuster">
+                    <h3>Gobuster</h3>
+                    <p>Herramienta para enumerar directorios y subdominios mediante ataques de diccionario.</p>
+                    <a href="../archivos/gobuster.pdf" download="gobuster.pdf">
+                        <button>Descargar</button>
+                </div>
+                <div class="tool">
+                    <img src="../archivos/googleDorks.jpg" alt="googleDorks">
+                    <h3>Google Hacking Dorks</h3>
+                    <p>Consultas de Google para encontrar información vulnerable o sensible en la web.</p>
+                    <a href="../archivos/GoogleHackingDorks.pdf" download="GoogleHackingDorks.pdf">
+                        <button>Descargar</button>
+                </div>
+                <div class="tool">
+                    <img src="../archivos/searchOperators.png" alt="searchOperators">
+                    <h3>Google Search Operators</h3>
+                    <p>Comandos avanzados de Google para hacer búsquedas más específicas.</p>
+                    <a href="../archivos/GoogleSearchOperators.pdf" download="GoogleSearchOperators.pdf">
+                        <button>Descargar</button>
+                </div>
+                <div class="tool">
+                    <img src="../archivos/gtfobins.png" alt="GTFOBins">
+                    <h3>GTFOBins</h3>
+                    <p>Repositorio de comandos que aprovechan configuraciones inseguras para ejecutar binarios con privilegios.</p>
+                    <a href="../archivos/GTFOBins.pdf" download="GTFOBins.pdf">
+                        <button>Descargar</button>
+                </div>
+                <div class="tool">
+                    <img src="../archivos/HTTPStatusCodes.png" alt="Gobuster">
+                    <h3>HTTP Status Codes</h3>
+                    <p>Códigos numéricos que indican el resultado de una solicitud HTTP (ej. 404, 200).</p>
+                    <a href="../archivos/HTTPStatusCodes.pdf" download="HTTPStatusCodes.pdf">
+                        <button>Descargar</button>
+                </div>
+                <div class="tool">
+                    <img src="../archivos/hydra.png" alt="Gobuster">
+                    <h3>Hydra</h3>
+                    <p>Herramienta de fuerza bruta para crackear contraseñas en varios servicios y protocolos.</p>
+                    <a href="../archivos/hydra.pdf" download="hydra.pdf">
+                        <button>Descargar</button>
+                </div>
+                <div class="tool">
+                    <img src="../archivos/john.png" alt="john">
+                    <h3>John The Ripper</h3>
+                    <p>Herramienta para romper contraseñas cifradas mediante técnicas de cracking.</p>
+                    <a href="../archivos/John.pdf" download="John.pdf">
+                        <button>Descargar</button>
+                </div>
+                <div class="tool">
+                    <img src="../archivos/metasploitFrame.png" alt="Metasploit Framework">
+                    <h3>Metasploit Framework</h3>
+                    <p>Framework para desarrollar y ejecutar exploits, utilizado en pruebas de penetración y evaluación de vulnerabilidades.</p>
+                    <a href="../archivos/MetasploitFramework.pdf" download="MetasploitFramework.pdf">
+                        <button>Descargar</button>
+                </div>
+                <div class="tool">
+                    <img src="../archivos/nmap.png" alt="nmap">
+                    <h3>NMAP</h3>
+                    <p>Herramienta de escaneo de redes que detecta hosts, puertos y servicios activos, ayudando en la auditoría de redes y seguridad.</p>
+                    <a href="../archivos/nmap.pdf" download="nmap.pdf">
+                        <button>Descargar</button>
+                </div>
+                <div class="tool">
+                    <img src="../archivos/ShodanFilters.png" alt="ShodanFilters">
+                    <h3>Shodan Filters</h3>
+                    <p>Motor de búsqueda para dispositivos conectados a Internet, utilizado para explorar y analizar la infraestructura de la red global.</p>
+                    <a href="../archivos/ShodanFilters.pdf" download="ShodanFilters.pdf">
+                        <button>Descargar</button>
+                </div>
+                <div class="tool">
+                    <img src="../archivos/sqlmap.jpeg" alt="Sqlmap">
+                    <h3>SQL Map</h3>
+                    <p>Herramienta de automatización para detectar y explotar vulnerabilidades de inyección SQL en aplicaciones web.</p>
+                    <a href="../archivos/Sqlmap.pdf" download="Sqlmap.pdf">
+                        <button>Descargar</button>
+                </div>
+                <div class="tool">
+                    <img src="../archivos/wpscan.png" alt="wpscan">
+                    <h3>Wpscan</h3>
+                    <p>Herramienta de escaneo de seguridad para sitios web basados en WordPress, utilizada para encontrar vulnerabilidades y debilidades.</p>
+                    <a href="../archivos/wpscan.pdf" download="wpscan.pdf">
+                        <button>Descargar</button>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="contenedor-general">
+            <p>&copy; Godofredo's 2024</p>
+        </div>
+    </footer>
+</body>
+
+</html>
