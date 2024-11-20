@@ -484,12 +484,12 @@ footer a:hover {
     margin: 10px 0 15px;
     font-size: 1rem;
     line-height: 1.5; /* Espaciado de líneas */
-    color: #d4d4d4;
+    color: #caeef8;
 }
 
 /* Botón de descarga */
 .tool button {
-    background-color: #d4d4d4; /* Color llamativo */
+    background-color: #caeef8; /* Color llamativo */
     color: #041d49;
     border: none;
     padding: 12px 20px;
@@ -502,7 +502,7 @@ footer a:hover {
 
 .tool button:hover {
     background-color: #041d49;
-    color: #d4d4d4; /* Cambiar color del texto al pasar el mouse */
+    color: #caeef8; /* Cambiar color del texto al pasar el mouse */
     border: 2px solid #caeef8; /* Borde de color #caeef8 */
     border-radius: 2px;
     transform: scale(1.05); /* Aumentar tamaño ligeramente */
@@ -520,3 +520,26 @@ footer a:hover {
     }
 }
 
+/* Estilo del botón de flecha hacia abajo */
+.scroll-down-btn {
+    display: inline-block;
+    margin-top: 20px; /* Espacio entre el título y el botón */
+    font-size: 4rem;
+    color: #caeef8; /* Color de la flecha */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    animation: bounce 1.5s infinite; /* Animación para que la flecha rebote */
+}
+
+.scroll-down-btn:hover {
+    color: #caeef8; /* Cambio de color al pasar el mouse */
+}
+
+/* Animación de rebote para la flecha */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px); /* Movimiento hacia abajo */
+    }
+}
