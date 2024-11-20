@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
+
+* {
+    font-family: 'Lexend Deca', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
+
+body{
+        font-family: 'Lexend Deca', sans-serif;
+        color: #caeef8;
+        margin: 0;
+}
+
+.custom-container {
+    background: linear-gradient(45deg, blueviolet, lightgreen);
+    padding: 15px 9%;
+    padding-bottom: 100px;
+}
+
+.custom-container .custom-heading {
+    text-align: center;
+    padding-bottom: 15px;
+    color: #caeef8;
+    text-shadow: 0 5px 10px #041d49;
+    font-size: 50px;
+}
+
+.custom-container .custom-box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ajuste mínimo de 280px */
+    gap: 20px;
+    justify-items: center;
+    margin-top: 100px;
+}
+
+.custom-container .custom-box-container .custom-box {
+    background: #caeef8;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px #041d49;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+    max-width: 400px; /* Limitar el ancho máximo de cada tarjeta */
+    display: flex;
+    flex-direction: column; /* Diseño vertical */
+}
+
+.custom-container .custom-box-container .custom-box:hover {
+    box-shadow: 0 10px 15px #041d49;
+    transform: scale(1.03);
+}
+
+.custom-container .custom-box-container .custom-box .custom-image-container {
+    width: 100%;
+    height: 200px; /* Altura fija para la imagen */
+    overflow: hidden;
+}
+
+.custom-container .custom-box-container .custom-box .custom-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Mantener relación de aspecto */
+}
+
+.custom-container .custom-box-container .custom-box .custom-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.custom-container .custom-box-container .custom-box .custom-content h3 {
+    color: #041d49;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.custom-container .custom-box-container .custom-box .custom-content p {
+    color: #041d49;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.custom-container .custom-box-container .custom-box .custom-content .custom-btn {
+    background: #041d49;
+    color: #caeef8;
+    font-size: 17px;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.custom-container .custom-box-container .custom-box .custom-content .custom-btn:hover {
+    background: #caeef8;
+    color: #041d49;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+    .custom-container {
+        padding: 20px;
+    }
+
+    .custom-container .custom-box-container {
+        grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+    }
+
+    .custom-container .custom-box-container .custom-box {
+        max-width: 100%;
+    }
+}
+
+
+/*estilos header*/
+
+header {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.507);
+
+}
+
+header .logo {
+    margin: 0;
+    padding: 25px 30px;
+    font-weight: bold;
+    color: #caeef8;
+    font-size: 1.6em;
+}
+
+header .contenedor-general {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header nav {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+header a {
+    padding: 5px 12px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #caeef8;
+}
+
+header a:hover {
+    color: #caeef8;
+}
+
+@media (min-width: 850px) {
+    header {
+        position: fixed;
+        width: 100%;
+    }
+
+    header .contenedor-general {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    header nav {
+        flex-direction: row;
+        padding-bottom: 0;
+        padding-right: 20px;
+    }
+}
+
+@media (max-width: 850px) {
+    #menu-principal {
+        display: none; /* Oculta el menú principal en pantallas pequeñas */
+    }
+
+    #menu-hamburguesa {
+        display: block;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+    }
+}
+
+/* Menú desplegable oculto por defecto en móviles */
+#menu-principal {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+#menu-principal.oculto {
+    display: none;
+}
+
+/* Mostrar menú en pantallas grandes */
+@media (min-width: 850px) {
+    #menu-hamburguesa {
+        display: none; /* Oculto el botón hamburguesa en pantallas grandes */
+    }
+
+    #menu-principal {
+        display: flex; /* Menú horizontal en pantallas grandes */
+        flex-direction: row;
+    }
+}
