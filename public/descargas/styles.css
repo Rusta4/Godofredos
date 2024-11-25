@@ -1,0 +1,381 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /*========== Colors ==========*/
+  --border-card-medium-color: hsla(229, 90%, 50%, 0.986);
+  --first-color: hsl(5, 95%, 58%); /* Bright Red */
+  --first-color-alt: hsl(5, 90%, 50%);
+  --title-color: hsl(5, 15%, 15%);
+  --text-color: hsl(5, 8%, 35%);
+  --white-color: hsl(0, 0%, 100%);
+  --body-color: hsl(5, 100%, 98%);
+  --background-color: #1a1a2e; /* Dark background */
+  --header-background-color: #1a1a2e;
+  --header-text-color: #ffffff;
+  --header-hover-color: #ff4c60;
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: 16px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/*=============== HEADER ===============*/
+/* Estilos generales del header */
+header {
+  background-color: transparent;
+  position: relative;
+  z-index: 10;
+}
+
+header .logo {
+  margin: 0;
+  padding: 20px;
+  font-weight: bold;
+  color: var(--header-text-color);
+  font-size: 1.8em;
+}
+
+header .contenedor-general {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  position: relative;
+}
+
+header nav {
+  display: flex;
+  gap: 1rem;
+}
+
+header a {
+  text-decoration: none;
+  font-weight: bold;
+  color: var(--header-text-color);
+}
+
+header a:hover {
+  color: var(--header-hover-color);
+}
+
+/* Estilos del menú hamburguesa */
+.menu-hamburguesa {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  width: 30px;
+  height: 20px;
+  justify-content: space-between;
+}
+
+.menu-hamburguesa .linea {
+  background-color: var(--header-text-color);
+  height: 4px;
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+/* Estilos para el menú lateral */
+.menu-lateral {
+  position: fixed;
+  top: 0;
+  right: -250px; /* Inicialmente oculto fuera de la pantalla */
+  width: 250px;
+  height: 100%;
+  background-color: #333;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  transition: right 0.3s ease-in-out;
+  z-index: 9;
+}
+
+.menu-lateral nav {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.menu-lateral a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #fff;
+}
+
+.menu-lateral a:hover {
+  color: #00ffea;
+}
+
+/* Botón para cerrar el menú lateral */
+.close-btn {
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  align-self: flex-end;
+  margin-bottom: 20px;
+}
+
+/* Mostrar el menu hamburguesa y lateral en pantallas pequeñas */
+@media (max-width: 472px) {
+  header nav {
+    display: none; /* Ocultar el menú original */
+  }
+  
+  .menu-hamburguesa {
+    display: flex; /* Mostrar el botón hamburguesa */
+    position: absolute; /* Posicionarlo en el lado derecho */
+    right: 20px;
+  }
+}
+
+/*=============== CONTAINER ===============*/
+.container {
+  padding: 2.5rem;
+  background: var(--background-color);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(86, 1, 156, 0.726);
+  /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.container__title {
+  font-size: 2rem;
+  text-align: center;
+  color: #00ffea;
+  text-shadow: 0 0 5px rgba(0, 255, 234, 0.4);
+  font-family: "Roboto Mono", monospace;
+}
+
+/*=============== CARD CONTAINER ===============*/
+.card__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/*=============== CARD STYLES BY DIFFICULTY ===============*/
+.facil .card__product {
+  border: 3px solid #00b894; /* Green for easy */
+  box-shadow: 0 0 15px rgba(0, 184, 148, 0.5);
+}
+
+.medio .card__product {
+  border: 3px solid #fdcb6e; /* Yellow for medium */
+  box-shadow: 0 0 15px rgba(253, 203, 110, 0.5);
+}
+
+.dificil .card__product {
+  border: 3px solid #d63031; /* Red for difficult */
+  box-shadow: 0 0 15px rgba(214, 48, 49, 0.5);
+}
+
+/*=============== GENERAL CARD STYLES ===============*/
+.card__product {
+  background-color: #1a1a2e;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 10px;
+}
+
+.card__product:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.card__img {
+  width: 150px;
+  margin-bottom: 15px;
+  border-radius: 50%;
+  filter: drop-shadow(0 8px 16px rgba(0, 255, 234, 0.2));
+}
+
+.card__name {
+  font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.card__price {
+  font-size: 1.2rem;
+  color: #ff4c60;
+}
+
+/*=============== MODAL STYLES ===============*/
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);  /* Fondo semitransparente */
+  backdrop-filter: blur(16px);  /* Desenfoque del fondo */
+  -webkit-backdrop-filter: blur(16px);  /* Asegura compatibilidad con Safari */
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 9999;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  animation: fadeInUp 0.6s ease-out; /* Animación */
+}
+
+/* Modificador cuando se activa el modal */
+.modal.active-modal {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: initial;
+}
+
+/* Modal content */
+.modal__card {
+  background-color: var(--body-color);
+  padding: 3rem 2rem;
+  border-radius: 10px;
+  max-width: 500px;
+  text-align: center;
+  width: 100%;
+  animation: scaleUp 0.4s ease-out;
+}
+
+.modal__img {
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+.modal__name {
+  font-size: 1.5rem;
+  color: var(--title-color);
+}
+
+.modal__price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--first-color);
+}
+
+.modal__buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 20px;
+}
+
+.modal__button {
+  flex-grow: 1;
+  padding: 1rem;
+  border: none;
+  background-color: var(--first-color);
+  color: var(--white-color);
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.modal__button:hover {
+  background-color: var(--first-color-alt);
+}
+
+.modal__button-ghost {
+  background-color: transparent;
+  border: 2px solid var(--first-color);
+  color: var(--first-color);
+}
+
+/* Animación de escala para el modal */
+@keyframes scaleUp {
+  0% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Animación de entrada */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Close button */
+.modal__close {
+  font-size: 1.5rem;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+/* Active modal */
+.active-modal {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: initial;
+  animation: fadeInUp 0.6s ease-out; /* Aquí aplicamos la animación al modal cuando se activa */
+}
+
+.active-modal .modal__card {
+  transform: rotateX(0);
+}
+
+
+/* Pantallas medianas (tabletas en modo horizontal) */
+@media (max-width: 1024px) {
+  .contenedor-general {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .card__container {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .container__title {
+    font-size: 1.8rem;
+  }
+
+  .card__product {
+    padding: 1.8rem;
+  }
+}
+
+/* Pantallas grandes (escritorios) */
+@media (min-width: 1025px) {
+  .card__container {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .modal__card {
+    width: 500px;
+    max-width: 600px;
+  }
+
+  .container__title {
+    font-size: 2rem;
+  }
+}

@@ -1,4 +1,7 @@
+
+
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
+
 
 
 *{
@@ -79,7 +82,11 @@ li{ font-size: 1.25em;}
     animation-fill-mode: forwards;
 }
 
-
+.divider {
+  border: 0; /* Elimina el borde predeterminado */
+  border-top: 1px solid #ccc; /* Línea superior */
+  margin: 0px 0; /* Espaciado alrededor */
+}
 
 
 
@@ -593,38 +600,6 @@ footer .contenedor-general {
     max-width: 1000px;
 }
 
-.recuadro {
-    background-color: rgba(30, 30, 30, 0.8);
-    color: #caeef8;
-    flex: 1;
-    min-width: 200px; /* Tamaño mínimo reducido */
-    max-width: 250px; /* Limita el tamaño máximo */
-    margin: 10px;
-    padding: 15px; /* Espacio interno reducido */
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.recuadro img {
-    width: 100%; /* Imagen ocupa el ancho del recuadro */
-    height: auto;
-    border-radius: 8px; /* Bordes redondeados de la imagen */
-    margin-bottom: 10px; /* Espacio entre imagen y texto */
-}
-
-.recuadro p {
-    font-size: 0.9em; /* Tamaño de texto ligeramente reducido */
-}
-
-.recuadro h3 {
-    margin-top: 0;
-    font-size: 1.8em;
-}
-
-.recuadro p {
-    font-size: 1em;
-}
 
 
 
@@ -825,3 +800,417 @@ footer .contenedor-general {
         align-items: center;
     }
 }
+
+/* Estilos generales */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lexend Deca', sans-serif;
+}
+
+body {
+    font-family: 'Lexend Deca', sans-serif;
+    color: #caeef8;
+    margin: 0;
+}
+
+/* Sección de video de fondo */
+#banner-bienvenida-web {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+#video-banner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    background-size: cover;
+}
+
+.sobre-nosotros {
+    z-index: 1;
+    color: #caeef8;
+    max-width: 800px;
+    text-align: center;
+}
+
+.sobre-nosotros h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.sobre-nosotros p {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+/* Sección de Beneficios */
+.benefits-section {
+    padding: 50px 20px;
+    background-color: #1e88e5;
+    color: #caeef8;
+}
+
+.benefits-section h3 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.benefits ul {
+    list-style: none;
+    padding-left: 0;
+    font-size: 1.25em;
+}
+
+.benefits li {
+    margin-bottom: 10px;
+}
+
+/* Sección de estadísticas */
+.statistics-section {
+    padding: 50px 20px;
+    background-color: #1565c0;
+    color: #caeef8;
+}
+
+.statistics h3 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.statistics .stat-item {
+    text-align: center;
+    margin: 20px;
+}
+
+.statistics .stat-item h4 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.statistics .stat-item p {
+    font-size: 1.2em;
+}
+
+/* Sección de Galería */
+.gallery-section {
+    padding: 50px 20px;
+    background-color: #1e88e5;
+    color: #caeef8;
+}
+
+.gallery-section h3 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.gallery img {
+    width: 250px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* Botón de llamada a la acción */
+.call-to-action-section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.cta-button {
+    background-color: #041d49;
+    color: #caeef8;
+    padding: 15px 40px;
+    font-size: 1.5em;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #caeef8;
+    color: #041d49;
+}
+
+/* Sección de equipo */
+.seccion-sobre-nosotros {
+    padding: 50px 20px;
+    background-color: 30,30,30;
+    color: #caeef8;
+    text-align: center;
+}
+
+.recuadros-secundarios {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.recuadro {
+    background-color: rgba(50, 50, 50, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.recuadro img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.recuadro h3 {
+    margin-top: 15px;
+    font-size: 1.5em;
+}
+
+.recuadro p {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+/* Estilos generales de footer */
+footer {
+    background-color: #caeef8;
+    padding: 20px 0;
+    text-align: center;
+    color: #caeef8;
+}
+
+footer p {
+    font-size: 1em;
+}
+
+/* Animación al hacer scroll */
+
+
+.scroll-animation.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Estilos de la sección de beneficios */
+.benefits-section {
+    padding: 50px 20px;
+    background-color: #e51eba;
+    color: white;
+    text-align: center;
+}
+
+.benefits-section h3 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.benefits-cards {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.benefit-card {
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo inicial */
+    padding: 30px;
+    border-radius: 10px;
+    width: 18%;
+    text-align: center;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2); /* Sombra inicial */
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* Transiciones */
+}
+
+.benefit-card:hover {
+    transform: scale(1.05) rotate(1deg); /* Efecto de escala con ligera rotación */
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo más claro */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* Sombra más pronunciada */
+}
+
+.benefit-card i {
+    font-size: 3em;
+    margin-bottom: 15px;
+    color: #caeef8;
+}
+
+.benefit-card h4 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.benefit-card p {
+    font-size: 1.1em;
+    line-height: 1.4;
+}
+
+/* Animaciones de entrada al hacer scroll */
+.scroll-animation {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-animation.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Estilo para la sección de Objetivos */
+#banner-bienvenida-web {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+#video-banner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    background-size: cover;
+}
+
+/* Estilos para el texto de los objetivos */
+.sobre-nosotros {
+    z-index: 1;
+    color: #ffffff;
+    max-width: 800px;
+    text-align: center;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.5);  /* Fondo oscuro semi-transparente */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.sobre-nosotros h2 {
+    font-size: 2.8em;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #caeef8; /* Color azul claro para destacar el título */
+}
+
+.sobre-nosotros p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #f0f0f0; /* Texto blanco para mejor contraste */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); /* Sombra sutil para mejorar la legibilidad */
+}
+
+
+/* Estilo para la sección de Objetivos */
+#banner-bienvenida-web {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+#video-banner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    background-size: cover;
+}
+
+/* Estilos para el texto de los objetivos */
+.sobre-nosotros {
+    z-index: 1;
+    color: #e0e0e0; /* Color de texto más suave pero visible */
+    max-width: 800px;
+    text-align: center;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.8);  /* Fondo más oscuro */
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);  /* Sombra más pronunciada */
+}
+
+.sobre-nosotros h2 {
+    font-size: 2.8em;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #fff; /* Blanco para que se vea bien sobre el fondo oscuro */
+}
+
+.sobre-nosotros p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #f0f0f0; /* Blanco/gris suave para los párrafos */
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8); /* Sombra más fuerte para mejorar la legibilidad */
+}
+
+/* Estilos de la sección de beneficios */
+.benefits-section {
+    padding: 50px 20px;
+    background-color: #0a0a0a;  /* Fondo más oscuro para la sección */
+    color: white;
+    text-align: center;
+}
+
+.benefits-section h3 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #caeef8; /* Azul claro para destacar el título */
+}
+
+.benefits-cards {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+
+
+
+.scroll-animation.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+
