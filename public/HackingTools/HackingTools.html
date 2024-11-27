@@ -8,7 +8,15 @@
     <link rel="icon" href="../logo/hacker.png" type="image/x-icon">
     <link rel="stylesheet" href="./HackingTools.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="HackingTools.js"></script>
+    <script type="module" src="./HackingTools.js"></script>
+
+
+    <script>
+        function toggleMenu() {
+            var menu = document.querySelector('header nav');
+            menu.classList.toggle('show'); // Cambiar la clase para mostrar/ocultar el menú
+        }
+    </script>
 </head>
 
 <body>
@@ -56,94 +64,128 @@
             <h2>Herramientas Disponibles</h2>
             <div class="tools">
                 <div class="tool">
-                    <img src="../archivos/gobuster.png" alt="Gobuster">
+                    <img src="../img/gobuster.png" alt="Gobuster">
                     <h3>Gobuster</h3>
                     <p>Herramienta para enumerar directorios y subdominios mediante ataques de diccionario.</p>
-                    <a href="../archivos/gobuster.pdf" download="gobuster.pdf">
-                        <button>Descargar</button>
+                    <a href="https://firebasestorage.googleapis.com/v0/b/godofredo-a880f.firebasestorage.app/o/HackingTools%2Fgobuster.pdf?alt=media&token=cf600c2a-2299-4409-9118-da1c439eb7ab" target="_blank" download="gobuster.pdf">
+                        <button>Visualizar</button>
                 </div>
                 <div class="tool">
-                    <img src="../archivos/googleDorks.jpg" alt="googleDorks">
+                    <img src="../img/googleDorks.jpg" alt="googleDorks">
                     <h3>Google Hacking Dorks</h3>
                     <p>Consultas de Google para encontrar información vulnerable o sensible en la web.</p>
-                    <a href="../archivos/GoogleHackingDorks.pdf" download="GoogleHackingDorks.pdf">
-                        <button>Descargar</button>
+                    <a href="https://firebasestorage.googleapis.com/v0/b/godofredo-a880f.firebasestorage.app/o/HackingTools%2FGoogleHackingDorks.pdf?alt=media&token=498afcb2-70d8-43d5-8ee6-e7d6072b6cea" target="_blank" download="GoogleHackingDorks.pdf">
+                        <button>Visualizar</button>
                 </div>
                 <div class="tool">
-                    <img src="../archivos/searchOperators.png" alt="searchOperators">
+                    <img src="../img/searchOperators.png" alt="searchOperators">
                     <h3>Google Search Operators</h3>
                     <p>Comandos avanzados de Google para hacer búsquedas más específicas.</p>
-                    <a href="../archivos/GoogleSearchOperators.pdf" download="GoogleSearchOperators.pdf">
-                        <button>Descargar</button>
+                    <a href="https://firebasestorage.googleapis.com/v0/b/godofredo-a880f.firebasestorage.app/o/HackingTools%2FGoogleSearchOperators.pdf?alt=media&token=45d73524-a7e2-44e5-b9ca-fba0ace5e116" target="_blank" download="GoogleSearchOperators.pdf">
+                        <button>Visualizar</button>
                 </div>
                 <div class="tool">
-                    <img src="../archivos/gtfobins.png" alt="GTFOBins">
+                    <img src="../img/gtfobins.png" alt="GTFOBins">
                     <h3>GTFOBins</h3>
                     <p>Repositorio de comandos que aprovechan configuraciones inseguras para ejecutar binarios con privilegios.</p>
-                    <a href="../archivos/GTFOBins.pdf" download="GTFOBins.pdf">
-                        <button>Descargar</button>
+                    <a href="https://firebasestorage.googleapis.com/v0/b/godofredo-a880f.firebasestorage.app/o/HackingTools%2FGTFOBins.pdf?alt=media&token=3e69ad94-85e2-439e-8149-7ae0a8a0d975" target="_blank" download="GTFOBins.pdf">
+                        <button>Visualizar</button>
                 </div>
                 <div class="tool">
-                    <img src="../archivos/HTTPStatusCodes.png" alt="Gobuster">
+                    <img src="../img/HTTPStatusCodes.png" alt="Gobuster">
                     <h3>HTTP Status Codes</h3>
                     <p>Códigos numéricos que indican el resultado de una solicitud HTTP (ej. 404, 200).</p>
-                    <a href="../archivos/HTTPStatusCodes.pdf" download="HTTPStatusCodes.pdf">
-                        <button>Descargar</button>
+                    <a href="https://firebasestorage.googleapis.com/v0/b/godofredo-a880f.firebasestorage.app/o/HackingTools%2FHTTPStatusCodes.pdf?alt=media&token=a021a0a7-833f-43b7-8888-a448143982a2" target="_blank" download="HTTPStatusCodes.pdf">
+                        <button>Visualizar</button>
                 </div>
                 <div class="tool">
-                    <img src="../archivos/hydra.png" alt="Gobuster">
+                    <img src="../img/hydra.png" alt="Gobuster">
                     <h3>Hydra</h3>
                     <p>Herramienta de fuerza bruta para crackear contraseñas en varios servicios y protocolos.</p>
-                    <a href="../archivos/hydra.pdf" download="hydra.pdf">
-                        <button>Descargar</button>
+                    <a href="https://firebasestorage.googleapis.com/v0/b/godofredo-a880f.firebasestorage.app/o/HackingTools%2Fhydra.pdf?alt=media&token=b64c449e-7a6a-4a40-8ac2-3c314c1f3ee5" target="_blank" download="hydra.pdf">
+                        <button>Visualizar</button>
                 </div>
                 <div class="tool">
-                    <img src="../archivos/john.png" alt="john">
+                    <img src="../img/john.png" alt="john">
                     <h3>John The Ripper</h3>
                     <p>Herramienta para romper contraseñas cifradas mediante técnicas de cracking.</p>
-                    <a href="../archivos/John.pdf" download="John.pdf">
-                        <button>Descargar</button>
+                    <a href="https://firebasestorage.googleapis.com/v0/b/godofredo-a880f.firebasestorage.app/o/HackingTools%2FJohn.pdf?alt=media&token=63a48b97-e994-4a39-99d6-6b74823f8007" target="_blank" download="John.pdf">
+                        <button>Visualizar</button>
                 </div>
                 <div class="tool">
-                    <img src="../archivos/metasploitFrame.png" alt="Metasploit Framework">
+                    <img src="../img/metasploitFrame.png" alt="Metasploit Framework">
                     <h3>Metasploit Framework</h3>
                     <p>Framework para desarrollar y ejecutar exploits, utilizado en pruebas de penetración y evaluación de vulnerabilidades.</p>
-                    <a href="../archivos/MetasploitFramework.pdf" download="MetasploitFramework.pdf">
-                        <button>Descargar</button>
+                    <a href="https://firebasestorage.googleapis.com/v0/b/godofredo-a880f.firebasestorage.app/o/HackingTools%2FMetasploitFramework.pdf?alt=media&token=93f45d33-7e9b-4f8f-833b-384ae91fb826" target="_blank" download="MetasploitFramework.pdf">
+                        <button>Visualizar</button>
                 </div>
                 <div class="tool">
-                    <img src="../archivos/nmap.png" alt="nmap">
+                    <img src="../img/nmap.png" alt="nmap">
                     <h3>NMAP</h3>
                     <p>Herramienta de escaneo de redes que detecta hosts, puertos y servicios activos, ayudando en la auditoría de redes y seguridad.</p>
-                    <a href="../archivos/nmap.pdf" download="nmap.pdf">
-                        <button>Descargar</button>
+                    <a href="https://firebasestorage.googleapis.com/v0/b/godofredo-a880f.firebasestorage.app/o/HackingTools%2Fnmap.pdf?alt=media&token=5109f0e7-4d8d-48de-b5fa-05f3a236e655" target="_blank" download="nmap.pdf">
+                        <button>Visualizar</button>
                 </div>
                 <div class="tool">
-                    <img src="../archivos/ShodanFilters.png" alt="ShodanFilters">
+                    <img src="../img/ShodanFilters.png" alt="ShodanFilters">
                     <h3>Shodan Filters</h3>
                     <p>Motor de búsqueda para dispositivos conectados a Internet, utilizado para explorar y analizar la infraestructura de la red global.</p>
-                    <a href="../archivos/ShodanFilters.pdf" download="ShodanFilters.pdf">
-                        <button>Descargar</button>
+                    <a href="https://firebasestorage.googleapis.com/v0/b/godofredo-a880f.firebasestorage.app/o/HackingTools%2FShodanFilters.pdf?alt=media&token=91f7e8ab-df3b-4917-936d-cbd28e8551cd" target="_blank" download="ShodanFilters.pdf">
+                        <button>Visualizar</button>
                 </div>
                 <div class="tool">
-                    <img src="../archivos/sqlmap.jpeg" alt="Sqlmap">
+                    <img src="../img/sqlmap.jpeg" alt="Sqlmap">
                     <h3>SQL Map</h3>
                     <p>Herramienta de automatización para detectar y explotar vulnerabilidades de inyección SQL en aplicaciones web.</p>
-                    <a href="../archivos/Sqlmap.pdf" download="Sqlmap.pdf">
-                        <button>Descargar</button>
+                    <a href="https://firebasestorage.googleapis.com/v0/b/godofredo-a880f.firebasestorage.app/o/HackingTools%2FSqlmap.pdf?alt=media&token=2cfa262f-fade-4cc0-adc8-0eb73cb1f718" target="_blank" download="Sqlmap.pdf">
+                        <button>Visualizar</button>
                 </div>
                 <div class="tool">
-                    <img src="../archivos/wpscan.png" alt="wpscan">
+                    <img src="../img/wpscan.png" alt="wpscan">
                     <h3>Wpscan</h3>
                     <p>Herramienta de escaneo de seguridad para sitios web basados en WordPress, utilizada para encontrar vulnerabilidades y debilidades.</p>
-                    <a href="../archivos/wpscan.pdf" download="wpscan.pdf">
-                        <button>Descargar</button>
+                    <a href="https://firebasestorage.googleapis.com/v0/b/godofredo-a880f.firebasestorage.app/o/HackingTools%2Fwpscan.pdf?alt=media&token=49ff7b59-ec97-4b06-a01c-58e239a76f8e" target="_blank" download="wpscan.pdf">
+                        <button>Visualizar</button>
                 </div>
                 
             </div>
         </div>
     </section>
+    <script>
+        // Verifica el estado de la sesión al cargar la página
+        document.addEventListener('DOMContentLoaded', function () {
+            const isLoggedIn = localStorage.getItem('isLoggedIn'); // Obtiene el estado de la sesión
 
+            if (isLoggedIn === 'true') {
+                document.getElementById('profile-container').style.display = 'flex'; // Muestra el contenedor del perfil
+                document.getElementById('login-link').style.display = 'none';
+                document.getElementById('register-link').style.display = 'none';
+            }
+        });
+
+        // Función para manejar el cierre de sesión
+        function logout() {
+            localStorage.removeItem('isLoggedIn'); // Elimina el estado de la sesión
+            window.location.reload(); // Recarga la página
+        }
+
+        // Función para observar elementos en el viewport
+        document.addEventListener('DOMContentLoaded', function () {
+            const elements = document.querySelectorAll('.scroll-animation');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    } else {
+                        entry.target.classList.remove('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            elements.forEach(el => observer.observe(el));
+        });
+    </script>
     <footer>
         <div class="contenedor-general">
             <p>&copy; Godofredo's 2024</p>

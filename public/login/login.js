@@ -1,7 +1,9 @@
-// archivo principal
 import { db } from '../BBDD/firebaseConf.js';
 import { collection, query, where, getDocs } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js';
+import { getAuth, fetchSignInMethodsForEmail } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js';
 
+// Inicializa Firebase Auth
+const auth = getAuth();
 
 // Función para generar un hash de la contraseña usando la API Crypto
 async function hashPassword(password, salt = crypto.getRandomValues(new Uint8Array(16))) {
@@ -50,19 +52,19 @@ document.addEventListener('DOMContentLoaded', function () {
             const password = loginForm['password'].value;
 
             try {
-                // Crea una referencia al documento del usuario basado en el correo electrónico
+                // Crea una referencia al documento del usuario basado en el correo electrónico en Firestore
                 const usersRef = collection(db, 'Usuarios');
                 const q = query(usersRef, where("email", "==", email));
                 const querySnapshot = await getDocs(q);
 
-                // Verifica si el usuario existe
+                // Verifica si el usuario existe en Firestore
                 if (querySnapshot.empty) {
-                    console.error("El email no está registrado.");
-                    alert("Por favor, inténtalo de nuevo. El Usuario o Contraseña no es correcto");
+                    console.error("El email no está registrado en Firestore.");
+                    alert("El Usuario no está registrado. Por favor, intenta con otro email.");
                     return;
                 }
 
-                // Obtiene la información del usuario
+                // Obtiene la información del usuario desde Firestore
                 const userDoc = querySnapshot.docs[0].data();
                 const { salt, contraseña: hashedPassword } = userDoc;
 
@@ -85,6 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             } catch (error) {
                 console.error("Error durante el inicio de sesión: ", error);
+                alert("Ocurrió un error. Inténtalo de nuevo más tarde.");
             }
         });
     } else {

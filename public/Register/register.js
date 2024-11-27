@@ -1,6 +1,10 @@
-// archivo principal
+// Importa los módulos necesarios
 import { db } from '../BBDD/firebaseConf.js';
-import { collection, addDoc, query, where, orderBy, limit, getDocs } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js';
+import { collection, addDoc, query, where, getDocs } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js';
+import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js';
+
+// Inicializa Firebase Authentication
+const auth = getAuth();
 
 // Función para generar un hash de la contraseña usando la API Crypto
 async function hashPassword(password, salt = window.crypto.getRandomValues(new Uint8Array(16))) {
@@ -37,20 +41,6 @@ function bufferToHex(buffer) {
         .join("");
 }
 
-// Genera un nuevo ID de usuario
-async function generateUserId() {
-    const usersRef = collection(db, 'Usuarios');
-    const q = query(usersRef, orderBy("id_usuarios", "desc"), limit(1));
-    const querySnapshot = await getDocs(q);
-    
-    if (!querySnapshot.empty) {
-        const lastUser = querySnapshot.docs[0].data();
-        return lastUser.id_usuarios + 1;
-    } else {
-        return 1;
-    }
-}
-
 // Lógica del formulario
 document.addEventListener('DOMContentLoaded', function () {
     console.log("DOM Cargado"); // Verificación de carga del DOM
@@ -77,8 +67,8 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             try {
-                const usersRef = collection(db, 'Usuarios');
-                const userQuery = query(usersRef, where("email", "==", email));
+                // Verifica si el usuario ya existe en Authentication
+                const userQuery = query(collection(db, 'Usuarios'), where("email", "==", email));
                 const userSnapshot = await getDocs(userQuery);
 
                 if (!userSnapshot.empty) {
@@ -87,14 +77,18 @@ document.addEventListener('DOMContentLoaded', function () {
                     return;
                 }
 
-                const userId = await generateUserId();
+                // Crear el usuario en Firebase Authentication
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+
                 const { hash: hashedPassword, salt } = await hashPassword(password);
 
-                await addDoc(usersRef, {
-                    id_usuarios: userId,
-                    contraseña: hashedPassword,
-                    salt: salt,
+                // Ahora guarda los datos adicionales en Firestore usando el uid de Firebase Authentication
+                await addDoc(collection(db, 'Usuarios'), {
+                    id_usuarios: user.uid,  // Usar el uid del usuario de Firebase Authentication
                     email: email,
+                    contraseña: hashedPassword,  // Almacena el hash de la contraseña
+                    salt: salt,
                     estado_cuenta: true,
                     fecha_creacion: new Date(),
                     nombre_usuario: email.split('@')[0],
@@ -105,7 +99,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.log('Cuenta creada con éxito!');
                 window.location.href = "../login/login.html";
             } catch (error) {
-                console.error("Error guardando el documento: ", error);
+                console.error("Error al crear el usuario o guardar el documento: ", error);
+                alert("Hubo un error al crear la cuenta. Intenta nuevamente.");
             }
         });
     } else {
