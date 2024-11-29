@@ -201,8 +201,7 @@ En resumen, al usar Cloudflared con NGINX, puedo asegurarme de que mi sitio web 
 </p>
 
 <h1 id="Docker">Dockers</h1>
-<p>Docker es una plataforma de software que permite crear, desplegar y ejecutar aplicaciones dentro de contenedores. Los contenedores son entornos ligeros, portátiles y aislados que incluyen todo lo necesario para que una aplicación funcione: código, dependencias, bibliotecas y configuraciones.</p>
-<h3>Conceptos clave sobre Docker</h3>
+<p></h3>
 <ul>
     <li>Contenedores:</li>
     <p>Son como máquinas virtuales ligeras, pero más eficientes. A diferencia de una VM que incluye un sistema operativo completo, un contenedor comparte el kernel del sistema operativo del anfitrión, lo que los hace más rápidos y con menos consumo de recursos.</p>
