@@ -39,6 +39,7 @@
         <li><a href="#Instalación DNS">Instalación DNS</a>
         <li><a href="#Instalación NGINX">Instalación NGINX y SSL</a></li>
         <li><a href="#Instalación FTP">Instalación FTP</a></li>
+        <li><a href="#Instalación Cloudflared">Instalación Cloudflared</a></li>
         <li><a href="#Instalación Docker">Instalación Docker</a></li>
     </ul>
 </ul>
@@ -818,6 +819,9 @@ y
 
 <p>Desde la maquina Cliente acedemos al ftp como antes y con el usuario que creamos en el apartado anterior y lo utilizamos.</p>
 <img src="https://github.com/user-attachments/assets/237b3758-89e7-469c-89f4-12aa462d5f71" alt="LOGO-GODO" width="800" height="300" />
+
+<h1 id="Instalación Cloudflared">Instalación Cloudflared</h1>
+<p></p>
 
 
 <h1 id="Instalación Docker">Instalación Docker</h1>
