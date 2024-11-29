@@ -28,6 +28,7 @@
     <li><b><a href="#DNS">DNS</a></b></li>
     <li><b><a href="#NGINX (Web)">NGINX (Web)</a></b></li>
     <li><b><a href="#FTP">FTP</a></b></li>
+    <li><b><a href="#Cloudflared">Cloudflared</a></b></li>
     <li><b><a href="#Docker">Docker</a></b></li>
     <li><b><a href="#Instalaciones">Instalaciones:</a></b></li>
     <ul>
@@ -185,8 +186,20 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 
 <p>Una de las principales ventajas de FTP es su simplicidad y amplia compatibilidad con diferentes sistemas operativos y plataformas. Permite la autenticación mediante credenciales, lo que garantiza la seguridad en la transferencia de datos. Además, con la variante SFTP (SSH File Transfer Protocol), se puede añadir una capa de cifrado, protegiendo así la información sensible durante el tránsito. FTP también ofrece funciones como la posibilidad de cambiar permisos de archivos y directorios, lo que permite una gestión más granular del acceso a los datos. En resumen, FTP es una herramienta esencial para la administración de archivos en proyectos web, asegurando una transferencia eficiente y segura de datos.</p>
 
+<h1 id="Cloudflared">Cloudflared</h1>
+<p>En mi proyecto, utilizo Cloudflared con NGINX para gestionar el tráfico de mi web, que está alojada en godo y accesible a través del dominio tallerdekirby.es. Hay varias razones por las que decidí integrar estas herramientas:
 
-<h1 id="Dockers">Dockers</h1>
+- Seguridad mejorada (Zero Trust)
+Al utilizar Cloudflared, me aseguro de que no exponga directamente mi servidor a internet. Con Cloudflare Tunnel, puedo crear un túnel seguro entre mi servidor y los servicios de Cloudflare, lo que elimina la necesidad de abrir puertos en mi red. Esto mejora la seguridad al permitir que todo el tráfico pase a través de Cloudflare, que filtra amenazas antes de que lleguen a mi servidor. Además, Cloudflare protege mi aplicación de ataques DDoS, fuerza bruta, bots maliciosos, entre otros, lo que me da una capa adicional de protección.
+
+
+- Configuración sencilla de SSL/TLS
+Cloudflare me ofrece certificados SSL gratuitos y gestionados, lo cual me ahorra el trabajo de gestionar certificados SSL/TLS en mi servidor. Al usar Cloudflared con NGINX, el tráfico entre los usuarios y mi servidor está protegido de forma transparente, ya que Cloudflare maneja el cifrado en el túnel, garantizando una comunicación segura sin necesidad de configuraciones adicionales en mi parte.
+
+En resumen, al usar Cloudflared con NGINX, puedo asegurarme de que mi sitio web godo en tallerdekirby.es esté bien protegido, funcione rápidamente y sea fácilmente escalable. Estas herramientas me ofrecen una solución eficiente y segura, lo que me permite centrarme más en el desarrollo y contenido de mi web sin preocuparme tanto por los aspectos técnicos de infraestructura y seguridad.
+</p>
+
+<h1 id="Docker">Dockers</h1>
 <p>Docker es una plataforma de software que permite crear, desplegar y ejecutar aplicaciones dentro de contenedores. Los contenedores son entornos ligeros, portátiles y aislados que incluyen todo lo necesario para que una aplicación funcione: código, dependencias, bibliotecas y configuraciones.</p>
 <h3>Conceptos clave sobre Docker</h3>
 <ul>
