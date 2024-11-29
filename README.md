@@ -201,20 +201,27 @@ En resumen, al usar Cloudflared con NGINX, puedo asegurarme de que mi sitio web 
 </p>
 
 <h1 id="Docker">Dockers</h1>
-<p></h3>
-<ul>
-    <li>Contenedores:</li>
-    <p>Son como máquinas virtuales ligeras, pero más eficientes. A diferencia de una VM que incluye un sistema operativo completo, un contenedor comparte el kernel del sistema operativo del anfitrión, lo que los hace más rápidos y con menos consumo de recursos.</p>
-    <li>Imágenes de Docker:</li>
-    <p>Son plantillas inmutables que contienen todo lo necesario para ejecutar una aplicación. Piensa en ellas como "la receta" de un contenedor. A partir de estas imágenes se crean los contenedores.</p>
-    <li>Docker Engine:</li>
-    <p>Es el software principal que gestiona la creación, ejecución y eliminación de contenedores.</p>
-    <li>Dockerfile:</li>
-    <p>Es un archivo de texto que contiene instrucciones para construir una imagen de Docker. Por ejemplo, define qué sistema operativo usar, qué dependencias instalar y cómo ejecutar la aplicación.</p>
-    <li>Docker Hub:</li>
-    <p>Es un repositorio público donde puedes encontrar imágenes de Docker listas para usar, como imágenes de bases de datos (MySQL, MongoDB), servidores web (Nginx, Apache), etc.</p>
-</ul>
+<p>En mi proyecto, quiero implementar Docker de una manera que permita a los usuarios interactuar con una imagen Docker dentro de mi web, todo en un servidor externo. Mi objetivo es ofrecerles una experiencia donde puedan utilizar esta imagen de Docker sin necesidad de tener conocimientos técnicos ni hacer configuraciones complejas. Básicamente, quiero que puedan acceder y usar la imagen directamente desde el navegador.
+
+- ¿Cómo lo voy a lograr?
+Configuración de Docker en el servidor externo: Para lograrlo, voy a configurar un servidor externo que ejecute Docker. En ese servidor, cargaré una imagen Docker específica que permita a los usuarios ejecutar aplicaciones o herramientas dentro de un entorno aislado. La imagen Docker será preconfigurada con todo lo necesario, por lo que los usuarios no tendrán que hacer nada más que interactuar con la interfaz web.
+
+- Interfaz web fácil de usar: 
+Crearé una interfaz sencilla en mi web para que los usuarios puedan interactuar con la imagen Docker. Desde esta interfaz, podrán enviar comandos o realizar acciones dentro del contenedor, todo sin necesidad de instalar Docker o ejecutar configuraciones en su propio sistema. La comunicación con el servidor externo será transparente para ellos; simplemente usarán la web como si fuera una aplicación más.
+
+- Seguridad y control: 
+Para garantizar la seguridad de los usuarios y de mi infraestructura, controlaré el acceso a los contenedores Docker mediante permisos y restricciones. Esto me permitirá asegurarme de que los usuarios solo tengan acceso a lo que necesiten, evitando riesgos innecesarios.
+
+- Escalabilidad y rendimiento:
+Al usar Docker, puedo gestionar y escalar fácilmente los contenedores para soportar una mayor cantidad de usuarios sin afectar el rendimiento. Docker me permitirá lanzar instancias de la imagen de manera eficiente según la demanda, sin tener que preocuparme por la gestión manual de recursos.
+
+- Experiencia sin complicaciones: 
+Al final, el objetivo es que los usuarios de mi web puedan acceder a un contenedor Docker, utilizar las herramientas o servicios dentro de él, y todo esto sin necesidad de hacer configuraciones complejas. Quiero que la experiencia sea lo más sencilla posible, de modo que puedan enfocarse en lo que necesitan hacer dentro del contenedor, sin complicaciones.
+
+En resumen, con esta solución basada en Docker, espero ofrecer a los usuarios una experiencia interactiva en mi web donde puedan utilizar una imagen Docker en un servidor externo, todo a través de una interfaz web amigable y sin necesidad de configuraciones adicionales.</p>
+
 <img src="https://github.com/user-attachments/assets/ee34a6f1-98e1-4fd3-9f9d-3d241e743c9f" alt="LOGO-GODO" width="1000" height="500" />
+<img src="https://github.com/user-attachments/assets/0601cb1f-1ec7-4787-9279-f89a1a109557" alt="LOGO-GODO" width="1000" height="500" />
 
 <h1 id="Instalaciones">Instalaciones</h1>
 <h1 id="Instalación Proxmox">Instalación Proxmox</h1>
