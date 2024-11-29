@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacking Tools</title>
+    <link rel="icon" href="../logo/hacker.png" type="image/x-icon">
+    <link rel="stylesheet" href="./iso.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="./iso.js"></script>
+</head>
+
+<body>
+    <header>
+
+        <script>
+            function toggleMenu() {
+                var menu = document.querySelector('header nav');
+                menu.classList.toggle('show'); // Cambiar la clase para mostrar/ocultar el menú
+            }
+        </script>
+        
+        <div class="contenedor-general">
+            <p class="logo">
+                <img src="../logo/LOGO-GODO-AZUL.png" alt="Logo de GodoFredo" style="width: 70px; height: 70px; vertical-align: middle;">
+                GodoFredo's
+            </p>
+            <div class="menu-hamburguesa" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <nav id="menu-principal">
+                <a href="../index.html">Inicio</a>
+                <a href="../aboutus/aboutus.html">Sobre Nosotros</a>
+                <a id="login-link" href="../login/login.html">Iniciar sesión</a>
+                <a id="register-link" href="../Register/register.html">Registrarse</a>
+                <div id="profile-container" style="display: none;">
+                    <a id="profile-link" href="../profile/profile.html">Mi Perfil</a>
+                    <button id="logout-button" onclick="logout()" style="background: transparent; border: none;">
+                        <i class="fas fa-sign-out-alt" style="font-size: 20px; color: #caeef8;"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section id="banner-bienvenida-web">
+        <video autoplay muted loop id="video-banner">
+            <source src="../img/videoplayback.mp4" type="video/mp4">
+            Tu navegador no soporta la etiqueta de video.
+        </video>
+        <div class="contenido-banner">
+            <h1 class="scroll-animation">Explora las Mejores Herramientas de Hacking</h1>
+            <a href="#hacking-tools" class="scroll-down-btn">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <section id="hacking-tools" class="scroll-animation">
+        <div class="contenedor-general">
+            <h2>ISO Disponibles</h2>
+            <div class="tools">
+                <!-- Herramienta 1 -->
+                <div class="tool">
+                    <img src="./image/debain-logo.png" class="tool__img">
+                    <h3>Debian 12</h3>
+                    <p>Sistema operativo perfecto para usuarios que quieran una distribución estable y ligera.</p>
+                    <button class="open-modal-btn">Ver Más</button>
+                </div>
+    
+                <!-- Modal para Gobuster -->
+                <div class="modal">
+                    <div class="modal__card">
+                        <i class="ri-close-line modal__close"></i>
+                        <img src="./image/debain-logo.png" alt="Gobuster" class="modal__img">
+                        <h3 class="modal__name">Debian 12</h3>
+                        <p class="modal__info">
+                            Debian 12 ofrece una gran variedad de distribuciones y posibilidades de moificación
+                        </p>
+                        <a href="https://firebasestorage.googleapis.com/v0/b/godofredo-a880f.firebasestorage.app/o/ISO%2Fdebian-12.7.0-amd64-netinst.iso?alt=media&token=d5b4f7e9-ab93-4f7a-8fb0-91ce1fe4e3cc" download="gobuster.pdf">
+                            <button class="modal__button">Descargar Informe</button>
+                        </a>
+                    </div>
+                </div>
+
+                
+                <div class="tool">
+                    <img src="./image/kali-logo.png" class="tool__img">
+                    <h3>Kali Linux</h3>
+                    <p>Sistema operativo basado en Debian, ideal para pruebas de penetración y seguridad informática.</p>
+                    <button class="open-modal-btn">Ver Más</button>
+                </div>
+            
+                <!-- Modal para Kali Linux -->
+                <div class="modal">
+                    <div class="modal__card">
+                        <i class="ri-close-line modal__close"></i>
+                        <img src="./image/kali-logo.png" alt="Kali Linux" class="modal__img">
+                        <h3 class="modal__name">Kali Linux</h3>
+                        <p class="modal__info">
+                            Kali Linux es una distribución basada en Debian, optimizada para realizar pruebas de penetración, análisis forenses y auditorías de seguridad.
+                        </p>
+
+                        <a href="https://firebasestorage.googleapis.com/v0/b/godofredo-a880f.firebasestorage.app/o/ISO%2Fkali-linux-2023.2a-installer-amd64.iso?alt=media&token=eff6d0f0-721b-4597-a173-f0a4cceb0d9e" download="proxmox.iso">
+                            <button class="modal__button">Descargar ISO</button>
+                        </a>
+                    </div>
+                </div>
+
+
+
+
+                <div class="tool">
+                    <img src="./image/proxmox.png" class="tool__img">
+                    <h3>Proxmox</h3>
+                    <p>Plataforma de virtualización y administración de contenedores, basada en Debian.</p>
+                    <button class="open-modal-btn">Ver Más</button>
+                </div>
+            
+                <!-- Modal para Proxmox -->
+                <div class="modal">
+                    <div class="modal__card">
+                        <i class="ri-close-line modal__close"></i>
+                        <img src="./image/proxmox.png" alt="Proxmox" class="modal__img">
+                        <h3 class="modal__name">Proxmox</h3>
+                        <p class="modal__info">
+                            Proxmox VE es una plataforma de virtualización open-source basada en Debian, que permite la gestión de máquinas virtuales y contenedores.
+                        </p>
+                        <a href="https://firebasestorage.googleapis.com/v0/b/godofredo-a880f.firebasestorage.app/o/ISO%2Fproxmox-ve_8.2-2.iso?alt=media&token=2ac1fa69-758e-4a44-b0aa-fe6f2dcdac9c" download="proxmox.iso">
+                            <button class="modal__button">Descargar ISO</button>
+                        </a>
+                    </div>
+                </div>
+
+
+
+
+                <div class="tool">
+                    <img src="./image/ubuntu.png" class="tool__img">
+                    <h3>Ubuntu</h3>
+                    <p>Sistema operativo basado en Debian, muy popular por su facilidad de uso y amplio soporte.</p>
+                    <button class="open-modal-btn">Ver Más</button>
+                </div>
+            
+                <!-- Modal para Ubuntu -->
+                <div class="modal">
+                    <div class="modal__card">
+                        <i class="ri-close-line modal__close"></i>
+                        <img src="./image/ubuntu.png" alt="Ubuntu" class="modal__img">
+                        <h3 class="modal__name">Ubuntu</h3>
+                        <p class="modal__info">
+                            Ubuntu es una de las distribuciones Linux más populares, basada en Debian, que se enfoca en facilidad de uso y un excelente soporte a largo plazo.
+                        </p>
+                        <a href="https://firebasestorage.googleapis.com/v0/b/godofredo-a880f.firebasestorage.app/o/ISO%2Fubuntu-22.04.2-desktop-amd64.iso?alt=media&token=57f622b5-5b93-4978-92de-60767ca47eeb" download="ubuntu.iso">
+                            <button class="modal__button">Descargar ISO</button>
+                        </a>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="tool">
+                    <img src="./image/parrot.png" class="tool__img">
+                    <h3>Parrot OS</h3>
+                    <p>Sistema operativo de seguridad basado en Debian, ideal para análisis forense y pruebas de penetración.</p>
+                    <button class="open-modal-btn">Ver Más</button>
+                </div>
+            
+                <!-- Modal para Parrot OS -->
+                <div class="modal">
+                    <div class="modal__card">
+                        <i class="ri-close-line modal__close"></i>
+                        <img src="./image/parrot.png" alt="Parrot OS" class="modal__img">
+                        <h3 class="modal__name">Parrot OS</h3>
+                        <p class="modal__info">
+                            Parrot OS es una distribución de seguridad y privacidad basada en Debian, utilizada para pruebas de penetración, análisis forense digital y más.
+                        </p>
+                        <a href="../archivos/parrot-os.iso" download="parrot-os.iso">
+                            <button class="modal__button">Descargar ISO</button>
+                        </a>
+                    </div>
+                </div>
+
+
+
+
+                <div class="tool">
+                    <img src="./image/windows-10.png" class="tool__img">
+                    <h3>Windows 10</h3>
+                    <p>Sistema operativo de Microsoft, ideal para una amplia gama de aplicaciones y software.</p>
+                    <button class="open-modal-btn">Ver Más</button>
+                </div>
+            
+                <!-- Modal para Windows 10 -->
+                <div class="modal">
+                    <div class="modal__card">
+                        <i class="ri-close-line modal__close"></i>
+                        <img src="./image/windows-10.png" alt="Windows 10" class="modal__img">
+                        <h3 class="modal__name">Windows 10</h3>
+                        <p class="modal__info">
+                            Windows 10 es un sistema operativo ampliamente utilizado, conocido por su compatibilidad con una amplia gama de hardware y software, y por su soporte de características avanzadas.
+                        </p>
+                        <a href="https://firebasestorage.googleapis.com/v0/b/godofredo-a880f.firebasestorage.app/o/ISO%2FWin10_22H2_Spanish_x64.iso?alt=media&token=44dbc4a0-9bdc-4afc-b702-4855b767902c" download="windows-10.iso">
+                            <button class="modal__button">Descargar ISO</button>
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="contenedor-general">
+            <p>&copy; Godofredo's 2024</p>
+        </div>
+    </footer>
+
+
+    <script>
+        // Verifica el estado de la sesión al cargar la página
+        document.addEventListener('DOMContentLoaded', function () {
+            const isLoggedIn = localStorage.getItem('isLoggedIn'); // Obtiene el estado de la sesión
+
+            if (isLoggedIn === 'true') {
+                document.getElementById('profile-container').style.display = 'flex'; // Muestra el contenedor del perfil
+                document.getElementById('login-link').style.display = 'none';
+                document.getElementById('register-link').style.display = 'none';
+            }
+        });
+
+        // Función para manejar el cierre de sesión
+        function logout() {
+            localStorage.removeItem('isLoggedIn'); // Elimina el estado de la sesión
+            window.location.reload(); // Recarga la página
+        }
+
+        // Función para observar elementos en el viewport
+        document.addEventListener('DOMContentLoaded', function () {
+            const elements = document.querySelectorAll('.scroll-animation');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    } else {
+                        entry.target.classList.remove('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            elements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+
+</html>
+

@@ -1,0 +1,715 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
+
+
+*{
+    box-sizing: border-box;
+    font-family: 'Lexend Deca', sans-serif;
+
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'Lexend Deca', sans-serif;
+    color: #caeef8;
+    margin: 0;
+}
+
+/*Estilos de: h1,h2,h3,p,ul,li*/
+h1{ font-size: 3.5em;}
+h2{ font-size: 2.7em;}
+h3{ font-size: 2em;}
+p{ font-size: 1.25em;}
+ul{ list-style: none;}
+li{ font-size: 1.25em;}
+
+
+#logout-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0; /* Ajusta el padding según lo necesites */
+}
+
+#logout-button i {
+    font-size: 20px; /* Tamaño del ícono */
+    color: #caeef8; /* Color del ícono */
+}
+
+#banner-bienvenida-web h1,
+#servicios-de-godofredo h2,
+#seccion-quienes-somos h2,
+#final h2 {
+    animation: fadeInUp 1s ease-in-out;
+    opacity: 0; 
+    animation-fill-mode: forwards; 
+}
+
+
+.scroll-animation.visible {
+    opacity: 1;
+    transform: translateY(0); /* Vuelve a su posición original */
+}
+
+
+header {
+    background-color: transparent;
+    position: relative;
+    z-index: 10; /* Asegura que el header esté encima del video */
+}
+
+header .logo{
+    margin: 0;
+    padding: 25px 30px;
+    font-weight: bold;
+    color: #caeef8;
+    font-size: 1.6em;
+}
+
+header .contenedor-general{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header nav{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+header a{
+    padding: 5px 12px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #caeef8;
+    /*color: rgba(255, 255, 255, 0.781);*/
+}
+
+header a:hover{
+    color: greenyellow;
+}
+
+#banner-bienvenida-web {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+#video-banner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    transform: translate(-50%, -50%);       
+    background-size: cover;
+    object-fit: cover
+}
+
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/* Pantallas más grandes (como laptops y desktops) */
+@media (min-width: 850px) {
+    header{
+        position: fixed;
+        width: 100%;
+    }
+
+    header .contenedor-general{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    header nav{
+        flex-direction: row;
+        padding-bottom: 0;
+        padding-right: 20px;
+    }
+
+    /* Servicios en línea horizontal */
+    #servicios-de-godofredo .servicios {
+        display: flex;
+        justify-content: space-evenly;
+    }
+    #hero h1{
+        font-size: 5em;
+    }
+
+    #seccion-quienes-somos .contenedor-general{
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    #seccion-quienes-somos .texto{
+        width: 50%;
+        max-width: 600px;
+        text-align: initial;
+        padding-left: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #seccion-quienes-somos h2{
+        margin-top: 0px;
+    }
+
+    #servicios-de-godofredo .servicios{
+        display: flex;
+        justify-content: center;
+    }
+
+    #servicios-de-godofredo p{
+        display: block;
+        margin-bottom: 30px;
+    }
+
+    #servicios-de-godofredo h2{
+        font-size: 4em;
+    }
+
+    #servicios-de-godofredo h3{
+        margin-top: 0;
+    }
+
+    #servicios-de-godofredo .carta{
+        flex: 1;
+        margin: 20px;
+        padding: 50px;
+        background-size: 100% 150px;
+        background-repeat: no-repeat;
+        background-position-y: 0;
+        background-color: rgba(50, 50, 50, 1);
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    }
+
+    #caracteristicas{
+        background-image: url("/img/videoplayback.mp4");
+        background-repeat: no-repeat;
+        background-size: 500px 400px;
+        background-position: calc(100vw - 500px) 120px;
+    }
+    #caracteristicas .contenedor-general{
+        text-align: initial;
+    }
+
+    #caracteristicas ul{
+        margin-left: 100px;
+    }
+
+    #final h2{
+        font-size: 5em;
+    }
+
+    #final button{
+        font-size: 2em;
+    }
+}
+
+/* Pantallas pequeñas (como teléfonos) */
+@media (max-width: 849px) {
+    header {
+        background-color: rgba(50, 50, 50, 1);
+        position: relative;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    header .contenedor-general {
+        margin-left: 10px;
+        flex-direction: column;
+        align-items: start;
+    }
+
+    header nav {
+        margin-top: 10px;
+        flex-direction: column;
+        text-align: start;
+        padding-bottom: 20px;
+        display: none; /* Ocultar el menú por defecto */
+        width: 100%;
+        background-color: rgba(50, 50, 50, 1); /* Fondo para el menú desplegable */
+    }
+
+    /* Mostrar el menú cuando el ícono de hamburguesa se active */
+    header nav.show {
+        display: flex;
+    }
+
+    header a {
+        padding: 8px 15px;
+        font-size: 1.1em;
+        color: #caeef8; /* Para que los enlaces sean visibles */
+        text-decoration: none;
+    }
+
+    /* Ícono del menú hamburguesa */
+    .menu-hamburguesa {
+        display: block;
+        cursor: pointer;
+        z-index: 1000;
+    }
+
+    .menu-hamburguesa div {
+        width: 30px;
+        height: 4px;
+        margin: 5px 0;
+        background-color: #caeef8;
+    }
+
+    #banner-bienvenida-web h1 {
+        font-size: 2.5em;
+    }
+
+    #banner-bienvenida-web button {
+        font-size: 1.5em;
+        padding: 12px 35px;
+    }
+
+    /* Resto de los estilos */
+    #seccion-quienes-somos {
+        background-size: cover;
+        background-position: center center;
+        background-attachment: scroll;
+        color: black;
+        padding: 50px 20px;
+    }
+
+    #seccion-quienes-somos .contenedor-general {
+        padding: 20px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #seccion-quienes-somos .texto {
+        width: 90%;
+        text-align: center;
+        padding: 0;
+    }
+
+    #servicios-de-godofredo .servicios {
+        display: block;
+        margin-top: 30px;
+    }
+
+    #servicios-de-godofredo .carta {
+        margin: 20px;
+        padding: 30px;
+        background-color: rgba(50, 50, 50, 1);
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        width: 100%;
+    }
+
+    #servicios-de-godofredo .carta img {
+        width: 100%;
+    }
+
+    #caracteristicas {
+        background-image: url("media/background-2.jpeg");
+        background-repeat: no-repeat;
+        background-size: 100% 200px;
+        background-position: center;
+        padding: 100px 20px;
+    }
+
+    #caracteristicas .contenedor-general {
+        text-align: center;
+        padding: 20px;
+    }
+
+    #caracteristicas ul {
+        margin-left: 0;
+        padding: 0;
+    }
+
+    #final {
+        background-color: rgb(30, 30, 30);
+        color: #caeef8;
+        height: auto;
+        padding: 50px 20px;
+    }
+
+    #final h2 {
+        font-size: 6em;
+    }
+
+    #final button {
+        font-size: 1.5em;
+        padding: 10px 30px;
+    }
+
+    /* Ajustar elementos de contacto */
+    footer {
+        background-color: #caeef8;
+        padding: 10px;
+    }
+
+    footer p {
+        font-size: 0.9em;
+        color: rgb(100, 100, 100);
+    }
+
+    footer .contenedor-general {
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+
+footer {
+    background-color: #caeef8;
+    pointer-events: none;
+}
+
+footer p {
+    margin: 0;
+    padding: 12px;
+    color: rgb(100, 100, 100);
+}
+
+footer .contenedor-general {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+
+/* Si el footer tiene enlaces y quieres que esos no sean clickeables */
+footer a {
+    pointer-events: none; /* Desactiva el clic solo en los enlaces dentro del footer */
+    color: inherit; /* Mantiene el color del texto sin cambios */
+}
+
+/* Si sólo quieres que los enlaces tengan el comportamiento de no ser clickeables pero sin afectar otros elementos */
+footer a:hover {
+    cursor: default; /* Cambia el cursor a la forma normal para indicar que no es clickeable */
+}
+
+
+
+/* Eliminar el subrayado azul de los enlaces */
+#hacking-tools a {
+    text-decoration: none; /* Elimina el subrayado */
+}
+
+/* Fondo negro para la sección */
+#hacking-tools {
+    background-color: rgb(30, 30, 30); /* Fondo oscuro */
+    padding: 40px 0; /* Espaciado superior e inferior */
+}
+
+/* Contenedor general de herramientas */
+#hacking-tools .tools {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px; /* Espaciado entre las tarjetas */
+    margin: 40px auto; /* Centrado con margen superior e inferior */
+    max-width: 1200px; /* Ancho máximo para tarjetas */
+}
+
+/* Título de la sección "Herramientas Disponibles" */
+#hacking-tools h2 {
+    text-align: center; /* Centrar el texto */
+    font-size: 3rem; /* Tamaño de fuente */
+    font-weight: bold; /* Fuente en negrita */
+    color: #caeef8; /* Color del texto */
+    margin-bottom: 40px; /* Espaciado debajo del título */
+}
+
+
+/* Tarjetas individuales */
+.tool {
+    background-color: rgba(50, 50, 50, 1); /* Fondo oscuro para contraste */
+    border-radius: 15px; /* Bordes redondeados */
+    text-align: center; /* Centrado de contenido */
+    width: 300px; /* Ancho fijo para consistencia */
+    padding: 20px;
+    color: #caeef8; /* Color del texto */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4); /* Sombra para profundidad */
+    transition: transform 0.3s, box-shadow 0.3s; /* Animación suave */
+}
+
+.tool:hover {
+    transform: translateY(-5px); /* Movimiento hacia arriba al pasar el mouse */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.6); /* Aumentar la sombra */
+}
+
+/* Imagen en la tarjeta */
+.tool img {
+    width: 100%; /* Ocupa todo el ancho */
+    height: 180px; /* Altura fija */
+    object-fit: cover; /* Ajuste de la imagen */
+    border-radius: 8px 8px 0 0; /* Redondeo superior */
+    margin-bottom: 12px;
+}
+
+/* Título de la herramienta */
+.tool h3 {
+    margin: 10px 0;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #caeef8;
+}
+
+/* Descripción de la herramienta */
+.tool p {
+    margin: 10px 0 15px;
+    font-size: 1rem;
+    line-height: 1.5; /* Espaciado de líneas */
+    color: #caeef8;
+}
+
+/* Botón de descarga */
+.tool button {
+    background-color: #caeef8; /* Color llamativo */
+    color: #041d49;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; /* Animación suave */
+}
+
+.tool button:hover {
+    background-color: #041d49;
+    color: #caeef8; /* Cambiar color del texto al pasar el mouse */
+    border: 2px solid #caeef8; /* Borde de color #caeef8 */
+    border-radius: 2px;
+    transform: scale(1.05); /* Aumentar tamaño ligeramente */
+}
+
+/* Diseño responsivo para pantallas más pequeñas */
+@media (max-width: 768px) {
+    #hacking-tools .tools {
+        gap: 20px; /* Espaciado más pequeño */
+    }
+
+    .tool {
+        width: 90%; /* Ocupa casi todo el ancho de la pantalla */
+        margin: 0 auto; /* Centrar tarjeta */
+    }
+}
+
+/* Estilo del botón de flecha hacia abajo */
+.scroll-down-btn {
+    display: inline-block;
+    margin-top: 20px; /* Espacio entre el título y el botón */
+    font-size: 4rem;
+    color: #caeef8; /* Color de la flecha */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    animation: bounce 1.5s infinite; /* Animación para que la flecha rebote */
+}
+
+.scroll-down-btn:hover {
+    color: #caeef8; /* Cambio de color al pasar el mouse */
+}
+
+/* Animación de rebote para la flecha */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px); /* Movimiento hacia abajo */
+    }
+}
+
+
+/*MEK*/
+/* Contenedor de las herramientas (usamos Flexbox para colocar las cartas una al lado de la otra) */
+.tools {
+    display: flex; /* Usamos flexbox para colocar las cartas una al lado de la otra */
+    flex-wrap: wrap; /* Permite que las cartas pasen a la siguiente fila si no caben en la fila actual */
+    gap: 20px; /* Espaciado entre las cartas */
+    justify-content: flex-start; /* Alinea las cartas al inicio de la fila */
+    margin-top: 20px;
+}
+
+/* Estilo para cada carta */
+.tool {
+    background-color: #1a1a2e;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    width: 280px; /* Ancho fijo para las cartas */
+    min-width: 280px; /* Asegura que las cartas no se encojan demasiado */
+    max-width: 300px; /* Limita el tamaño máximo para las cartas */
+}
+
+/* Efecto al pasar el mouse sobre la carta */
+.tool:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Imágenes en las cartas */
+.tool__img {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Títulos y descripciones en las cartas */
+.tool h3 {
+    font-size: 1.2rem;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.tool p {
+    font-size: 0.9rem;
+    color: #cfcfcf;
+    margin-bottom: 1rem;
+}
+
+/* Botón "Ver Más" en las cartas */
+.open-modal-btn {
+    background-color: #ff4c60;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.open-modal-btn:hover {
+    background-color: #ff6b80;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    inset: 0; /* Esto asegura que ocupe todo el espacio disponible */
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Modal Card */
+.modal__card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    text-align: center;
+    animation: slideIn 0.5s ease-out;
+    position: relative;
+    width: 100%;
+    max-height: 90vh; /* Asegura que no sea más alto que el 90% de la ventana */
+    overflow-y: auto; /* Permite desplazamiento si el contenido es demasiado largo */
+}
+
+.modal__close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.5rem;
+    color: black;
+    cursor: pointer;
+}
+
+/* Modal */
+.modal__img {
+    width: 100%; /* Asegura que la imagen ocupe todo el contenedor del modal */
+    height: auto; /* Mantiene la proporción original de la imagen */
+    margin-bottom: 20px;
+    border-radius: 10px; /* Bordes redondeados */
+    object-fit: cover; /* Hace que la imagen se ajuste sin distorsionarse */
+    box-shadow: none; /* Elimina el sombreado para evitar bordes extra */
+}
+.modal__name {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.modal__info {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.modal__button {
+    background-color: #ff4c60;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal__button:hover {
+    background-color: #ff6b80;
+}
+
+/* Animación de entrada del modal */
+@keyframes slideIn {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Estilo responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+    /* Las cartas ocupan el 90% del ancho en pantallas pequeñas */
+    .tool {
+        width: 90%;
+        margin: 10px auto; /* Centrado de las cartas */
+    }
+}
+
