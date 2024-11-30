@@ -43,7 +43,7 @@ html, body {
     height: 100%;
     color: #caeef8; /* Blanco */
     position: relative;
-    background: url('ruta/a/tu/video.mp4') no-repeat center center fixed; /* Cambia la ruta a tu video */
+    background: url('../img/videoplayback.mp4') no-repeat center center fixed; /* Cambia la ruta a tu video */
     background-size: cover;
 }
 
@@ -157,4 +157,60 @@ button:hover {
 #back-to-menu-btn:hover {
     background-color: #caeef8;
     color: #041d49;
+}
+
+
+.styled-container {
+    margin: 20px auto;
+    max-width: 500px; /* Ancho máximo uniforme */
+    background: rgba(24, 120, 216, 0.7); /* Fondo semitransparente azul */
+    padding: 20px;
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave para destacar */
+}
+
+.styled-container h2 {
+    font-size: 1.5rem;
+    color: #caeef8; /* Color del título */
+    text-align: center; /* Centrar el título */
+    margin-bottom: 1rem;
+}
+
+.styled-container input,
+.styled-container button {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: #caeef8;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+.styled-container input::placeholder {
+    color: #041d49; /* Color del texto del placeholder */
+}
+
+.styled-container input:focus,
+.styled-container button:hover {
+    border-color: #caeef8; /* Cambia el color del borde al interactuar */
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo sutil */
+    color: #041d49;
+}
+
+#lista-archivos {
+    display: flex;
+    flex-direction: column; /* Lista vertical */
+    gap: 0.5rem;
+}
+
+#lista-archivos div {
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.2); /* Fondo semitransparente */
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 5px;
+    color: #caeef8; /* Color del texto */
+    font-size: 0.9rem;
 }

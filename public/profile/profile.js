@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     }
 
                     // Generar hash para la nueva contraseña
-                    const { hash: newHashedPassword, salt: newSalt } = await hashPassword(newPassword);
+                    const { hash: newHashedPassword, salt: newSalt } = await hashPassword(newPassword, saltUint8Array);
                     try {
                         await updateDoc(doc(db, 'Usuarios', userId), { contraseña: newHashedPassword, salt: newSalt });
                         alert('Contraseña cambiada con éxito.');
@@ -234,91 +234,63 @@ document.addEventListener('DOMContentLoaded', async () => {
                 });
 
                 // Eliminar cuenta
-                const deleteAccountButton = document.getElementById('delete-account-btn');
-                const confirmDeleteButton = document.getElementById('confirm-delete-btn');
-                confirmDeleteButton.style.display = 'none'; // Inicialmente ocultar el botón de confirmación
-
-                deleteAccountButton.addEventListener('click', () => {
-                    confirmDeleteButton.style.display = 'block'; // Mostrar el botón de confirmación
-                });
-
-                // Confirmar eliminación
-                confirmDeleteButton.addEventListener('click', async () => {
-                    const deletePassword = document.getElementById('delete-password').value;
-
-                    // Asegúrate de que el salt esté disponible y sea correcto
-                    if (!userDoc.salt) {
-                        alert('No se encontró el salt del usuario.');
-                        return;
-                    }
-
-                    // Convertir el salt de hexadecimal a Uint8Array
-                    const saltUint8Array = hexToUint8Array(userDoc.salt);
-
-                    // Hashear la contraseña introducida por el usuario
-                    const hashedDeletePassword = await hashPassword(deletePassword, saltUint8Array);
-
-                    // Comparar la contraseña hasheada con la almacenada en Firestore
-                    if (hashedDeletePassword.hash !== userDoc.contraseña) {
-                        alert('La contraseña es incorrecta.');
-                        return;
-                    }
-
-                    // Proceder a eliminar la cuenta
-                    try {
-                        await deleteDoc(doc(db, 'Usuarios', userId));
-                        alert('Cuenta eliminada con éxito.');
-                        localStorage.removeItem('isLoggedIn');
-                        localStorage.removeItem('userEmail');
-                        window.location.href = "../index.html"; // Redirige a index.html después de eliminar la cuenta
-                    } catch (error) {
-                        console.error("Error al eliminar la cuenta: ", error);
-                        alert("Ocurrió un error al intentar eliminar la cuenta.");
+                document.getElementById('delete-account-btn').addEventListener('click', async () => {
+                    const confirmDelete = confirm("¿Estás seguro de que deseas eliminar tu cuenta? Esta acción es irreversible.");
+                    if (confirmDelete) {
+                        try {
+                            await deleteDoc(doc(db, 'Usuarios', userId));
+                            alert('Cuenta eliminada con éxito.');
+                            localStorage.removeItem('isLoggedIn');
+                            localStorage.removeItem('userEmail');
+                            window.location.href = "../index.html";
+                        } catch (error) {
+                            console.error("Error al eliminar la cuenta: ", error);
+                            alert("Ocurrió un error al intentar eliminar la cuenta.");
+                        }
                     }
                 });
-
-            } else {
-                alert('Usuario no encontrado.');
             }
         } catch (error) {
-            console.error("Error al obtener el usuario: ", error);
-            alert('Ocurrió un error al intentar obtener la información del usuario.');
+            console.error("Error al obtener los datos del usuario: ", error);
+            alert("Ocurrió un error al cargar los datos del usuario.");
         }
     }
 });
 
-// Convertir hexadecimal a Uint8Array
+// Función para convertir un string hexadecimal a Uint8Array
 function hexToUint8Array(hex) {
-    const byteArray = new Uint8Array(hex.length / 2);
-    for (let i = 0; i < hex.length; i += 2) {
-        byteArray[i / 2] = parseInt(hex.substr(i, 2), 16);
+    const result = new Uint8Array(hex.length / 2);
+    for (let i = 0; i < result.length; i++) {
+        result[i] = parseInt(hex.substr(i * 2, 2), 16);
     }
-    return byteArray;
+    return result;
 }
 
-// Función para hashear la contraseña (implementa tu lógica aquí)
+// Función para realizar el hash de la contraseña usando PBKDF2
 async function hashPassword(password, salt) {
-    const enc = new TextEncoder();
-    const encodedPassword = enc.encode(password);
-    
-    const hashedBuffer = await crypto.subtle.importKey('raw', encodedPassword, { name: 'PBKDF2' }, false, ['deriveBits', 'deriveKey'])
-        .then(key => {
-            return crypto.subtle.deriveKey(
-                { name: 'PBKDF2', hash: 'SHA-256', iterations: 100000, salt: salt },
-                key,
-                { name: 'AES-GCM', length: 256 },
-                false,
-                ['encrypt', 'decrypt']
-            );
-        });
+    const encoder = new TextEncoder();
+    const passwordBuffer = encoder.encode(password);
+    const saltBuffer = salt;
 
-    const hashedArray = await crypto.subtle.exportKey('raw', hashedBuffer);
-    return {
-        hash: Array.from(new Uint8Array(hashedArray)).map(b => String.fromCharCode(b)).join(''),
-        salt: salt // Devuelves el salt para uso posterior
-    };
+    const keyMaterial = await window.crypto.subtle.importKey(
+        'raw', passwordBuffer, { name: 'PBKDF2' }, false, ['deriveKey']
+    );
+
+    const key = await window.crypto.subtle.deriveKey(
+        { name: 'PBKDF2', salt: saltBuffer, iterations: 100000, hash: 'SHA-256' },
+        keyMaterial, { name: 'HMAC', hash: 'SHA-256', length: 256 },
+        false, ['sign']
+    );
+
+    const hashBuffer = await window.crypto.subtle.sign('HMAC', key, passwordBuffer);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+
+    return { hash: hashHex, salt: saltBuffer };
 }
+
 
 document.getElementById('back-to-menu-btn').addEventListener('click', () => {
     window.location.href = "../index.html";
 });
+
