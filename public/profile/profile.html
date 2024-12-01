@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil del Usuario</title>
     <link rel="stylesheet" href="./profile.css">
+    <script type="module" src="./profile.js"></script>
 </head>
 
 <body>
@@ -44,12 +45,12 @@
             <!-- Sección de subir archivos -->
             <div id="subir-archivos" class="styled-container">
                 <h2>Subir Archivos</h2>
-                <input type="file" id="fileInput" multiple>
+                <input type="file" id="upload-btn" multiple>
                 <button id="upload-btn">Subir</button>
             </div>
     
             <!-- Sección de archivos subidos -->
-            <div id="archivos-subidos" class="styled-container">
+            <div id="uploaded-files-container" class="styled-container">
                 <h2>Archivos Subidos</h2>
                 <div id="lista-archivos">
                     <!-- Aquí se listarán los archivos subidos -->
@@ -87,7 +88,7 @@
         </div>
     </div>
 
-    <script src="./profile.js" type="module"></script>
+    
 
 </body>
 

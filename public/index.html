@@ -34,7 +34,8 @@
             menu.classList.toggle('show'); // Cambiar la clase para mostrar/ocultar el menú
         }
     </script>
-    
+    <script type="module" src="./authHandler.js"></script>
+
 </head>
 
 <body>
@@ -120,10 +121,13 @@
             }
         });
 
+
         // Función para manejar el cierre de sesión
         function logout() {
-            localStorage.removeItem('isLoggedIn'); // Elimina el estado de la sesión
-            window.location.reload(); // Recarga la página
+            // Llama a la función de logout del archivo authHandler.js
+            import('./authHandler.js').then(module => {
+                module.logout();  // Llama la función logout importada
+            });
         }
 
         // Función para observar elementos en el viewport

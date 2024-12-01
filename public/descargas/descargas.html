@@ -174,5 +174,45 @@
 
 <!--=============== MAIN JS ===============-->
 <script src="assets/js/main.js"></script>
+
+<script>
+   // Verifica el estado de la sesión al cargar la página
+   document.addEventListener('DOMContentLoaded', function () {
+       const isLoggedIn = localStorage.getItem('isLoggedIn'); // Obtiene el estado de la sesión
+
+       if (isLoggedIn === 'true') {
+           document.getElementById('profile-container').style.display = 'flex'; // Muestra el contenedor del perfil
+           document.getElementById('login-link').style.display = 'none';
+           document.getElementById('register-link').style.display = 'none';
+       }
+   });
+
+
+   // Función para manejar el cierre de sesión
+   function logout() {
+       // Llama a la función de logout del archivo authHandler.js
+       import('./authHandler.js').then(module => {
+           module.logout();  // Llama la función logout importada
+       });
+   }
+
+   // Función para observar elementos en el viewport
+   document.addEventListener('DOMContentLoaded', function () {
+       const elements = document.querySelectorAll('.scroll-animation');
+
+       const observer = new IntersectionObserver((entries) => {
+           entries.forEach(entry => {
+               if (entry.isIntersecting) {
+                   entry.target.classList.add('visible');
+               } else {
+                   entry.target.classList.remove('visible');
+               }
+           });
+       }, { threshold: 0.1 });
+
+       elements.forEach(el => observer.observe(el));
+   });
+</script>
+</body>
 </body>
 </html>

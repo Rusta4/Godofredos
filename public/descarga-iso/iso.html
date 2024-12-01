@@ -8,7 +8,7 @@
     <link rel="icon" href="../logo/hacker.png" type="image/x-icon">
     <link rel="stylesheet" href="./iso.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="./iso.js"></script>
+    <script type="module" src="./iso.js"></script>
 </head>
 
 <body>
@@ -235,10 +235,13 @@
             }
         });
 
+
         // Función para manejar el cierre de sesión
         function logout() {
-            localStorage.removeItem('isLoggedIn'); // Elimina el estado de la sesión
-            window.location.reload(); // Recarga la página
+            // Llama a la función de logout del archivo authHandler.js
+            import('./authHandler.js').then(module => {
+                module.logout();  // Llama la función logout importada
+            });
         }
 
         // Función para observar elementos en el viewport

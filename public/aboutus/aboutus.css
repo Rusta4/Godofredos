@@ -37,6 +37,7 @@ li{ font-size: 1.25em;}
 }
 
 #logout-button i {
+    padding-left: 10px;
     font-size: 20px; /* Tamaño del ícono */
     color: #caeef8; /* Color del ícono */
 }
