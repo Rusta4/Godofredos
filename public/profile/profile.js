@@ -33,6 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const genderElement = document.getElementById('gender');
                 genderElement.textContent = userDocData.genero || "Género no disponible";
 
+                loadUploadedFiles();
+                
                 // Función para editar el nombre
                 const editNameButton = document.getElementById('save-name-btn');
                 let isEditingName = false;
@@ -285,17 +287,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-
-
-    //mostrar los archivos subidos por el usuario
     async function loadUploadedFiles() {
-        const userId = auth.currentUser.uid;
+        const userId = auth.currentUser.uid;  // Asegúrate de que el UID esté bien
         const storage = getStorage();
-        const userFolderRef = ref(storage, `uploads/${userId}`);
+        const userFolderRef = ref(storage, `uploads/${userId}`); // Referencia correcta
     
         try {
-            // Listar los archivos en la carpeta del usuario
+            console.log("Buscando archivos en: uploads/" + userId);  // Verificar el path
             const folderContents = await listAll(userFolderRef);
+    
+            if (folderContents.items.length === 0) {
+                console.log("No se encontraron archivos en la carpeta del usuario.");
+                alert("No tienes archivos subidos.");
+            }
     
             const uploadedFilesContainer = document.getElementById('uploaded-files-container');
             uploadedFilesContainer.innerHTML = ''; // Limpiar el contenedor antes de mostrar los archivos
@@ -328,9 +332,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
-    // Cargar los archivos cuando se cargue la página
-    document.addEventListener('DOMContentLoaded', loadUploadedFiles);
-
 });
 
 // Función para volver al menú
