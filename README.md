@@ -181,6 +181,87 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 <p>Una de las principales ventajas de NGINX es su capacidad para optimizar el rendimiento y reducir la latencia en la entrega de contenido. También se integra fácilmente con otros servicios, como servidores de aplicaciones, bases de datos y herramientas de almacenamiento en caché. A través de su configuración, puedes implementar reglas para la redirección de URLs, optimizar la compresión de archivos y habilitar características de seguridad como el filtrado de solicitudes. En resumen, NGINX no solo mejora la eficiencia y velocidad de las aplicaciones web, sino que también ofrece un alto grado de flexibilidad y control sobre el tráfico, siendo una herramienta esencial para cualquier proyecto web moderno.</p>
 
 
+PREGUNTAS-NGINX
+
+<h2>¿Qué es un servidor web?</h2>
+<p>Un servidor web es un software que gestiona las solicitudes HTTP/HTTPS de los navegadores de los usuarios y responde con recursos, como páginas HTML, imágenes o archivos, que están alojados en el servidor. Básicamente, su función es recibir las peticiones de los clientes y entregarles los contenidos solicitados.</p> 
+<br>
+
+<h2>¿Qué es un hosting?</h2>
+<p>El hosting, o alojamiento web, es el servicio que permite almacenar los archivos de un sitio web en un servidor para que sean accesibles a través de internet. Los Hosting ofrecen espacio en sus servidores para que los sitios web, correos electrónicos y bases de datos estén disponibles las 24 horas del día. Los servicios de hosting pueden ser compartidos, dedicados o en la nube.</p> 
+<br>
+<h2>¿Qué es un hosting?</h2>
+<p>El hosting, o alojamiento web, es el servicio que permite almacenar los archivos de un sitio web en un servidor para que sean accesibles a través de internet. Los Hosting ofrecen espacio en sus servidores para que los sitios web, correos electrónicos y bases de datos estén disponibles las 24 horas del día. Los servicios de hosting pueden ser compartidos, dedicados o en la nube.</p> 
+<br>
+<h2>Comparativa entre Nginx y Apache</h2>
+
+<h3>Arquitectura:</h3>
+
+<ul>
+<li><b>Apache:</b> Basado en un modelo de procesos o hilos, ya que cada solicitud es gestionada por un proceso o hilo separado.</li>
+
+<li><b>Nginx: </b>Basado en un modelo asincrónico y basado en eventos, donde puede manejar muchas conexiones simultáneas con menos recursos. </li>
+
+</ul>
+
+<h3>Rendimiento:</h3>
+
+<ul>
+<li><b>Apache:</b> Menos eficiente en el manejo de muchas conexiones concurrentes debido a su modelo basado en procesos/threads.</li>
+
+<li><b>Nginx: </b>Más eficiente para manejar grandes volúmenes de tráfico concurrente, con un menor uso de recursos.</li>
+
+</ul>
+
+
+
+<h3>Manejo de solicitudes:</h3>
+
+<ul>
+<li><b>Apache:</b> Cada solicitud requiere un nuevo hilo o proceso, lo que puede llevar a un mayor consumo de memoria.</li>
+
+<li><b>Nginx: </b>Usa un enfoque no bloqueante y maneja solicitudes de manera asíncrona, lo que le permite procesar más solicitudes con menos memoria.</li>
+
+</ul>
+
+<h3>Soporte de PHP:</h3>
+
+<ul>
+<li><b>Apache:</b> Soporte nativo para PHP mediante mod_php.</li>
+
+<li><b>Nginx: </b>No soporta PHP de forma nativa, requiere PHP-FPM (FastCGI Process Manager) para ejecutar PHP.</li>
+
+</ul>
+
+<h3>Configuración y Flexibilidad:</h3>
+
+<ul>
+<li><b>Apache:</b> Más flexible, con una amplia gama de módulos y configuraciones. </li>
+
+<li><b>Nginx: </b>Configuración más sencilla y optimizada para rendimiento, pero con menos módulos que Apache.</li>
+
+</ul>
+
+
+<h3>Compatibilidad:</h3>
+
+<ul>
+<li><b>Apache:</b> Compatible con una gran cantidad de tecnologías y módulos, lo que lo hace versátil para muchos tipos de aplicaciones. </li>
+
+<li><b>Nginx: </b>Aunque menos compatible con ciertos módulos que Apache, es excelente en configuraciones específicas de alto rendimiento.</li>
+
+</ul>
+
+<h3>Escalabilidad:</h3>
+
+<ul>
+<li><b>Apache:</b>  Menos escalable en entornos de alta carga debido a su modelo de procesos. </li>
+
+<li><b>Nginx: </b>Mejor escalabilidad para manejar tráfico de alto volumen gracias a su modelo de procesamiento eficiente.</li>
+
+</ul>
+<br>
+
 <h1 id="FTP">FTP</h1>
 <p>FTP es un protocolo de red fundamental en un proyecto de IT, ya que permite la transferencia de archivos entre un cliente y un servidor de manera eficiente. A través de FTP, los usuarios pueden cargar y descargar archivos, facilitando la gestión de contenido en servidores web y otros entornos de almacenamiento. Además, este protocolo soporta la transferencia de archivos grandes y la posibilidad de reanudar cargas interrumpidas. Nosotros utilizaremos el ftp para que se almacenen ahi los archivos de la gente y la gente pueda descargarlos.</p> 
 
