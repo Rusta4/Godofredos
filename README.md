@@ -215,7 +215,7 @@ PREGUNTAS-NGINX
 
 
 
-<h3>Manejo de solicitudes:</h3>
+<h3><u>Manejo de solicitudes:</u></h3>
 
 <ul>
 <li><b>Apache:</b> Cada solicitud requiere un nuevo hilo o proceso, lo que puede llevar a un mayor consumo de memoria.</li>
