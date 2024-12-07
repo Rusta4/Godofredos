@@ -181,8 +181,6 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 <p>Una de las principales ventajas de NGINX es su capacidad para optimizar el rendimiento y reducir la latencia en la entrega de contenido. También se integra fácilmente con otros servicios, como servidores de aplicaciones, bases de datos y herramientas de almacenamiento en caché. A través de su configuración, puedes implementar reglas para la redirección de URLs, optimizar la compresión de archivos y habilitar características de seguridad como el filtrado de solicitudes. En resumen, NGINX no solo mejora la eficiencia y velocidad de las aplicaciones web, sino que también ofrece un alto grado de flexibilidad y control sobre el tráfico, siendo una herramienta esencial para cualquier proyecto web moderno.</p>
 
 
-PREGUNTAS-NGINX
-
 <h2>¿Qué es un servidor web?</h2>
 <p>Un servidor web es un software que gestiona las solicitudes HTTP/HTTPS de los navegadores de los usuarios y responde con recursos, como páginas HTML, imágenes o archivos, que están alojados en el servidor. Básicamente, su función es recibir las peticiones de los clientes y entregarles los contenidos solicitados.</p> 
 <br>
