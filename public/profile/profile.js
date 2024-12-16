@@ -1,8 +1,7 @@
-import { auth, db } from '../BBDD/firebaseConf.js';
-import { doc, getDoc, updateDoc } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js';
-import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js';
-import { getStorage, ref, uploadBytesResumable, getDownloadURL, deleteObject, listAll } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-storage.js';
-
+import { auth } from '../BBDD/firebaseConf.js';
+import { db } from '../BBDD/firebaseConf.js';
+import { doc, getDoc, updateDoc, deleteDoc } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js';
+import { onAuthStateChanged, updatePassword, deleteUser, EmailAuthProvider, reauthenticateWithCredential } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     // Verifica si el usuario está autenticado al cargar la página
@@ -33,14 +32,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 const genderElement = document.getElementById('gender');
                 genderElement.textContent = userDocData.genero || "Género no disponible";
 
-                loadUploadedFiles();
-                
                 // Función para editar el nombre
                 const editNameButton = document.getElementById('save-name-btn');
                 let isEditingName = false;
                 let nameInputElement;
 
                 editNameButton.addEventListener('click', async () => {
+                    const nameElement = document.getElementById('name');
+
                     if (!isEditingName) {
                         const currentName = nameElement.textContent;
                         nameInputElement = document.createElement('input');
@@ -95,7 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         const newPhone = phoneInputElement.value;
                         if (newPhone) {
                             try {
-                                // Actualiza el teléfono en la base de datos de Firestore
                                 await updateDoc(userDocRef, { telefono: newPhone });
                                 const spanElement = document.createElement('span');
                                 spanElement.id = 'phone';
@@ -105,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 phoneInputElement.replaceWith(spanElement);
                                 editPhoneButton.textContent = '✏️';
 
-                                alert('Número de teléfono cambiado con éxito.');
+                                alert('Teléfono cambiado con éxito.');
                             } catch (error) {
                                 console.error("Error al cambiar el teléfono: ", error);
                                 alert("Ocurrió un error al intentar cambiar el teléfono.");
@@ -135,7 +133,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         const newStreet = streetInputElement.value;
                         if (newStreet) {
                             try {
-                                // Actualiza la calle en la base de datos de Firestore
                                 await updateDoc(userDocRef, { calle: newStreet });
                                 const spanElement = document.createElement('span');
                                 spanElement.id = 'street';
@@ -158,38 +155,37 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Función para editar el género
                 const editGenderButton = document.getElementById('save-gender-btn');
                 let isEditingGender = false;
-                let genderSelectElement;
+                let genderInputElement;
 
                 editGenderButton.addEventListener('click', async () => {
                     if (!isEditingGender) {
                         const currentGender = genderElement.textContent;
-                        genderSelectElement = document.createElement('select');
-                        const options = ['Masculino', 'Femenino', 'Otro'];
-                        options.forEach(option => {
-                            const optionElement = document.createElement('option');
-                            optionElement.value = option;
-                            optionElement.textContent = option;
-                            if (option === currentGender) {
-                                optionElement.selected = true;
+                        genderInputElement = document.createElement('select');
+                        const genders = ['Masculino', 'Femenino', 'Otro'];
+                        genders.forEach(gender => {
+                            const option = document.createElement('option');
+                            option.value = gender;
+                            option.textContent = gender;
+                            if (gender === currentGender) {
+                                option.selected = true;
                             }
-                            genderSelectElement.appendChild(optionElement);
+                            genderInputElement.appendChild(option);
                         });
 
-                        genderElement.replaceWith(genderSelectElement);
+                        genderElement.replaceWith(genderInputElement);
                         editGenderButton.textContent = 'Guardar';
                         isEditingGender = true;
                     } else {
-                        const newGender = genderSelectElement.value;
+                        const newGender = genderInputElement.value;
                         if (newGender) {
                             try {
-                                // Actualiza el género en la base de datos de Firestore
                                 await updateDoc(userDocRef, { genero: newGender });
                                 const spanElement = document.createElement('span');
                                 spanElement.id = 'gender';
                                 spanElement.classList.add('editable');
                                 spanElement.textContent = newGender;
 
-                                genderSelectElement.replaceWith(spanElement);
+                                genderInputElement.replaceWith(spanElement);
                                 editGenderButton.textContent = '✏️';
 
                                 alert('Género cambiado con éxito.');
@@ -202,6 +198,82 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
 
+                // Función para eliminar cuenta
+                const deleteAccountButton = document.getElementById('delete-account-btn');
+                const deleteModal = document.getElementById('delete-modal');
+                const cancelDeleteButton = document.getElementById('cancel-delete-btn');
+                const confirmDeleteButton = document.getElementById('confirm-delete-btn');
+                const deletePasswordInput = document.getElementById('delete-password');
+
+                deleteAccountButton.addEventListener('click', () => {
+                    // Muestra el modal para confirmar eliminación
+                    deleteModal.style.display = 'block';
+                });
+
+                cancelDeleteButton.addEventListener('click', () => {
+                    // Cierra el modal sin eliminar nada
+                    deleteModal.style.display = 'none';
+                });
+
+                confirmDeleteButton.addEventListener('click', async () => {
+                    const deletePassword = deletePasswordInput.value;
+
+                    // Verifica que la contraseña de eliminación sea correcta
+                    const credential = EmailAuthProvider.credential(user.email, deletePassword);
+                    try {
+                        // Reautentica al usuario con la contraseña proporcionada
+                        await reauthenticateWithCredential(user, credential);
+
+                        // Elimina el usuario de Firestore
+                        await deleteDoc(userDocRef);
+
+                        // Elimina el usuario de Firebase Authentication
+                        await deleteUser(user);
+
+                        alert('Cuenta eliminada con éxito.');
+
+                        // Elimina los datos de autenticación local
+                        localStorage.removeItem('isLoggedIn');
+                        window.location.href = "../index.html";  // Redirige a la página principal
+                    } catch (error) {
+                        console.error("Error al eliminar la cuenta: ", error);
+                        alert("La contraseña es incorrecta o hubo un error al intentar eliminar la cuenta.");
+                    }
+
+                    deleteModal.style.display = 'none';
+                });
+
+                // Cambiar contraseña
+                const changePasswordButton = document.getElementById('change-password-btn');
+                changePasswordButton.addEventListener('click', async () => {
+                    const oldPassword = document.getElementById('old-password').value;  // Contraseña antigua
+                    const newPassword = document.getElementById('new-password').value;  // Nueva contraseña
+                    const confirmNewPassword = document.getElementById('confirm-new-password').value;  // Confirmación nueva contraseña
+
+                    // Verifica si las contraseñas nuevas coinciden
+                    if (newPassword !== confirmNewPassword) {
+                        alert("Las nuevas contraseñas no coinciden.");
+                        return;
+                    }
+
+                    // Verifica si la contraseña antigua es correcta
+                    const credential = EmailAuthProvider.credential(user.email, oldPassword);
+                    try {
+                        // Reautentica al usuario
+                        await reauthenticateWithCredential(user, credential);
+
+                        // Cambia la contraseña
+                        await updatePassword(user, newPassword);
+                        alert("Contraseña cambiada con éxito.");
+                    } catch (error) {
+                        console.error("Error al cambiar la contraseña: ", error);
+                        if (error.code === 'auth/wrong-password') {
+                            alert("La contraseña antigua es incorrecta.");
+                        } else {
+                            alert("Ocurrió un error al intentar cambiar la contraseña.");
+                        }
+                    }
+                });
             } else {
                 alert("No se encontraron datos para este usuario.");
                 window.location.href = "../index.html";
@@ -211,127 +283,6 @@ document.addEventListener('DOMContentLoaded', () => {
             alert("Ocurrió un error al cargar los datos del usuario.");
         }
     });
-
-
-    document.getElementById('upload-btn').addEventListener('change', async (e) => {
-        const file = e.target.files[0];
-        console.log(file); // Verifica que el archivo se seleccionó
-        if (!file) return;
-    
-        const userId = auth.currentUser.uid;
-        const storage = getStorage();
-        const userFolderRef = ref(storage, `uploads/${userId}`);
-        const fileRef = ref(userFolderRef, file.name);
-    
-        try {
-            console.log("Iniciando subida...");
-            const uploadTask = uploadBytesResumable(fileRef, file);
-    
-            uploadTask.on('state_changed',
-                (snapshot) => {
-                    // Puedes agregar aquí un manejador de progreso si lo deseas
-                    console.log("Subiendo archivo...");
-                },
-                (error) => {
-                    console.error("Error al subir el archivo: ", error);
-                    alert("Ocurrió un error al subir el archivo.");
-                },
-                async () => {
-                    const fileURL = await getDownloadURL(uploadTask.snapshot.ref);
-                    console.log("Archivo subido con éxito. URL: ", fileURL);
-                    alert('Archivo subido con éxito. URL: ' + fileURL);
-    
-                    const uploadedFilesContainer = document.getElementById('uploaded-files-container');
-                    const fileLink = document.createElement('a');
-                    fileLink.href = fileURL;
-                    fileLink.textContent = file.name;
-                    uploadedFilesContainer.appendChild(fileLink);
-                }
-            );
-        } catch (error) {
-            console.error("Error al subir el archivo: ", error);
-            alert("Ocurrió un error al intentar subir el archivo.");
-        }
-    });
-
-
-
-
-    // Función para eliminar un archivo
-    async function deleteFile(fileName) {
-        const userId = auth.currentUser.uid;
-        const storage = getStorage();
-
-        // Referencia al archivo a eliminar
-        const fileRef = ref(storage, `uploads/${userId}/${fileName}`);
-
-        try {
-            // Eliminar el archivo
-            await deleteObject(fileRef);
-            alert('Archivo eliminado con éxito.');
-            // Eliminar el archivo de la interfaz
-            const fileElement = document.getElementById(fileName);
-            fileElement.remove();
-        } catch (error) {
-            console.error("Error al eliminar el archivo: ", error);
-            alert("Ocurrió un error al intentar eliminar el archivo.");
-        }
-    }
-
-    // Agregar evento de clic para eliminar un archivo
-    document.querySelectorAll('.delete-file-btn').forEach((button) => {
-        button.addEventListener('click', (e) => {
-            const fileName = e.target.dataset.fileName;
-            deleteFile(fileName);
-        });
-    });
-
-
-    async function loadUploadedFiles() {
-        const userId = auth.currentUser.uid;  // Asegúrate de que el UID esté bien
-        const storage = getStorage();
-        const userFolderRef = ref(storage, `uploads/${userId}`); // Referencia correcta
-    
-        try {
-            console.log("Buscando archivos en: uploads/" + userId);  // Verificar el path
-            const folderContents = await listAll(userFolderRef);
-    
-            if (folderContents.items.length === 0) {
-                console.log("No se encontraron archivos en la carpeta del usuario.");
-                alert("No tienes archivos subidos.");
-            }
-    
-            const uploadedFilesContainer = document.getElementById('uploaded-files-container');
-            uploadedFilesContainer.innerHTML = ''; // Limpiar el contenedor antes de mostrar los archivos
-    
-            folderContents.items.forEach(async (itemRef) => {
-                const fileURL = await getDownloadURL(itemRef);
-                const fileName = itemRef.name;
-    
-                // Crear un enlace para el archivo
-                const fileLink = document.createElement('a');
-                fileLink.href = fileURL;
-                fileLink.textContent = fileName;
-                fileLink.id = fileName;
-    
-                // Botón para eliminar el archivo
-                const deleteButton = document.createElement('button');
-                deleteButton.textContent = 'Eliminar';
-                deleteButton.classList.add('delete-file-btn');
-                deleteButton.dataset.fileName = fileName;
-    
-                // Agregar el archivo y el botón de eliminación al contenedor
-                const fileDiv = document.createElement('div');
-                fileDiv.appendChild(fileLink);
-                fileDiv.appendChild(deleteButton);
-                uploadedFilesContainer.appendChild(fileDiv);
-            });
-        } catch (error) {
-            console.error("Error al cargar los archivos:", error);
-            alert("Ocurrió un error al cargar los archivos.");
-        }
-    }
-    
 });
 
 // Función para volver al menú
