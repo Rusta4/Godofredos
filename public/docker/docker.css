@@ -38,28 +38,6 @@ li{ font-size: 1.25em;}
     color: #caeef8; /* Color del ícono */
 }
 
-
-
-/*Estilos del botón*/
-#banner-bienvenida-web button {
-    font-size: 1.75em;
-    font-weight: bold;
-    padding: 15px 50px;
-    background-color: #041d49; /* Azul intenso */
-    border-radius: 30px;
-    color: #caeef8;
-    border: none;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
-}
-
-#banner-bienvenida-web button:hover {
-    background-color: #caeef8; 
-    color: #041d49;
-    transform: scale(1.05); 
- }
-
-
 #banner-bienvenida-web h1,
 #servicios-de-godofredo h2,
 #seccion-quienes-somos h2,
@@ -69,38 +47,11 @@ li{ font-size: 1.25em;}
     animation-fill-mode: forwards; 
 }
 
-/* Ajustar la animación de botones */
-#banner-bienvenida-web button,
-#servicios-de-godofredo .carta button,
-#final button {
-    animation: fadeInUp 1.2s ease-in-out;
-    opacity: 0; 
-    animation-fill-mode: forwards;
-}
-
-
-.scroll-animation {
-    opacity: 0;
-    transform: translateY(50px); /* Empieza un poco más abajo */
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Transición suave */
-}
 
 .scroll-animation.visible {
     opacity: 1;
     transform: translateY(0); /* Vuelve a su posición original */
 }
-
-
-
-/*hover del button*/
-
-.contenedor-general{
-    max-width: 1400px;
-    margin: auto;
-}
-
-.color-acento{ color:#caeef8}
-
 
 
 header {
@@ -166,78 +117,6 @@ header a:hover{
     object-fit: cover
 }
 
-.contenido-banner {
-    z-index: 1;
-    color: #caeef8;
-}
-
-#banner-bienvenida-web h1 {
-    color: #caeef8;
-    font-size: 3em;
-}
-
-#banner-bienvenida-web button {
-    font-size: 1.75em;
-}
-
-
-#banner-bienvenida-web h1{
-    color: #caeef8;
-}
-
-#banner-bienvenida-web button{
-    font-size: 1.75em;
-}
-
-/* Estilos de la sección 'Quienes Somos' */
-#seccion-quienes-somos {
-    position: relative;
-    width: 100%;
-    height: 600px; /* Ajusta la altura según lo que necesites */
-    background-size: cover; /* Asegura que la imagen cubra todo el fondo */
-    background-position: center center; /* Centra la imagen de fondo */
-    background-attachment: fixed; /* La imagen de fondo permanece fija durante el
-     desplazamiento */
-    color: black; /* Asegura que el texto sea visible sobre la imagen de fondo */
-    background-color: rgba(245, 222, 179, 0.377);
-}
-
-#seccion-quienes-somos .contenedor-general {
-    position: relative;
-    z-index: 1; /* Asegura que el contenido esté por encima de la imagen de fondo */
-    text-align: center;
-    padding: 100px 20px; /* Ajusta el relleno según sea necesario */
-}
-
-#seccion-quienes-somos .texto {
-    margin-bottom: 20px; /* Espacio entre el texto y la imagen de contenido */
-}
-
-#seccion-quienes-somos h2,
-#seccion-quienes-somos p {
-    animation: fadeInUp 1s ease-in-out;
-    opacity: 0;
-    animation-fill-mode: forwards;
-}
-
-#seccion-quienes-somos img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto; /* Centra las imágenes dentro del contenedor */
-}
-
-/* Animaciones para los elementos en la sección */
-.scroll-animation {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.scroll-animation.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
 
 @keyframes fadeInUp {
     0% {
@@ -250,114 +129,6 @@ header a:hover{
     }
 }
 
-#servicios-de-godofredo {
-    background-color: rgb(30, 30, 30);
-    color: #caeef8;
-    text-align: center;
-}
-
-#servicios-de-godofredo .contenedor-general {
-    padding: 150px 12px;
-}
-
-#servicios-de-godofredo h2 {
-    margin-top: 0;
-    font-size: 3.2em;
-}
-
-#servicios-de-godofredo .carta {
-    display: block;
-    position: relative;
-    background-position: center center;
-    background-size: cover;
-    padding: 50px;
-    margin: 30px;
-    border-radius: 15px;
-    overflow: hidden; /* Asegura que el contenido no se desborde */
-    text-decoration: none; /* Elimina el subrayado de los enlaces */
-    color: #caeef8; /* Color de texto por defecto */
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-#servicios-de-godofredo .carta img {
-    max-width: 100%;
-    height: auto;
-}
-
-#servicios-de-godofredo .carta h3, 
-#servicios-de-godofredo .carta p,
-#servicios-de-godofredo .carta button {
-    transition: opacity 0.3s ease;
-}
-
-#servicios-de-godofredo .carta:hover {
-    transform: scale(1.05);
-}
-
-#servicios-de-godofredo .carta:hover h3, 
-#servicios-de-godofredo .carta:hover p, 
-#servicios-de-godofredo .carta:hover button {
-    opacity: 0;
-}
-
-#servicios-de-godofredo .carta:hover img {
-    opacity: 1;
-}
-
-/* Estilo específico para la imagen dentro de la carta */
-#servicios-de-godofredo .carta img {
-    transition: opacity 0.3s ease;
-}
-
-/* Opcional: agregar un overlay al pasar el ratón */
-#servicios-de-godofredo .carta::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-#servicios-de-godofredo .carta:hover::before {
-    opacity: 1;
-}
-
-#servicios-de-godofredo .carta:hover img {
-    opacity: 0.3;
-}
-
-#caracteristicas .contenedor-general{
-    text-align: center;
-    padding: 250px 12px;
-}
-
-#caracteristicas li{
-    margin: 16px 0px;
-    font-weight: bold;
-}
-
-#final{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-color: rgb(30,30,30);
-    color: #caeef8;
-    height: 80vh;
-}
-
-#final h2{
-    font-size: 9vw;
-}
-
-#final button{
-    font-size: 5vw;
-}
 
 
 /* Pantallas más grandes (como laptops y desktops) */
@@ -613,6 +384,7 @@ header a:hover{
 
 footer {
     background-color: #caeef8;
+    pointer-events: none;
 }
 
 footer p {
@@ -626,4 +398,148 @@ footer .contenedor-general {
     display: flex;
     justify-content: center;
     align-items: flex-end;
+}
+
+
+/* Si el footer tiene enlaces y quieres que esos no sean clickeables */
+footer a {
+    pointer-events: none; /* Desactiva el clic solo en los enlaces dentro del footer */
+    color: inherit; /* Mantiene el color del texto sin cambios */
+}
+
+/* Si sólo quieres que los enlaces tengan el comportamiento de no ser clickeables pero sin afectar otros elementos */
+footer a:hover {
+    cursor: default; /* Cambia el cursor a la forma normal para indicar que no es clickeable */
+}
+
+
+
+/* Eliminar el subrayado azul de los enlaces */
+#hacking-tools a {
+    text-decoration: none; /* Elimina el subrayado */
+}
+
+/* Fondo negro para la sección */
+#hacking-tools {
+    background-color: rgb(30, 30, 30); /* Fondo oscuro */
+    padding: 40px 0; /* Espaciado superior e inferior */
+}
+
+/* Contenedor general de herramientas */
+#hacking-tools .tools {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px; /* Espaciado entre las tarjetas */
+    margin: 40px auto; /* Centrado con margen superior e inferior */
+    max-width: 1200px; /* Ancho máximo para tarjetas */
+}
+
+/* Título de la sección "Herramientas Disponibles" */
+#hacking-tools h2 {
+    text-align: center; /* Centrar el texto */
+    font-size: 3rem; /* Tamaño de fuente */
+    font-weight: bold; /* Fuente en negrita */
+    color: #caeef8; /* Color del texto */
+    margin-bottom: 40px; /* Espaciado debajo del título */
+}
+
+
+/* Tarjetas individuales */
+.tool {
+    background-color: rgba(50, 50, 50, 1); /* Fondo oscuro para contraste */
+    border-radius: 15px; /* Bordes redondeados */
+    text-align: center; /* Centrado de contenido */
+    width: 300px; /* Ancho fijo para consistencia */
+    padding: 20px;
+    color: #caeef8; /* Color del texto */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4); /* Sombra para profundidad */
+    transition: transform 0.3s, box-shadow 0.3s; /* Animación suave */
+}
+
+.tool:hover {
+    transform: translateY(-5px); /* Movimiento hacia arriba al pasar el mouse */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.6); /* Aumentar la sombra */
+}
+
+/* Imagen en la tarjeta */
+.tool img {
+    width: 100%; /* Ocupa todo el ancho */
+    height: 180px; /* Altura fija */
+    object-fit: cover; /* Ajuste de la imagen */
+    border-radius: 8px 8px 0 0; /* Redondeo superior */
+    margin-bottom: 12px;
+}
+
+/* Título de la herramienta */
+.tool h3 {
+    margin: 10px 0;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #caeef8;
+}
+
+/* Descripción de la herramienta */
+.tool p {
+    margin: 10px 0 15px;
+    font-size: 1rem;
+    line-height: 1.5; /* Espaciado de líneas */
+    color: #caeef8;
+}
+
+/* Botón de descarga */
+.tool button {
+    background-color: #caeef8; /* Color llamativo */
+    color: #041d49;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; /* Animación suave */
+}
+
+.tool button:hover {
+    background-color: #041d49;
+    color: #caeef8; /* Cambiar color del texto al pasar el mouse */
+    border: 2px solid #caeef8; /* Borde de color #caeef8 */
+    border-radius: 2px;
+    transform: scale(1.05); /* Aumentar tamaño ligeramente */
+}
+
+/* Diseño responsivo para pantallas más pequeñas */
+@media (max-width: 768px) {
+    #hacking-tools .tools {
+        gap: 20px; /* Espaciado más pequeño */
+    }
+
+    .tool {
+        width: 90%; /* Ocupa casi todo el ancho de la pantalla */
+        margin: 0 auto; /* Centrar tarjeta */
+    }
+}
+
+/* Estilo del botón de flecha hacia abajo */
+.scroll-down-btn {
+    display: inline-block;
+    margin-top: 20px; /* Espacio entre el título y el botón */
+    font-size: 4rem;
+    color: #caeef8; /* Color de la flecha */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    animation: bounce 1.5s infinite; /* Animación para que la flecha rebote */
+}
+
+.scroll-down-btn:hover {
+    color: #caeef8; /* Cambio de color al pasar el mouse */
+}
+
+/* Animación de rebote para la flecha */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px); /* Movimiento hacia abajo */
+    }
 }

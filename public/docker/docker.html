@@ -4,87 +4,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Docker</title>
-    <link rel="icon" href="./logo/hacker.png" type="image/x-icon">
+    <title>Hacking Tools</title>
+    <link rel="icon" href="../logo/hacker.png" type="image/x-icon">
     <link rel="stylesheet" href="./docker.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script type="module" src="./docker.js"></script>
-    <!-- Agrega Font Awesome -->
-    <script>
-        // Deshabilita el menú contextual (clic derecho)
-        document.addEventListener("contextmenu", function (event) {
-            event.preventDefault();
-        });
 
-        // Deshabilita teclas como F12, Ctrl+Shift+I, Ctrl+U
-        document.addEventListener("keydown", function (event) {
-            if (event.key === "F12") {
-                event.preventDefault();
-            }
-            if (event.ctrlKey && event.shiftKey && event.key === "I") {
-                event.preventDefault();
-            }
-            if (event.ctrlKey && event.key === "u") {
-                event.preventDefault();
-            }
-        });
-    </script>
+
     <script>
         function toggleMenu() {
             var menu = document.querySelector('header nav');
             menu.classList.toggle('show'); // Cambiar la clase para mostrar/ocultar el menú
         }
     </script>
-    <style>
-        /* Asegúrate de que el video ocupe toda la pantalla y quede detrás del contenido */
-        .video-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Asegura que el video cubra toda la pantalla */
-            z-index: -1; /* Poner el video detrás del contenido */
-        }
-
-        /* Ajusta la opacidad del video si es necesario para mejorar la visibilidad del contenido */
-        .content-wrapper {
-            position: relative;
-            z-index: 1;
-        }
-    </style>
 </head>
 
 <body>
-    <!-- Video de fondo -->
-    <video class="video-background" autoplay muted loop>
-        <source src="../img/videoplayback.mp4" type="video/mp4">
-        Tu navegador no soporta la etiqueta de video.
-    </video>
-
     <header>
         <div class="contenedor-general">
             <p class="logo">
-                <img src="../logo/LOGO-GODO-AZUL.png" alt="Logo de GodoFredo"
-                    style="width: 70px; height: 70px; vertical-align: middle;">
+                <img src="../logo/LOGO-GODO-AZUL.png" alt="Logo de GodoFredo" style="width: 70px; height: 70px; vertical-align: middle;">
                 GodoFredo's
             </p>
-
-            <!-- Ícono de menú hamburguesa -->
             <div class="menu-hamburguesa" onclick="toggleMenu()">
                 <div></div>
                 <div></div>
                 <div></div>
             </div>
             <nav id="menu-principal">
-                <a href="/index.html">Inicio</a>
-                <a href="./aboutus/aboutus.html">Sobre Nosotros</a>
-                <a id="login-link" href="./login/login.html">Iniciar sesión</a>
-                <a id="register-link" href="./Register/register.html">Registrarse</a>
+                <a href="../index.html">Inicio</a>
+                <a href="../aboutus/aboutus.html">Sobre Nosotros</a>
+                <a id="login-link" href="../login/login.html">Iniciar sesión</a>
+                <a id="register-link" href="../Register/register.html">Registrarse</a>
                 <div id="profile-container" style="display: none;">
-                    <a id="profile-link" href="./profile/profile.html">Mi Perfil</a>
-                    <button id="logout-button" onclick="logout()"
-                        style="background: transparent; border: none; cursor: pointer;">
+                    <a id="profile-link" href="../profile/profile.html">Mi Perfil</a>
+                    <button id="logout-button" onclick="logout()" style="background: transparent; border: none;">
                         <i class="fas fa-sign-out-alt" style="font-size: 20px; color: #caeef8;"></i>
                     </button>
                 </div>
@@ -92,16 +46,31 @@
         </div>
     </header>
 
-    <div class="content-wrapper">
-        <img src="../img/docker-img.png" alt="docker">
-    </div>
-
-    <footer>
-        <div class="contenedor-general">
-            <p>&copy; Godofredo's 2024</p>
+    <section id="banner-bienvenida-web">
+        <video autoplay muted loop id="video-banner">
+            <source src="../img/videoplayback.mp4" type="video/mp4">
+            Tu navegador no soporta la etiqueta de video.
+        </video>
+        <div class="contenido-banner">
+            <h1 class="scroll-animation">Explora las Mejores Herramientas de Hacking</h1>
+            <a href="#hacking-tools" class="scroll-down-btn">
+                <i class="fas fa-chevron-down"></i>
+            </a>
         </div>
-    </footer>
+    </section>
 
+    <section id="hacking-tools" class="scroll-animation">
+        <div class="contenedor-general">
+            <h2>Herramientas Disponibles</h2>
+            <div class="tools">
+                <div class="tool">
+                    <img src="../img/w10.png" alt="Gobuster">
+                    <h3>Windows 10</h3>
+                    <button id="deploy-btn">Desplegar</button>
+                </div>
+            </div>
+        </div>
+    </section>
     <script>
         // Verifica el estado de la sesión al cargar la página
         document.addEventListener('DOMContentLoaded', function () {
@@ -140,7 +109,6 @@
             elements.forEach(el => observer.observe(el));
         });
     </script>
-
 </body>
 
 </html>
