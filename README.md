@@ -1,1 +1,1 @@
-<h1>ASIX2 Primer Proyecto Pagina Web - Godofredo`s</h1>
+<h1>ASIX2 Proyecto - Godofredo`s</h1>
