@@ -41,7 +41,7 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
   <summary><h2>Organización👣</h2></summary>
   <br>
   <h4>Nicolás Guerra</h4>
-<h5>  - </h5>
+
 <h5>  - </h5>
 <h5>  - </h5>
 
