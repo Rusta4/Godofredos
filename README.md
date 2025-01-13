@@ -14,7 +14,8 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
   
   <details>
   <summary><h3>Firebase (Servicio)</h3></summary>
-
+  <br>
+  <p>Firebase es una plataforma de desarrollo de aplicaciones móviles y web ofrecida por Google que proporciona servicios como bases de datos en tiempo real, autenticación, almacenamiento, y análisis, entre otros.</p>
 
   
 </details>
