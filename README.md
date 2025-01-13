@@ -29,7 +29,8 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 
   <details>
   <summary><h3>Docker🐋(Contenerización)</h3></summary>
-
+  <br>
+  <p>Docker es una plataforma que permite crear, distribuir y ejecutar aplicaciones dentro de contenedores. Los contenedores empaquetan todo lo necesario para que una aplicación funcione de manera consistente en diferentes entornos.</p>
 
   
 </details>
