@@ -1,6 +1,7 @@
 <h1>ASIX2 Proyecto - Godofredo`s</h1>
 
-<h2><details><summary>Explicación idea del proyecto</summary></h2>
+<details>
+  <summary><h2>Explicación idea del proyecto</h2></summary>
 <br>
 <p>Estamos creando una plataforma web similar a GitHub, pero totalmente enfocada en el campo de la ciberseguridad. Como equipo, nuestra misión es ofrecer un espacio donde los profesionales de la seguridad informática puedan colaborar, compartir herramientas, scripts y proyectos que aborden distintas áreas de ciberseguridad, desde la evaluación de vulnerabilidades hasta la automatización de auditorías.
 
