@@ -13,7 +13,7 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
   <br>
   
   <details>
-  <summary><h3>Firebase (Servicio)</h3></summary>
+  <summary><h4>Firebase (Servicio)</h4></summary>
   <br>
   <p>Firebase es una plataforma de desarrollo de aplicaciones móviles y web ofrecida por Google que proporciona servicios como bases de datos en tiempo real, autenticación, almacenamiento, y análisis, entre otros.</p>
 
@@ -21,7 +21,7 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 </details>
 
   <details>
-  <summary><h3>JavaScript (Lenguaje de Programación)</h3></summary>
+  <summary><h4>JavaScript (Lenguaje de Programación)</h4></summary>
   <br>
   <p>JavaScript es un lenguaje de programación interpretado y de alto nivel utilizado principalmente en el desarrollo web para crear páginas interactivas. Funciona del lado del cliente (en el navegador), pero también puede ejecutarse en el servidor mediante tecnologías como Node.js.</p>
 
@@ -29,7 +29,7 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 </details>
 
   <details>
-  <summary><h3>Docker🐋(Contenerización)</h3></summary>
+  <summary><h4>Docker🐋(Contenerización)</h4></summary>
   <br>
   <p>Docker es una plataforma que permite crear, distribuir y ejecutar aplicaciones dentro de contenedores. Los contenedores empaquetan todo lo necesario para que una aplicación funcione de manera consistente en diferentes entornos.</p>
 
@@ -37,7 +37,7 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 </details>
 
   <details>
-  <summary><h3>Nginx (Servidor Web y Proxy)</h3></summary>
+  <summary><h4>Nginx (Servidor Web y Proxy)</h4></summary>
   <br>
   <p>Nginx es un servidor web de alto rendimiento que también funciona como proxy inverso, balanceador de carga y servidor de caché. Es ampliamente utilizado en la distribución de tráfico web y la mejora del rendimiento de sitios web.</p>
 
