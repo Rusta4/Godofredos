@@ -36,7 +36,8 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 
   <details>
   <summary><h3>Nginx (Servidor Web y Proxy)</h3></summary>
-
+  <br>
+  <p>Nginx es un servidor web de alto rendimiento que también funciona como proxy inverso, balanceador de carga y servidor de caché. Es ampliamente utilizado en la distribución de tráfico web y la mejora del rendimiento de sitios web.</p>
 
   
 </details>
