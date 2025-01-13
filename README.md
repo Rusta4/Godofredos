@@ -12,13 +12,33 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
   <summary><h2>Nuestros conceptos♿</h2></summary>
   <br>
   
-  ⬛ 
+  <details>
+  <summary><h2>Funcionalidades📁</h2></summary>
 
-  ⬛
 
-  ⬛
+  
+</details>
 
-  ⬛
+  <details>
+  <summary><h2>Funcionalidades📁</h2></summary>
+
+
+  
+</details>
+
+  <details>
+  <summary><h2>Docker (Contenerización)</h2></summary>
+
+
+  
+</details>
+
+  <details>
+  <summary><h2>Nginx (Servidor Web y Proxy)</h2></summary>
+
+
+  
+</details>
 </details>
 
 <details>
