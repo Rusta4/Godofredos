@@ -22,7 +22,7 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 </details>
 
 <details>
-  <summary><h2>Tecnologías en el Proyecto</h2></summary>
+  <summary><h2>Tecnologías en el Proyecto🤖</h2></summary>
   <br>
   <p>dddd</p>
   <p>dddd</p>
@@ -30,7 +30,7 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 
 
 <details>
-  <summary><h2>Funcionalidades</h2></summary>
+  <summary><h2>Funcionalidades📁</h2></summary>
 
 
   
