@@ -21,7 +21,8 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 
   <details>
   <summary><h3>JavaScript (Lenguaje de Programación)</h3></summary>
-
+  <br>
+  <p>JavaScript es un lenguaje de programación interpretado y de alto nivel utilizado principalmente en el desarrollo web para crear páginas interactivas. Funciona del lado del cliente (en el navegador), pero también puede ejecutarse en el servidor mediante tecnologías como Node.js.</p>
 
   
 </details>
