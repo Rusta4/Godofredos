@@ -9,3 +9,10 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 </details>
 
 
+<details>
+  <summary><h2>Nuestros conceptos</h2></summary>
+  <br>
+  *
+
+  
+</details>
