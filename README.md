@@ -13,14 +13,14 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
   <br>
   
   <details>
-  <summary><h3>Funcionalidades📁</h3></summary>
+  <summary><h3>Firebase (Servicio)</h3></summary>
 
 
   
 </details>
 
   <details>
-  <summary><h3>Funcionalidades📁</h3></summary>
+  <summary><h3>JavaScript (Lenguaje de Programación)</h3></summary>
 
 
   
