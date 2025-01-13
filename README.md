@@ -20,5 +20,4 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 
   ⚫
 
-  
 </details>
