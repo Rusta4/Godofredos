@@ -1,4 +1,4 @@
-<h1>ASIX2 Proyecto - Godofredo`s</h1>
+<h1>ASIX2 Proyecto - Godofredo`s®️</h1>
 
 <details>
   <summary><h2>Explicación idea del proyecto📖</h2></summary>
