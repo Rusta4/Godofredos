@@ -51,9 +51,15 @@
 
 
 <h2 id="Explicación idea del proyecto">Explicación idea del proyecto</h2>
-<p>Estamos creando una plataforma web similar a GitHub, pero totalmente enfocada en el campo de la ciberseguridad. Como equipo, nuestra misión es ofrecer un espacio donde los profesionales de la seguridad informática puedan colaborar, compartir herramientas, scripts y proyectos que aborden distintas áreas de ciberseguridad, desde la evaluación de vulnerabilidades hasta la automatización de auditorías.
+<p>
+Estamos creando una plataforma web similar a GitHub, pero totalmente enfocada en el campo de la ciberseguridad. Como equipo, nuestra misión es ofrecer un espacio donde los profesionales de la seguridad informática puedan colaborar, compartir herramientas, scripts y proyectos que aborden distintas áreas de ciberseguridad, desde la evaluación de vulnerabilidades hasta la automatización de auditorías.
 
-Una de las características clave de nuestra plataforma es el uso de imágenes Docker, lo que permitirá a los usuarios crear y compartir entornos preconfigurados de manera rápida y sencilla. Con esto, cualquier miembro de la comunidad podrá replicar de forma precisa estos entornos para realizar pruebas de seguridad, sin necesidad de configuraciones complejas. Además, esto facilitará la colaboración entre profesionales, ya que los entornos Docker garantizan que todo el mundo trabaje en el mismo entorno aislado y seguro.</p>
+El proyecto que desarrollaremos durante el segundo y tercer trimestre es una continuación directa del trabajo realizado en el primer proyecto. En esta nueva fase, implementaremos de manera completa tecnologías clave como Docker, con el objetivo de crear una red de contenedores interconectados. Esta red permitirá a los usuarios desarrollar y compartir entornos avanzados para pruebas de seguridad, maximizando la eficiencia y precisión mediante configuraciones reproducibles y escalables.
+
+Además, una de las redes de contenedores incluirá un firewall como sistema de seguridad, diseñado para restringir el tráfico entrante, saliente y dentro de la red privada, garantizando un entorno seguro y aislado para las pruebas. Otro contenedor se dedicará a la gestión de copias de seguridad, proporcionando una solución robusta para realizar backups a diferentes escalas y asegurando la integridad y continuidad del proyecto.
+
+Con estas características, nuestra plataforma no solo facilitará la colaboración entre profesionales de la ciberseguridad, sino que también garantizará entornos seguros y herramientas integradas para el desarrollo y la protección de proyectos en el campo de la seguridad informática.
+</p>
 
 
 <h2 id="Nuestros Objetivos">Nuestros Objetivo</h2>
