@@ -2,7 +2,6 @@
 
 <details>
   <summary><h2>Proyecto🍆</h2></summary>
-  <h1>ASIX2 Proyecto - Godofredo`s</h1>
 
 <h2>ÍNDICE</h2>
 <ul>
