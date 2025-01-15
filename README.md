@@ -56,8 +56,8 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 <h4>2. Máquinas Virtuales (VM)</h4>
 <p>Las máquinas virtuales permiten ejecutar varios sistemas operativos independientes en un único hardware físico. Esto es útil tanto para pruebas como para la implementación de aplicaciones en entornos aislados, garantizando que los fallos o cambios en una máquina no afecten a las demás. Además, las VM mejoran la seguridad y flexibilidad del sistema, permitiendo la asignación dinámica de recursos y facilitando la escalabilidad según las necesidades del proyecto.</p>
 
-<h4>3. BOOTSTRAP</h4>
-<p>Bootstrap es un framework de diseño front-end que facilita la creación de interfaces web responsivas y modernas. Proporciona un conjunto predefinido de componentes de diseño, como botones, formularios, tablas y menús, que permiten a los desarrolladores construir sitios web atractivos con menos esfuerzo. Su uso de un sistema de rejillas y su enfoque "mobile-first" aseguran que los sitios web se adapten adecuadamente a cualquier dispositivo, mejorando la experiencia del usuario.</p>
+<h4>3. Cloudflare</h4>
+<p>Cloudflare es una solución basada en la nube diseñada para mejorar la seguridad, velocidad y confiabilidad de los sitios web. Ofrece una red de distribución de contenido (CDN) que acelera la entrega de recursos al almacenar contenido estático en servidores distribuidos globalmente. Además, protege contra ataques DDoS, incluye un firewall de aplicaciones web (WAF) y gestiona el tráfico DNS de forma eficiente, asegurando que las aplicaciones sean accesibles, rápidas y seguras en todo momento</p>
 
 <h4>4. HTML (HyperText Markup Language)</h4>
 <p>HTML es el lenguaje de marcado fundamental para la creación de páginas web. Define la estructura básica del contenido mediante etiquetas, como encabezados, párrafos, imágenes y enlaces, que los navegadores web interpretan para mostrar el contenido de manera visual. Es el pilar de cualquier sitio web, proporcionando la base sobre la cual se construyen elementos interactivos y visuales mediante otras tecnologías como CSS y JavaScript.</p>
@@ -70,6 +70,12 @@ Una de las características clave de nuestra plataforma es el uso de imágenes D
 
 <h4>6. Dockers</h4>
 <p>Docker es una plataforma que utiliza contenedores para simplificar el desarrollo, despliegue y ejecución de aplicaciones. Permite empaquetar una aplicación y todas sus dependencias en una "imagen", asegurando que funcione de manera consistente en diferentes entornos. Al usar Docker, se reduce la necesidad de configurar entornos específicos en cada servidor, lo que agiliza la implementación y mejora la escalabilidad y portabilidad de las aplicaciones.</p>
+
+<h4>7. Nginx</h4>
+<p>Nginx es un servidor web versátil y de alto rendimiento que también actúa como proxy inverso y balanceador de carga. Es conocido por su eficiencia en la gestión de grandes volúmenes de tráfico, siendo ideal para aplicaciones escalables. Además, permite servir contenido estático rápidamente, manejar conexiones simultáneas de manera eficiente y optimizar la disponibilidad de los servicios web.</p>
+
+<h4>8. JS</h4>
+<p>JavaScript es un lenguaje de programación clave para el desarrollo web, permitiendo agregar dinamismo e interactividad a las páginas. Es utilizado para crear funciones avanzadas como validaciones en tiempo real, animaciones y actualizaciones sin recargar la página mediante AJAX. Gracias a su capacidad de integrarse con HTML y CSS, JS hace posible experiencias de usuario atractivas y responsivas.</p>
 
 <h4>Conclusión</h4>
 <p>Estas tecnologías garantizan un entorno sólido y flexible, permitiendo el desarrollo de una aplicación web dinámica y eficiente que cumple con los objetivos del proyecto.</p>
