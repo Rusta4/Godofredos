@@ -1,0 +1,47 @@
+Estructura carpetas docker:
+
+loginRegister/
+
+│
+
+├── web/
+
+│   └── # Aquí pueden ir los archivos de tu aplicación web, como HTML, CSS, JS, etc.
+
+│
+
+├── nginx/
+
+│   ├── default.conf  # Archivo de configuración de Nginx
+
+│   └── # Otros archivos de configuración si es necesario
+
+│
+
+├── mysql/
+
+│   └── # Archivos relacionados con la configuración de MySQL, si es necesario
+
+│
+
+└── docker-compose.yml  # Archivo Docker Compose para orquestar los contenedores
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Parte nginx:
+
+- Comandos para levantar el stack una vez la configuración de docker-compose.yml este preparada (coger del git en este apartado el .yml)
+
+	>docker-compose up -d  (el -d es para ejecutar en segundo plano)
+
+	>docker-compose down (esto es para parar los containers)
+
+
+
+- Rellenar el default.conf de la web a default (esta en el git preparado)
+
+
+
+- Dentro de loginRegister/web hay que meter nuestro public (ósea el index.html y revisar cada archivo)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
