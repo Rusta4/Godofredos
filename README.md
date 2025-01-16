@@ -144,7 +144,7 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
   </details>
 
   <details>
-  <summary>&nbsp;&nbsp;&nbsp;&nbsp;<b>Funcionalidades Web</b></summary>
+  <summary>&nbsp;&nbsp;&nbsp;&nbsp;🔗<b>Funcionalidades Web</b></summary>
      <br>
   <img src="https://github.com/user-attachments/assets/37a57af5-b507-4c2a-ad87-854c6c390611" alt="LOGO-GODO" width="1000" height="550" />
   <img src="https://github.com/user-attachments/assets/750eb6fb-18b9-49af-bc89-a224408ab418" alt="LOGO-GODO" width="1000" height="550" />
