@@ -7,9 +7,11 @@
   <br>
 <p>Estamos creando una plataforma web similar a Hack The Box, pero totalmente enfocada en el campo de la ciberseguridad. Como equipo, nuestra misión es ofrecer un espacio donde los profesionales de la seguridad informática puedan colaborar, compartir herramientas, scripts y proyectos que aborden distintas áreas de ciberseguridad, desde la evaluación de vulnerabilidades hasta la automatización de auditorías.
 
-El proyecto que desarrollaremos durante el segundo y tercer trimestre es una continuación directa del trabajo realizado en el primer proyecto. En esta nueva fase, implementaremos de manera completa tecnologías clave como Docker, con el objetivo de crear una red de contenedores interconectados. Esta red permitirá a los usuarios desarrollar y compartir entornos avanzados para pruebas de seguridad, maximizando la eficiencia y precisión mediante configuraciones reproducibles y escalables.
+El proyecto que desarrollaremos durante el segundo y tercer trimestre es una continuación directa del trabajo realizado en el primer proyecto. En esta nueva fase, implementaremos de manera completa tecnologías clave como Docker, con el objetivo de crear un despliegue de contenedores. Esta red permitirá a los usuarios desarrollar y compartir entornos avanzados para pruebas de seguridad, maximizando la eficiencia y precisión mediante configuraciones reproducibles y escalables.
 
-Además, una de las redes de contenedores incluirá un firewall como sistema de seguridad, diseñado para restringir el tráfico entrante, saliente y dentro de la red privada, garantizando un entorno seguro y aislado para las pruebas. Otro contenedor se dedicará a la gestión de copias de seguridad, proporcionando una solución robusta para realizar backups a diferentes escalas y asegurando la integridad y continuidad del proyecto.
+Una de las redes de contenedores contará con un firewall implementado mediante iptables, configurado en un contenedor gateway para la red privada. Este firewall aplicará políticas estrictas para controlar el tráfico entrante, saliente y lateral, asegurando el aislamiento de servicios sensibles.
+
+Por otro lado, un contenedor dedicado gestionará los backups, siendo estos incrementales programados mediante cron y almacenamiento en destinos locales. """El sistema incluirá cifrado extremo a extremo y verificación de integridad mediante hashes criptográficos, protegiendo tanto la confidencialidad como la disponibilidad de los datos."""
 
 Con estas características, nuestra plataforma no solo facilitará la colaboración entre profesionales de la ciberseguridad, sino que también garantizará entornos seguros y herramientas integradas para el desarrollo y la protección de proyectos en el campo de la seguridad informática.</p>
 
