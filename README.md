@@ -9,9 +9,9 @@
 
 El proyecto que desarrollaremos durante el segundo y tercer trimestre es una continuación directa del trabajo realizado en el primer proyecto. En esta nueva fase, implementaremos de manera completa tecnologías clave como Docker, con el objetivo de crear un despliegue de contenedores. Esta red permitirá a los usuarios desarrollar y compartir entornos avanzados para pruebas de seguridad, maximizando la eficiencia y precisión mediante configuraciones reproducibles y escalables.
 
-Una de las redes de contenedores contará con un firewall implementado mediante iptables, configurado en un contenedor gateway para la red privada. Este firewall aplicará políticas estrictas para controlar el tráfico entrante, saliente y lateral, asegurando el aislamiento de servicios sensibles.
+Una de las redes de contenedores contará con un firewall implementado mediante pfSense, configurado en un contenedor gateway para la red privada. Este firewall permitirá definir y aplicar políticas estrictas para controlar el tráfico entrante, saliente y lateral, asegurando el aislamiento de servicios sensibles y ofreciendo un control avanzado mediante su interfaz gráfica o configuración mediante scripts automatizados.
 
-Por otro lado, un contenedor dedicado gestionará los backups, siendo estos incrementales programados mediante cron y almacenamiento en destinos locales. """El sistema incluirá cifrado extremo a extremo y verificación de integridad mediante hashes criptográficos, protegiendo tanto la confidencialidad como la disponibilidad de los datos."""
+Por otro lado, un contenedor basado en Ubuntu gestionará los backups, utilizando un script personalizado con rsync para realizar copias incrementales programadas mediante cron, con almacenamiento en destinos locales. 
 
 Con estas características, nuestra plataforma no solo facilitará la colaboración entre profesionales de la ciberseguridad, sino que también garantizará entornos seguros y herramientas integradas para el desarrollo y la protección de proyectos en el campo de la seguridad informática.</p>
 
