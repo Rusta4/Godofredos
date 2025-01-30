@@ -158,8 +158,33 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
 <!-- -------------------------------------------------------------------------- -->
 
 
+
+
   <details>
   <summary><h2>🍆Proyecto</h2></summary>
+<p>
+
+  1 -->Instalación de pfSense y configuración de 2 tarjetas de red 
+      WAN: 100.77.20.38/24
+      LAN: 10.20.30.1/24 Dentro del rango de la .100 - .150
+
+  2 --> Desactivamos el firewall de pfSense mediante "pfctl -d" y configuramos mediante una Rule WAN para poder entrar a la web-page con la ip de el aula.
+
+  3 --> Una vez configurada la Rule, activamos de nuevo el firewall mediante "pfctl -e" y accedemos a la pfSense sin tener que desactivar el FW.
+
+  4 --> Una vez dentro de la web de pfSense, habilitamos un "Port Forward" para poder acceder a nuestra máquina Alpine por el puerto 9443, la cual esta en nuestra LAN para poder acceder a nuestro portainer.
+  
+</p>
+
+</details>
+
+
+  <details>
+  <summary><h2>🍆Proyecto</h2></summary>
+  <p>
+    
+  </p>
+  </details>
 
 <h2>ÍNDICE</h2>
 <ul>
