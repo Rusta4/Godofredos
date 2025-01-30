@@ -115,9 +115,9 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
 
 <!-- Pagina Web -->
 <details>
-  <summary><h2>💻Pagina Web</h2></summary>
+  <summary><h2>💻 Pagina Web</h2></summary>
   <details>
-  <summary>&nbsp;&nbsp;&nbsp;&nbsp;💭<b>Mockup</b></summary>
+  <summary>&nbsp;&nbsp;&nbsp;&nbsp;💭 <b>Mockup</b></summary>
     <br>
     <p>La primera pantalla es la de bienvenida, diseñada para captar la atención del usuario con un video de fondo que hace que la página sea visualmente atractiva. El mensaje principal invita a los usuarios a explorar el foro con repositorios destacados, acompañado de un botón de llamada a la acción que los lleva a descubrir los servicios ofrecidos. Además, se presentan categorías populares como Docker, Hacking tools e ISO files, que permiten a los usuarios elegir temas de interés de forma rápida y sencilla. Al final, se incluyen enlaces a redes sociales y la información legal, cumpliendo con las normativas y facilitando la conexión con la comunidad.</p>
 
@@ -132,21 +132,21 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
 
   
   <details>
-  <summary>&nbsp;&nbsp;&nbsp;&nbsp;🎨<b>Paleta De Colores</b></summary>
+  <summary>&nbsp;&nbsp;&nbsp;&nbsp;🎨 <b>Paleta De Colores</b></summary>
     <br>
       <p>Esta paleta de colores combina el blanco, gris claro, azul oscuro y verde fuerte para equilibrar simplicidad, profesionalismo y dinamismo. El blanco aporta claridad y limpieza, mientras que el gris claro ofrece neutralidad y elegancia sin desentonar. El azul oscuro transmite confianza y seriedad, siendo ideal para entornos corporativos, y el verde fuerte añade energía y frescura, destacando elementos clave como llamadas a la acción. En conjunto, crean una armonía visual que es funcional y atractiva.</p>
 <img src="https://github.com/user-attachments/assets/4a00d276-8ad7-4cf6-a7fb-11ecbbd096f1" alt="LOGO-GODO" width="900" height="250" />
   </details>
 
   <details>
-  <summary>&nbsp;&nbsp;&nbsp;&nbsp;👀<b>Logo</b></summary>
+  <summary>&nbsp;&nbsp;&nbsp;&nbsp;👀 <b>Logo</b></summary>
      <br>
       <p>Usaremos el primer logo para nuestra web porque refleja simplicidad y profesionalismo, alineándose con el estilo minimalista de marcas tecnológicas modernas. El diseño en blanco y negro aporta una estética limpia y elegante, lo que facilita su integración en diferentes plataformas. Además, el animal icónico en el logo le da personalidad y un toque distintivo sin sobrecargar el diseño.</p>
 <img src="https://github.com/user-attachments/assets/a8580f0e-db47-4891-bf4a-0d3fd1cccb1d" alt="LOGO-GODO" width="400" height="400" />
   </details>
 
   <details>
-  <summary>&nbsp;&nbsp;&nbsp;&nbsp;🔗<b>Funcionalidades Web</b></summary>
+  <summary>&nbsp;&nbsp;&nbsp;&nbsp;🔗 <b>Funcionalidades Web</b></summary>
      <br>
   <img src="https://github.com/user-attachments/assets/37a57af5-b507-4c2a-ad87-854c6c390611" alt="LOGO-GODO" width="1000" height="550" />
   <img src="https://github.com/user-attachments/assets/750eb6fb-18b9-49af-bc89-a224408ab418" alt="LOGO-GODO" width="1000" height="550" />
@@ -161,7 +161,7 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
 
 
   <details>
-  <summary><h2>☄️pfSense</h2></summary>
+  <summary><h2>☄️ pfSense</h2></summary>
 <p>
 
   1 -->Instalación de pfSense y configuración de 2 tarjetas de red 
@@ -221,7 +221,7 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
 
 
   <details>
-  <summary><h2>🤖Proxmox</h2></summary>
+  <summary><h2>🤖 Proxmox</h2></summary>
   <h2>Imagen Arquitectura</h2>
 <p>Nuestra arquitectura esta basada en una red virtual, la cual consta de un cliente (MV CLIENTE) que se conecta a Firebase mediante una máquina virtual que funciona como router (MV ROUTER) y un router físico conectado a Internet. Dicho enrutador consta con una dirección IP pública dinámica (100.77.20.X), la cual permite la conexión a Internet. MV ROUTER administra dos interfaces: una (VMBR0) externa con IP pública (100.77.20.120) conectada al router físico y otra (VMBR1) interna con IP privada (10.20.40.1) para la comunicación en la red local con el cliente (IP 10.20.40.2). La creación de estas dos redes permite al cliente el acceso a servicios externos, como Firebase, mediante la infraestructura virtual y física. Nosotros lo hemos realizado de la siguiente manera, </p>.
 
@@ -238,7 +238,7 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
 
 
 <details>
-<summary><h2>🐳Dockers</h2></summary>
+<summary><h2>🐳 Dockers</h2></summary>
 
 <p>En mi proyecto, quiero implementar Docker de una manera que permita a los usuarios interactuar con una imagen Docker dentro de mi web, todo en un servidor externo. Mi objetivo es ofrecerles una experiencia donde puedan utilizar esta imagen de Docker sin necesidad de tener conocimientos técnicos ni hacer configuraciones complejas. Básicamente, quiero que puedan acceder y usar la imagen directamente desde el navegador.
 
@@ -262,4 +262,19 @@ En resumen, con esta solución basada en Docker, espero ofrecer a los usuarios u
 <img src="https://github.com/user-attachments/assets/ee34a6f1-98e1-4fd3-9f9d-3d241e743c9f" alt="LOGO-GODO" width="1000" height="500" />
 <img src="https://github.com/user-attachments/assets/0601cb1f-1ec7-4787-9279-f89a1a109557" alt="LOGO-GODO" width="1000" height="500" />
 
+</details>
+
+<details>
+  <summary><h2>🔌 Instalaciones</h2></summary>
+    <details>
+    <summary>&nbsp;&nbsp;&nbsp;&nbsp;📥 <b>Proxmox</b></summary>
+  </details>
+
+  <details>
+    <summary>&nbsp;&nbsp;&nbsp;&nbsp;📥 <b>pfSense</b></summary>
+  </details>
+
+  <details>
+    <summary>&nbsp;&nbsp;&nbsp;&nbsp;📥 <b>Docker-Compose</b></summary>
+  </details>
 </details>
