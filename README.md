@@ -170,34 +170,50 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
 
   2 --> Desactivamos el firewall de pfSense mediante "pfctl -d" y configuramos mediante una Rule WAN para poder entrar a la web-page con la ip de el aula.
 
+      pfctl -d
+
+- En pfSense, ve a Firewall > Rules > WAN:
+
+      Action: Pass (Permitir)
+      Interface: WAN
+      Protocol: TCP
+      Source: Network → Introduce tu red 100.77.20.0/24
+      Destination: WAN Address
+      Destination Port: 80 (HTTP) o 443 (HTTPS)
+      Description: Permitir acceso web desde 100.77.20.0/24
+
 
   3 --> Una vez configurada la Rule, activamos de nuevo el firewall mediante "pfctl -e" y accedemos a la pfSense sin tener que desactivar el FW.
-
+  
+      pfctl -e
+    
   4 --> Una vez dentro de la web de pfSense, habilitamos un "Port Forward" para poder acceder a nuestra máquina Alpine por el puerto 9443, la cual esta en nuestra LAN para poder acceder a nuestro portainer.
-     - Dirígete a Firewall → NAT → Port Forward.
-     - Añade una nueva regla:
-
-    Interface: WAN
-    Protocol: TCP
-    Destination: WAN Address (100.77.20.38)
-    Destination Port Range: 9443 (puerto de Portainer por defecto)
-    Redirect Target IP: 10.20.30.100
-    Redirect Target Port: 9443
-    Filter Rule Association: Crear una regla de firewall automáticamente.
-    Save & Apply Changes
+  
+  - Dirígete a Firewall → NAT → Port Forward.
+  - Añade una nueva regla:
+  
+        Interface: WAN
+        Protocol: TCP
+        Destination: WAN Address (100.77.20.38)
+        Destination Port Range: 9443 (puerto de Portainer por defecto)
+        Redirect Target IP: 10.20.30.100
+        Redirect Target Port: 9443
+        Filter Rule Association: Crear una regla de firewall automáticamente.
+        Save & Apply Changes
 
   5 --> Vamos a realizar un "Port Forward" para que nuestro Servidor NGINX que se situa en el puerto 8082 se pueda visualizar. Tendremos que acceder mediante HTTPS
-     - Dirígete a Firewall → NAT → Port Forward.
-     - Añade una nueva regla:
+  
+  - Dirígete a Firewall → NAT → Port Forward.
+  - Añade una nueva regla:
 
-    Interface: WAN
-    Protocol: TCP
-    Destination: WAN Address (100.77.20.38)
-    Destination Port Range: 8082 (puerto de Portainer por defecto)
-    Redirect Target IP: 10.20.30.100
-    Redirect Target Port: 8082
-    Filter Rule Association: Crear una regla de firewall automáticamente.
-    Save & Apply Changes
+        Interface: WAN
+        Protocol: TCP
+        Destination: WAN Address (100.77.20.38)
+        Destination Port Range: 8082 (puerto de Portainer por defecto)
+        Redirect Target IP: 10.20.30.100
+        Redirect Target Port: 8082
+        Filter Rule Association: Crear una regla de firewall automáticamente.
+        Save & Apply Changes
   
 </p>
 
