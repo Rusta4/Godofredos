@@ -161,7 +161,7 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
 
 
   <details>
-  <summary><h2>🍆Proyecto</h2></summary>
+  <summary><h2>pfSense</h2></summary>
 <p>
 
   1 -->Instalación de pfSense y configuración de 2 tarjetas de red 
@@ -173,6 +173,8 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
   3 --> Una vez configurada la Rule, activamos de nuevo el firewall mediante "pfctl -e" y accedemos a la pfSense sin tener que desactivar el FW.
 
   4 --> Una vez dentro de la web de pfSense, habilitamos un "Port Forward" para poder acceder a nuestra máquina Alpine por el puerto 9443, la cual esta en nuestra LAN para poder acceder a nuestro portainer.
+
+  5 --> Vamos a realizar un "Port Forward" para que nuestro Servidor NGINX que se situa en el puerto 8082 se pueda visualizar.
   
 </p>
 
