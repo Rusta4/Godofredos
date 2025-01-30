@@ -1024,24 +1024,5 @@ y
 <p>Desde la maquina Cliente acedemos al ftp como antes y con el usuario que creamos en el apartado anterior y lo utilizamos.</p>
 <img src="https://github.com/user-attachments/assets/237b3758-89e7-469c-89f4-12aa462d5f71" alt="LOGO-GODO" width="800" height="300" />
 
-<h1 id="Instalación Cloudflared">Instalación Cloudflared</h1>
-<p></p>
-
-
-<h1 id="Instalación Docker">Instalación Docker</h1>
-<p>Primero instalamos docker desktop desde su pagina oficial</p>
-<p>Despues miramos la version</p>
-<p>Despues miramos si va el hello-world con el comando "Docker run hello-world"</p>
-<p>El instalador lo puedes ejecutar las veces que quieras y cada uno tiene un puerto</p>
-<p>Si todo funciona ahora descargaremos imagenes pra despues convertirlas en contenedores</p>
-<p>ejecutamos este comando para que funcione mysql, en el apartado de contraseña ponemos la contraseña que queramos y en el apartado de mymysql tambien podemos escribir lo que uqeramos: docker run -e MYSQL_ROOT_PASSWORD=contraseña --named mymysql mysql</p>
-<p>Para ejecutar en modo iterctivo hay que hacer el sigiente comando: "docker exec -it mymysql bash" recuerda que el mymysql lo decides tu. El bash es porque la imagen se ejecuta desde un sistema operativo linux</p>
-<p>Entraremos en una terminal linux. Si hacemos "ls" es para ver los archivos que hay dentro. Despues para entrar como root tenemos que ejcutar el sigiente comendo "mysql -u root -p" y cuando te pida la contraseña tendremos que poner la que definimos anterior mente</p>
-<p>Para ver las bbdd que hay dentro tenemos que ejecutar el siguente comendo "show databases;"</p>
-<p>Para crear una bbdd tenemos que hacer el sigiente comando "create database NOMBRE"</p>
-<p>Para crear otro run debemos de hacer lo sigiente: "docker run --name otroNombre -p 7777:3306 -e MYSQL_ROOT_PASSWORD=11111111 mysql" Esto lo que hace es que creamos otro contenedor con otro nombre y por el puerto que le pongamos. Se creara otra intalacion</p>
-<p>Intslar docker en visual studio code</p>
-
-
 </details>
 
