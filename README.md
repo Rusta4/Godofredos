@@ -299,7 +299,7 @@ En resumen, con esta solución basada en Docker, espero ofrecer a los usuarios u
         
         REMOTE_USER="godo"                             # Usuario del servidor remoto
         
-        REMOTE_HOST="100.77.20.26"                    # IP o hostname del servidor remoto
+        REMOTE_HOST="127.0.0.1"                    # IP o hostname del servidor remoto
         
         REMOTE_PATH="/root/loginRegister"          # Ruta del proyecto en el servidor remoto
         
