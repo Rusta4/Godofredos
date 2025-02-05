@@ -310,6 +310,31 @@ En resumen, con esta solución basada en Docker, espero ofrecer a los usuarios u
 
       * * * * * /scripts/backup.sh >> /scripts/backup.log 2>&1
 
+
+<b>init.sh:</b>
+
+      #!/bin/bash
+      
+      # Actualiza e instala las herramientas necesarias
+      
+      apt-get update && apt-get install -y cron rsync zip openssh-client
+      
+      # Crea el directorio de almacenamiento si no existe
+      
+      mkdir -p /storage
+      
+      # Crea el archivo crontab para programar backups
+      
+      crontab /scripts/crontab
+      
+      # Inicia el servicio de cron
+      
+      service cron start
+      
+      # Mantén el contenedor corriendo
+      
+      tail -f /dev/null
+
 </p>
   
 
