@@ -161,7 +161,7 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
 
 
   <details>
-  <summary><h2>☄️ pfSense</h2></summary>
+  <summary><h2>🛡️ pfSense</h2></summary>
 <p>
 
   1 -->Instalación de pfSense y configuración de 2 tarjetas de red 
@@ -265,7 +265,7 @@ En resumen, con esta solución basada en Docker, espero ofrecer a los usuarios u
 </details>
 
 <details>
-  <summary><h2>📖 Backups</h2></summary>
+  <summary><h2>💽 Backups</h2></summary>
   <br>
 <p>Creamos un docker-compose.yml dentro de una carpeta llamada "Backup". Dentro de /Backup aparte del ya nombrado docker-compose.yml, esta la carpeta "Scripts" en la cual se ecuentra: backup.log (que contiene todos los logs del backup), backup.sh (que contiene un script que realiza el backup), también tenemos la configuración del <b>crontab</b> que regula cada cuanto se realizan los backups, ya que en el propio docker no se ejecuta dicho crontab y fintalmente contamos con "init.sh" que genera el archivo de crontab, inicia el servicio de cron y mantiene el contenedor desplegado.
 
