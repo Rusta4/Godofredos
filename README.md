@@ -270,23 +270,24 @@ En resumen, con esta solución basada en Docker, espero ofrecer a los usuarios u
 <p>Creamos un docker-compose.yml dentro de una carpeta llamada "Backup". Dentro de /Backup aparte del ya nombrado docker-compose.yml, esta la carpeta "Scripts" en la cual se ecuentra: backup.log (que contiene todos los logs del backup), backup.sh (que contiene un script que realiza el backup), también tenemos la configuración del <b>crontab</b> que regula cada cuanto se realizan los backups, ya que en el propio docker no se ejecuta dicho crontab y fintalmente contamos con "init.sh" que genera el archivo de crontab, inicia el servicio de cron y mantiene el contenedor desplegado.
 
 <b>docker-compose.yml</b>
-    services:
-      backup:
-        image: ubuntu:latest
-        container_name: backup
-        volumes:
-          - ./scripts:/scripts  # Directorio para guardar scripts
-          - ./data:/data  # Carpeta con datos a respaldar
-          - ./storage:/storage  # Carpeta destino del backup
-          - ~/.ssh:/root/.ssh  # Asegúrate de montar la clave SSH
-        command: ["/bin/bash", "-c", "/scripts/init.sh"]
-        restart: unless-stopped
-        networks:
-          - netweb
-    
-    networks:
-      netweb:
-        driver: bridge
+  
+      services:
+        backup:
+          image: ubuntu:latest
+          container_name: backup
+          volumes:
+            - ./scripts:/scripts  # Directorio para guardar scripts
+            - ./data:/data  # Carpeta con datos a respaldar
+            - ./storage:/storage  # Carpeta destino del backup
+            - ~/.ssh:/root/.ssh  # Asegúrate de montar la clave SSH
+          command: ["/bin/bash", "-c", "/scripts/init.sh"]
+          restart: unless-stopped
+          networks:
+            - netweb
+      
+      networks:
+        netweb:
+          driver: bridge
 
 
 
