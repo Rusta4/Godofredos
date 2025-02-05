@@ -267,9 +267,47 @@ En resumen, con esta solución basada en Docker, espero ofrecer a los usuarios u
 <details>
   <summary><h2>📖 Backups</h2></summary>
   <br>
-<p>
-  
+<p>Creamos un docker-compose.yml dentro de una carpeta llamada "Backup". Dentro de /Backup aparte del ya nombrado docker-compose.yml, esta la carpeta "Scripts" en la cual se ecuentra: backup.log (que contiene todos los logs del backup), backup.sh (que contiene un script que realiza el backup), también tenemos la configuración del "crontab" que regula cada cuanto se realizan los backups, ya que en el propio docker no se ejecuta dicho crontab y fintalmente contamos con "init.sh" que genera el archivo de crontab, inicia el servicio de cron y mantiene el contenedor desplegado.
+
+    <b>backup.sh:</b>
+        #!/bin/bash
+        
+        # Configuración
+        
+        REMOTE_USER="godo"                             # Usuario del servidor remoto
+        
+        REMOTE_HOST="100.77.20.26"                    # IP o hostname del servidor remoto
+        
+        REMOTE_PATH="/root/loginRegister"          # Ruta del proyecto en el servidor remoto
+        
+        LOCAL_BACKUP_DIR="/storage"                   # Carpeta local para guardar backups
+        
+        BACKUP_NAME="backup-$(date +%Y-%m-%d)"        # Nombre del directorio de backup
+        
+        # Crea el directorio local de backup si no existe
+        
+        mkdir -p "$LOCAL_BACKUP_DIR/$BACKUP_NAME"
+        
+        # Sincroniza la carpeta remota al directorio local
+        
+        rsync -avz -e "ssh -i /root/.ssh/id_rsa" "$REMOTE_USER@$REMOTE_HOST:$REMOTE_PATH" "$LOCAL_BACKUP_DIR/$BACKUP_NAME"
+        
+        # Verifica si el backup fue exitoso
+        
+        if [ $? -eq 0 ]; then
+        
+          echo "Backup completado: $(date)" >> "$LOCAL\_BACKUP\_DIR/backup.log"
+        
+        else
+        
+          echo "Error al realizar el backup: $(date)" >> "$LOCAL\_BACKUP\_DIR/backup.log"
+        
+        fi
+
+
+
 </p>
+  
 
 </details>
 
