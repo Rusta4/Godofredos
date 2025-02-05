@@ -306,6 +306,9 @@ En resumen, con esta solución basada en Docker, espero ofrecer a los usuarios u
         fi
 
 
+<b>crontab:</b>
+
+      * * * * * /scripts/backup.sh >> /scripts/backup.log 2>&1
 
 </p>
   
