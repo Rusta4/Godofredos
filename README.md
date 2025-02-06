@@ -255,6 +255,23 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
 - Casi cualquier tipo de aplicación o servicio puede desplegarse con Docker, desde aplicaciones web, bases de datos y servidores de correo, hasta microservicios, herramientas de análisis de datos y aplicaciones de machine learning. Docker es especialmente útil para aplicaciones distribuidas y escalables.
 
 - Además de Docker, existen otras tecnologías de contenedores como Podman, LXC/LXD, rkt (Rocket) y containerd. Cada una tiene sus propias características y enfoques, pero todas comparten el objetivo de proporcionar entornos aislados y portables para aplicaciones.
+
+  <h2><b>Guía de usuario para desplegar una aplicación web en contenedores</b></h2>
+  <p>
+  
+  -  <b>Preparar la aplicación</b>: Asegúrate de que tu aplicación web esté lista para ser contenerizada.
+
+  -  <b>Crear un Dockerfile</b>: Define las instrucciones para construir la imagen de tu aplicación.
+
+  -  <b>Construir la imagen</b>: Usa docker build para crear la imagen a partir del Dockerfile.
+
+  -  <b>Ejecutar el contenedor</b>: Usa docker run para iniciar un contenedor con la imagen creada.
+
+  -  <b>Exponer puertos</b>: Asegúrate de mapear los puertos del contenedor con el sistema anfitrión.
+
+  -  <b>Persistir datos</b>: Configura volúmenes para almacenar datos de forma permanente.
+
+  -  <b>Desplegar en producción</b>: Usa herramientas como Docker Compose o Kubernetes para gestionar múltiples contenedores en un entorno productivo.</p>
 </p>
 
 <img src="https://github.com/user-attachments/assets/ee34a6f1-98e1-4fd3-9f9d-3d241e743c9f" alt="LOGO-GODO" width="1000" height="500" />
