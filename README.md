@@ -242,22 +242,20 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
 
 <p>En mi proyecto, quiero implementar Docker de una manera que permita a los usuarios interactuar con una imagen Docker dentro de mi web, todo en un servidor externo. Mi objetivo es ofrecerles una experiencia donde puedan utilizar esta imagen de Docker sin necesidad de tener conocimientos técnicos ni hacer configuraciones complejas. Básicamente, quiero que puedan acceder y usar la imagen directamente desde el navegador.
 
-- ¿Cómo lo voy a lograr?
-Configuración de Docker en el servidor externo: Para lograrlo, voy a configurar un servidor externo que ejecute Docker. En ese servidor, cargaré una imagen Docker específica que permita a los usuarios ejecutar aplicaciones o herramientas dentro de un entorno aislado. La imagen Docker será preconfigurada con todo lo necesario, por lo que los usuarios no tendrán que hacer nada más que interactuar con la interfaz web.
+- Los contenedores de Docker son una tecnología de virtualización ligera que permite empaquetar aplicaciones y sus dependencias en un entorno aislado. A diferencia de las máquinas virtuales tradicionales, los contenedores comparten el kernel del sistema operativo anfitrión, lo que los hace más eficientes en términos de recursos y tiempo de inicio.
 
-- Interfaz web fácil de usar: 
-Crearé una interfaz sencilla en mi web para que los usuarios puedan interactuar con la imagen Docker. Desde esta interfaz, podrán enviar comandos o realizar acciones dentro del contenedor, todo sin necesidad de instalar Docker o ejecutar configuraciones en su propio sistema. La comunicación con el servidor externo será transparente para ellos; simplemente usarán la web como si fuera una aplicación más.
+- Docker se basa en LXC (Linux Containers), pero añade una capa de abstracción y herramientas adicionales para simplificar la creación, gestión y distribución de contenedores. Mientras que LXC se enfoca en contenedores a nivel de sistema operativo, Docker está más orientado a aplicaciones, ofreciendo un ecosistema más amplio y fácil de usar.
+  
+- Una imagen es una plantilla estática que contiene el código, las bibliotecas y las dependencias necesarias para ejecutar una aplicación. Un contenedor, por otro lado, es una instancia en ejecución de una imagen. La imagen es inmutable, mientras que el contenedor es efímero y puede modificarse durante su ejecución.
+  
+- Cuando un contenedor se elimina, todos los datos almacenados en su sistema de archivos se pierden, ya que los contenedores son efímeros por naturaleza. Para persistir datos, se utilizan volúmenes o bind mounts, que permiten almacenar información fuera del contenedor, en el sistema anfitrión o en almacenamiento externo.
 
-- Seguridad y control: 
-Para garantizar la seguridad de los usuarios y de mi infraestructura, controlaré el acceso a los contenedores Docker mediante permisos y restricciones. Esto me permitirá asegurarme de que los usuarios solo tengan acceso a lo que necesiten, evitando riesgos innecesarios.
+- Las ventajas incluyen portabilidad, consistencia entre entornos, aislamiento de aplicaciones, escalabilidad y eficiencia en el uso de recursos. Docker también facilita la implementación de prácticas de DevOps, como la integración continua y la entrega continua (CI/CD).
+  
+- Casi cualquier tipo de aplicación o servicio puede desplegarse con Docker, desde aplicaciones web, bases de datos y servidores de correo, hasta microservicios, herramientas de análisis de datos y aplicaciones de machine learning. Docker es especialmente útil para aplicaciones distribuidas y escalables.
 
-- Escalabilidad y rendimiento:
-Al usar Docker, puedo gestionar y escalar fácilmente los contenedores para soportar una mayor cantidad de usuarios sin afectar el rendimiento. Docker me permitirá lanzar instancias de la imagen de manera eficiente según la demanda, sin tener que preocuparme por la gestión manual de recursos.
-
-- Experiencia sin complicaciones: 
-Al final, el objetivo es que los usuarios de mi web puedan acceder a un contenedor Docker, utilizar las herramientas o servicios dentro de él, y todo esto sin necesidad de hacer configuraciones complejas. Quiero que la experiencia sea lo más sencilla posible, de modo que puedan enfocarse en lo que necesitan hacer dentro del contenedor, sin complicaciones.
-
-En resumen, con esta solución basada en Docker, espero ofrecer a los usuarios una experiencia interactiva en mi web donde puedan utilizar una imagen Docker en un servidor externo, todo a través de una interfaz web amigable y sin necesidad de configuraciones adicionales.</p>
+- Además de Docker, existen otras tecnologías de contenedores como Podman, LXC/LXD, rkt (Rocket) y containerd. Cada una tiene sus propias características y enfoques, pero todas comparten el objetivo de proporcionar entornos aislados y portables para aplicaciones.
+</p>
 
 <img src="https://github.com/user-attachments/assets/ee34a6f1-98e1-4fd3-9f9d-3d241e743c9f" alt="LOGO-GODO" width="1000" height="500" />
 <img src="https://github.com/user-attachments/assets/0601cb1f-1ec7-4787-9279-f89a1a109557" alt="LOGO-GODO" width="1000" height="500" />
