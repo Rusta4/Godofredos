@@ -395,8 +395,6 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
 
 
 
-------------------------------
-
 <details>
   <summary><h2>🧱 Arquitectura de SW</h2></summary>
   <br>
