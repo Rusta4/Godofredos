@@ -489,7 +489,7 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
     </tbody>
   </table>
 
-  <h2><br>📝 Listado de Tareas</h2>
+  <h2><br><br>📝 Listado de Tareas</h2>
   
   <details>
     <summary><u>Objetivo 1: Configurar Alpine para almacenar los docker</u></summary>
@@ -556,7 +556,7 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
   </details>
 
 
-    <h2><br>💻 ARQUITECTURA DEL SISTEMA</h2>
+  <h2><br><br>💻 ARQUITECTURA DEL SISTEMA</h2>
   <table>
     <thead>
       <tr>
