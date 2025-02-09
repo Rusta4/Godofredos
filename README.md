@@ -487,10 +487,9 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
         <td>Pendiente</td>
       </tr>
     </tbody>
+    <br>
   </table>
 
-    <br>
-    <br>
 
   <h3>📝 Listado de Tareas</h3>
   
