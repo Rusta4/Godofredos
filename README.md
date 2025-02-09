@@ -392,3 +392,101 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
     <summary>&nbsp;&nbsp;&nbsp;&nbsp;📥 <b>Docker-Compose</b></summary>
   </details>
 </details>
+
+
+
+------------------------------
+
+<details>
+  <summary><h2>📋 Funcionalidades</h2></summary>
+  <br>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Prioridad</th>
+        <th>Objetivo</th>
+        <th>Funcionalidad</th>
+        <th>Disparador</th>
+        <th>Fecha Entrega</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ID0</td>
+        <td>Media</td>
+        <td>Desplegar la web</td>
+        <td>Desplegar la web del proyecto por la IP del pfsense y por el puerto 8082</td>
+        <td>No hay disparador, simplemente buscar por el navegador</td>
+        <td>03/02/2025</td>
+        <td>Hecho</td>
+      </tr>
+      <tr>
+        <td>ID1</td>
+        <td>Baja</td>
+        <td>Poder acceder al pfsense sin tener que deshabilitar el firewall</td>
+        <td>Configurar una regla del pfsense para poder acceder a su configuración sin necesidad de desactivar el firewall</td>
+        <td>No hay disparador, simplemente acceder por el navegador</td>
+        <td>07/02/2025</td>
+        <td>Pendiente</td>
+      </tr>
+      <tr>
+        <td>ID2</td>
+        <td>Media</td>
+        <td>Retocar pequeños detalles de la web</td>
+        <td>Retocar pequeños errores y bugs de la web. Principalmente con los archivos .js</td>
+        <td>Unos pop ups que se hacen js que a veces se bugean</td>
+        <td>14/02/2025</td>
+        <td>Pendiente</td>
+      </tr>
+      <tr>
+        <td>ID3</td>
+        <td>Media</td>
+        <td>Optimizar la base de datos</td>
+        <td>Optimizar la base de datos para que funcione mejor de lo que funcionaba antes, ya que también presentaba fallos.</td>
+        <td>-</td>
+        <td>14/02/2025</td>
+        <td>Pendiente</td>
+      </tr>
+      <tr>
+        <td>ID4</td>
+        <td>Media</td>
+        <td>Conexión a internet en la red interna</td>
+        <td>Permitir a la máquina Alpine que alberga todos los dockers tener acceso a internet.</td>
+        <td>-</td>
+        <td>21/02/2025</td>
+        <td>Pendiente</td>
+      </tr>
+      <tr>
+        <td>ID5</td>
+        <td>Baja</td>
+        <td>Poder hacer que el usuario suba archivos a la web</td>
+        <td>Hacer un pequeño uploader en la web para que el usuario pueda subir archivos al apartado de documentos</td>
+        <td>Un pequeño uploader con selector de archivos y un botón verde para subir el archivo</td>
+        <td>28/02/2025</td>
+        <td>Pendiente</td>
+      </tr>
+      <tr>
+        <td>ID6</td>
+        <td>Alta</td>
+        <td>Desplegar una MV en nuestra web</td>
+        <td>Que el usuario pueda ejecutar una MV en la web para que no tenga que ejecutarlo en local</td>
+        <td>Un botón verde que ponga “start” y que al darle se despliegue una MV.</td>
+        <td>31/03/2025</td>
+        <td>Pendiente</td>
+      </tr>
+      <tr>
+        <td>ID7</td>
+        <td>Alta</td>
+        <td>Que el usuario pueda elegir las especificaciones con las que quiere la MV</td>
+        <td>Desplegar una MV con las especificaciones elegidas por el usuario</td>
+        <td>Unos selectores desplegables con diferentes opciones para que el usuario pueda elegir</td>
+        <td>20/04/2025</td>
+        <td>Pendiente</td>
+      </tr>
+    </tbody>
+  </table>
+  
+</details>
