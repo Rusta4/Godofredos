@@ -1,17 +1,17 @@
 <h1>ASIX2 Proyecto - Godofredo`s                          ®️</h1>
 
 
-<!-- Explicacion idea del proyecto -->
+<!-- Presentación de la idea del proyecto -->
 <details>
-  <summary><h2>📖 Explicacion idea del proyecto</h2></summary>
+  <summary><h2>📖 Presentación de la idea del proyecto</h2></summary>
   <br>
-<p>Estamos creando una plataforma web similar a Hack The Box, pero totalmente enfocada en el campo de la ciberseguridad. Como equipo, nuestra misión es ofrecer un espacio donde los profesionales de la seguridad informática puedan colaborar, compartir herramientas, scripts y proyectos que aborden distintas áreas de ciberseguridad, desde la evaluación de vulnerabilidades hasta la automatización de auditorías.
+<p>Estamos creando una plataforma web similar a Hack The Box, pero totalmente enfocada al campo de la ciberseguridad. Como equipo, nuestra misión es ofrecer un espacio donde los profesionales de la seguridad informática puedan colaborar, compartir herramientas, scripts y proyectos que aborden distintas áreas de ciberseguridad, desde la evaluación de vulnerabilidades hasta la automatización de auditorías.
 
-El proyecto que desarrollaremos durante el segundo y tercer trimestre es una continuación directa del trabajo realizado en el primer proyecto. En esta nueva fase, implementaremos de manera completa tecnologías clave como Docker, con el objetivo de crear un despliegue de contenedores. Esta red permitirá a los usuarios desarrollar y compartir entornos avanzados para pruebas de seguridad, maximizando la eficiencia y precisión mediante configuraciones reproducibles y escalables.
+El proyecto que estamos desarrollando durante el segundo y tercer trimestre es la continuación directa del trabajo realizado en el primer proyecto. En esta nueva fase, implementaremos de manera completa tecnologías clave como Docker, con el objetivo de crear un despliegue de contenedores. Esta red permitirá a los usuarios desarrollar y compartir entornos avanzados para pruebas de seguridad, maximizando la eficiencia y precisión mediante configuraciones reproducibles y escalables.
 
 Una de las redes de contenedores contará con un firewall implementado mediante pfSense, configurado en un contenedor gateway para la red privada. Este firewall permitirá definir y aplicar políticas estrictas para controlar el tráfico entrante, saliente y lateral, asegurando el aislamiento de servicios sensibles y ofreciendo un control avanzado mediante su interfaz gráfica o configuración mediante scripts automatizados.
 
-Por otro lado, un contenedor basado en Ubuntu gestionará los backups, utilizando un script personalizado con rsync para realizar copias incrementales programadas mediante cron, con almacenamiento en destinos locales. 
+Por otro lado, un contenedor basado en Ubuntu gestionará los backups, utilizando un script personalizado con rsync para realizar copias incrementales programadas mediante crontab, con almacenamiento en destinos locales. 
 
 Con estas características, nuestra plataforma no solo facilitará la colaboración entre profesionales de la ciberseguridad, sino que también garantizará entornos seguros y herramientas integradas para el desarrollo y la protección de proyectos en el campo de la seguridad informática.</p>
 
@@ -66,12 +66,14 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
   | Responsable       | Tareas        | 
 |---------------|---------------|
 | 🟡 **Nicolás Guerra** | - Proxmox  | 
-|                        | - Firebase      | 
 |                        | - DOCKERS | 
-| 🟠 **Adrià Trillo**    | - Máquinas Virtuales (VM)  | 
+| 🟠 **Adrià Trillo**    | - Máquinas Virtuales (VM)  |
+|                          | - pfSense  | 
 |                         | - HTML (HyperText Markup Language)  | 
 | 🟢 **Edward Murphy**   | - CSS (Cascading Style Sheets)  | 
-|                         | - Responsive  | 
+|                         | - Responsive  |
+|                         |- JavaScript | 
+
 
 </details>
 <!-- -------------------------------------------------------------------------- -->
