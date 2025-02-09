@@ -400,7 +400,7 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
 <details>
   <summary><h2>🧱 Arquitectura de SW</h2></summary>
   <br>
-  
+  <h2>⚙️ Funcionalidades</h2>
   <table>
     <thead>
       <tr>
@@ -487,58 +487,74 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
         <td>Pendiente</td>
       </tr>
     </tbody>
-    <br>
   </table>
 
-
-  <h3>📝 Listado de Tareas</h3>
+  <h2>📝 Listado de Tareas</h2>
   
-  <h4>Objetivo 1: Configurar Alpine para almacenar los docker</h4>
-  <ul>
-    <li>1.1 <b>[Nico]</b> Instalación y configuración básica del Alpine</li>
-    <li>CP1.2 – Se ha instalado una máquina Alpine en el proxmox y se ha configurado el Alpine para que guarde los dockers.</li>
-  </ul>
+  <details>
+    <summary><u>Objetivo 1: Configurar Alpine para almacenar los docker</u></summary>
+    <ul>
+      <li>1.1 <b>[Nico]</b> Instalación y configuración básica del Alpine</li>
+      <li>CP1.2 – Se ha instalado una máquina Alpine en el proxmox y se ha configurado el Alpine para que guarde los dockers.</li>
+    </ul>
+  </details>
 
-  <h4>Objetivo 2: Migrar la web al Alpine</h4>
-  <ul>
-    <li>2.1 <b>[Murphy]</b> Configuración básica del nginx del Alpine</li>
-    <li>CP1.2 – Se ha configurado el nginx junto a sus archivos para que almacene la web que teníamos del primer proyecto.</li>
-  </ul>
+  <details>
+    <summary><u>Objetivo 2: Migrar la web al Alpine</u></summary>
+    <ul>
+      <li>2.1 <b>[Murphy]</b> Configuración básica del nginx del Alpine</li>
+      <li>CP1.2 – Se ha configurado el nginx junto a sus archivos para que almacene la web que teníamos del primer proyecto.</li>
+    </ul>
+  </details>
 
-  <h4>Objetivo 3: Acabar de configurar el pfsense</h4>
-  <ul>
-    <li>3.1 <b>[Adrià]</b> Aplicar las configuraciones necesarias para trabajar mejor. A parte de las que ya hay.</li>
-    <li>CP1.2 – A pesar de que se han configurado algunas reglas para que se vea la web por el puerto 8082, hay que acabar de configurar el pfsense para que haya internet en la red interna y se pueda acceder a la interfaz de configuración de este.</li>
-  </ul>
+  <details>
+    <summary><u>Objetivo 3: Acabar de configurar el pfsense</u></summary>
+    <ul>
+      <li>3.1 <b>[Adrià]</b> Aplicar las configuraciones necesarias para trabajar mejor. A parte de las que ya hay.</li>
+      <li>CP1.2 – A pesar de que se han configurado algunas reglas para que se vea la web por el puerto 8082, hay que acabar de configurar el pfsense para que haya internet en la red interna y se pueda acceder a la interfaz de configuración de este.</li>
+    </ul>
+  </details>
 
-  <h4>Objetivo 4: Acabar de configurar la base de datos</h4>
-  <ul>
-    <li>4.1 <b>[Nico]</b> Solventar ciertos errores de la base de datos</li>
-    <li>CP1.2 – Hay que acabar de matizar y de concretar ciertos puntos con la BBDD para que todo funcione bien y se definan bien las configuraciones.</li>
-  </ul>
+  <details>
+    <summary><u>Objetivo 4: Acabar de configurar la base de datos</u></summary>
+    <ul>
+      <li>4.1 <b>[Nico]</b> Solventar ciertos errores de la base de datos</li>
+      <li>CP1.2 – Hay que acabar de matizar y de concretar ciertos puntos con la BBDD para que todo funcione bien y se definan bien las configuraciones.</li>
+    </ul>
+  </details>
 
-  <h4>Objetivo 5: Actualizar el github</h4>
-  <ul>
-    <li>5.1 <b>[Murphy]</b> Poner al día la memoria del GitHub.</li>
-    <li>CP1.2 – A medida que vayamos acabando todas las tareas anteriores, las iremos actualizando en el GitHub.</li>
-  </ul>
+  <details>
+    <summary><u>Objetivo 5: Actualizar el github</u></summary>
+    <ul>
+      <li>5.1 <b>[Murphy]</b> Poner al día la memoria del GitHub.</li>
+      <li>CP1.2 – A medida que vayamos acabando todas las tareas anteriores, las iremos actualizando en el GitHub.</li>
+    </ul>
+  </details>
 
-  <h4>Objetivo 6: Mejorar la web del proyecto</h4>
-  <ul>
-    <li>6.1 <b>[Murphy]</b> Reparar los bugs, errores y otras funciones.</li>
-    <li>CP1.2 – A pesar de tener la web en un estado muy avanzado, tenemos aún ciertos puntos que mejorar, así como algunos archivos js que presentan algunos problemas.</li>
-  </ul>
+  <details>
+    <summary><u>Objetivo 6: Mejorar la web del proyecto</u></summary>
+    <ul>
+      <li>6.1 <b>[Murphy]</b> Reparar los bugs, errores y otras funciones.</li>
+      <li>CP1.2 – A pesar de tener la web en un estado muy avanzado, tenemos aún ciertos puntos que mejorar, así como algunos archivos js que presentan algunos problemas.</li>
+    </ul>
+  </details>
 
-  <h4>Objetivo 7: Desplegar una MV en la web</h4>
-  <ul>
-    <li>7.1 <b>[Nico, Adrià y Murphy]</b> Investigar cómo desplegar una MV para que el usuario pueda iniciarla en la web</li>
-    <li>CP1.2 – La idea principal del proyecto es que el usuario pueda desplegar una MV en la web, sin necesidad de estar ejecutándola en local y, que además pueda elegir las especificaciones de la MV que quiera. Sin embargo, primero probaremos de desplegar la MV con unas características predefinidas y posteriormente le añadiremos la personalización.</li>
-  </ul>
+  <details>
+    <summary><u>Objetivo 7: Desplegar una MV en la web</u></summary>
+    <ul>
+      <li>7.1 <b>[Nico, Adrià y Murphy]</b> Investigar cómo desplegar una MV para que el usuario pueda iniciarla en la web</li>
+      <li>CP1.2 – La idea principal del proyecto es que el usuario pueda desplegar una MV en la web, sin necesidad de estar ejecutándola en local y, que además pueda elegir las especificaciones de la MV que quiera. Sin embargo, primero probaremos de desplegar la MV con unas características predefinidas y posteriormente le añadiremos la personalización.</li>
+    </ul>
+  </details>
 
-  <h4>Objetivo 8: Personalizar la MV de la web</h4>
-  <ul>
-    <li>7.1 <b>[Nico, Adrià y Murphy]</b> Personalizar las características con las que se despliega la MV en la web.</li>
-    <li>CP1.2 – Una vez que hemos logrado desplegar la MV en la web, el siguiente punto es que el usuario pueda elegir sistema operativo junto a componentes para que la MV se despliegue a su gusto y pueda realizar todas las configuraciones que el usuario quiera.</li>
-  </ul>
+  <details>
+    <summary><u>Objetivo 8: Personalizar la MV de la web</u></summary>
+    <ul>
+      <li>7.1 <b>[Nico, Adrià y Murphy]</b> Personalizar las características con las que se despliega la MV en la web.</li>
+      <li>CP1.2 – Una vez que hemos logrado desplegar la MV en la web, el siguiente punto es que el usuario pueda elegir sistema operativo junto a componentes para que la MV se despliegue a su gusto y pueda realizar todas las configuraciones que el usuario quiera.</li>
+    </ul>
+  </details>
   
 </details>
+
+
