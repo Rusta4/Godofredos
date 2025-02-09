@@ -489,7 +489,7 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
     </tbody>
   </table>
 
-  <h2>📝 Listado de Tareas</h2>
+  <h2><br>📝 Listado de Tareas</h2>
   
   <details>
     <summary><u>Objetivo 1: Configurar Alpine para almacenar los docker</u></summary>
@@ -554,7 +554,87 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
       <li>CP1.2 – Una vez que hemos logrado desplegar la MV en la web, el siguiente punto es que el usuario pueda elegir sistema operativo junto a componentes para que la MV se despliegue a su gusto y pueda realizar todas las configuraciones que el usuario quiera.</li>
     </ul>
   </details>
-  
+
+
+    <h2><br>💻 ARQUITECTURA DEL SISTEMA</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Componente de sistema</th>
+        <th>Tecnología o framework</th>
+        <th>Versión</th>
+        <th>Puerto</th>
+        <th>Descripción de uso o requisitos</th>
+        <th>Enlace a documentación o información adicional</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Hardware</td>
+        <td>Proxmox, Alpine, 2 Adaptadores de red (Proxmox), Pfsense</td>
+        <td>Proxmox: 8.3.1, Alpine: 3.21.2</td>
+        <td>Ens19:10.20.30.0, Ens18:100.77.20.0</td>
+        <td>Usaremos un proxmox para almacenar el pfsense y el Alpine. Dentro de este Alpine guardaremos los Docker. El proxmox lo configuraremos con dos adaptadores de red, uno para la red interna y otro para la externa.</td>
+        <td>Documentación oficial de Proxmox, Alpine y Pfsense</td>
+      </tr>
+      <tr>
+        <td>Sistema operativo</td>
+        <td>Proxmox, Alpine (Linux), Pfsense</td>
+        <td>Proxmox: 8.3.1, Alpine: 3.21.2</td>
+        <td>No</td>
+        <td>Proxmox para almacenar la MV de alpine y Pfsense. Alpine para almacenar los Docker.</td>
+        <td>Documentación oficial de Proxmox y Alpine</td>
+      </tr>
+      <tr>
+        <td>Interfaz de usuario (Frontend)</td>
+        <td>HTML, CSS, JS</td>
+        <td>HTML5, CSS3, ES1</td>
+        <td>No</td>
+        <td>Usaremos HTML para la estructura de la web, CSS para darle estilos y JS para que la web sea mucho más interactiva con el usuario.</td>
+        <td>Documentación de HTML, CSS y JS</td>
+      </tr>
+      <tr>
+        <td>Lógica de negocio (Backend)</td>
+        <td>Node.js, PHP</td>
+        <td>Node.js: 23.7.0, PHP: 8.4.3</td>
+        <td>3000</td>
+        <td>Para desplegar las MV necesitamos un backend, por lo que usaremos PHP y Node.js. Además, este backend también lo necesitamos para que el usuario pueda subir archivos a la web.</td>
+        <td>Documentación oficial de Node.js y PHP</td>
+      </tr>
+      <tr>
+        <td>Servidor web</td>
+        <td>Nginx</td>
+        <td>Nginx: 1.26.3</td>
+        <td>8082</td>
+        <td>Usamos un Docker con el S.O. de Nginx, y para llegar a la web hay que conectarse al pfsense a través del puerto 8082, donde opera el Docker de Nginx.</td>
+        <td>Documentación oficial de Nginx</td>
+      </tr>
+      <tr>
+        <td>Base de datos</td>
+        <td>MongoDB</td>
+        <td>8.0</td>
+        <td>Pendiente de configuración</td>
+        <td>Usaremos MongoDB para que los usuarios puedan registrarse, iniciar sesión y subir archivos a la web.</td>
+        <td>Documentación oficial de MongoDB</td>
+      </tr>
+      <tr>
+        <td>Sistema gestor de base de datos</td>
+        <td>MongoDB Shell</td>
+        <td>2.3.8</td>
+        <td>No</td>
+        <td>Usaremos la terminal para configurar toda la base de datos.</td>
+        <td>Documentación oficial de MongoDB Shell</td>
+      </tr>
+      <tr>
+        <td>Servicios de APIs</td>
+        <td>Pendiente de investigación</td>
+        <td>Pendiente</td>
+        <td>Pendiente</td>
+        <td>Aún estamos investigando qué podemos usar para configurar y desplegar una MV en la web, ya que es un proceso complicado. Lo único que tenemos claro hasta el momento es el backend y dónde se ejecutarán las configuraciones.</td>
+        <td>Pendiente de información</td>
+      </tr>
+    </tbody>
+  </table>
 </details>
 
 
