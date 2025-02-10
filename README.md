@@ -47,14 +47,25 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
 <h4>4. CSS (Cascading Style Sheets)</h4>
 <p>CSS es el lenguaje utilizado para controlar la presentación y diseño de las páginas web. Permite separar el contenido (HTML) de la presentación, facilitando el mantenimiento y la actualización del estilo visual de un sitio. Con CSS se puede ajustar el diseño, los colores, las fuentes y el espaciado de los elementos, asegurando que las páginas web sean atractivas y responsivas, adaptándose a diferentes tamaños de pantalla y dispositivos.</p>
 
-<h4>5. Firebase</h4>
-<p>Firebase es una plataforma de desarrollo de aplicaciones basada en la nube, que incluye una base de datos NoSQL en tiempo real. Es ideal para aplicaciones que requieren un manejo eficiente de grandes volúmenes de datos, ya que permite almacenar, sincronizar y recuperar información de forma rápida y escalable. Además, proporciona herramientas para la autenticación, hosting y analítica, lo que facilita el desarrollo completo de aplicaciones web y móviles.</p>
+<h4>5. JavaScript</h4> 
+<p>JavaScript es un lenguaje de programación esencial para el desarrollo web, utilizado para crear contenido dinámico e interactivo en las páginas. Permite modificar la estructura del documento HTML y los estilos CSS en tiempo real, lo que mejora la experiencia del usuario. Además, JavaScript es fundamental para el desarrollo de aplicaciones de una sola página (SPA), donde se gestionan las interacciones del cliente sin tener que recargar toda la página. Con el uso de bibliotecas y frameworks como React, Angular o Vue.js, JavaScript facilita la creación de interfaces ricas y funcionales.</p> 
 
-<h4>6. Dockers</h4>
-<p>Docker es una plataforma que utiliza contenedores para simplificar el desarrollo, despliegue y ejecución de aplicaciones. Permite empaquetar una aplicación y todas sus dependencias en una "imagen", asegurando que funcione de manera consistente en diferentes entornos. Al usar Docker, se reduce la necesidad de configurar entornos específicos en cada servidor, lo que agiliza la implementación y mejora la escalabilidad y portabilidad de las aplicaciones.</p>
+<h4>6. PHP para Backend</h4> 
+<p>PHP es un lenguaje de programación de propósito general, especialmente diseñado para el desarrollo de aplicaciones web del lado del servidor. Es ampliamente utilizado para crear páginas web dinámicas e interactuar con bases de datos, como MySQL. Con PHP, se pueden gestionar formularios, sesiones de usuario, autenticación y generación dinámica de contenido. Además, PHP es conocido por su facilidad de integración con diferentes servidores web como Nginx, lo que lo convierte en una opción popular para el desarrollo de backend en aplicaciones web.</p>
 
-<h4>Conclusión</h4>
-<p>Estas tecnologías garantizan un entorno sólido y flexible, permitiendo el desarrollo de una aplicación web dinámica y eficiente que cumple con los objetivos del proyecto.</p>
+<h4>7. Firebase</h4> 
+<p>Firebase es una plataforma de desarrollo de aplicaciones basada en la nube, que incluye una base de datos NoSQL en tiempo real. Es ideal para aplicaciones que requieren un manejo eficiente de grandes volúmenes de datos, ya que permite almacenar, sincronizar y recuperar información de forma rápida y escalable. Además, proporciona herramientas para la autenticación, hosting y analítica, lo que facilita el desarrollo completo de aplicaciones web y móviles.</p> 
+
+
+<h4>8. Docker</h4> 
+<p>Docker es una plataforma que utiliza contenedores para simplificar el desarrollo, despliegue y ejecución de aplicaciones. Permite empaquetar una aplicación y todas sus dependencias en una "imagen", asegurando que funcione de manera consistente en diferentes entornos. Al usar Docker, se reduce la necesidad de configurar entornos específicos en cada servidor, lo que agiliza la implementación y mejora la escalabilidad y portabilidad de las aplicaciones.</p> 
+
+<h4>9. pfSense</h4> 
+<p>pfSense es un software de firewall y enrutador de código abierto basado en FreeBSD. Ofrece una solución robusta para la gestión de redes, proporcionando funcionalidades avanzadas como VPN, filtrado de contenido, y control de tráfico. En este proyecto, pfSense ha sido configurado para proteger y gestionar el acceso a los contenedores Docker y otros recursos dentro de la red. A través de reglas de firewall y la configuración de puertos específicos, pfSense asegura que solo los usuarios autorizados puedan acceder a los recursos de la red, incluyendo la web alojada en Nginx y otros servicios dentro de Alpine Linux.</p>
+
+<h4>Conclusión</h4> 
+<p>Estas tecnologías forman un conjunto sólido y flexible que permite el desarrollo de aplicaciones web dinámicas, escalables y seguras. Gracias a su integración eficiente, se garantiza un entorno de trabajo optimizado para las necesidades del proyecto, desde la virtualización y el manejo de contenedores hasta la gestión de la seguridad en la red y la implementación de las tecnologías backend.</p>
+
 </details>
 <!-- -------------------------------------------------------------------------- -->
 
