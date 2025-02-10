@@ -321,7 +321,7 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
 <details>
 <summary><h2>🐳 Dockers</h2></summary>
 
-<p>En mi proyecto, quiero implementar Docker de una manera que permita a los usuarios interactuar con una imagen Docker dentro de mi web, todo en un servidor externo. Mi objetivo es ofrecerles una experiencia donde puedan utilizar esta imagen de Docker sin necesidad de tener conocimientos técnicos ni hacer configuraciones complejas. Básicamente, quiero que puedan acceder y usar la imagen directamente desde el navegador.
+<p>En este proyecto, se pretende implementar Docker de manera que permita a los usuarios interactuar con una imagen Docker dentro de la web, todo alojado en un servidor externo. El objetivo es ofrecerles una experiencia en la que puedan utilizar esta imagen de Docker sin necesidad de contar con conocimientos técnicos ni realizar configuraciones complejas. Básicamente, se busca que los usuarios puedan acceder y usar la imagen directamente desde el navegador.
 
 - Los contenedores de Docker son una tecnología de virtualización ligera que permite empaquetar aplicaciones y sus dependencias en un entorno aislado. A diferencia de las máquinas virtuales tradicionales, los contenedores comparten el kernel del sistema operativo anfitrión, lo que los hace más eficientes en términos de recursos y tiempo de inicio.
 
@@ -363,7 +363,7 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
 <details>
   <summary><h2>💽 Backups</h2></summary>
   <br>
-<p>Creamos un docker-compose.yml dentro de una carpeta llamada "Backup". Dentro de /Backup aparte del ya nombrado docker-compose.yml, esta la carpeta "Scripts" en la cual se ecuentra: backup.log (que contiene todos los logs del backup), backup.sh (que contiene un script que realiza el backup), también tenemos la configuración del <b>crontab</b> que regula cada cuanto se realizan los backups, ya que en el propio docker no se ejecuta dicho crontab y fintalmente contamos con "init.sh" que genera el archivo de crontab, inicia el servicio de cron y mantiene el contenedor desplegado.
+<p>Creamos un docker-compose.yml dentro de una carpeta llamada "Backup". Dentro de /Backup aparte del ya nombrado docker-compose.yml, está la carpeta "Scripts" en la cual se encuentra: backup.log (que contiene todos los logs del backup), backup.sh (que contiene un script que realiza el backup), también tenemos la configuración del <b>crontab</b> que regula cada cuanto se realizan los backups, ya que en el propio docker no se ejecuta dicho crontab y finalmente contamos con "init.sh" que genera el archivo de crontab, inicia el servicio de cron y mantiene el contenedor desplegado.
 
 <b>docker-compose.yml</b>
   
