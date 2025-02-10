@@ -98,7 +98,68 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
   <details>
     <summary>&nbsp;&nbsp;&nbsp;&nbsp;🎓 <b>Diagrama Gantt</b></summary>
     <br>
-    <img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/diagrama-grantt.png" alt="Diagrama Gantt" width="700" height="600" />
+    <table>
+  <thead>
+    <tr>
+      <th>TAREA</th>
+      <th>DESCRIPCIÓN</th>
+      <th>PRIORIDAD</th>
+      <th>FECHA</th>
+      <th>PARTICIPANTES</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Acabar de configurar pfSense</td>
+      <td>Configurar una regla del pfSense para poder acceder a su configuración sin necesidad de desactivar el firewall.</td>
+      <td>Baja-Media</td>
+      <td>14/02/2025</td>
+      <td>Adrià</td>
+    </tr>
+    <tr>
+      <td>Retocar pequeños detalles de la web</td>
+      <td>Retocar pequeños errores y bugs de la web, principalmente en los archivos .js.</td>
+      <td>Media</td>
+      <td>20/02/2025</td>
+      <td>Murphy</td>
+    </tr>
+    <tr>
+      <td>Optimizar la base de datos</td>
+      <td>Optimizar la base de datos para mejorar su funcionamiento, ya que presentaba fallos.</td>
+      <td>Media-Alta</td>
+      <td>28/02/2025</td>
+      <td>Murphy</td>
+    </tr>
+    <tr>
+      <td>Conexión a internet en la red interna</td>
+      <td>Permitir que la máquina Alpine que alberga los dockers tenga acceso a internet.</td>
+      <td>Media</td>
+      <td>28/02/2025</td>
+      <td>Nico y Adrià</td>
+    </tr>
+    <tr>
+      <td>Poder hacer que el usuario suba archivos a la web</td>
+      <td>Crear un uploader en la web para que el usuario pueda subir archivos en el apartado de documentos.</td>
+      <td>Alta</td>
+      <td>05/03/2025</td>
+      <td>Nico</td>
+    </tr>
+    <tr>
+      <td>Desplegar una MV en nuestra web</td>
+      <td>Que el usuario pueda ejecutar una máquina virtual en la web sin necesidad de ejecutarla en local.</td>
+      <td>Alta</td>
+      <td>31/03/2025</td>
+      <td>Nico, Adrià y Murphy</td>
+    </tr>
+    <tr>
+      <td>Que el usuario pueda elegir las especificaciones con las que quiere la MV</td>
+      <td>Permitir que el usuario elija las especificaciones de la máquina virtual antes de desplegarla.</td>
+      <td>Alta</td>
+      <td>20/04/2025</td>
+      <td>Nico, Adrià y Murphy</td>
+    </tr>
+  </tbody>
+</table>
   </details>
 
   <details>
