@@ -1,48 +1,53 @@
-const express = require("express");
-const axios = require("axios");
-const cors = require("cors");
-
+const express = require('express');
+const { exec } = require('child_process');
 const app = express();
-const PORT = 3000;
-const DOCKER_HOST = "http://10.20.30.100:2375"; // Cambia según sea necesario
+const port = 3000;
 
 app.use(express.json());
-app.use(cors()); // Permitir peticiones desde el frontend
 
-// Endpoint para listar imágenes disponibles en Docker
-app.get("/images", async (req, res) => {
-    try {
-        const response = await axios.get(`${DOCKER_HOST}/images/json`);
-        res.json(response.data);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
+// Endpoint para desplegar un contenedor Docker
+app.post('/deploy-container', (req, res) => {
+    const image = req.body.image || "mcr.microsoft.com/windows/servercore:ltsc2022"; // Usa la imagen que el cliente pase o la predeterminada
+    const containerName = "windows10-container";  // Nombre del contenedor
+
+    // Ejecuta el comando Docker para crear el contenedor con la opción --rm (eliminarlo al apagarse)
+    exec(`docker run -d --rm --name ${containerName} ${image}`, (err, stdout, stderr) => {
+        if (err) {
+            console.error('Error:', err);
+            return res.status(500).json({ message: 'Error al crear el contenedor' });
+        }
+
+        if (stderr) {
+            console.error('stderr:', stderr);
+            return res.status(500).json({ message: 'Error al crear el contenedor' });
+        }
+
+        // El contenedor se creó correctamente
+        res.status(200).json({ message: 'Contenedor creado', containerId: stdout.trim() });
+    });
 });
 
-// Endpoint para ejecutar un contenedor
-app.post("/run", async (req, res) => {
-    try {
-        const { image } = req.body;
+// Endpoint para detener y eliminar un contenedor Docker
+app.post('/stop-container', (req, res) => {
+    const containerName = req.body.containerName || "windows10-container";  // Usa el nombre del contenedor enviado desde el cliente
 
-        // Crear el contenedor
-        const containerResponse = await axios.post(`${DOCKER_HOST}/containers/create`, {
-            Image: image,
-            Cmd: ["/bin/sh"],
-            Tty: true
-        });
+    // Ejecuta el comando Docker para detener el contenedor
+    exec(`docker stop ${containerName}`, (err, stdout, stderr) => {
+        if (err) {
+            console.error('Error:', err);
+            return res.status(500).json({ message: 'Error al detener el contenedor' });
+        }
 
-        const containerId = containerResponse.data.Id;
+        if (stderr) {
+            console.error('stderr:', stderr);
+            return res.status(500).json({ message: 'Error al detener el contenedor' });
+        }
 
-        // Iniciar el contenedor
-        await axios.post(`${DOCKER_HOST}/containers/${containerId}/start`);
-
-        res.json({ message: "Contenedor desplegado con éxito", containerId });
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
+        // El contenedor se detuvo correctamente
+        res.status(200).json({ message: 'Contenedor detenido y eliminado' });
+    });
 });
 
-// Iniciar el servidor
-app.listen(PORT, () => {
-    console.log(`API de Docker corriendo en http://0.0.0.0:${PORT}`);
+app.listen(port, () => {
+    console.log(`Servidor escuchando en http://localhost:${port}`);
 });
