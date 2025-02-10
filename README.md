@@ -101,8 +101,15 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
 <img src="https://github.com/user-attachments/assets/b3020efc-6d73-4622-aa33-34a2ffb66727" alt="LOGO-GODO" width="1000" height="500" />
 <img src="https://github.com/user-attachments/assets/1ad4121e-51dd-4f97-bd8e-cfc334f9510d" alt="LOGO-GODO" width="1000" height="500" />
 <img src="https://github.com/user-attachments/assets/acaca4fd-4094-4c29-a917-e81d2e7d605a" alt="LOGO-GODO" width="1000" height="500" />
-
   </details>
+
+  <details>
+    <summary>&nbsp;&nbsp;&nbsp;&nbsp;🛜 <b>Diagrama de red</b></summary>
+    <br>
+    <p>El diagrama de red que presentamos en este proyecto es mucho más sencillo que el anterior. En el diagrama previo, todas las máquinas virtuales se encontraban en un entorno Proxmox, lo que generaba una dispersión mayor, incluso dentro de la simplicidad que Proxmox nos ofrece. En esta nueva versión, hemos optado por utilizar contenedores para reemplazar las máquinas virtuales, lo que nos permite una mayor unificación y organización, todo alojado en nuestra máquina con Alpine Linux. Además, hemos configurado un firewall en pfSense, el cual está ajustado para permitir el acceso a los recursos de los contenedores Docker en Alpine a través de puertos específicos, así como a la web alojada en Nginx.</p>
+    <img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/Diagrama-Red-Proyecto.png" alt="Diagrama de red" width="1375" height="735" />
+  </details>
+
 
   <details>
     <summary>&nbsp;&nbsp;&nbsp;&nbsp;📋 <b>Diagrama Web</b></summary>
