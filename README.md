@@ -249,7 +249,7 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
       WAN: 100.77.20.38/24
       LAN: 10.20.30.1/24 Dentro del rango de la .100 - .150
 
-  2 --> Desactivamos el firewall de pfSense mediante "pfctl -d" y configuramos mediante una Rule WAN para poder entrar a la web-page con la ip de el aula.
+  2 --> Desactivamos el firewall de pfSense mediante "pfctl -d" y configuramos mediante una Rule WAN para poder entrar a la web-page con la ip del aula.
 
       pfctl -d
 
@@ -304,9 +304,9 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
   <details>
   <summary><h2>🤖 Proxmox</h2></summary>
   <h2>Imagen Arquitectura</h2>
-<p>Nuestra arquitectura esta basada en una red virtual, la cual consta de un cliente (MV CLIENTE) que se conecta a Firebase mediante una máquina virtual que funciona como router (MV ROUTER) y un router físico conectado a Internet. Dicho enrutador consta con una dirección IP pública dinámica (100.77.20.X), la cual permite la conexión a Internet. MV ROUTER administra dos interfaces: una (VMBR0) externa con IP pública (100.77.20.120) conectada al router físico y otra (VMBR1) interna con IP privada (10.20.40.1) para la comunicación en la red local con el cliente (IP 10.20.40.2). La creación de estas dos redes permite al cliente el acceso a servicios externos, como Firebase, mediante la infraestructura virtual y física. Nosotros lo hemos realizado de la siguiente manera, </p>.
+<p>Nuestra arquitectura está basada en una red virtual (10.20.30.0/24), compuesta por una máquina virtual (MV) que actúa como host para los contenedores Docker y otra MV con pfSense instalado. El pfSense gestiona la conexión a Internet para la red interna mediante reglas y reenvío de puertos, permitiendo que los usuarios externos accedan a los recursos internos a través de puertos específicos. Para ello, hemos configurado dos adaptadores de red: ens18 con una IP de clase 100.77.20.0/24 y ens19 con una IP dentro del rango de la red interna (10.20.30.0/24). En Proxmox, definimos estas dos redes mediante VMBR1 para la red interna (10.20.30.0/24) y VMBR0, que actúa como puente para la red de clase (100.77.20.0/24). A continuación, se muestra un diagrama con la configuración de Proxmox.</p>
 
-![image](https://github.com/user-attachments/assets/194e9e44-7b82-4afe-943f-0832058dda4f)
+![image](https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/Diagrama-Proxmox.png)
 
 <h2>¿Qué es un servidor web?</h2>
 <p>Un servidor web es un software que gestiona las solicitudes HTTP/HTTPS de los navegadores de los usuarios y responde con recursos, como páginas HTML, imágenes o archivos, que están alojados en el servidor. Básicamente, su función es recibir las peticiones de los clientes y entregarles los contenidos solicitados.</p> 
