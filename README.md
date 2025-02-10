@@ -508,7 +508,7 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
         <td>Poder acceder al pfsense sin tener que deshabilitar el firewall</td>
         <td>Configurar una regla del pfsense para poder acceder a su configuración sin necesidad de desactivar el firewall</td>
         <td>No hay disparador, simplemente acceder por el navegador</td>
-        <td>07/02/2025</td>
+        <td>14/02/2025</td>
         <td>Pendiente</td>
       </tr>
       <tr>
@@ -517,7 +517,7 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
         <td>Retocar pequeños detalles de la web</td>
         <td>Retocar pequeños errores y bugs de la web. Principalmente con los archivos .js</td>
         <td>Unos pop ups que se hacen js que a veces se bugean</td>
-        <td>14/02/2025</td>
+        <td>20/02/2025</td>
         <td>Pendiente</td>
       </tr>
       <tr>
@@ -526,7 +526,7 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
         <td>Optimizar la base de datos</td>
         <td>Optimizar la base de datos para que funcione mejor de lo que funcionaba antes, ya que también presentaba fallos.</td>
         <td>-</td>
-        <td>14/02/2025</td>
+        <td>28/02/2025</td>
         <td>Pendiente</td>
       </tr>
       <tr>
@@ -535,7 +535,7 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
         <td>Conexión a internet en la red interna</td>
         <td>Permitir a la máquina Alpine que alberga todos los dockers tener acceso a internet.</td>
         <td>-</td>
-        <td>21/02/2025</td>
+        <td>28/02/2025</td>
         <td>Pendiente</td>
       </tr>
       <tr>
@@ -544,7 +544,7 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
         <td>Poder hacer que el usuario suba archivos a la web</td>
         <td>Hacer un pequeño uploader en la web para que el usuario pueda subir archivos al apartado de documentos</td>
         <td>Un pequeño uploader con selector de archivos y un botón verde para subir el archivo</td>
-        <td>28/02/2025</td>
+        <td>05/03/2025</td>
         <td>Pendiente</td>
       </tr>
       <tr>
