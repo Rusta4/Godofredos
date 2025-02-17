@@ -466,10 +466,6 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
   </details>
 
   <details>
-    <summary>&nbsp;&nbsp;&nbsp;&nbsp;📥 <b>pfSense</b></summary>
-  </details>
-
-  <details>
     <summary>&nbsp;&nbsp;&nbsp;&nbsp;📥 <b>Docker-Compose</b></summary>
   </details>
 </details>
