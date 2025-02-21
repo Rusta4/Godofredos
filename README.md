@@ -389,40 +389,83 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
 
 <b>backup.sh:</b>
     
-        #!/bin/bash
-        
-        # Configuración
-        
-        REMOTE_USER="godo"                             # Usuario del servidor remoto
-        
-        REMOTE_HOST="127.0.0.1"                    # IP o hostname del servidor remoto
-        
-        REMOTE_PATH="/root/loginRegister"          # Ruta del proyecto en el servidor remoto
-        
-        LOCAL_BACKUP_DIR="/storage"                   # Carpeta local para guardar backups
-        
-        BACKUP_NAME="backup-$(date +%Y-%m-%d)"        # Nombre del directorio de backup
-        
-        # Crea el directorio local de backup si no existe
-        
-        mkdir -p "$LOCAL_BACKUP_DIR/$BACKUP_NAME"
-        
-        # Sincroniza la carpeta remota al directorio local
-        
-        rsync -avz -e "ssh -i /root/.ssh/id_rsa" "$REMOTE_USER@$REMOTE_HOST:$REMOTE_PATH" "$LOCAL_BACKUP_DIR/$BACKUP_NAME"
-        
-        # Verifica si el backup fue exitoso
-        
-        if [ $? -eq 0 ]; then
-        
-          echo "Backup completado: $(date)" >> "$LOCAL\_BACKUP\_DIR/backup.log"
-        
-        else
-        
-          echo "Error al realizar el backup: $(date)" >> "$LOCAL\_BACKUP\_DIR/backup.log"
-        
-        fi
-
+            #!/bin/bash
+            
+            # Configuración
+            
+            REMOTE_USER="godo"                             # Usuario del servidor remoto
+            
+            REMOTE_HOST="127.0.0.1"                    # IP o hostname del servidor remoto
+            
+            REMOTE_PATH="/root/loginRegister"          # Ruta del proyecto en el servidor remoto
+            
+            LOCAL_BACKUP_DIR="/storage"                   # Carpeta local para guardar backups
+            
+            BACKUP_NAME="backup-$(date +%Y-%m-%d)"        # Nombre del directorio de backup
+            
+            # Crea el directorio local de backup si no existe
+            
+            mkdir -p "$LOCAL_BACKUP_DIR/$BACKUP_NAME"
+            
+            # Sincroniza la carpeta remota al directorio local
+            
+            rsync -avz --exclude='mysql/' --exclude='nginx/certs/' -e "ssh -i /root/.ssh/id_rsa" "$REMOTE_USER@$REMOTE_HOST:$REMOTE_PATH" "$LOCAL_BACKUP_DIR/$BACKUP_NAME"
+            
+            # Verifica si el backup fue exitoso
+            
+            if [ $? -eq 0 ]; then
+            
+              echo "Backup completado: $(date)" >> "$LOCAL_BACKUP_DIR/backup.log"
+            
+            else
+            
+              echo "Error al realizar el backup: $(date)" >> "$LOCAL_BACKUP_DIR/backup.log"
+            
+            fi
+            
+            # Mantener solo los 3 backups mas recientes
+            cd "$LOCAL_BACKUP_DIR" || exit 1
+            BACKUP_DIRS=($(ls -d backup-* | sort -r))
+            
+            # Si hay mas de 3 backups, elimina los mas antiguos
+            if [ ${#BACKUP_DIRS[@]} -gt 3 ]; then
+                for dir in "${BACKUP_DIRS[@]:3}"; do
+                    rm -rf "$dir"
+                    echo "Backup antiguo eliminado: $dir" >> "$LOCAL_BACKUP_DIR/backup.log"
+                done
+            fi
+            
+            # Copia completa al final de cada mes
+            
+            # Detectamos si mañana es el primer día de cada mes
+            
+            if [ "$(date -d tomorrow +%d)" -eq 01 ]; then
+                    FULL_BACKUP_DIR="/storage/full_backups"
+                    mkdir -p "$FULL_BACKUP_DIR"
+                    FULL_BACKUP_NAME="full_backup-$(date +%Y-%m-%d).tar.gz"
+            
+                    # Crear un backup completo comprimido
+                    tar -czf "$FULL_BACKUP_DIR/$FULL_BACKUP_NAME" -C "$LOCAL_BACKUP_DIR/$BACKUP_NAME" .
+            
+                    if [ $? -eq 0 ]; then
+                            echo "Backup completo realizado: $FULL_BACKUP_NAME" >> "$LOCAL_BACKUP_DIR/backup.log"
+            
+                    else
+                            echo "Error al crear el backup completo: $(date)" >> "$LOCAL_BACKUP_DIR/backup.log"
+                    fi
+            
+                    # Mantener solo los 3 backups completos más recientes
+                    cd "$FULL_BACKUP_DIR" || exit 1
+                    FULL_BACKUP_FILES=($(ls full_backup-* 2>/dev/null | sort -r))
+            
+                    if [ ${#FULL_BACKUP_FILES[@]} -gt 3 ]; then
+                            for file in "${FULL_BACKUP_FILES[@]:3}"; do
+                                    rm -f "$file"
+                                    echo "Backup completo antiguo eliminado: $file" >> "$LOCAL_BACKUP_DIR/backup.log"
+            
+                            done
+                    fi
+            fi
 
 <b>crontab:</b>
 
@@ -453,6 +496,85 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
       
       tail -f /dev/null
 
+
+<b> restore.sh: </b>
+
+        #!/bin/bash
+        
+        # Configuración
+        REMOTE_USER="godo"                             # Usuario del servidor remoto
+        REMOTE_HOST="127.0.0.1"                    # IP o hostname del servidor remoto
+        REMOTE_PATH="/root/loginRegister/"             # Ruta del proyecto en el servidor remoto
+        LOCAL_BACKUP_DIR="/storage"                   # Carpeta local con los backups
+        FULL_BACKUP_DIR="/storage/full_backups"       # Carpeta local con los backups completos
+        
+        # Función para mostrar los 3 backups más recientes
+        mostrar_backups() {
+            echo "Selecciona el backup que deseas restaurar:"
+            BACKUPS=($(ls -d $LOCAL_BACKUP_DIR/backup-* | sort -r | head -n 3))
+        
+            if [ ${#BACKUPS[@]} -eq 0 ]; then
+                echo "No se encontraron backups para restaurar."
+                exit 1
+            fi
+        
+            for i in "${!BACKUPS[@]}"; do
+                echo "$((i + 1)). ${BACKUPS[$i]}"
+            done
+        }
+        
+        # Función para restaurar solo los archivos que han cambiado
+        restaurar_backup() {
+            BACKUP_SELECTED=$1
+        
+            echo "Restaurando el backup seleccionado: $BACKUP_SELECTED"
+        
+            # Usamos rsync para restaurar solo los archivos modificados o nuevos
+            rsync -avz --update --exclude='mysql/' --exclude='nginx/certs/' "$BACKUP_SELECTED/" "$REMOTE_USER@$REMOTE_HOST:$REMOTE_PATH/"
+        
+            if [ $? -eq 0 ]; then
+                echo "Restauración exitosa desde el backup: $BACKUP_SELECTED"
+            else
+                echo "Error al restaurar el backup desde: $BACKUP_SELECTED" >> "$LOCAL_BACKUP_DIR/restore.log"
+                exit 1
+            fi
+        }
+        
+        # Mostrar los 3 backups más recientes
+        mostrar_backups
+        
+        # Solicitar al usuario que elija un backup
+        read -p "Introduce el número del backup que deseas restaurar (1-3): " BACKUP_CHOICE
+        
+        # Validar que la elección esté dentro del rango correcto
+        if [[ "$BACKUP_CHOICE" -lt 1 || "$BACKUP_CHOICE" -gt 3 ]]; then
+            echo "Selección inválida. Por favor, elige un número entre 1 y 3."
+            exit 1
+        fi
+        
+        # Llamar a la función para restaurar el backup seleccionado
+        restaurar_backup "${BACKUPS[$((BACKUP_CHOICE - 1))]}"
+        
+        # Restaurar un backup completo (si es necesario)
+        echo "Restaurando el backup completo..."
+        
+        # Comprobamos si hay un archivo de backup completo más reciente
+        LATEST_FULL_BACKUP=$(ls -t $FULL_BACKUP_DIR/full_backup-*.tar.gz | head -n 1)
+        
+        if [ -n "$LATEST_FULL_BACKUP" ]; then
+            # Si se encontró un archivo de backup completo, lo restauramos
+            echo "Restaurando backup completo: $LATEST_FULL_BACKUP"
+            tar -xzf "$LATEST_FULL_BACKUP" -C "$LOCAL_BACKUP_DIR"
+        
+            if [ $? -eq 0 ]; then
+                echo "Restauración de backup completo exitosa: $LATEST_FULL_BACKUP"
+            else
+                echo "Error al restaurar el backup completo: $(date)" >> "$LOCAL_BACKUP_DIR/restore.log"
+                exit 1
+            fi
+        else
+            echo "No se encontró un backup completo reciente."
+        fi
 </p>
   
 
