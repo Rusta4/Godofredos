@@ -346,25 +346,43 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
 - Por último, como no sabemos si se manejarán datos sensibles en los contenedores, hemos optado por la opción de cifrarlos tanto en reposo como en tránsito, agregando una capa extra de seguridad que dificulte su exposición en caso de que se vulneren.
 
 
-  <h2><b>Guía de usuario para desplegar una aplicación web en contenedores</b></h2>
+  <h2><b>Guía del backend</b></h2>
   <p>
   
-  -  <b>Preparar la aplicación</b>: Asegúrate de que tu aplicación web esté lista para ser contenerizada.
+  -  <b>Preparar la aplicación</b>: Aplicaremos una configuración técnica y de deiseño para la página web y para que sea intuitivo para el usuario.
 
-  -  <b>Crear un Dockerfile</b>: Define las instrucciones para construir la imagen de tu aplicación.
+  -  <b>Crear un Dockerfile</b>: Crearemos los contenedores que ofreceremos a los usuarios y los definimos en nuestro archivo docker.
 
-  -  <b>Construir la imagen</b>: Usa docker build para crear la imagen a partir del Dockerfile.
+  -  <b>Construir la imagen</b>: Usaremos docker build para crear la imagen a partir del Dockerfile.
 
   -  <b>Ejecutar el contenedor</b>: Usa docker run para iniciar un contenedor con la imagen creada.
 
-  -  <b>Exponer puertos</b>: Asegúrate de mapear los puertos del contenedor con el sistema anfitrión.
+  -  <b>Exponer puertos</b>: Tenemos pensado que se acceda a los contenedores mediante unos puertos asignados.
 
-  -  <b>Persistir datos</b>: Configura volúmenes para almacenar datos de forma permanente.
+  -  <b>Cifrar datos</b>: Realizaremos configuraciones de cifrado para que, en caso de que se trate con información sensible no quede expuesta a posibles brechas de seguridad.
 
-  -  <b>Desplegar en producción</b>: Usa herramientas como Docker Compose o Kubernetes para gestionar múltiples contenedores en un entorno productivo.</p>
+  -  <b>Desplegar en producción</b>: En nuestro caso, para desplegar y gestinar los contenedores usaremos la herramienta Docker Compose para gestionar múltiples contenedores en un entorno productivo.</p>
 </p>
+<br>
+  <h2><b>Guía de usuario para desplegar una aplicación web en contenedores</b></h2>
+  <p>
+  
+  -  <b>Sección de elección</b>: Dirígete a la sección de "Dockers" y, una vez allí visualiza los contendores disponibles.
+
+  -  <b>Elegir el S.O. del Docker</b>: Una vez ya vistas las ISO disponibles, elige en qué sistema operativo quieres trabajar.
+
+  -  <b>Ajustes de hardware ( quizás no se llegue a implementar )</b>: Mediante pequeños desplegables permitir que el usuario elija el número de procesadores y RAM con el que quiere trabajar.
+
+  -  <b>Ejecutar el contenedor</b>: Mediante un botón con un nombre como "Start", se ejecuta el contenedor y, automáticamente la web te brinda un puerto.
+
+  -  <b>Acceder al contendor</b>: Mediante el puerto obtenido anteriormente, se introduce en la barra de búsqueda y se accede al docker que el usuario ha desplegado.
+
+
+  <h2><b>Mockup del apartado Docker de la web</b></h2>
 
 <img src="https://github.com/user-attachments/assets/ee34a6f1-98e1-4fd3-9f9d-3d241e743c9f" alt="LOGO-GODO" width="1000" height="500" />
+
+<h2>Diagrama del sistema de despliegue Docker</h2>
 <img src="https://github.com/user-attachments/assets/0601cb1f-1ec7-4787-9279-f89a1a109557" alt="LOGO-GODO" width="1000" height="500" />
 
 </details>
