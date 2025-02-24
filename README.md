@@ -349,7 +349,7 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
   <h2><b>Guía del backend</b></h2>
   <p>
   
-  -  <b>Preparar la aplicación</b>: Aplicaremos una configuración técnica y de deiseño para la página web y para que sea intuitivo para el usuario.
+  -  <b>Preparar la aplicación</b>: Aplicaremos una configuración técnica y de diseño para la página web y para que sea intuitivo para el usuario.
 
   -  <b>Crear un Dockerfile</b>: Crearemos los contenedores que ofreceremos a los usuarios y los definimos en nuestro archivo docker.
 
@@ -361,7 +361,7 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
 
   -  <b>Cifrar datos</b>: Realizaremos configuraciones de cifrado para que, en caso de que se trate con información sensible no quede expuesta a posibles brechas de seguridad.
 
-  -  <b>Desplegar en producción</b>: En nuestro caso, para desplegar y gestinar los contenedores usaremos la herramienta Docker Compose para gestionar múltiples contenedores en un entorno productivo.</p>
+  -  <b>Desplegar en producción</b>: En nuestro caso, para desplegar y gestionar los contenedores usaremos la herramienta Docker Compose para gestionar múltiples contenedores en un entorno productivo.</p>
 </p>
 <br>
 
@@ -376,7 +376,7 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
 
   -  <b>Ejecutar el contenedor</b>: Mediante un botón con un nombre como "Start", se ejecuta el contenedor y, automáticamente la web te brinda un puerto.
 
-  -  <b>Acceder al contendor</b>: Mediante el puerto obtenido anteriormente, se introduce en la barra de búsqueda y se accede al docker que el usuario ha desplegado.
+  -  <b>Acceder al contenedor</b>: Mediante el puerto obtenido anteriormente, se introduce en la barra de búsqueda y se accede al docker que el usuario ha desplegado.
 
 <br>
   <h2><b>Mockup del apartado Docker de la web</b></h2>
