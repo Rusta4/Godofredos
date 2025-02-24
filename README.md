@@ -343,8 +343,8 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
 
 - Otro aspecto a tener en cuenta es el uso adecuado de redes. Intentaremos configurar redes aisladas para los contenedores y limitar la comunicación entre ellos solo a lo estrictamente necesario.
 
-- Por último, como no sabemos si se manejarán datos sensibles en los contenedores, hemos optado por la opción de cifrarlos tanto en reposo como en tránsito, agregando una capa extra de seguridad que dificulte su exposición en caso de que se vulneren.
-
+- Por último, como no sabemos si se manejarán datos sensibles en los contenedores, hemos optado por la opción de cifrarlos tanto en reposo como en tránsito, agregando una capa extra de seguridad que dificulte su exposición en caso de que se vulneren.</p>
+<br>
 
   <h2><b>Guía del backend</b></h2>
   <p>
@@ -364,7 +364,8 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
   -  <b>Desplegar en producción</b>: En nuestro caso, para desplegar y gestinar los contenedores usaremos la herramienta Docker Compose para gestionar múltiples contenedores en un entorno productivo.</p>
 </p>
 <br>
-  <h2><b>Guía de usuario para desplegar una aplicación web en contenedores</b></h2>
+
+  <h2><b>Guía de usuario para desplegar un contenedor en la web</b></h2>
   <p>
   
   -  <b>Sección de elección</b>: Dirígete a la sección de "Dockers" y, una vez allí visualiza los contendores disponibles.
