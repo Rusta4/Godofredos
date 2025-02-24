@@ -337,6 +337,15 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
 
 - Además de Docker, existen otras tecnologías de contenedores como Podman, LXC/LXD, rkt (Rocket) y containerd. Cada una tiene sus propias características y enfoques, pero todas comparten el objetivo de proporcionar entornos aislados y portables para aplicaciones.
 
+- Al trabajar con contenedores, es crucial mantener una buena seguridad para evitar vulnerabilidades que puedan comprometer el sistema o las aplicaciones. En primer lugar, es esencial descargar las imágenes solo desde fuentes confiables, como los repositorios oficiales de Docker Hub, para reducir el riesgo de obtener imágenes manipuladas o maliciosas. Para asegurar que la imagen descargada es auténtica y no ha sido modificada, es recomendable verificar su integridad utilizando herramientas como sha256sum. Esto permite confirmar que la imagen coincide con su hash oficial y no ha sido alterada, lo que ayuda a garantizar que estamos utilizando la versión correcta y segura.
+
+Además, es fundamental evitar ejecutar contenedores con privilegios elevados. Ejecutar aplicaciones dentro de contenedores con permisos mínimos reduce el riesgo de que un atacante pueda aprovechar vulnerabilidades para escalar privilegios dentro del sistema. En lugar de ejecutar contenedores como root, tenemos pensado crear y utilizar usuarios no privilegiados, lo que aumenta la seguridad del contenedor en caso de un ataque.
+
+Otro aspecto a tener en cuenta es el uso adecuado de redes. Intentaremos configurar redes aisladas para los contenedores y limitar la comunicación entre ellos solo a lo estrictamente necesario.
+
+Por último, como no sabemos si se manejarán datos sensibles en los contenedores, hemos optado por la opción de cifrarlos tanto en reposo como en tránsito, agregando una capa extra de seguridad que dificulte su exposición en caso de que se vulneren.
+
+
   <h2><b>Guía de usuario para desplegar una aplicación web en contenedores</b></h2>
   <p>
   
