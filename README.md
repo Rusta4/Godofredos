@@ -378,11 +378,12 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
 
   -  <b>Acceder al contendor</b>: Mediante el puerto obtenido anteriormente, se introduce en la barra de búsqueda y se accede al docker que el usuario ha desplegado.
 
-
+<br>
   <h2><b>Mockup del apartado Docker de la web</b></h2>
 
 <img src="https://github.com/user-attachments/assets/ee34a6f1-98e1-4fd3-9f9d-3d241e743c9f" alt="LOGO-GODO" width="1000" height="500" />
 
+<br>
 <h2>Diagrama del sistema de despliegue Docker</h2>
 <img src="https://github.com/user-attachments/assets/0601cb1f-1ec7-4787-9279-f89a1a109557" alt="LOGO-GODO" width="1000" height="500" />
 
