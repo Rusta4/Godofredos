@@ -263,7 +263,14 @@ Dentro de los firewalls, estas serían sus principales usos:
 
 ---
 
-Un firewall lo podemos diferenciar por distintas categorias, a esto nos referimos
+Un firewall lo podemos diferenciar por distintas categorias, a esto nos referimos a <b>Firewalls de filtrado de paquetes</b>, <b>Firewalls de inspección con estado</b>, <b>Firewalls de aplicación</b>, entre otros.
+
+En nuestro caso, a la hora de estar configurando nuestro Firewall con <b>pfSense</b>, este estaría funcionando al mismo tiempo como un <b>Firewall de inspección con estado</b> y también como un <b>Firewall de aplicación</b>.
+
+Para empezar, definimos nuestro firewall como uno de Inspección con Estado ya que pfSense nos permite examinar las conexiones en curso y también a autorizar o impedir el tráfico de su red, dependiendo de la necesidad. 
+Además las configuraciones de firewall que establecemos en <b>WAN</b> y <b>LAN</b> permiten un control <b>específico</b> del tráfico según su IP, puerto y protocolo.
+
+Como ya hemos comentado en los parrafos anteriores, también lo definimos como un <b>Firewall de Aplicación</b> ya que hemos establecido reglas de <b>Port Forwarding (NAT)</b> para poder dirigir el tráfico de la WAN hacia servicios concretos en la LAN. Asímismo, como es típico de un firewall que esta funcionando en la séptima capa del modelo OSI (Aplicación), gracias a esto nos posibilita gestionar y alterar el tráfico según servicios y puertos que nosotros especifiquemos.
 </p>
 <details>
   <summary>&nbsp;&nbsp;&nbsp;&nbsp;💀 <b>INSTALACIÓN FW</b></summary>
