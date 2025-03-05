@@ -243,9 +243,32 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
 
   <details>
   <summary><h2>🛡️ pfSense</h2></summary>
-<p>
 
-  1 -->Instalación de pfSense y configuración de 2 tarjetas de red 
+    
+<p>
+Un <b>firewall</b> es un dispositivo de seguridad creado para supervisar, <b>filtrar y gestionar el tráfico de red</b>,     autorizando o impidiendo datos según <b>reglas establecidas</b>. Su finalidad primordial es salvaguardar redes y aparatos frente a <b>accesos no permitidos</b>, <b>ciberataques</b> y la difusión de software malicioso. Es una de las principales defensas en ciberseguridad, <b>actuando como un muro</b> entre una red segura (como la red interna) y una que no lo es (como Internet)
+
+---
+
+Dentro de los firewalls, estas serían sus principales usos:
+**Seguridad de redes empresariales**: Previenen accesos no permitidos a los servidores y a la información interna.
+
+**Protección en dispositivos personales**: Bloquean la entrada de programas maliciosos y ataques enfocados a computadoras y dispositivos móviles.
+
+**Gestión del tráfico de red**: Filtran tanto el tráfico que entra como el que sale de acuerdo a las políticas de seguridad definidas.
+
+**Prevención de ciberataques**: Contribuyen a reducir riesgos como los ataques de denegación de servicio (DDoS) y accesos indebidos.
+
+**Supervisión y verificación**: Capturan el flujo de datos en la red para examinar potenciales riesgos o debilidades
+
+---
+
+Un firewall lo podemos diferenciar por distintas categorias, a esto nos referimos
+</p>
+<details>
+  <summary>&nbsp;&nbsp;&nbsp;&nbsp;💀 <b>INSTALACIÓN FW</b></summary>
+    <br>
+      <p>  1 -->Instalación de pfSense y configuración de 2 tarjetas de red 
       WAN: 100.77.20.38/24
       LAN: 10.20.30.1/24 Dentro del rango de la .100 - .150
 
@@ -295,12 +318,10 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
         Redirect Target Port: 8082
         Filter Rule Association: Crear una regla de firewall automáticamente.
         Save & Apply Changes
+  </p>
+  </details>
   
-</p>
-
 </details>
-
-
   <details>
   <summary><h2>🤖 Proxmox</h2></summary>
   <h2>Imagen Arquitectura</h2>
