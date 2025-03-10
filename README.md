@@ -376,75 +376,65 @@ Antes de proceder a esta siguiente parte de pfSense, explicaremos el funcionamie
 
 
 <details>
-<summary><h2>🐳 Dockers</h2></summary>
+<summary><h2>🐝noVNC</h2></summary>
 
-<p>En este proyecto, se pretende implementar Docker de manera que permita a los usuarios interactuar con una imagen Docker dentro de la web, todo alojado en un servidor externo. El objetivo es ofrecerles una experiencia en la que puedan utilizar esta imagen de Docker sin necesidad de contar con conocimientos técnicos ni realizar configuraciones complejas. Básicamente, se busca que los usuarios puedan acceder y usar la imagen directamente desde el navegador.
+<h2><b>server.js</b></h2>
+<p>Hemos implementado un servidor backend con Express.js que nos permite desplegar contenedores Docker de Windows 10 de manera automatizada. A través del endpoint /deploy-windows, enviamos parámetros como el nombre del contenedor y los puertos a utilizar, y el servidor ejecuta un comando docker run para iniciar el contenedor con la configuración necesaria. Además, hemos habilitado CORS para permitir solicitudes desde nuestro frontend y asegurar la comunicación entre ambos.</p>
 
-- Los contenedores de Docker son una tecnología de virtualización ligera que permite empaquetar aplicaciones y sus dependencias en un entorno aislado. A diferencia de las máquinas virtuales tradicionales, los contenedores comparten el kernel del sistema operativo anfitrión, lo que los hace más eficientes en términos de recursos y tiempo de inicio.
-
-- Docker se basa en LXC (Linux Containers), pero añade una capa de abstracción y herramientas adicionales para simplificar la creación, gestión y distribución de contenedores. Mientras que LXC se enfoca en contenedores a nivel de sistema operativo, Docker está más orientado a aplicaciones, ofreciendo un ecosistema más amplio y fácil de usar.
-  
-- Una imagen es una plantilla estática que contiene el código, las bibliotecas y las dependencias necesarias para ejecutar una aplicación. Un contenedor, por otro lado, es una instancia en ejecución de una imagen. La imagen es inmutable, mientras que el contenedor es efímero y puede modificarse durante su ejecución.
-  
-- Cuando un contenedor se elimina, todos los datos almacenados en su sistema de archivos se pierden, ya que los contenedores son efímeros por naturaleza. Para persistir datos, se utilizan volúmenes o bind mounts, que permiten almacenar información fuera del contenedor, en el sistema anfitrión o en almacenamiento externo.
-
-- Las ventajas incluyen portabilidad, consistencia entre entornos, aislamiento de aplicaciones, escalabilidad y eficiencia en el uso de recursos. Docker también facilita la implementación de prácticas de DevOps, como la integración continua y la entrega continua (CI/CD).
-  
-- Casi cualquier tipo de aplicación o servicio puede desplegarse con Docker, desde aplicaciones web, bases de datos y servidores de correo, hasta microservicios, herramientas de análisis de datos y aplicaciones de machine learning. Docker es especialmente útil para aplicaciones distribuidas y escalables.
-
-- Además de Docker, existen otras tecnologías de contenedores como Podman, LXC/LXD, rkt (Rocket) y containerd. Cada una tiene sus propias características y enfoques, pero todas comparten el objetivo de proporcionar entornos aislados y portables para aplicaciones.
-
-- Al trabajar con contenedores, es crucial mantener una buena seguridad para evitar vulnerabilidades que puedan comprometer el sistema o las aplicaciones. En primer lugar, es esencial descargar las imágenes solo desde fuentes confiables, como los repositorios oficiales de Docker Hub, para reducir el riesgo de obtener imágenes manipuladas o maliciosas. Para asegurar que la imagen descargada es auténtica y no ha sido modificada, es recomendable verificar su integridad utilizando herramientas como sha256sum. Esto permite confirmar que la imagen coincide con su hash oficial y no ha sido alterada, lo que ayuda a garantizar que estamos utilizando la versión correcta y segura.
-
-- Además, es fundamental evitar ejecutar contenedores con privilegios elevados. Ejecutar aplicaciones dentro de contenedores con permisos mínimos reduce el riesgo de que un atacante pueda aprovechar vulnerabilidades para escalar privilegios dentro del sistema. En lugar de ejecutar contenedores como root, tenemos pensado crear y utilizar usuarios no privilegiados, lo que aumenta la seguridad del contenedor en caso de un ataque.
-
-- Otro aspecto a tener en cuenta es el uso adecuado de redes. Intentaremos configurar redes aisladas para los contenedores y limitar la comunicación entre ellos solo a lo estrictamente necesario.
-
-- Por último, como no sabemos si se manejarán datos sensibles en los contenedores, hemos optado por la opción de cifrarlos tanto en reposo como en tránsito, agregando una capa extra de seguridad que dificulte su exposición en caso de que se vulneren.</p>
-<br>
-
-  <h2><b>Guía del backend</b></h2>
-  <p>
-  
-  -  <b>Preparar la aplicación</b>: Aplicaremos una configuración técnica y de diseño para la página web y para que sea intuitivo para el usuario.
-
-  -  <b>Crear un Dockerfile</b>: Crearemos los contenedores que ofreceremos a los usuarios y los definimos en nuestro archivo docker.
-
-  -  <b>Construir la imagen</b>: Usaremos docker build para crear la imagen a partir del Dockerfile.
-
-  -  <b>Ejecutar el contenedor</b>: Usa docker run para iniciar un contenedor con la imagen creada.
-
-  -  <b>Exponer puertos</b>: Tenemos pensado que se acceda a los contenedores mediante unos puertos asignados.
-
-  -  <b>Cifrar datos</b>: Realizaremos configuraciones de cifrado para que, en caso de que se trate con información sensible no quede expuesta a posibles brechas de seguridad.
-
-  -  <b>Desplegar en producción</b>: En nuestro caso, para desplegar y gestionar los contenedores usaremos la herramienta Docker Compose para gestionar múltiples contenedores en un entorno productivo.</p>
-</p>
-<br>
-
-  <h2><b>Guía de usuario para desplegar un contenedor en la web</b></h2>
-  <p>
-  
-  -  <b>Sección de elección</b>: Dirígete a la sección de "Dockers" y, una vez allí visualiza los contendores disponibles.
-
-  -  <b>Elegir el S.O. del Docker</b>: Una vez ya vistas las ISO disponibles, elige en qué sistema operativo quieres trabajar.
-
-  -  <b>Ajustes de hardware ( quizás no se llegue a implementar )</b>: Mediante pequeños desplegables permitir que el usuario elija el número de procesadores y RAM con el que quiere trabajar.
-
-  -  <b>Ejecutar el contenedor</b>: Mediante un botón con un nombre como "Start", se ejecuta el contenedor y, automáticamente la web te brinda un puerto.
-
-  -  <b>Acceder al contenedor</b>: Mediante el puerto obtenido anteriormente, se introduce en la barra de búsqueda y se accede al docker que el usuario ha desplegado.
-
-<br>
-  <h2><b>Mockup del apartado Docker de la web</b></h2>
-
-<img src="https://github.com/user-attachments/assets/ee34a6f1-98e1-4fd3-9f9d-3d241e743c9f" alt="LOGO-GODO" width="1000" height="500" />
-
-<br>
-<h2>Diagrama del sistema de despliegue Docker</h2>
-<img src="https://github.com/user-attachments/assets/0601cb1f-1ec7-4787-9279-f89a1a109557" alt="LOGO-GODO" width="1000" height="500" />
+              const express = require('express');
+        const cors = require('cors');
+        const { exec } = require('child_process');
+        const app = express();
+        const port = 3000;
+        
+        // Middleware para parsear JSON
+        app.use(express.json());
+        
+        // Habilitar CORS para que pueda ser accedido desde cualquier origen o desde un origen específico
+        app.use(cors({
+            origin: ['http://100.77.20.60:8082', 'http://godo.tallerdekirby.es'], // Permitir solicitudes desde tu frontend
+            methods: ['GET', 'POST'],
+            allowedHeaders: ['Content-Type'],
+        }));
+        
+        // Ruta para desplegar Windows 10
+        app.post('/deploy-windows', (req, res) => {
+            const { containerName, puerto, puerto2 } = req.body;
+        
+            const uniqueContainerName = `win${Math.floor(Math.random() * 1000) + 1}`;
+        
+            // Comando Docker para crear el contenedor
+            const dockerCommand = `docker run -d -p ${puerto}:8006 -p ${puerto2}:3389 --name ${containerName} --env VERSION="7" --env RAM_SIZE="1G" --env KVM="N" --device /dev/kvm --device /dev/net/tun --cap-add NET_ADMIN --restart unless-stopped --privileged --dns 8.8.8.8 --dns 8.8.4.4 --network bridge dockurr/windows:latest`;
+        
+            // Ejecutar el comando Docker
+            exec(dockerCommand, (error, stdout, stderr) => {
+                if (error) {
+                    console.error(`Error al ejecutar el comando Docker: ${error.message}`);
+                    return res.status(500).send({ error: `Error al crear el contenedor: ${error.message}` });
+                }
+                if (stderr) {
+                    console.error(`Error en la salida estándar: ${stderr}`);
+                    return res.status(500).send({ error: `Error: ${stderr}` });
+                }
+        
+                console.log(`Contenedor creado con nombre: ${containerName} y puerto: ${puerto}`);
+                res.send({
+                    message: `Contenedor creado con éxito: ${containerName}`,
+                    puerto: puerto // Retornamos el puerto generado
+                });
+            });
+        });
+        
+        // Iniciar el servidor
+        app.listen(port, () => {
+            console.log(`Servidor backend escuchando en el puerto ${port}`);
+        });
 
 </details>
+
+
+
+
 
 <details>
   <summary><h2>💽 Backups</h2></summary>
