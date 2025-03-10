@@ -332,6 +332,15 @@ Antes de proceder a esta siguiente parte de pfSense, explicaremos el funcionamie
         Filter Rule Association: Crear una regla de firewall automáticamente.
         Save & Apply Changes
 
+<h2><b>Como realizamos las comprobaciones a las conexiones en el Port Forward</b></h2>
+
+<b>Telnet</b>: Desde un equipo externo, ejecutamos <b>telnet 127.0.0.1:9443</b>. Si la conexión se logra, el redireccionamiento estaría operando.
+
+<b>Acceso Web</b>: Si el servicio se puede acceder a través de un navegador en <b>https://127.0.0.1:9443</b>, el Port Forward estaría funcionando adecuadamente.
+
+<b>Registros de pfSense</b>: Observar dentro de pfSense <b>"Estado > Registros del Sistema > Firewall"</b> para comprobar si el <b>tráfico</b> está siendo <b>autorizado o denegado</b>
+
+
   5 --> Vamos a realizar un "Port Forward" para que nuestro Servidor NGINX que se situa en el puerto 8082 se pueda visualizar. Tendremos que acceder mediante HTTPS
   
   - Dirígete a Firewall → NAT → Port Forward.
