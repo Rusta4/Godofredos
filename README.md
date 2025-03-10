@@ -276,8 +276,28 @@ Como ya hemos comentado en los parrafos anteriores, también lo definimos como u
   <summary>&nbsp;&nbsp;&nbsp;&nbsp;💀 <b>INSTALACIÓN FW</b></summary>
     <br>
       <p>  1 -->Instalación de pfSense y configuración de 2 tarjetas de red 
+        
       WAN: 100.77.20.38/24
+      
       LAN: 10.20.30.1/24 Dentro del rango de la .100 - .150
+
+  <h2><b>Como hacemos la comprobación de que nuestro cliente tiene salida de internet y su por qué</b></h2>
+
+  Podemos saberlo de las siguientes maneras:
+      
+  <b>Realizando un ping a una IP pública</b>: Desde un dispositivo en la LAN, ejecutar ping 8.8.8.8. Si hay respuesta, indica que el equipo está   conectado a Internet y que el enrutamiento opera de manera adecuada.
+        
+  <b>Realizando un ping a un dominio</b>: Ejecutar ping google.com. Si este ping responde, se verifica que el DNS está funcionando de manera adecuada.
+        
+        
+  <b>Navegando en la web</b>: Probar acceder a una página web en el navegador para verificar que todo el tráfico opera adecuadamente
+              
+<h2><b>¿Por qué desactivamos el cortafuegos con pfctl -d y lo volvemos a activar con pfctl -e?</b></h2>
+Antes de proceder a esta siguiente parte de pfSense, explicaremos el funcionamiento de estos comandos y para que los hemos estado utilizando:
+
+<b>pfctl -d</b>: Desactiva temporalmente el firewall de pfSense. Se emplea para prevenir que las normativas de seguridad impidan el acceso mientras establecemos la regla WAN y otros parámetros.
+
+<b>pfctl -e</b>: Vuelve a activar el firewall después de que hayamos configurado adecuadamente las reglas de acceso. Esto asegura que el tráfico sea supervisado y regulado una vez más
 
   2 --> Desactivamos el firewall de pfSense mediante "pfctl -d" y configuramos mediante una Rule WAN para poder entrar a la web-page con la ip del aula.
 
