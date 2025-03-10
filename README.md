@@ -376,7 +376,7 @@ Antes de proceder a esta siguiente parte de pfSense, explicaremos el funcionamie
 
 
 <details>
-<summary><h2>🐝noVNC</h2></summary>
+<summary><h2>  🐝noVNC</h2></summary>
 
 <h2><b>server.js</b></h2>
 <p>Hemos implementado un servidor backend con Express.js que nos permite desplegar contenedores Docker de Windows 10 de manera automatizada. A través del endpoint /deploy-windows, enviamos parámetros como el nombre del contenedor y los puertos a utilizar, y el servidor ejecuta un comando docker run para iniciar el contenedor con la configuración necesaria. Además, hemos habilitado CORS para permitir solicitudes desde nuestro frontend y asegurar la comunicación entre ambos.</p>
@@ -430,6 +430,64 @@ Antes de proceder a esta siguiente parte de pfSense, explicaremos el funcionamie
             console.log(`Servidor backend escuchando en el puerto ${port}`);
         });
 
+<h2><b>docker.html</b></h2>
+
+<p>Hemos desarrollado un flujo completo para desplegar máquinas virtuales con Windows 10 utilizando Docker y un backend en Express.js. El backend expone un endpoint /deploy-windows que recibe el nombre del contenedor y los puertos, ejecutando un comando docker run para iniciar la instancia. En el frontend, antes de enviar la solicitud, verificamos si el usuario ha iniciado sesión; en caso contrario, lo redirigimos a la página de login. Generamos un nombre único para el contenedor y dos puertos aleatorios dentro del rango 8000-9000, que luego enviamos al backend. Si el despliegue es exitoso, abrimos una nueva pestaña con la dirección del puerto asignado para acceder a la máquina virtual.
+</p>
+
+    <script>
+        // Función para generar un puerto aleatorio entre 8000 y 9000
+        function getRandomPort() {
+            return Math.floor(Math.random() * (9000 - 8000 + 1)) + 8000;
+        }
+
+        // Función para desplegar Windows 10
+        async function deployWindows10() {
+
+            const isLoggedIn = localStorage.getItem('isLoggedIn'); // Verifica si el usuario está logueado
+
+            if (isLoggedIn !== 'true') {
+                alert('Debes iniciar sesión para desplegar la máquina');
+                window.location.href = '../login/login.html'; // Redirige al usuario a la página de inicio de sesión si no está autenticado
+                return;
+            }
+            // Nombre único para el contenedor
+            const containerName = `win${Math.floor(Math.random() * 1000) + 1}`;
+
+            // Generar puerto aleatorio
+            const puerto = getRandomPort();
+            const puerto2 = getRandomPort();
+
+            // Hacer la solicitud al servidor para crear el contenedor
+            try {
+                const response = await fetch('http://127.0.0.1:3000/deploy-windows', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        containerName: containerName,
+                        puerto: puerto,
+                        puerto2: puerto2
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Error al desplegar Windows 10');
+                }
+
+                const data = await response.json();
+                console.log(data);
+
+                // Abrir la nueva pestaña con el puerto generado
+                window.open(`http://127.0.0.1:${puerto}`, '_blank');
+            } catch (error) {
+                console.error(error);
+                alert('Error al desplegar Windows 10');
+            }
+        }
+    </script>
+    
 </details>
 
 
