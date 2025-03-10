@@ -50,8 +50,8 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
 <h4>5. JavaScript</h4> 
 <p>JavaScript es un lenguaje de programación esencial para el desarrollo web, utilizado para crear contenido dinámico e interactivo en las páginas. Permite modificar la estructura del documento HTML y los estilos CSS en tiempo real, lo que mejora la experiencia del usuario. Además, JavaScript es fundamental para el desarrollo de aplicaciones de una sola página (SPA), donde se gestionan las interacciones del cliente sin tener que recargar toda la página. Con el uso de bibliotecas y frameworks como React, Angular o Vue.js, JavaScript facilita la creación de interfaces ricas y funcionales.</p> 
 
-<h4>6. PHP para Backend</h4> 
-<p>PHP es un lenguaje de programación de propósito general, especialmente diseñado para el desarrollo de aplicaciones web del lado del servidor. Es ampliamente utilizado para crear páginas web dinámicas e interactuar con bases de datos, como MySQL. Con PHP, se pueden gestionar formularios, sesiones de usuario, autenticación y generación dinámica de contenido. Además, PHP es conocido por su facilidad de integración con diferentes servidores web como Nginx, lo que lo convierte en una opción popular para el desarrollo de backend en aplicaciones web.</p>
+<h4>6. Node.js</h4> 
+<p>Node.js es un entorno de ejecución para JavaScript que permite desarrollar aplicaciones del lado del servidor. Gracias a su modelo asíncrono y basado en eventos, es altamente eficiente para manejar múltiples solicitudes simultáneamente. Se utiliza para crear APIs, gestionar autenticación, procesar datos en tiempo real y conectar con bases de datos como MongoDB o PostgreSQL. Su compatibilidad con frameworks como Express.js facilita el desarrollo de aplicaciones escalables y rápidas, convirtiéndolo en una opción clave para el backend en aplicaciones web modernas.</p>
 
 <h4>7. Firebase</h4> 
 <p>Firebase es una plataforma de desarrollo de aplicaciones basada en la nube, que incluye una base de datos NoSQL en tiempo real. Es ideal para aplicaciones que requieren un manejo eficiente de grandes volúmenes de datos, ya que permite almacenar, sincronizar y recuperar información de forma rápida y escalable. Además, proporciona herramientas para la autenticación, hosting y analítica, lo que facilita el desarrollo completo de aplicaciones web y móviles.</p> 
@@ -194,9 +194,9 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
 <!-- -------------------------------------------------------------------------- -->
 
 
-<!-- Pagina Web -->
+<!-- Página Web -->
 <details>
-  <summary><h2>💻 Pagina Web</h2></summary>
+  <summary><h2>💻 Página Web</h2></summary>
   <details>
   <summary>&nbsp;&nbsp;&nbsp;&nbsp;💭 <b>Mockup</b></summary>
     <br>
