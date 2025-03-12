@@ -482,58 +482,103 @@ Antes de proceder a esta siguiente parte de pfSense, explicaremos el funcionamie
 <p>Hemos desarrollado un flujo completo para desplegar máquinas virtuales con Windows 10 utilizando Docker y un backend en Express.js. El backend expone un endpoint /deploy-windows que recibe el nombre del contenedor y los puertos, ejecutando un comando docker run para iniciar la instancia. En el frontend, antes de enviar la solicitud, verificamos si el usuario ha iniciado sesión; en caso contrario, lo redirigimos a la página de login. Generamos un nombre único para el contenedor y dos puertos aleatorios dentro del rango 8000-9000, que luego enviamos al backend. Si el despliegue es exitoso, abrimos una nueva pestaña con la dirección del puerto asignado para acceder a la máquina virtual.
 </p>
 
-    <script>
-        // Función para generar un puerto aleatorio entre 8000 y 9000
-        function getRandomPort() {
-            return Math.floor(Math.random() * (9000 - 8000 + 1)) + 8000;
-        }
-
-        // Función para desplegar Windows 10
-        async function deployWindows10() {
-
-            const isLoggedIn = localStorage.getItem('isLoggedIn'); // Verifica si el usuario está logueado
-
-            if (isLoggedIn !== 'true') {
-                alert('Debes iniciar sesión para desplegar la máquina');
-                window.location.href = '../login/login.html'; // Redirige al usuario a la página de inicio de sesión si no está autenticado
-                return;
-            }
-            // Nombre único para el contenedor
-            const containerName = `win${Math.floor(Math.random() * 1000) + 1}`;
-
-            // Generar puerto aleatorio
-            const puerto = getRandomPort();
-            const puerto2 = getRandomPort();
-
-            // Hacer la solicitud al servidor para crear el contenedor
-            try {
-                const response = await fetch('http://127.0.0.1:3000/deploy-windows', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        containerName: containerName,
-                        puerto: puerto,
-                        puerto2: puerto2
-                    })
-                });
-
-                if (!response.ok) {
-                    throw new Error('Error al desplegar Windows 10');
-                }
-
-                const data = await response.json();
-                console.log(data);
-
-                // Abrir la nueva pestaña con el puerto generado
-                window.open(`http://127.0.0.1:${puerto}`, '_blank');
-            } catch (error) {
-                console.error(error);
-                alert('Error al desplegar Windows 10');
-            }
-        }
-    </script>
+        <script>
+      // Verifica el estado de la sesión al cargar la página
+      document.addEventListener('DOMContentLoaded', function () {
+          const isLoggedIn = localStorage.getItem('isLoggedIn'); // Obtiene el estado de la sesión
+  
+          if (isLoggedIn === 'true') {
+              document.getElementById('profile-container').style.display = 'flex'; // Muestra el contenedor del perfil
+              document.getElementById('login-link').style.display = 'none';
+              document.getElementById('register-link').style.display = 'none';
+          }
+  
+          // Cargar las versiones correspondientes cuando se seleccione un SO
+          document.getElementById('os').addEventListener('change', updateVersionOptions);
+          updateVersionOptions();
+      });
+  
+      // Función para actualizar las opciones de versión según el sistema operativo seleccionado
+      function updateVersionOptions() {
+          const os = document.getElementById('os').value;
+          const versionSelect = document.getElementById('version');
+          versionSelect.innerHTML = ''; // Limpiar las opciones previas
+  
+          let versions = [];
+          if (os === 'windows') {
+              versions = ['XP', '7', '10', '11'];
+          } else if (os === 'ubuntu') {
+              versions = ['latest'];
+          } else if (os === 'mac') {
+              versions = ['11', '13'];
+          }
+  
+          versions.forEach(version => {
+              const option = document.createElement('option');
+              option.value = version;
+              option.textContent = version;
+              versionSelect.appendChild(option);
+          });
+      }
+  
+      // Función para manejar el envío del formulario
+      document.getElementById('deploy-form').addEventListener('submit', async function (event) {
+          event.preventDefault();
+  
+          const os = document.getElementById('os').value;
+          const version = document.getElementById('version').value;
+  
+          const isLoggedIn = localStorage.getItem('isLoggedIn'); // Verifica si el usuario está logueado
+  
+          if (isLoggedIn !== 'true') {
+              alert('Debes iniciar sesión para desplegar la máquina');
+              window.location.href = '../login/login.html'; // Redirige al usuario a la página de inicio de sesión si no está autenticado
+              return;
+          }
+  
+          // Nombre único para el contenedor
+          const containerName = `${os}${Math.floor(Math.random() * 1000) + 1}`;
+  
+          // Generar puerto aleatorio
+          const puerto = getRandomPort();
+          const puerto2 = getRandomPort();
+  
+          // Hacer la solicitud al servidor para crear el contenedor
+          try {
+              const response = await fetch('http://100.77.20.60:3000/deploy-windows', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({
+                      containerName: containerName,
+                      puerto: puerto,
+                      puerto2: puerto2,
+                      os: os,
+                      version: version
+                  })
+              });
+  
+              if (!response.ok) {
+                  throw new Error('Error al desplegar el sistema operativo');
+              }
+  
+              const data = await response.json();
+              console.log(data);
+  
+              // Abrir la nueva pestaña con el puerto generado
+              window.open(`http://100.77.20.60:${puerto}`, '_blank');
+          } catch (error) {
+              console.error(error);
+              alert('Error al desplegar el sistema operativo');
+          }
+      });
+  
+      // Función para generar un puerto aleatorio entre 8000 y 9000
+      function getRandomPort() {
+          return Math.floor(Math.random() * (9000 - 8000 + 1)) + 8000;
+      }
+      </script>
     
 </details>
 
