@@ -381,56 +381,103 @@ Antes de proceder a esta siguiente parte de pfSense, explicaremos el funcionamie
 <h2><b>server.js</b></h2>
 <p>Hemos implementado un servidor backend con Express.js que nos permite desplegar contenedores Docker de Windows 10 de manera automatizada. A través del endpoint /deploy-windows, enviamos parámetros como el nombre del contenedor y los puertos a utilizar, y el servidor ejecuta un comando docker run para iniciar el contenedor con la configuración necesaria. Además, hemos habilitado CORS para permitir solicitudes desde nuestro frontend y asegurar la comunicación entre ambos.</p>
 
-              const express = require('express');
-        const cors = require('cors');
-        const { exec } = require('child_process');
-        const app = express();
-        const port = 3000;
-        
-        // Middleware para parsear JSON
-        app.use(express.json());
-        
-        // Habilitar CORS para que pueda ser accedido desde cualquier origen o desde un origen específico
-        app.use(cors({
-            origin: ['http://100.77.20.60:8082', 'http://godo.tallerdekirby.es'], // Permitir solicitudes desde tu frontend
-            methods: ['GET', 'POST'],
-            allowedHeaders: ['Content-Type'],
-        }));
-        
-        // Ruta para desplegar Windows 10
-        app.post('/deploy-windows', (req, res) => {
-            const { containerName, puerto, puerto2 } = req.body;
-        
-            const uniqueContainerName = `win${Math.floor(Math.random() * 1000) + 1}`;
-        
-            // Comando Docker para crear el contenedor
-            const dockerCommand = `docker run -d -p ${puerto}:8006 -p ${puerto2}:3389 --name ${containerName} --env VERSION="7" --env RAM_SIZE="1G" --env KVM="N" --device /dev/kvm --device /dev/net/tun --cap-add NET_ADMIN --restart unless-stopped --privileged --dns 8.8.8.8 --dns 8.8.4.4 --network bridge dockurr/windows:latest`;
-        
-            // Ejecutar el comando Docker
-            exec(dockerCommand, (error, stdout, stderr) => {
-                if (error) {
-                    console.error(`Error al ejecutar el comando Docker: ${error.message}`);
-                    return res.status(500).send({ error: `Error al crear el contenedor: ${error.message}` });
-                }
-                if (stderr) {
-                    console.error(`Error en la salida estándar: ${stderr}`);
-                    return res.status(500).send({ error: `Error: ${stderr}` });
-                }
-        
-                console.log(`Contenedor creado con nombre: ${containerName} y puerto: ${puerto}`);
-                res.send({
-                    message: `Contenedor creado con éxito: ${containerName}`,
-                    puerto: puerto // Retornamos el puerto generado
-                });
-            });
-        });
-        
-        // Iniciar el servidor
-        app.listen(port, () => {
-            console.log(`Servidor backend escuchando en el puerto ${port}`);
-        });
-
-<h2><b>docker.html</b></h2>
+      const express = require('express');
+      const cors = require('cors');
+      const { exec } = require('child_process');
+      const app = express();
+      const port = 3000;
+      
+      // Middleware para parsear JSON
+      app.use(express.json());
+      
+      // Habilitar CORS para que pueda ser accedido desde cualquier origen o desde un origen específico
+      app.use(cors({
+          origin: ['http://100.77.20.60:8082', 'http://godo.tallerdekirby.es', 'https://godo.tallerdekirby.es'], // Permitir solicitudes desde tu frontend
+          methods: ['GET', 'POST'],
+          allowedHeaders: ['Content-Type'],
+      }));
+      
+      // Ruta para desplegar el sistema operativo
+      app.post('/deploy-windows', (req, res) => {
+          const { containerName, puerto, puerto2, os, version } = req.body;
+      
+          // Asignar el nombre del contenedor desde la solicitud o generar uno único
+          const container = containerName || `container-${Math.floor(Math.random() * 1000) + 1}`;
+      
+          // Determinar la imagen de Docker, los puertos y las variables de entorno según el sistema operativo
+          let dockerImage;
+          let dockerPorts;
+          let additionalEnv = "";
+          let deviceOptions = ""; // Variable para manejar dispositivos
+      
+          if (os === 'windows') {
+              // Imágenes para Windows
+              dockerImage = `dockurr/windows:latest`;
+              dockerPorts = `-p ${puerto}:8006 -p ${puerto2}:3389`;
+              additionalEnv = '--env RAM_SIZE="512M" --env KVM="N"';
+              deviceOptions = '--device /dev/kvm --device /dev/net/tun'; // Dispositivos para Windows
+          } else if (os === 'ubuntu') {
+              // Imágenes para Ubuntu (sin RAM_SIZE y puerto 80)
+              dockerImage = 'dorowu/ubuntu-desktop-lxde-vnc';
+              dockerPorts = `-p ${puerto}:80`;  // El puerto para Ubuntu será el 80
+              additionalEnv = "";  // No se incluye RAM_SIZE en Ubuntu
+              deviceOptions = "";  // No se incluyen dispositivos para Ubuntu
+          } else if (os === 'mac') {
+              // Imágenes para MacOS
+              dockerImage = 'dockurr/macos:latest';
+              dockerPorts = `-p ${puerto}:8006 -p ${puerto2}:3389`;
+              additionalEnv = '--env RAM_SIZE="512M" --env KVM="N"';
+              deviceOptions = '--device /dev/kvm --device /dev/net/tun'; // Dispositivos para Mac
+          } else {
+              // Si no se proporciona un SO válido, devolver error
+              return res.status(400).send({ error: 'Sistema operativo no válido' });
+          }
+      
+          // Comando Docker para crear el contenedor
+          const dockerCommand = `docker run -d ${dockerPorts} --name ${container} ${additionalEnv} ${deviceOptions} --cap-add NET_ADMIN --restart unless-stopped --privileged --dns 8.8.8.8 --dns 8.8.4.4 ${dockerImage}`;
+      
+          // Ejecutar el comando Docker
+          exec(dockerCommand, (error, stdout, stderr) => {
+              if (error) {
+                  console.error(`Error al ejecutar el comando Docker: ${error.message}`);
+                  return res.status(500).send({ error: `Error al crear el contenedor: ${error.message}` });
+              }
+              if (stderr) {
+                  console.error(`Error en la salida estándar: ${stderr}`);
+                  return res.status(500).send({ error: `Error: ${stderr}` });
+              }
+      
+              console.log(`Contenedor creado con nombre: ${container} y puerto: ${puerto}`);
+      
+              // Verifica los puertos expuestos del contenedor
+              exec(`docker port ${container}`, (portError, portStdout, portStderr) => {
+                  if (portError) {
+                      console.error(`Error al obtener los puertos: ${portError.message}`);
+                      return res.status(500).send({ error: `Error al obtener puertos: ${portError.message}` });
+                  }
+                  if (portStderr) {
+                      console.error(`Error en la salida de puertos: ${portStderr}`);
+                      return res.status(500).send({ error: `Error en la salida de puertos: ${portStderr}` });
+                  }
+      
+                  console.log(`Puertos del contenedor: ${portStdout}`);
+      
+                  // Retornar el puerto generado
+                  res.send({
+                      message: `Contenedor creado con éxito: ${container}`,
+                      puerto: puerto, // Retornamos el puerto generado
+                      contenedor: container,  // Retornamos el nombre del contenedor
+                      puertos: portStdout // Información sobre los puertos
+                  });
+              });
+          });
+      });
+      
+      // Iniciar el servidor
+      app.listen(port, () => {
+          console.log(`Servidor backend escuchando en el puerto ${port}`);
+      });
+  <h2><b>docker.html</b></h2>
 
 <p>Hemos desarrollado un flujo completo para desplegar máquinas virtuales con Windows 10 utilizando Docker y un backend en Express.js. El backend expone un endpoint /deploy-windows que recibe el nombre del contenedor y los puertos, ejecutando un comando docker run para iniciar la instancia. En el frontend, antes de enviar la solicitud, verificamos si el usuario ha iniciado sesión; en caso contrario, lo redirigimos a la página de login. Generamos un nombre único para el contenedor y dos puertos aleatorios dentro del rango 8000-9000, que luego enviamos al backend. Si el despliegue es exitoso, abrimos una nueva pestaña con la dirección del puerto asignado para acceder a la máquina virtual.
 </p>
