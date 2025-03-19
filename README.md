@@ -832,23 +832,23 @@ Desde su creación en 2002, ha sido una de las opciones más robustas para empre
 
 
 ### ⚙️ Características Principales
-1. Rendimiento
-Ejabberd está diseñado para manejar un alto volumen de conexiones simultáneas con un consumo eficiente de recursos. Gracias a su implementación en Erlang, puede gestionar millones de usuarios conectados al mismo tiempo sin comprometer la estabilidad del sistema. Esto lo convierte en una solución ideal para grandes plataformas de mensajería, redes sociales y aplicaciones empresariales que requieren una comunicación en tiempo real fluida y sin interrupciones.
+<h4>1. Rendimiento</h4>
+<p>Ejabberd está diseñado para manejar un alto volumen de conexiones simultáneas con un consumo eficiente de recursos. Gracias a su implementación en Erlang, puede gestionar millones de usuarios conectados al mismo tiempo sin comprometer la estabilidad del sistema. Esto lo convierte en una solución ideal para grandes plataformas de mensajería, redes sociales y aplicaciones empresariales que requieren una comunicación en tiempo real fluida y sin interrupciones.</p>
 
-2. Escalabilidad
-Una de las grandes ventajas de Ejabberd es su capacidad de escalar horizontalmente. Su arquitectura modular y distribuida permite añadir más servidores al sistema para balancear la carga y mejorar el rendimiento a medida que aumenta el número de usuarios. Esto es especialmente útil para empresas y servicios en la nube que requieren una infraestructura flexible y adaptable al crecimiento.
+<h4>2. Escalabilidad</h4>
+<p>Una de las grandes ventajas de Ejabberd es su capacidad de escalar horizontalmente. Su arquitectura modular y distribuida permite añadir más servidores al sistema para balancear la carga y mejorar el rendimiento a medida que aumenta el número de usuarios. Esto es especialmente útil para empresas y servicios en la nube que requieren una infraestructura flexible y adaptable al crecimiento.</p>
 
-3. Seguridad
-La seguridad es una prioridad en Ejabberd. Implementa cifrado SSL/TLS para proteger las comunicaciones entre clientes y servidores, evitando interceptaciones o ataques de terceros. Además, permite autenticación avanzada mediante LDAP, bases de datos SQL, OAuth o mecanismos externos. También admite el uso de políticas de control de acceso (ACL) para definir permisos específicos según el rol del usuario.
+<h4>3. Seguridad</h4>
+<p>La seguridad es una prioridad en Ejabberd. Implementa cifrado SSL/TLS para proteger las comunicaciones entre clientes y servidores, evitando interceptaciones o ataques de terceros. Además, permite autenticación avanzada mediante LDAP, bases de datos SQL, OAuth o mecanismos externos. También admite el uso de políticas de control de acceso (ACL) para definir permisos específicos según el rol del usuario.</p>
 
-4. Extensibilidad
-Ejabberd es altamente personalizable gracias a su sistema de módulos y API. Permite la integración de plugins y funciones personalizadas para adaptarlo a necesidades específicas, como notificaciones push, almacenamiento de mensajes o integración con otros protocolos como MQTT y SIP. Esto lo hace ideal para desarrolladores que buscan ampliar sus capacidades sin modificar el núcleo del sistema.
+<h4>4. Extensibilidad</h4>
+<p>Ejabberd es altamente personalizable gracias a su sistema de módulos y API. Permite la integración de plugins y funciones personalizadas para adaptarlo a necesidades específicas, como notificaciones push, almacenamiento de mensajes o integración con otros protocolos como MQTT y SIP. Esto lo hace ideal para desarrolladores que buscan ampliar sus capacidades sin modificar el núcleo del sistema.</p>
 
-5. Compatibilidad
-Ejabberd es totalmente compatible con el estándar XMPP, lo que significa que puede interoperar con otros servidores y clientes XMPP sin problemas. Su flexibilidad le permite integrarse con diversas aplicaciones de mensajería instantánea como Pidgin, Conversations, Dino o Gajim, además de servicios empresariales que usan XMPP para la comunicación interna.
+<h4>5. Compatibilidad</h4>
+<p>Ejabberd es totalmente compatible con el estándar XMPP, lo que significa que puede interoperar con otros servidores y clientes XMPP sin problemas. Su flexibilidad le permite integrarse con diversas aplicaciones de mensajería instantánea como Pidgin, Conversations, Dino o Gajim, además de servicios empresariales que usan XMPP para la comunicación interna.</p>
 
-6. Alta Disponibilidad
-Para entornos críticos donde el tiempo de inactividad no es una opción, Ejabberd soporta clustering. Esta función permite distribuir la carga de trabajo entre varios servidores, asegurando redundancia y tolerancia a fallos. En caso de que un nodo falle, los demás servidores siguen funcionando sin afectar la comunicación de los usuarios.
+<h4>6. Alta Disponibilidad</h4>
+<p>Para entornos críticos donde el tiempo de inactividad no es una opción, Ejabberd soporta clustering. Esta función permite distribuir la carga de trabajo entre varios servidores, asegurando redundancia y tolerancia a fallos. En caso de que un nodo falle, los demás servidores siguen funcionando sin afectar la comunicación de los usuarios.</p>
 
 
 ### ⚖️ Comparación con Alternativas
