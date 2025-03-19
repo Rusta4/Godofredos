@@ -816,6 +816,12 @@ Antes de proceder a esta siguiente parte de pfSense, explicaremos el funcionamie
   <details>
     <summary>&nbsp;&nbsp;&nbsp;&nbsp;📥 <b>Docker-Compose</b></summary>
   </details>
+
+    <details>
+    <summary>&nbsp;&nbsp;&nbsp;&nbsp;📥 <b>Ejabberd</b>
+    <p>hola</p>
+    </summary>
+  </details>
 </details>
 
 
