@@ -817,12 +817,201 @@ Antes de proceder a esta siguiente parte de pfSense, explicaremos el funcionamie
     <summary>&nbsp;&nbsp;&nbsp;&nbsp;📥 <b>Docker-Compose</b></summary>
   </details>
 
-    <details>
-    <summary>&nbsp;&nbsp;&nbsp;&nbsp;📥 <b>Ejabberd</b>
-    <p>hola</p>
-    </summary>
+  <details>
+  <summary>&nbsp;&nbsp;&nbsp;&nbsp;📥 <b>Ejabberd</b></summary>
+  <br>
+  <details>
+    <summary>💡 <b>Conceptos Básicos</b></summary>
+    
+### 💡 Introducción
+
+Ejabberd es un servidor de mensajería instantánea basado en el protocolo XMPP (Extensible Messaging and Presence Protocol), diseñado para ofrecer comunicación en tiempo real de manera descentralizada, segura y escalable.
+
+
+Desde su creación en 2002, ha sido una de las opciones más robustas para empresas y servicios de alto tráfico gracias a su capacidad para manejar millones de conexiones simultáneas. Su desarrollo en Erlang le permite gestionar procesos concurrentes con alta eficiencia, garantizando estabilidad, tolerancia a fallos y un rendimiento óptimo en entornos exigentes.
+
+
+### ⚙️ Características Principales
+1. Rendimiento
+Ejabberd está diseñado para manejar un alto volumen de conexiones simultáneas con un consumo eficiente de recursos. Gracias a su implementación en Erlang, puede gestionar millones de usuarios conectados al mismo tiempo sin comprometer la estabilidad del sistema. Esto lo convierte en una solución ideal para grandes plataformas de mensajería, redes sociales y aplicaciones empresariales que requieren una comunicación en tiempo real fluida y sin interrupciones.
+
+2. Escalabilidad
+Una de las grandes ventajas de Ejabberd es su capacidad de escalar horizontalmente. Su arquitectura modular y distribuida permite añadir más servidores al sistema para balancear la carga y mejorar el rendimiento a medida que aumenta el número de usuarios. Esto es especialmente útil para empresas y servicios en la nube que requieren una infraestructura flexible y adaptable al crecimiento.
+
+3. Seguridad
+La seguridad es una prioridad en Ejabberd. Implementa cifrado SSL/TLS para proteger las comunicaciones entre clientes y servidores, evitando interceptaciones o ataques de terceros. Además, permite autenticación avanzada mediante LDAP, bases de datos SQL, OAuth o mecanismos externos. También admite el uso de políticas de control de acceso (ACL) para definir permisos específicos según el rol del usuario.
+
+4. Extensibilidad
+Ejabberd es altamente personalizable gracias a su sistema de módulos y API. Permite la integración de plugins y funciones personalizadas para adaptarlo a necesidades específicas, como notificaciones push, almacenamiento de mensajes o integración con otros protocolos como MQTT y SIP. Esto lo hace ideal para desarrolladores que buscan ampliar sus capacidades sin modificar el núcleo del sistema.
+
+5. Compatibilidad
+Ejabberd es totalmente compatible con el estándar XMPP, lo que significa que puede interoperar con otros servidores y clientes XMPP sin problemas. Su flexibilidad le permite integrarse con diversas aplicaciones de mensajería instantánea como Pidgin, Conversations, Dino o Gajim, además de servicios empresariales que usan XMPP para la comunicación interna.
+
+6. Alta Disponibilidad
+Para entornos críticos donde el tiempo de inactividad no es una opción, Ejabberd soporta clustering. Esta función permite distribuir la carga de trabajo entre varios servidores, asegurando redundancia y tolerancia a fallos. En caso de que un nodo falle, los demás servidores siguen funcionando sin afectar la comunicación de los usuarios.
+
+
+### ⚖️ Comparación con Alternativas
+| Característica  | Ejabberd | OpenFire | Prosody | MongooseIM |
+|---------------|----------|---------|---------|-----------|
+| **Lenguaje**  | Erlang   | Java    | Lua     | Erlang    |
+| **Escalabilidad** | Alta | Moderada | Baja | Muy alta |
+| **Consumo de recursos** | Eficiente | Moderado | Muy eficiente | Eficiente |
+| **Seguridad** | Avanzada | SSL/TLS | Estándar | Avanzada |
+
+<br>
+### 📞 Clientes Compatibles
+| **Cliente**            | **Características principales**                                                                           | **Plataformas**                | **Ideal para**                                      |
+|-----------------------|-------------------------------------------------------------------------------------------------|--------------------------------|---------------------------------------------------|
+| **Xabber**           | Cliente XMPP de código abierto, interfaz limpia y sin publicidad.           | Android                        | Usuarios de XMPP en dispositivos móviles          |
+| **Trillian**         | Compatible con múltiples protocolos, sincronización entre dispositivos. | Windows, Mac, iOS, Android    | Usuarios multiplataforma y redes sociales         |
+| **Stack Browser**    | Uso de múltiples aplicaciones web en un entorno organizado.                                | Windows, Mac                   | Gestión centralizada de aplicaciones web         |
+| **All-in-One Messenger** | Integra WhatsApp, Telegram, Skype y Gmail.               | Windows                        | Usuarios que usan múltiples servicios de chat    |
+| **Empathy**          | Soporte para texto, voz y video, compatible con varios protocolos.                              | Linux                          | Usuarios de Linux que buscan integración total   |
+| **Adium**           | Cliente ligero y personalizable compatible con múltiples redes.                                | Mac                            | Usuarios de macOS                                |
+| **Jitsi**           | Chat de texto, voz y videoconferencia con enfoque en seguridad.                                   | Multiplataforma                | Comunicación segura                              |
+| **Digsby**          | Soporte para mensajería instantánea y redes sociales.                                        | Windows                        | Integración de mensajería y redes sociales       |
+
+<br>
+### 🛡️ Puertos de Ejabberd
+| **Puerto** | **Protocolo**              | **Seguridad**                      |
+|-----------|----------------------------|------------------------------------|
+| **5222**  | XMPP (cliente a servidor)  | STARTTLS (cifrado opcional)       |
+| **5223**  | XMPP (cliente a servidor)  | SSL/TLS (obsoleto, pero soportado) |
+| **5269**  | XMPP (servidor a servidor) | STARTTLS (si el otro servidor lo admite) |
+| **5280**  | HTTP (interfaz web)        | Sin cifrado (por defecto)         |
+| **5443**  | HTTPS (interfaz web)       | SSL/TLS (cifrado activado)        |
+
+  </details>
+
+  <details>
+    <summary>🚀 <b>Instalación</b></summary>
+    
+### 🏢 Instalación en Linux (Debian/Ubuntu)
+```bash
+sudo apt update && sudo apt install ejabberd -y
+```
+
+### 🧑‍💻 Preparación del entorno
+<p>En nuestro caso estaremos usando un ubuntu desktop para desplegar el docker-compose y en una red interna 192.168.6.0/24.</p>
+
+### 1️⃣ Instalación en Docker
+```bash
+sudo apt install docker docker-compose -y
+```
+
+### 2️⃣ Configuración de `docker-compose.yml`
+```yaml
+services:
+  xmpp-server:
+    image: ejabberd/ecs:latest
+    container_name: xmpp_server
+    environment:
+      - EJABBERD_ADMIN=admin@localhost
+      - EJABBERD_PASSWORD=passwd123123
+      - EJABBERD_DOMAIN=localhost
+    ports:
+      - "5222:5222" # XMPP client connection port
+      - "5280:5280" # Web admin port
+    volumes:
+      - ejabberd_data:/var/lib/ejabberd
+    restart: unless-stopped
+
+
+  pidgin_1:
+    image: lscr.io/linuxserver/pidgin:latest
+    container_name: pidgin_client_1
+    networks:
+      - pidgin_network
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /config_x:/config
+    ports:
+      - 3000:3000
+    restart: unless-stopped
+
+
+  pidgin_2:
+    image: lscr.io/linuxserver/pidgin:latest
+    container_name: pidgin_client_2
+    networks:
+      - pidgin_network
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /config_p:/config
+    ports:
+      - 3001:3001
+    restart: unless-stopped
+
+
+networks:
+  pidgin_network:
+    driver: bridge
+
+
+volumes:
+  ejabberd_data:
+
+```
+<p>Compose creado por L0rd19</p>
+
+### 3️⃣ Desplegar el Contenedor
+```bash
+docker-compose up -d
+```
+
+### 4️⃣ Crear Usuario
+```bash
+docker exec -it ejabberd ejabberdctl register admin midominio.com contraseña123
+```
+
+### 5️⃣ Accediendo a los contenedores
+Para acceder a los contenedores simplemente tendremos que dirigirnos al navegador dentro  de nuestra red interna y, ponemos la IP junto a los puertos de los docker: 
+
+<b>docker1</b>
+```bash
+http://192.168.6.7:3000
+```
+
+<b>docker2</b>
+```bash
+docker2: https://192.168.7:3001
+```
+
+<b>Interfaz Web</b>
+```bash
+Interfaz web: http://192.168.7:5280/admin
+```
+
+
+  </details>
+
+  <details>
+    <summary>🛡️ <b>Seguridad y Buenas Prácticas</b></summary>
+    
+- **Usar TLS para cifrar las conexiones**.
+- **Configurar autenticación externa (LDAP, SQL)**.
+- **Restringir acceso a la interfaz web** (`http://localhost:5280/admin`).
+
+  </details>
+
+  <details>
+    <summary>📚 <b>Conclusión</b></summary>
+    
+Ejabberd es una solución potente y flexible para la mensajería en tiempo real. Gracias a su arquitectura escalable, seguridad avanzada y compatibilidad con el protocolo XMPP, se convierte en una opción ideal para empresas y proyectos que requieren comunicación eficiente y confiable.
+  
   </details>
 </details>
+  
+
+</details>
+ 
 
 
 
