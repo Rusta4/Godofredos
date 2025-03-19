@@ -860,6 +860,7 @@ Desde su creación en 2002, ha sido una de las opciones más robustas para empre
 | **Seguridad** | Avanzada | SSL/TLS | Estándar | Avanzada |
 
 <br>
+
 ### 📞 Clientes Compatibles
 | **Cliente**            | **Características principales**                                                                           | **Plataformas**                | **Ideal para**                                      |
 |-----------------------|-------------------------------------------------------------------------------------------------|--------------------------------|---------------------------------------------------|
@@ -873,6 +874,7 @@ Desde su creación en 2002, ha sido una de las opciones más robustas para empre
 | **Digsby**          | Soporte para mensajería instantánea y redes sociales.                                        | Windows                        | Integración de mensajería y redes sociales       |
 
 <br>
+
 ### 🛡️ Puertos de Ejabberd
 | **Puerto** | **Protocolo**              | **Seguridad**                      |
 |-----------|----------------------------|------------------------------------|
@@ -881,6 +883,7 @@ Desde su creación en 2002, ha sido una de las opciones más robustas para empre
 | **5269**  | XMPP (servidor a servidor) | STARTTLS (si el otro servidor lo admite) |
 | **5280**  | HTTP (interfaz web)        | Sin cifrado (por defecto)         |
 | **5443**  | HTTPS (interfaz web)       | SSL/TLS (cifrado activado)        |
+
 
   </details>
 
