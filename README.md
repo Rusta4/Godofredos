@@ -1279,5 +1279,40 @@ Ejabberd es una solución potente y flexible para la mensajería en tiempo real.
 
 <details>
   <summary><h2>🎞️ NGROK</h2></summary>
+<b>1: Crear cuenta de ngrok</b>
+
+<b>2: Descargar nkrok:</b>
+  ``` bash
+  apt install ngrok
+  ```
+<b>3: Añadir authtoken que esta en setup & installation(seleccionar la plataforma):.</b>
+  ``` bash
+  ngrok config add-authtoken <TokenEnPerfil>
+  ```
+<b>4: Crear ngrok.service en:</b>
+  ``` bash
+  /etc/systemd/system/ngrok.service
+  ```
+<b>5: Hacer un reload del daemon:</b>
+  ``` bash
+  systemctl daemon-reload
+  ```
+<b>6: Hacer un restart del ngrok.service:</b>
+  ``` bash
+  systemctl restart ngrok.servive
+  ```
+<b>7: Hacer status para saber si esta activo:</b>
+  ``` bash
+  systemctl status ngrok.servive
+  ```
+<b>8: Ir a la web de Ngrok (en endpoints) copiar despues del tcp://:</b>
+  ``` bash
+  #ejemplo solo coger 7.tcp.eu.ngrok.io y el puerto que lo necesitaremos
+  tcp://7.tcp.eu.ngrok.io:19089
+  ```
+<b>9: Conectarte por ssh con el siguiente comando desde donde quieres poder ver el proxmox en este caso:</b>
+  ``` bash
+  ssh -L 8006:localhost:8006 root@7.tcp.eu.ngrok.io -p 19089
+  ```
 </details>
 
