@@ -1285,6 +1285,17 @@ Ejabberd es una solución potente y flexible para la mensajería en tiempo real.
   ``` bash
   apt install ngrok
   ```
+o
+  ``` bash
+  curl -sSL https://ngrok-agent.s3.amazonaws.com/ngrok.asc      | tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null       && echo "deb https://ngrok-agent.s3.amazonaws.com buster main"        | tee /etc/apt/sources.list.d/ngrok.list        && apt update   && apt install ngrok
+  ```
+o
+  ``` bash
+  wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
+
+  #despuesd de hacer el wget hacemos esto para descomprimir
+  tar -xvzf ngrok-v3-stable-linux-amd64.tgz -C /usr/local/bin/
+  ```
 <b>3: Añadir authtoken que esta en setup & installation(seleccionar la plataforma):.</b>
   ``` bash
   ngrok config add-authtoken <TokenEnPerfil>
