@@ -1289,9 +1289,20 @@ Ejabberd es una solución potente y flexible para la mensajería en tiempo real.
   ``` bash
   ngrok config add-authtoken <TokenEnPerfil>
   ```
-<b>4: Crear ngrok.service en:</b>
+<b>4: Crear ngrok.service en "/etc/systemd/system/ngrok.service":</b>
   ``` bash
-  /etc/systemd/system/ngrok.service
+[Unit]
+Description=Ngrok Tunnel Service
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/ngrok tcp 22
+Restart=always
+User=root
+WorkingDirectory=/usr/local/bin
+
+[Install]
+WantedBy=multi-user.target
   ```
 <b>5: Hacer un reload del daemon:</b>
   ``` bash
