@@ -583,28 +583,25 @@ Antes de proceder a esta siguiente parte de pfSense, explicaremos el funcionamie
 </details>
 
 
----------------------- SEGURIDAD ---------------------
-
 
 <details>
 <summary><h2>  🔒 Seguridad</h2></summary>
-
+<br>
 <h2><b>Usuarios y contraseñas</b></h2>
 <p>Con el fin de garantizar la máxima seguridad y prevenir posibles vulnerabilidades, hemos optado por asignar contraseñas únicas a cada uno de los usuarios. Estas contraseñas no han sido creadas manualmente, sino que han sido generadas automáticamente por un gestor de contraseñas, en nuestro caso, LastPass. Cada contraseña tiene una longitud de 32 caracteres e incluye una combinación de números, letras mayúsculas, minúsculas y caracteres especiales, lo que refuerza aún más la seguridad del sistema.</p>
-
+<br>
 <h2><b>Grupos y permisos</b></h2>
 <p> En cuanto a la gestión de grupos y permisos, hemos realizado ajustes específicos en los permisos de los usuarios que no cuentan con privilegios de root. Como es de esperar, el usuario root tiene acceso completo y puede ejecutar cualquier comando sin necesidad de autenticación adicional. Sin embargo, hemos revisado y ajustado cuidadosamente los permisos de los usuarios comunes para minimizar los riesgos de seguridad.</p>
 <br>
 <p> En primer lugar, hemos configurado el sistema para evitar que los usuarios puedan ejecutar comandos con privilegios de sudo. Esta medida nos permite garantizar que, incluso si un atacante obtiene acceso al sistema a través de una reverse shell o un ataque de fuerza bruta, el usuario con el que accedan no podrá ejecutar comandos privilegiados. Además, hemos realizado una revisión exhaustiva para asegurarnos de que no haya vulnerabilidades relacionadas con el uso de SUID.</p>
-
+<br>
 <p> En segundo lugar, dado que trabajamos con Docker, inicialmente otorgamos permisos de acceso a Docker a los usuarios comunes. No obstante, con el tiempo hemos identificado que esta práctica podría representar una grave vulnerabilidad, ya que los usuarios podrían crear contenedores de Docker con privilegios elevados. Como medida de seguridad, hemos revocado estos permisos de acceso.</p>
-
+<br>
 <p>Finalmente, hemos modificado la asignación de usuarios comunes al grupo "wheel". Este grupo se utiliza en sistemas Linux para facilitar la concesión de permisos de sudo, ya que al añadir un usuario a este grupo, se le otorgan privilegios de root. Debido a las implicaciones de seguridad, hemos decidido eliminar a los usuarios comunes de este grupo para evitar riesgos innecesarios.</p>
     
 </details>
 
 
----------------------- SEGURIDAD ---------------------
 
 
 
