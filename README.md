@@ -582,7 +582,7 @@ Antes de proceder a esta siguiente parte de pfSense, explicaremos el funcionamie
     
 </details>
 
-
+  
 
 <details>
 <summary><h2>  🔒 Seguridad</h2></summary>
