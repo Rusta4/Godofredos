@@ -69,6 +69,32 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
 </details>
 <!-- -------------------------------------------------------------------------- -->
 
+
+<!-- Funcionalidades -->
+<details>
+  <summary><h2>🔨 Funcionalidades</h2></summary>
+  <br>
+<p>A lo largo de este proyecto, se pretende implementar las siguientes funcionalidades:</p>
+
+<h4>1. Alpine compartidos</h4>
+<p>Usar dos Alpines para poder tener mucha más capacidad de procesamiento y almacenamiento. De esta manera, podemos tener una web funcional mucho más rápida y ligera.</p>
+
+<h4>2. Desplegar contenedores Docker en la web</h4>
+<p>Permitir al usuario desplegar contenedores Docker en la web personalizanod las características de lanzamiento, es decir: seleccionar S.O. y la versión de este mismo.</p>
+
+<h4>3. Visualizar y descargar archivos</h4>
+<p>Implementar una sección en la web que permita a los usuarios registrados visualizar y descargar pequeños informes y guías sobre CTFs y herrameintas de ciberseguridad.</p>
+
+<h4>4. Descargar ISOs de diferentes S.O.</h4>
+<p>Permitir a aquellos usuarios ya registrados, poder descargar la ISO de aquellos sistemas operativos disponibles en la web. </p>
+
+<h4>5. ChatBot de atención al cliente ( opcional )</h4>
+<p>Como no contamos con un servicio de atención al cliente, hemos planteado la idea de implementar un pequeño chatBot acompañado de inteligencia artificial para que pueda responder y solventar aquellos pequeños problemas que presenten los usuarios.</p>
+
+</details>
+<!-- -------------------------------------------------------------------------- -->
+
+
 <!-- Organización: -->
 
 <details>
