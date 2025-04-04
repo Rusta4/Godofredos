@@ -100,16 +100,29 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
 <details>
   <summary><h2>📁 Organización:</h2></summary>
   
-  | Responsable       | Tareas        | 
-|---------------|---------------|
-| 🟡 **Nicolás Guerra** | - Proxmox  | 
-|                        | - DOCKERS | 
-| 🟠 **Adrià Trillo**    | - Máquinas Virtuales (VM)  |
-|                          | - pfSense  | 
-|                         | - HTML (HyperText Markup Language)  | 
-| 🟢 **Edward Murphy**   | - CSS (Cascading Style Sheets)  | 
-|                         | - Responsive  |
-|                         |- JavaScript | 
+
+| Responsable             | Tareas |
+|-------------------------|--------|
+| 🟡 **Nicolás Guerra**    | - Proxmox  |  
+|                         | - Docker  |  
+|                         | - Seguridad del S.O.  |  
+|                         | - Iptables  |  
+|                         | - Nginx  |
+|                         | - HTML  |
+|                         |  -  CSS  |
+|                         | - Ngrok ( B4D1T )|
+| 🟠 **Adrià Trillo**      | - Seguridad del S.O.  |  
+|                         | - Docker  |
+|                         | - Iptables  |
+|                         | - Nginx  |
+|                         | - HTML  |
+|                         |  -  CSS  |  
+| 🟢 **Edward Murphy**     | - CSS  |  
+|                         | - Docker  |  
+|                         | - JavaScript  |  
+|                         | - Node.js  |  
+|                         | - Nginx  |  
+|                         | - Firebase  |
 
 
 </details>
