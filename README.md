@@ -1403,66 +1403,240 @@ WantedBy=multi-user.target
 
 <details>
   <summary><h2>🎞️ Cifrado</h2></summary>
-<b>1: Crear cuenta de ngrok</b>
 
-<b>2: Descargar nkrok:</b>
-  ``` bash
-  apt install ngrok
-  ```
-o
-  ``` bash
-  curl -sSL https://ngrok-agent.s3.amazonaws.com/ngrok.asc      | tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null       && echo "deb https://ngrok-agent.s3.amazonaws.com buster main"        | tee /etc/apt/sources.list.d/ngrok.list        && apt update   && apt install ngrok
-  ```
-o
-  ``` bash
-  wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
+  <details>
+  <summary><h2>🔐 Funciones de Hash – Parte I</h2></summary>
+  <br>
 
-  #despuesd de hacer el wget hacemos esto para descomprimir
-  tar -xvzf ngrok-v3-stable-linux-amd64.tgz -C /usr/local/bin/
-  ```
-<b>3: Añadir authtoken que esta en setup & installation(seleccionar la plataforma):.</b>
-  ``` bash
-  ngrok config add-authtoken <TokenEnPerfil>
-  ```
-<b>4: Crear ngrok.service en "/etc/systemd/system/ngrok.service":</b>
-  ``` bash
-[Unit]
-Description=Ngrok Tunnel Service
-After=network.target
+<h2><b>🧠 ¿Qué son las funciones hash?</b></h2>
+<p>Las funciones hash son componentes esenciales en la criptografía moderna y la seguridad informática. Son algoritmos que transforman datos de entrada de cualquier longitud en un valor de salida de longitud fija, normalmente expresado como una cadena hexadecimal. Este valor es conocido como <b>hash</b> o <b>digest</b>.</p>
 
-[Service]
-ExecStart=/usr/local/bin/ngrok tcp 22
-Restart=always
-User=root
-WorkingDirectory=/usr/local/bin
+<p>Una buena función hash debe cumplir con ciertas propiedades:</p>
+<ul>
+  <li><b>Determinismo:</b> siempre produce el mismo hash para la misma entrada.</li>
+  <li><b>Unidireccionalidad:</b> es prácticamente imposible obtener la entrada original a partir del hash.</li>
+  <li><b>Resistencia a colisiones:</b> no deben existir dos entradas distintas que generen el mismo hash.</li>
+  <li><b>Difusión:</b> un pequeño cambio en la entrada produce un hash completamente diferente (efecto avalancha).</li>
+</ul>
+<p>Gracias a estas propiedades, los hashes se utilizan en verificación de integridad, autenticación, estructuras de datos como tablas hash, y sistemas de blockchain.</p>
+<br>
 
-[Install]
-WantedBy=multi-user.target
-  ```
-<b>5: Hacer un reload del daemon:</b>
-  ``` bash
-  systemctl daemon-reload
-  ```
-<b>6: Hacer un restart del ngrok.service:</b>
-  ``` bash
-  systemctl restart ngrok.servive
-  ```
-<b>7: Hacer status para saber si esta activo:</b>
-  ``` bash
-  systemctl status ngrok.servive
-  ```
-<b>8: Ir a la web de Ngrok (en endpoints) copiar despues del tcp://:</b>
-  ``` bash
-  #ejemplo solo coger 7.tcp.eu.ngrok.io y el puerto que lo necesitaremos
-  tcp://7.tcp.eu.ngrok.io:19089
-  ```
-<b>9: Conectarte por ssh con el siguiente comando desde donde quieres poder ver el proxmox en este caso:</b>
-  ``` bash
-  ssh -L 8006:localhost:8006 root@7.tcp.eu.ngrok.io -p 19089
-  ```
+<h2><b>📚 Tipos comunes de funciones hash</b></h2>
+<p>Existen diversos algoritmos hash, algunos ya obsoletos y otros considerados seguros hoy en día. La elección del algoritmo depende del uso específico y del nivel de seguridad requerido.</p>
+
+<table>
+  <thead>
+    <tr><th>🔤 Nombre</th><th>📏 Longitud</th><th>🔐 Estado</th><th>✅ Uso actual</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>MD5</td><td>128 bits</td><td>❌ Obsoleto</td><td>⚠️ No recomendado para seguridad</td></tr>
+    <tr><td>SHA-1</td><td>160 bits</td><td>⚠️ Vulnerable</td><td>✅ Aún presente en sistemas antiguos</td></tr>
+    <tr><td>SHA-256</td><td>256 bits</td><td>🟢 Seguro</td><td>✅ Estándar en blockchain, TLS, etc.</td></tr>
+    <tr><td>SHA-512</td><td>512 bits</td><td>🟢 Seguro</td><td>✅ Usado para firmar y autenticar datos</td></tr>
+    <tr><td>SHA-3</td><td>Variable</td><td>🟢 Seguro</td><td>✅ Alternativa robusta a SHA-2</td></tr>
+  </tbody>
+</table>
+<br>
+
+<h2><b>❗ ¿Qué es una colisión?</b></h2>
+<p>Una colisión se produce cuando dos entradas diferentes generan el mismo valor hash. En teoría, todas las funciones hash pueden presentar colisiones porque transforman un número prácticamente infinito de entradas posibles en una cantidad finita de salidas. Sin embargo, una buena función hash hace que encontrar colisiones sea computacionalmente inviable.</p>
+
+<p>Cuando se descubren métodos para generar colisiones con relativa facilidad, el algoritmo queda comprometido. Es el caso de MD5 y SHA-1, que fueron abandonados tras demostraciones prácticas de colisiones. Actualmente, algoritmos como SHA-2 y SHA-3 ofrecen una mayor resistencia.</p>
+<br>
+
+<h2><b>⚙️ ¿Cómo se generan los hashes?</b></h2>
+<p>El proceso depende del algoritmo, pero generalmente implica varias operaciones matemáticas y lógicas, como sustituciones, rotaciones, mezclas, permutaciones y compresión de bloques. Se busca que el resultado final no revele patrones ni relaciones con la entrada original.</p>
+
+<p>En Python, podemos generar un hash SHA-256 así:</p>
+<pre><code>import hashlib
+data = \"Hola mundo\"
+hash_result = hashlib.sha256(data.encode()).hexdigest()
+print(\"Hash:\", hash_result)</code></pre>
+
+<p>Este hash puede luego usarse para verificar que el contenido no se ha modificado.</p>
+<br>
+
+<h2><b>📌 ¿Para qué se usan los hashes?</b></h2>
+<p>Las funciones hash están presentes en infinidad de aplicaciones. Su versatilidad se debe a que permiten comprobar la integridad de datos sin necesidad de conocer el contenido original completo.</p>
+
+<table>
+  <thead>
+    <tr><th>📍 Aplicación</th><th>📝 Descripción</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>🧾 Integridad</td><td>Comparar el hash de un archivo con el original para detectar modificaciones.</td></tr>
+    <tr><td>🔑 Contraseñas</td><td>Guardar solo el hash, no la contraseña original, reduciendo riesgos si hay fuga.</td></tr>
+    <tr><td>✍️ Firmas digitales</td><td>Los datos se hashean antes de ser firmados para validar la fuente.</td></tr>
+    <tr><td>📦 Blockchain</td><td>Los bloques se enlazan mediante hashes, asegurando inmutabilidad de la cadena.</td></tr>
+  </tbody>
+</table>
+<br>
+
+<h2><b>💰 ¿Cómo se usan en criptomonedas?</b></h2>
+<p>En criptomonedas como Bitcoin o Ethereum, las funciones hash no solo protegen los datos: son el núcleo del funcionamiento del sistema.</p>
+
+<ul>
+  <li><b>⛏️ Prueba de trabajo (Proof of Work):</b> Los mineros deben calcular millones de hashes hasta encontrar uno con características específicas (como varios ceros al inicio). Esto asegura que agregar un nuevo bloque requiere un gran esfuerzo computacional.</li>
+  <li><b>🔗 Integridad de la cadena:</b> Cada bloque contiene el hash del bloque anterior. Si alguien modifica un bloque anterior, se rompe la cadena porque el hash ya no coincide.</li>
+  <li><b>📧 Claves públicas y direcciones:</b> Las direcciones de las carteras se generan hasheando claves públicas. Así, el sistema es más seguro y anónimo.</li>
+</ul>
+<br>
+
+<h2><b>🌈 ¿Qué es una Rainbow Table?</b></h2>
+<p>Una Rainbow Table es una técnica de ataque usada para recuperar contraseñas a partir de sus hashes. Funciona como una base de datos que contiene hashes precalculados de millones de combinaciones de contraseñas posibles. Si el atacante obtiene un hash, puede buscar en la tabla para ver si encuentra una coincidencia.</p>
+
+<p>Para protegerse contra este tipo de ataques, se usa un <b>salt</b>: un valor aleatorio añadido a la contraseña antes de aplicarle la función hash. Esto impide que el mismo texto tenga siempre el mismo hash, inutilizando las rainbow tables.</p>
+
+</details>
+
+<details>
+  <summary><h2>🔐 Funciones de Hash – Parte II</h2></summary>
+  <br>
+
+<h2><b>💥 Hashcat</b></h2>
+<p><b>Hashcat</b> es una de las herramientas más potentes y populares para el "cracking" de contraseñas. Está diseñada para recuperar contraseñas perdidas a través de técnicas como fuerza bruta, ataques por diccionario y ataques híbridos. A diferencia de otras herramientas similares, Hashcat puede utilizar tanto la CPU como la GPU para realizar cálculos, lo que le permite realizar millones de intentos por segundo.</p>
+
+<p>Además, soporta más de 300 algoritmos de hash, incluyendo MD5, SHA-1, SHA-256, bcrypt, entre otros. Es ampliamente utilizada en auditorías de seguridad y en entornos de pruebas de penetración (pentesting).</p>
+
+<table>
+  <thead>
+    <tr><th>🛠️ Modo</th><th>📌 Descripción</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>📖 Diccionario</td><td>Prueba una lista de palabras comunes. Rápido y efectivo si la contraseña es predecible.</td></tr>
+    <tr><td>🎭 Máscara</td><td>Permite definir un patrón (ej: ?l?l?l?d?d para "abc12"). Ideal cuando conocemos parte del formato.</td></tr>
+    <tr><td>🎲 Fuerza bruta</td><td>Prueba todas las combinaciones posibles. Muy costoso en tiempo si la longitud de la contraseña es alta.</td></tr>
+    <tr><td>🧠 Reglas</td><td>Transforma entradas del diccionario en tiempo real con reglas como añadir números, mayúsculas, etc.</td></tr>
+  </tbody>
+</table>
+
+<pre><code>hashcat -m 0 -a 0 hashes.txt diccionario.txt</code></pre>
+
+<p>Este comando usa modo 0 (hashes MD5) y ataque 0 (diccionario).</p>
+<br>
+
+<h2><b>🐍 Generar hashes en Python</b></h2>
+<p>Python facilita el uso de funciones hash gracias a su módulo <code>hashlib</code>. Esto permite crear aplicaciones personalizadas de seguridad, validar integridad de archivos o incluso simular el funcionamiento de criptomonedas.</p>
+
+<p>Ejemplo para generar un hash SHA-512:</p>
+<pre><code>import hashlib
+
+contraseña = "segura123"
+hash = hashlib.sha512(contraseña.encode()).hexdigest()
+print("Hash SHA-512:", hash)</code></pre>
+
+<p>También se pueden usar algoritmos como <code>sha256</code>, <code>md5</code>, o incluso <code>blake2b</code> para necesidades más específicas.</p>
+<br>
+
+<h2><b>🐧 Hashes de contraseñas en Linux (OpenSSL)</b></h2>
+<p>Linux utiliza hashes seguros para almacenar contraseñas en archivos como <code>/etc/shadow</code>. Para generar estos hashes de manera segura desde terminal, OpenSSL es una excelente opción.</p>
+
+<p>Por ejemplo, para generar un hash SHA-512:</p>
+<pre><code>openssl passwd -6 "miclavefuerte"</code></pre>
+
+<p>La opción <code>-6</code> indica que se usará SHA-512, uno de los algoritmos más robustos actualmente. El resultado es un hash con salt incorporado, compatible con los estándares modernos de Linux.</p>
+
+<p>Esto es útil cuando necesitamos crear manualmente contraseñas para nuevos usuarios o probar mecanismos de autenticación.</p>
+<br>
+
+<h2><b>⚔️ Diferencias entre Hash y KDF</b></h2>
+<p>Muchas veces se confunde una función hash con una función derivadora de clave (<b>KDF</b>, por sus siglas en inglés: Key Derivation Function), pero tienen finalidades distintas.</p>
+
+<p>Mientras que un hash sirve para representar datos de forma compacta e irrepetible, un KDF transforma una entrada como una contraseña en una clave segura apta para ser usada en sistemas criptográficos, generalmente aplicando miles de iteraciones, añadiendo <code>salt</code> y dificultando ataques por fuerza bruta o rainbow tables.</p>
+
+<table>
+  <thead>
+    <tr><th>🧩 Característica</th><th>🔒 Hash</th><th>🛡️ KDF</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Propósito</td><td>Resumen de datos</td><td>Derivación de claves seguras</td></tr>
+    <tr><td>Salt</td><td>No requiere</td><td>Requiere (para evitar ataques de diccionario)</td></tr>
+    <tr><td>Iteraciones</td><td>No</td><td>Sí, generalmente miles</td></tr>
+    <tr><td>Resistencia a ataques</td><td>Media</td><td>Alta</td></tr>
+    <tr><td>Ejemplos</td><td>SHA-256, SHA-512</td><td>PBKDF2, bcrypt, scrypt, Argon2</td></tr>
+  </tbody>
+</table>
+
+<p>En resumen: <b>usa siempre KDFs para contraseñas</b>, y no funciones hash simples. Es una de las bases de la seguridad moderna.</p>
+
 </details>
 
 
+<details>
+  <summary><h2>🔐 Algoritmos Criptográficos</h2></summary>
+  <br>
 
+<h2><b>🔒 Blowfish</b></h2>
+<p><b>Blowfish</b> es un algoritmo de cifrado simétrico diseñado en 1993 por el criptógrafo Bruce Schneier como una alternativa rápida, libre de patentes y segura frente a los algoritmos existentes en aquel momento, como DES.</p>
 
+<p>Funciona dividiendo los datos en bloques de 64 bits y aplicando 16 rondas de cifrado utilizando una clave que puede variar entre 32 y 448 bits. Su diseño incorpora una estructura tipo Feistel, lo que permite un cifrado y descifrado eficiente.</p>
+
+<p>Sin embargo, debido a su tamaño de bloque limitado (64 bits), hoy se considera inadecuado para nuevas implementaciones, ya que puede ser vulnerable a ataques sobre grandes volúmenes de datos (por ejemplo, en modos de cifrado como CBC).</p>
+
+<table>
+  <thead>
+    <tr><th>📌 Propiedad</th><th>🔎 Detalle</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Longitud de bloque</td><td>64 bits</td></tr>
+    <tr><td>Rondas</td><td>16</td></tr>
+    <tr><td>Clave</td><td>32 a 448 bits</td></tr>
+    <tr><td>Estado actual</td><td>Obsoleto (reemplazado por AES en la mayoría de sistemas)</td></tr>
+  </tbody>
+</table>
+
+<p><b>Ejemplo práctico con OpenSSL:</b></p>
+<pre><code>openssl enc -bf -in archivo.txt -out archivo_cifrado.txt -pass file:./clave.key -pbkdf2</code></pre>
+<br>
+
+<h2><b>🧬 Twofish</b></h2>
+<p><b>Twofish</b> es el sucesor de Blowfish y fue desarrollado por el mismo equipo (incluido Schneier) en 1998. Fue uno de los cinco finalistas en la competición para elegir el estándar AES. Aunque no ganó (lo hizo Rijndael), Twofish sigue siendo considerado uno de los algoritmos más robustos disponibles.</p>
+
+<p>Opera con bloques de 128 bits y acepta claves de 128, 192 o 256 bits. Su diseño está optimizado tanto para software como para hardware, y presenta una fuerte resistencia contra ataques de análisis diferencial y lineal.</p>
+
+<p>Una de sus ventajas clave es su flexibilidad: puede usarse tanto de forma independiente como combinado con otros cifrados en sistemas de almacenamiento y protección de datos.</p>
+
+<table>
+  <thead>
+    <tr><th>🔬 Característica</th><th>📋 Valor</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Tamaño de bloque</td><td>128 bits</td></tr>
+    <tr><td>Longitud de clave</td><td>128, 192 o 256 bits</td></tr>
+    <tr><td>Velocidad</td><td>Muy alta, ideal para sistemas embebidos y discos</td></tr>
+    <tr><td>Seguridad</td><td>Resistente a ataques conocidos</td></tr>
+    <tr><td>Uso actual</td><td>VeraCrypt, cifrado de discos, soluciones open source</td></tr>
+  </tbody>
+</table>
+
+<p><b>Ejemplo de uso en VeraCrypt:</b></p>
+<pre><code>veracrypt --create volumen.tc --size 500M --encryption Twofish --hash sha-512 --filesystem ext4 --password '1234'</code></pre>
+<br>
+
+<h2><b>🔑 Diffie-Hellman</b></h2>
+<p><b>Diffie-Hellman</b> no es un algoritmo de cifrado tradicional, sino un protocolo de intercambio seguro de claves. Fue publicado en 1976 por Whitfield Diffie y Martin Hellman, marcando el nacimiento de la criptografía moderna de clave pública.</p>
+
+<p>Su objetivo es permitir que dos partes establezcan una clave secreta compartida a través de un canal inseguro, sin necesidad de intercambiar directamente la clave. Utiliza conceptos matemáticos basados en exponenciación modular y teoría de números.</p>
+
+<p>Hoy en día es la base de muchos protocolos de seguridad modernos como TLS (HTTPS), SSH o VPNs. Cuando se combina con técnicas como <b>Perfect Forward Secrecy</b> (PFS), garantiza que las claves anteriores no se vean comprometidas incluso si la clave actual es revelada.</p>
+
+<table>
+  <thead>
+    <tr><th>🔍 Característica</th><th>📄 Descripción</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Tipo</td><td>Intercambio de claves (no cifrado)</td></tr>
+    <tr><td>Base matemática</td><td>Exponenciación modular</td></tr>
+    <tr><td>Seguridad</td><td>Depende de la dificultad del logaritmo discreto</td></tr>
+    <tr><td>Usos modernos</td><td>TLS, VPNs, SSH</td></tr>
+    <tr><td>Ventaja clave</td><td>No se intercambia la clave secreta por la red</td></tr>
+  </tbody>
+</table>
+
+<p><b>Generar parámetros DH en OpenSSL:</b></p>
+<pre><code>openssl dhparam -out dh2048.pem 2048</code></pre>
+
+<p>Este comando crea un conjunto de parámetros Diffie-Hellman con un nivel de seguridad de 2048 bits, adecuado para la mayoría de entornos actuales.</p>
+
+</details>
 
