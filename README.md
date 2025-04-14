@@ -1402,7 +1402,7 @@ WantedBy=multi-user.target
 
 
 <details>
-  <summary><h2>🎞️ Cifrado</h2></summary>
+  <summary><h2>🗝️ Cifrado</h2></summary>
 
   <details>
   <summary><h2>🔐 Funciones de Hash – Parte I</h2></summary>
