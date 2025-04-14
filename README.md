@@ -1398,3 +1398,71 @@ WantedBy=multi-user.target
   ```
 </details>
 
+
+
+
+<details>
+  <summary><h2>🎞️ Cifrado</h2></summary>
+<b>1: Crear cuenta de ngrok</b>
+
+<b>2: Descargar nkrok:</b>
+  ``` bash
+  apt install ngrok
+  ```
+o
+  ``` bash
+  curl -sSL https://ngrok-agent.s3.amazonaws.com/ngrok.asc      | tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null       && echo "deb https://ngrok-agent.s3.amazonaws.com buster main"        | tee /etc/apt/sources.list.d/ngrok.list        && apt update   && apt install ngrok
+  ```
+o
+  ``` bash
+  wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
+
+  #despuesd de hacer el wget hacemos esto para descomprimir
+  tar -xvzf ngrok-v3-stable-linux-amd64.tgz -C /usr/local/bin/
+  ```
+<b>3: Añadir authtoken que esta en setup & installation(seleccionar la plataforma):.</b>
+  ``` bash
+  ngrok config add-authtoken <TokenEnPerfil>
+  ```
+<b>4: Crear ngrok.service en "/etc/systemd/system/ngrok.service":</b>
+  ``` bash
+[Unit]
+Description=Ngrok Tunnel Service
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/ngrok tcp 22
+Restart=always
+User=root
+WorkingDirectory=/usr/local/bin
+
+[Install]
+WantedBy=multi-user.target
+  ```
+<b>5: Hacer un reload del daemon:</b>
+  ``` bash
+  systemctl daemon-reload
+  ```
+<b>6: Hacer un restart del ngrok.service:</b>
+  ``` bash
+  systemctl restart ngrok.servive
+  ```
+<b>7: Hacer status para saber si esta activo:</b>
+  ``` bash
+  systemctl status ngrok.servive
+  ```
+<b>8: Ir a la web de Ngrok (en endpoints) copiar despues del tcp://:</b>
+  ``` bash
+  #ejemplo solo coger 7.tcp.eu.ngrok.io y el puerto que lo necesitaremos
+  tcp://7.tcp.eu.ngrok.io:19089
+  ```
+<b>9: Conectarte por ssh con el siguiente comando desde donde quieres poder ver el proxmox en este caso:</b>
+  ``` bash
+  ssh -L 8006:localhost:8006 root@7.tcp.eu.ngrok.io -p 19089
+  ```
+</details>
+
+
+
+
+
