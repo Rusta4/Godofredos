@@ -312,7 +312,13 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
   <details>
     <summary>&nbsp;&nbsp;&nbsp;&nbsp;📋 <b>Diagrama Web</b></summary>
     <br>
-    <p>El mapa del sitio presenta una estructura técnica organizada alrededor de la página principal (HOME), que actúa como nodo central para acceder a cinco secciones clave: recursos técnicos, gestión de usuarios y páginas informativas. Los recursos técnicos incluyen Hacking tools, Docker, y ISO files, que enlazan a un foro de hacking, una página sobre Docker y descargas de archivos ISO, respectivamente. La gestión de usuarios se centra en la sección INICIAR SESIÓN, que permite autenticarse, registrarse o recuperar contraseñas mediante un código de verificación. Además, desde diferentes áreas del sitio se puede acceder al Perfil de usuario, donde es posible modificar credenciales como el usuario, la contraseña o el correo. La sección About Us proporciona información sobre el sitio, con enlaces hacia la autenticación y registro. La estructura facilita un flujo de navegación eficiente, priorizando tanto el acceso a recursos técnicos como la administración de la cuenta del usuario de manera clara y modular.</p>
+    <p>El mapa de la web muestra una estructura clara y funcional centrada en la página principal (HOME), que actúa como el núcleo desde donde se accede a las tres secciones principales: Docker, ISO files y Hacking tools. La navegación por la web es totalmente gratuita y no es necesario registrarse ni iniciar sesión para explorar el contenido general. Sin embargo, si se quiere descargar archivos o desplegar contenedores, es obligatorio iniciar sesión.
+
+En la sección de Inicio se presentan de forma directa las tres áreas disponibles. Docker permite desplegar contenedores Docker personalizados. ISO files ofrece descargas de imágenes ISO de distintas distribuciones de Linux. Hacking tools contiene informes técnicos sobre cómo usar herramientas de análisis en Linux, con fines educativos o administrativos.
+
+La autenticación se gestiona desde Iniciar sesión, donde se puede acceder, registrarse o recuperar la contraseña mediante un código de verificación. Una vez autenticado, el usuario puede entrar a su perfil y modificar datos como usuario, contraseña o correo.
+
+La sección About Us ofrece información básica sobre la web y permite acceder rápidamente a las opciones de registro e inicio de sesión si se quiere usar alguna funcionalidad avanzada. Toda la estructura está pensada para que la navegación sea directa, modular y enfocada en el acceso a recursos técnicos y la gestión del perfil del usuario.</p>
 <img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/diagrama-web.png" alt="LOGO-GODO" width="900" height="500" />
   </details>
 ---
