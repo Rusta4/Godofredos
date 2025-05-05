@@ -271,38 +271,35 @@ Usamos el userId para vincular Deploys → Usuarios.
 
 Ejemplo: Si en Deploys hay un registro con userId: "ABC123", en Usuarios está su info completa.
 
-<h2>⚡ Flujo de Registro </h2>
-El usuario se registra → Se genera un ID único (initial_ABC123).
+<h2>📌 Tabla 3: "Usuarios - Datos Completos" </h2>
+  - Propósito:
+  
+    Almacena toda la información del perfil del usuario.
+  
+  - Campos clave:
+  
+      Campo	Ejemplo	Descripción
+      email	ngg@gmail.com	Correo del usuario.
+      nombre_usuario	ngg	Alias o nombre.
+      rol	usuario	Permisos (ej: admin, usuario).
+      ip_publica	77.231.11.106	IP de registro.
+      fecha_creacion	23/04/2025, 4:53 PM UTC+2	Fecha de creación del perfil.
+  
+ - Relación:
 
-Se guarda en Deploys con:
-
-timestamp (fecha/hora exacta).
-
-tipo: "registro".
-
-Se completa su perfil en Usuarios (email, nombre, etc.).
-
-✅ Ventaja: Todo queda rastreado y vinculado.</p>
-<h2>🔗 Resumen de Relaciones </h2>
-
-    Tabla 1 (initial_XXX) → Genera el ID inicial.
-    
-    Tabla 2 (Deploys) → Registra el evento con userId.
-    
-    Tabla 3 (Usuarios) → Completa la info del usuario.
-    
+     → El userId en Deploys apunta a este documento.
 
 <h2>🎯 Conclusión </h2>
 Firebase nos está ayudando a:
+
 🔸 Movernos rápido (sin perder tiempo en backend).
+
 🔸 Mantener todo sincronizado (datos en tiempo real).
+
 🔸 Crecer sin dolores de cabeza (Google escala por nosotros).
-<img src="https://github.com/user-attachments/assets/56b66400-d640-4b77-87d8-6df387f9c247" alt="LOGO-GODO" width="1000" height="500" />
-<img src="https://github.com/user-attachments/assets/1c5a2ee1-1f9f-4540-858a-4dd2a3334718" alt="LOGO-GODO" width="1000" height="500" />
-<img src="https://github.com/user-attachments/assets/4ea8488b-9647-413d-b05f-04bcfa4805bc" alt="LOGO-GODO" width="1000" height="500" />
-<img src="https://github.com/user-attachments/assets/b3020efc-6d73-4622-aa33-34a2ffb66727" alt="LOGO-GODO" width="1000" height="500" />
-<img src="https://github.com/user-attachments/assets/1ad4121e-51dd-4f97-bd8e-cfc334f9510d" alt="LOGO-GODO" width="1000" height="500" />
-<img src="https://github.com/user-attachments/assets/acaca4fd-4094-4c29-a917-e81d2e7d605a" alt="LOGO-GODO" width="1000" height="500" />
+
+<img src="https://github.com/user-attachments/assets/c42c9ede-86ad-4c31-a017-4d3e4e294b12" alt="LOGO-GODO" width="1000" height="500" />
+
   </details>
 
   <details>
