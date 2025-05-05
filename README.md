@@ -487,12 +487,28 @@ Antes de proceder a esta siguiente parte de pfSense, explicaremos el funcionamie
   <details>
   <summary><h2>🤖 Proxmox</h2></summary>
   <h2>Imagen Arquitectura</h2>
-<p>Nuestra arquitectura está basada en una red virtual (10.20.30.0/24), compuesta por una máquina virtual (MV) que actúa como host para los contenedores Docker y otra MV con pfSense instalado. El pfSense gestiona la conexión a Internet para la red interna mediante reglas y reenvío de puertos, permitiendo que los usuarios externos accedan a los recursos internos a través de puertos específicos. Para ello, hemos configurado dos adaptadores de red: ens18 con una IP de clase 100.77.20.0/24 y ens19 con una IP dentro del rango de la red interna (10.20.30.0/24). En Proxmox, definimos estas dos redes mediante VMBR1 para la red interna (10.20.30.0/24) y VMBR0, que actúa como puente para la red de clase (100.77.20.0/24). A continuación, se muestra un diagrama con la configuración de Proxmox.</p>
+<p>
+  
+Nuestra arquitectura está basada en una red virtual (10.20.30.0/24), compuesta por una máquina virtual (MV) que actúa como host para los contenedores Docker y otra MV con pfSense instalado. El pfSense gestiona la conexión a Internet para la red interna mediante reglas y reenvío de puertos, permitiendo que los usuarios externos accedan a los recursos internos a través de puertos específicos. Para ello, hemos configurado dos adaptadores de red: ens18 con una IP de clase 100.77.20.0/24 y ens19 con una IP dentro del rango de la red interna (10.20.30.0/24). En Proxmox, definimos estas dos redes mediante VMBR1 para la red interna (10.20.30.0/24) y VMBR0, que actúa como puente para la red de clase (100.77.20.0/24). A continuación, se muestra un diagrama con la configuración de Proxmox.</p>
 
 ![image](https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/Diagrama-Proxmox.png)
 
 <h2>¿Qué es un servidor web?</h2>
-<p>Un servidor web es un software que gestiona las solicitudes HTTP/HTTPS de los navegadores de los usuarios y responde con recursos, como páginas HTML, imágenes o archivos, que están alojados en el servidor. Básicamente, su función es recibir las peticiones de los clientes y entregarles los contenidos solicitados.</p> 
+<p>Un servidor web es un software que se encarga de recibir las solicitudes que hacen los usuarios desde sus navegadores, generalmente a través de los protocolos HTTP o HTTPS, y responder con los recursos que se le piden, como páginas HTML, imágenes, archivos CSS o scripts JavaScript. En otras palabras, su función principal es gestionar las peticiones de los clientes y devolverles el contenido solicitado que se encuentra alojado en el servidor.
+
+En nuestro proyecto, el servidor web es una parte fundamental porque actúa como el puente entre el usuario y nuestra aplicación. Nosotros lo implementamos utilizando [indicar la tecnología exacta, por ejemplo: Node.js con el paquete express, Python con Flask, o simplemente un servidor estático con Python http.server o similar], que nos permitió levantar un servidor local para probar y servir los archivos de nuestra aplicación.
+
+Este servidor es responsable de:
+
+      🕳️ Escuchar las peticiones que llegan desde el navegador del usuario.
+      
+      🕳️ Buscar los archivos solicitados en el sistema de archivos del servidor.
+      
+      🕳️ Responder con esos archivos si existen, o con un mensaje de error si no se encuentran.
+      
+      🕳️ Durante el desarrollo, también nos sirvió para probar cómo se comportaría la aplicación una vez desplegada en un entorno real, simulando lo que haría un servidor en internet.
+
+Además, el servidor que usamos nos permitió organizar la estructura de nuestro proyecto, separar claramente el frontend (interfaz visual) de la lógica de entrega de archivos, y preparar todo para una posible futura publicación en un servidor real en la web.</p> 
 <br>
 
 <h2>¿Qué es un hosting?</h2>
