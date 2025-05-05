@@ -340,7 +340,12 @@ La sección About Us ofrece información básica sobre la web y permite acceder 
 
   <p>En general, el diseño está pensado para ofrecer una experiencia de usuario fluida, con una interfaz limpia y bien organizada. Cada sección tiene un propósito claro, facilitando la navegación y asegurando que los usuarios encuentren la información que buscan sin sentirse abrumados.</p>
 
-  <img src="https://github.com/Rusta4/Godofredos/blob/main/mokcups/conjunto-mockup%C3%A7.png" alt="LOGO-GODO" width="1000" height="500" />
+<img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/tres-primeras.png" alt="LOGO-GODO" width="1000" height="500" />
+
+
+
+
+<img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/4-ultimas_2.png" alt="LOGO-GODO" width="1000" height="500" />
   </details>
 
   
