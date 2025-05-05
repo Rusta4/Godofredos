@@ -20,9 +20,9 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
 
 <!-- Nuestros Objetivos -->
 <details>
-  <summary><h2>🎯 Objetivos del proyecto</h2></summary>
+  <summary><h2>🎯 Nuetros Objetivos</h2></summary>
   <br>
-<p>El objetivo del proyecto es proporcionar una herramienta que no solo centralice el desarrollo en ciberseguridad, sino que también fomente una colaboración más efectiva entre expertos y entusiastas de la seguridad informática. Al concentrar los recursos, herramientas y proyectos en un solo lugar, buscamos facilitar el acceso a soluciones innovadoras y prácticas que puedan ser utilizadas por toda la comunidad.</p>
+<p>Nuestro objetivo es proporcionar una herramienta que no solo centralice el desarrollo en ciberseguridad, sino que también fomente una colaboración más efectiva entre expertos y entusiastas de la seguridad informática. Al concentrar los recursos, herramientas y proyectos en un solo lugar, buscamos facilitar el acceso a soluciones innovadoras y prácticas que puedan ser utilizadas por toda la comunidad.</p>
   
 ![image](https://github.com/user-attachments/assets/194e9e44-7b82-4afe-943f-0832058dda4f)
 
@@ -35,35 +35,35 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
   <br>
 <p>En este proyecto, se han seleccionado las siguientes tecnologías para crear un entorno virtualizado y una aplicación web efectiva:</p>
 
-<h4>1. Proxmox:</h4>
+<h4>1. Proxmox</h4>
 <p>Proxmox es una plataforma de virtualización de código abierto que combina la gestión de máquinas virtuales y contenedores en un entorno centralizado. Ofrece una solución integral para optimizar el uso de los recursos del servidor, permitiendo administrar múltiples entornos desde una única interfaz. Además, facilita la creación de copias de seguridad, la migración en vivo de máquinas y la gestión avanzada de almacenamiento, lo que la convierte en una herramienta robusta para centros de datos y servidores privados.</p>
 
-<h4>2. Máquinas Virtuales (VM):</h4>
+<h4>2. Máquinas Virtuales (VM)</h4>
 <p>Las máquinas virtuales permiten ejecutar varios sistemas operativos independientes en un único hardware físico. Esto es útil tanto para pruebas como para la implementación de aplicaciones en entornos aislados, garantizando que los fallos o cambios en una máquina no afecten a las demás. Además, las VM mejoran la seguridad y flexibilidad del sistema, permitiendo la asignación dinámica de recursos y facilitando la escalabilidad según las necesidades del proyecto.</p>
 
-<h4>3. HTML (HyperText Markup Language):</h4>
+<h4>3. HTML (HyperText Markup Language)</h4>
 <p>HTML es el lenguaje de marcado fundamental para la creación de páginas web. Define la estructura básica del contenido mediante etiquetas, como encabezados, párrafos, imágenes y enlaces, que los navegadores web interpretan para mostrar el contenido de manera visual. Es el pilar de cualquier sitio web, proporcionando la base sobre la cual se construyen elementos interactivos y visuales mediante otras tecnologías como CSS y JavaScript.</p>
 
-<h4>4. CSS (Cascading Style Sheets):</h4>
+<h4>4. CSS (Cascading Style Sheets)</h4>
 <p>CSS es el lenguaje utilizado para controlar la presentación y diseño de las páginas web. Permite separar el contenido (HTML) de la presentación, facilitando el mantenimiento y la actualización del estilo visual de un sitio. Con CSS se puede ajustar el diseño, los colores, las fuentes y el espaciado de los elementos, asegurando que las páginas web sean atractivas y responsivas, adaptándose a diferentes tamaños de pantalla y dispositivos.</p>
 
-<h4>5. JavaScript:</h4> 
+<h4>5. JavaScript</h4> 
 <p>JavaScript es un lenguaje de programación esencial para el desarrollo web, utilizado para crear contenido dinámico e interactivo en las páginas. Permite modificar la estructura del documento HTML y los estilos CSS en tiempo real, lo que mejora la experiencia del usuario. Además, JavaScript es fundamental para el desarrollo de aplicaciones de una sola página (SPA), donde se gestionan las interacciones del cliente sin tener que recargar toda la página. Con el uso de bibliotecas y frameworks como React, Angular o Vue.js, JavaScript facilita la creación de interfaces ricas y funcionales.</p> 
 
-<h4>6. Node.js:</h4> 
+<h4>6. Node.js</h4> 
 <p>Node.js es un entorno de ejecución para JavaScript que permite desarrollar aplicaciones del lado del servidor. Gracias a su modelo asíncrono y basado en eventos, es altamente eficiente para manejar múltiples solicitudes simultáneamente. Se utiliza para crear APIs, gestionar autenticación, procesar datos en tiempo real y conectar con bases de datos como MongoDB o PostgreSQL. Su compatibilidad con frameworks como Express.js facilita el desarrollo de aplicaciones escalables y rápidas, convirtiéndolo en una opción clave para el backend en aplicaciones web modernas.</p>
 
-<h4>7. Firebase:</h4> 
+<h4>7. Firebase</h4> 
 <p>Firebase es una plataforma de desarrollo de aplicaciones basada en la nube, que incluye una base de datos NoSQL en tiempo real. Es ideal para aplicaciones que requieren un manejo eficiente de grandes volúmenes de datos, ya que permite almacenar, sincronizar y recuperar información de forma rápida y escalable. Además, proporciona herramientas para la autenticación, hosting y analítica, lo que facilita el desarrollo completo de aplicaciones web y móviles.</p> 
 
 
-<h4>8. Docker:</h4> 
+<h4>8. Docker</h4> 
 <p>Docker es una plataforma que utiliza contenedores para simplificar el desarrollo, despliegue y ejecución de aplicaciones. Permite empaquetar una aplicación y todas sus dependencias en una "imagen", asegurando que funcione de manera consistente en diferentes entornos. Al usar Docker, se reduce la necesidad de configurar entornos específicos en cada servidor, lo que agiliza la implementación y mejora la escalabilidad y portabilidad de las aplicaciones.</p> 
 
-<h4>9. pfSense:</h4> 
+<h4>9. pfSense</h4> 
 <p>pfSense es un software de firewall y enrutador de código abierto basado en FreeBSD. Ofrece una solución robusta para la gestión de redes, proporcionando funcionalidades avanzadas como VPN, filtrado de contenido, y control de tráfico. En este proyecto, pfSense ha sido configurado para proteger y gestionar el acceso a los contenedores Docker y otros recursos dentro de la red. A través de reglas de firewall y la configuración de puertos específicos, pfSense asegura que solo los usuarios autorizados puedan acceder a los recursos de la red, incluyendo la web alojada en Nginx y otros servicios dentro de Alpine Linux.</p>
 
-<h4>Conclusión:</h4> 
+<h4>Conclusión</h4> 
 <p>Estas tecnologías forman un conjunto sólido y flexible que permite el desarrollo de aplicaciones web dinámicas, escalables y seguras. Gracias a su integración eficiente, se garantiza un entorno de trabajo optimizado para las necesidades del proyecto, desde la virtualización y el manejo de contenedores hasta la gestión de la seguridad en la red y la implementación de las tecnologías backend.</p>
 
 </details>
@@ -116,7 +116,7 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
 <!-- -------------------------------------------------------------------------- -->
 
 
-<!-- Organización -->
+<!-- Organización: -->
 
 <details>
   <summary><h2>📁 Organización:</h2></summary>
@@ -225,8 +225,78 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
   <details>
     <summary>&nbsp;&nbsp;&nbsp;&nbsp;📊 <b>Diagrama NoSQL</b></summary>
     <br>
-    <p>Al haber utilizado Firebase, que tal como hemos comentado anteriormente, es un tipo de base de datos <b>NOSQL</b>. Así que la manera de realizar el diagrama es totalmente distinto, y en nuestro caso, lo hemos realizado desde el mismo cloud de Firebase. A continuación, os vamos a mostrar como han quedado estructuradas el conjunto de colecciones (tablas) con todos sus documentos y campos.</p>
+    <p> 
+      <h2>Hemos implementado Firebase, ya que su esquema NO Relacional nos permite:</h2>
+       
+        ✔ Desarrollar rápido sin preocuparnos por servidores.
 
+        ✔ Escalar fácilmente (Google se encarga de la infraestructura).
+
+        ✔ Sincronizar datos en tiempo real (ideal para nuestra app).
+
+        ✔ Reducir costos (solo pagamos por lo que usamos).
+
+           "Menos código backend, más funcionalidad."
+
+<h1>🛠 ¿Cómo lo implementamos?</h1>
+<h2>📌 Firebase Database</h2>
+
+Estructuramos todo en colecciones y documentos:
+
+Colección Deploys
+Es nuestro "log de eventos".
+
+  Registramos:
+
+    Creación de usuarios (initial_XXX).
+
+    Actualizaciones (ej: cambios de rol).
+
+    Errores (si los hay).
+
+Colección Usuarios
+Aquí guardamos todo el perfil del usuario:
+
+      {
+        "email": "pepito@empresa.com",
+        "nombre_usuario": "pepito_dev",
+        "rol": "admin",
+        "ip_publica": "200.100.50.1",
+        "fecha_creacion": "24/03/2025"
+      }
+      
+<h2>🔗 Relación entre colecciones </h2>
+
+Usamos el userId para vincular Deploys → Usuarios.
+
+Ejemplo: Si en Deploys hay un registro con userId: "ABC123", en Usuarios está su info completa.
+
+<h2>⚡ Flujo de Registro </h2>
+El usuario se registra → Se genera un ID único (initial_ABC123).
+
+Se guarda en Deploys con:
+
+timestamp (fecha/hora exacta).
+
+tipo: "registro".
+
+Se completa su perfil en Usuarios (email, nombre, etc.).
+
+✅ Ventaja: Todo queda rastreado y vinculado.</p>
+<h2>🔗 Resumen de Relaciones </h2>
+
+    Tabla 1 (initial_XXX) → Genera el ID inicial.
+    
+    Tabla 2 (Deploys) → Registra el evento con userId.
+    
+    Tabla 3 (Usuarios) → Completa la info del usuario.
+    
+
+<h2>🎯 Conclusión </h2>
+Firebase nos está ayudando a:
+🔸 Movernos rápido (sin perder tiempo en backend).
+🔸 Mantener todo sincronizado (datos en tiempo real).
+🔸 Crecer sin dolores de cabeza (Google escala por nosotros).
 <img src="https://github.com/user-attachments/assets/56b66400-d640-4b77-87d8-6df387f9c247" alt="LOGO-GODO" width="1000" height="500" />
 <img src="https://github.com/user-attachments/assets/1c5a2ee1-1f9f-4540-858a-4dd2a3334718" alt="LOGO-GODO" width="1000" height="500" />
 <img src="https://github.com/user-attachments/assets/4ea8488b-9647-413d-b05f-04bcfa4805bc" alt="LOGO-GODO" width="1000" height="500" />
