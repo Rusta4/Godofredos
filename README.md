@@ -226,77 +226,55 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
     <summary>&nbsp;&nbsp;&nbsp;&nbsp;📊 <b>Diagrama NoSQL</b></summary>
     <br>
     <p> 
-      <h2>Hemos implementado Firebase, ya que su esquema NO Relacional nos permite:</h2>
-       
-        ✔ Desarrollar rápido sin preocuparnos por servidores.
-
-        ✔ Escalar fácilmente (Google se encarga de la infraestructura).
-
-        ✔ Sincronizar datos en tiempo real (ideal para nuestra app).
-
-        ✔ Reducir costos (solo pagamos por lo que usamos).
-
-           "Menos código backend, más funcionalidad."
-
-<h1>🛠 ¿Cómo lo implementamos?</h1>
-<h2>📌 Firebase Database</h2>
-
-Estructuramos todo en colecciones y documentos:
-
-Colección Deploys
-Es nuestro "log de eventos".
-
-  Registramos:
-
-    Creación de usuarios (initial_XXX).
-
-    Actualizaciones (ej: cambios de rol).
-
-    Errores (si los hay).
-
-Colección Usuarios
-Aquí guardamos todo el perfil del usuario:
-
-      {
-        "email": "pepito@empresa.com",
-        "nombre_usuario": "pepito_dev",
-        "rol": "admin",
-        "ip_publica": "200.100.50.1",
-        "fecha_creacion": "24/03/2025"
-      }
+<h2>📌 "Deploys"</h2>
       
-<h2>🔗 Relación entre colecciones </h2>
+  <H3>Propósito</H3>
 
-Usamos el userId para vincular Deploys → Usuarios.
+      Registra la creación inicial de usuarios con IDs únicos (initial_XXX).
 
-Ejemplo: Si en Deploys hay un registro con userId: "ABC123", en Usuarios está su info completa.
+  <h3>Campos clave</h3>
 
-<h2>📌 Tabla 3: "Usuarios - Datos Completos" </h2>
-  - Propósito:
+    {
+      deployId	initial_3PXENXEXkdW1UhzBoBFOyI__	--> "ID único del usuario (prefijo initial_)."
+      initialRecord	true	--> "Indica que es un registro inicial."
+      note	"Documento inicial creado..."	--> "Descripción del evento."
+      timestamp	24/03/2025, 5:02 PM UTC+1	--> "Fecha/hora exacta del registro."
+      userId	3PXENXEXkdW1UhzBoBFOyIdu32	--> "Vincula con la colección Usuarios."
+    }
+  <h3>Relación</h3>
   
-    Almacena toda la información del perfil del usuario.
-  
-  - Campos clave:
-  
-      Campo	Ejemplo	Descripción
-      email	ngg@gmail.com	Correo del usuario.
-      nombre_usuario	ngg	Alias o nombre.
-      rol	usuario	Permisos (ej: admin, usuario).
-      ip_publica	77.231.11.106	IP de registro.
-      fecha_creacion	23/04/2025, 4:53 PM UTC+2	Fecha de creación del perfil.
-  
- - Relación:
+      → Usamos "userId" para enlazar a cada usuario con la tabla "Usuarios".
+<img src="https://github.com/user-attachments/assets/c42c9ede-86ad-4c31-a017-4d3e4e294b12" alt="LOGO-GODO" width="800" height="400" />
 
-     → El userId en Deploys apunta a este documento.
+<h2>📌 "Solicitudes"</h2>
+  <H3>Propósito</H3>
 
+        Log de acciones importantes (registros, actualizaciones).
+
+  <h3>Campos clave</h3>
+
+        {
+          "detalles": "Nuevo usuario registrado",
+          "estado": "completado",
+          "fecha_creacion": "24/03/2025, 5:02 PM UTC+1",
+          "tipo": "registro",
+          "userId": "3PXENXEXkdWi1UhzBoBFOyIoIq32"
+        }
+  <h3>Relación</h3>
+
+      → El userId coincide con los IDs de Tabla 1 y Tabla 3.
+
+<img src="https://github.com/user-attachments/assets/19bac0ba-18d3-4413-baf9-f47b1e194ecb" alt="LOGO-GODO" width="1000" height="500" />    
+
+<img src="https://github.com/user-attachments/assets/f53d5312-4104-402c-aaaf-3a4e2f270e0b" alt="LOGO-GODO" width="1000" height="500" />
 <h2>🎯 Conclusión </h2>
-Firebase nos está ayudando a:
+  Firebase nos está ayudando a:
 
-🔸 Movernos rápido (sin perder tiempo en backend).
+    🔸 Movernos rápido (sin perder tiempo en backend).
 
-🔸 Mantener todo sincronizado (datos en tiempo real).
+    🔸 Mantener todo sincronizado (datos en tiempo real).
 
-🔸 Crecer sin dolores de cabeza (Google escala por nosotros).
+    🔸 Crecer sin dolores de cabeza (Google escala por nosotros).
 
 <img src="https://github.com/user-attachments/assets/c42c9ede-86ad-4c31-a017-4d3e4e294b12" alt="LOGO-GODO" width="1000" height="500" />
 
@@ -305,10 +283,8 @@ Firebase nos está ayudando a:
   <details>
     <summary>&nbsp;&nbsp;&nbsp;&nbsp;🛜 <b>Diagrama de red</b></summary>
     <br>
-    <p>El diagrama de red que presentamos en esta versión del proyecto refleja una estructura más organizada en comparación con la anterior. Mientras que en el diseño previo todas las máquinas virtuales se ejecutaban dentro de un único entorno Proxmox, ahora hemos optado por una división funcional más clara utilizando dos instancias de Alpine Linux dentro del mismo entorno. La primera instancia de Alpine se encarga de almacenar y gestionar tanto la página web como los respaldos del sistema. La segunda instancia aloja los contenedores Docker y se encarga de procesar las peticiones de la web para desplegar y administrar dichos contenedores. Para el control del tráfico de red, hemos configurado reglas específicas con iptables, lo que permite gestionar el acceso a los servicios expuestos, garantizando la seguridad y disponibilidad de los recursos.
-
-</p>
-    <img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/diagrama-red.png" alt="Diagrama de red" width="1417" height="792" />
+    <p>El diagrama de red que presentamos en este proyecto es mucho más sencillo que el anterior. En el diagrama previo, todas las máquinas virtuales se encontraban en un entorno Proxmox, lo que generaba una dispersión mayor, incluso dentro de la simplicidad que Proxmox nos ofrece. En esta nueva versión, hemos optado por utilizar contenedores para reemplazar las máquinas virtuales, lo que nos permite una mayor unificación y organización, todo alojado en nuestra máquina con Alpine Linux. Además, hemos configurado un firewall en pfSense, el cual está ajustado para permitir el acceso a los recursos de los contenedores Docker en Alpine a través de puertos específicos, así como a la web alojada en Nginx.</p>
+    <img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/Diagrama-Red-Proyecto.png" alt="Diagrama de red" width="1375" height="735" />
   </details>
 
 
