@@ -332,14 +332,16 @@ La sección About Us ofrece información básica sobre la web y permite acceder 
   <details>
   <summary>&nbsp;&nbsp;&nbsp;&nbsp;💭 <b>Mockup</b></summary>
     <br>
-    <p>La primera pantalla es la de bienvenida, diseñada para captar la atención del usuario con un video de fondo que hace que la página sea visualmente atractiva. El mensaje principal invita a los usuarios a explorar el foro con repositorios destacados, acompañado de un botón de llamada a la acción que los lleva a descubrir los servicios ofrecidos. Además, se presentan categorías populares como Docker, Hacking tools e ISO files, que permiten a los usuarios elegir temas de interés de forma rápida y sencilla. Al final, se incluyen enlaces a redes sociales y la información legal, cumpliendo con las normativas y facilitando la conexión con la comunidad.</p>
+    <p>La primera pantalla es la de bienvenida, diseñada para captar la atención del usuario mediante un video de fondo que aporta dinamismo y atractivo visual. El mensaje principal invita a explorar el foro y acceder a repositorios destacados, acompañado de un botón de llamada a la acción que dirige a los usuarios a conocer los servicios disponibles. Justo debajo, se presentan de forma accesible las categorías más populares: Docker, Hacking Tools e ISO Files, facilitando la navegación hacia los temas de interés.</p>
 
-  <p>La segunda pantalla está enfocada en la exploración de contenido mediante una barra de búsqueda con filtros. Este diseño en formato de cuadrícula presenta resultados organizados en tarjetas visuales que muestran imágenes, texto y enlaces, brindando una vista previa clara del contenido antes de que el usuario acceda a más detalles. Los filtros permiten a los usuarios personalizar la búsqueda según sus necesidades, haciendo que la navegación sea más eficiente y rápida.</p>
+  <p>En la sección de Docker, se incluye un panel interactivo que permite seleccionar y desplegar contenedores, eligiendo la ISO deseada junto con su versión correspondiente.</p>
 
-  <p>Por último, la tercera pantalla está dedicada a ofrecer información sobre el proyecto. Aquí se destaca un carrusel de imágenes que resalta características clave o actualizaciones del proyecto, acompañado de un bloque de texto que proporciona una breve descripción. Además, se muestran estadísticas importantes como descargas, usuarios activos y la experiencia en el sector, lo que ayuda a generar confianza en los visitantes mostrando el impacto y alcance del proyecto.</p>
+  <p>La página de Hacking Tools ofrece una colección de informes técnicos que explican cómo utilizar diversas herramientas de análisis en entornos Linux, enfocados en fines educativos y de administración de sistemas.</p>
 
-  <p>En general, el diseño está pensado para ofrecer una experiencia de usuario fluida, con una interfaz limpia y bien organizada. Cada sección tiene un propósito claro, facilitando la navegación y asegurando que los usuarios encuentren la información que buscan sin sentirse abrumados.</p>
+  <p>En la sección de ISO Files, se pone a disposición una amplia variedad de imágenes ISO de distintas distribuciones de Linux, listas para su descarga de forma sencilla y directa.</p>
 
+  <p>Finalmente, el apartado "Mi perfil" muestra los datos de la cuenta del usuario y proporciona funciones como el cambio de contraseña, actualización de correo electrónico y otros ajustes de perfil.</p>
+  
 <img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/tres-primeras.png" alt="LOGO-GODO" width="1000" height="500" />
 
 
