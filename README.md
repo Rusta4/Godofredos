@@ -20,7 +20,7 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
 
 <!-- Nuestros Objetivos -->
 <details>
-  <summary><h2>🎯 Nuetros Objetivos</h2></summary>
+  <summary><h2>🎯 Nuestros Objetivos</h2></summary>
   <br>
 <p>Nuestro objetivo es proporcionar una herramienta que no solo centralice el desarrollo en ciberseguridad, sino que también fomente una colaboración más efectiva entre expertos y entusiastas de la seguridad informática. Al concentrar los recursos, herramientas y proyectos en un solo lugar, buscamos facilitar el acceso a soluciones innovadoras y prácticas que puedan ser utilizadas por toda la comunidad.</p>
   
