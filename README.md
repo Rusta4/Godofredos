@@ -496,7 +496,7 @@ Nuestra arquitectura está basada en una red virtual (10.20.30.0/24), compuesta 
 <h2>¿Qué es un servidor web?</h2>
 <p>Un servidor web es un software que se encarga de recibir las solicitudes que hacen los usuarios desde sus navegadores, generalmente a través de los protocolos HTTP o HTTPS, y responder con los recursos que se le piden, como páginas HTML, imágenes, archivos CSS o scripts JavaScript. En otras palabras, su función principal es gestionar las peticiones de los clientes y devolverles el contenido solicitado que se encuentra alojado en el servidor.
 
-En nuestro proyecto, el servidor web es una parte fundamental porque actúa como el puente entre el usuario y nuestra aplicación. Nosotros lo implementamos utilizando [indicar la tecnología exacta, por ejemplo: Node.js con el paquete express, Python con Flask, o simplemente un servidor estático con Python http.server o similar], que nos permitió levantar un servidor local para probar y servir los archivos de nuestra aplicación.
+En nuestro proyecto, el servidor web es una parte fundamental porque actúa como el puente entre el usuario y nuestra aplicación. Nosotros lo implementamos utilizando Node.js, con el paquete express, que nos permitió levantar un servidor local de forma rápida y sencilla.
 
 Este servidor es responsable de:
 
