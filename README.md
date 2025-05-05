@@ -305,7 +305,9 @@ Firebase nos está ayudando a:
   <details>
     <summary>&nbsp;&nbsp;&nbsp;&nbsp;🛜 <b>Diagrama de red</b></summary>
     <br>
-    <p>El diagrama de red que presentamos en este proyecto es mucho más sencillo que el anterior. En el diagrama previo, todas las máquinas virtuales se encontraban en un entorno Proxmox, lo que generaba una dispersión mayor, incluso dentro de la simplicidad que Proxmox nos ofrece. En esta nueva versión, hemos optado por utilizar contenedores para reemplazar las máquinas virtuales, lo que nos permite una mayor unificación y organización, todo alojado en nuestra máquina con Alpine Linux. Además, hemos configurado un firewall en pfSense, el cual está ajustado para permitir el acceso a los recursos de los contenedores Docker en Alpine a través de puertos específicos, así como a la web alojada en Nginx.</p>
+    <p>El diagrama de red que presentamos en esta versión del proyecto refleja una estructura más organizada en comparación con la anterior. Mientras que en el diseño previo todas las máquinas virtuales se ejecutaban dentro de un único entorno Proxmox, ahora hemos optado por una división funcional más clara utilizando dos instancias de Alpine Linux dentro del mismo entorno. La primera instancia de Alpine se encarga de almacenar y gestionar tanto la página web como los respaldos del sistema. La segunda instancia aloja los contenedores Docker y se encarga de procesar las peticiones de la web para desplegar y administrar dichos contenedores. Para el control del tráfico de red, hemos configurado reglas específicas con iptables, lo que permite gestionar el acceso a los servicios expuestos, garantizando la seguridad y disponibilidad de los recursos.
+
+</p>
     <img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/diagrama-red.png" alt="Diagrama de red" width="1417" height="792" />
   </details>
 
