@@ -228,23 +228,23 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
     <p> 
 <h2>📌 "Deploys"</h2>
       
-  <H3>Propósito</H3>
-
-      Registra la creación inicial de usuarios con IDs únicos (initial_XXX).
-
-  <h3>Campos clave</h3>
-
-    {
-      deployId	initial_3PXENXEXkdW1UhzBoBFOyI__	--> "ID único del usuario (prefijo initial_)."
-      initialRecord	true	--> "Indica que es un registro inicial."
-      note	"Documento inicial creado..."	--> "Descripción del evento."
-      timestamp	24/03/2025, 5:02 PM UTC+1	--> "Fecha/hora exacta del registro."
-      userId	3PXENXEXkdW1UhzBoBFOyIdu32	--> "Vincula con la colección Usuarios."
-    }
-  <h3>Relación</h3>
+ <H3>Propósito</H3>
   
+      Registra la creación inicial de usuarios con IDs únicos (initial_XXX).
+  
+ <h3>Campos clave</h3>
+  
+      {
+        deployId	initial_3PXENXEXkdW1UhzBoBFOyI__	--> "ID único del usuario (prefijo initial_)."
+        initialRecord	true	--> "Indica que es un registro inicial."
+        note	"Documento inicial creado..."	--> "Descripción del evento."
+        timestamp	24/03/2025, 5:02 PM UTC+1	--> "Fecha/hora exacta del registro."
+        userId	3PXENXEXkdW1UhzBoBFOyIdu32	--> "Vincula con la colección Usuarios."
+      }
+ <h3>Relación</h3>
+    
       → Usamos "userId" para enlazar a cada usuario con la tabla "Usuarios".
-<img src="https://github.com/user-attachments/assets/c42c9ede-86ad-4c31-a017-4d3e4e294b12" alt="LOGO-GODO" width="800" height="400" />
+  <img src="https://github.com/user-attachments/assets/c42c9ede-86ad-4c31-a017-4d3e4e294b12" alt="LOGO-GODO" width="800" height="400" />
 
 <h2>📌 "Solicitudes"</h2>
   <H3>Propósito</H3>
@@ -262,21 +262,42 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
         }
   <h3>Relación</h3>
 
-      → El userId coincide con los IDs de Tabla 1 y Tabla 3.
+      → El "userId" coincide con los "IDs" de "Tabla 1" y "Tabla 3".
 
-<img src="https://github.com/user-attachments/assets/19bac0ba-18d3-4413-baf9-f47b1e194ecb" alt="LOGO-GODO" width="1000" height="500" />    
+<img src="https://github.com/user-attachments/assets/19bac0ba-18d3-4413-baf9-f47b1e194ecb" alt="LOGO-GODO" width="800" height="400" />    
 
-<img src="https://github.com/user-attachments/assets/f53d5312-4104-402c-aaaf-3a4e2f270e0b" alt="LOGO-GODO" width="1000" height="500" />
+<h2>📌 "Usuarios"</h2>
+
+  <h3>Propósito</h3>
+
+        Almacena toda la información del perfil del usuario.
+
+  <h3>Campos clave</h3>
+
+      {
+          Campo	Ejemplo  --> Descripción
+          email	ngg@gmail.com	--> Correo del usuario.
+          nombre_usuario	ngg	 --> Alias o nombre.
+          rol	usuario	Permisos --> (ej: admin, usuario).
+          ip_publica	77.231.11.106	--> IP de registro.
+          fecha_creacion	23/04/2025, 4:53 PM UTC+2	 --> Fecha de creación del perfil.
+      }
+
+ <h3>Relación</h3>
+  
+      → El "userId" en "Deploys" apunta a esta tabla.
+
+<img src="https://github.com/user-attachments/assets/f53d5312-4104-402c-aaaf-3a4e2f270e0b" alt="LOGO-GODO" width="800" height="400" />
+
 <h2>🎯 Conclusión </h2>
-  Firebase nos está ayudando a:
+    <h4>Firebase nos está ayudando a:</h4>
 
-    🔸 Movernos rápido (sin perder tiempo en backend).
+      🔸 Movernos rápido (sin perder tiempo en backend).
+    
+      🔸 Mantener todo sincronizado (datos en tiempo real).
+    
+      🔸 Crecer sin dolores de cabeza (Google escala por nosotros).
 
-    🔸 Mantener todo sincronizado (datos en tiempo real).
-
-    🔸 Crecer sin dolores de cabeza (Google escala por nosotros).
-
-<img src="https://github.com/user-attachments/assets/c42c9ede-86ad-4c31-a017-4d3e4e294b12" alt="LOGO-GODO" width="1000" height="500" />
 
   </details>
 
