@@ -116,7 +116,7 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
 <!-- -------------------------------------------------------------------------- -->
 
 
-<!-- Organización: -->
+<!-- Organización -->
 
 <details>
   <summary><h2>📁 Organización:</h2></summary>
