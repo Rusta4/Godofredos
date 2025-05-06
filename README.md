@@ -368,9 +368,75 @@ La sección About Us ofrece información básica sobre la web y permite acceder 
   <details>
   <summary>&nbsp;&nbsp;&nbsp;&nbsp;🔗 <b>Funcionalidades Web</b></summary>
      <br>
-  <img src="https://github.com/user-attachments/assets/37a57af5-b507-4c2a-ad87-854c6c390611" alt="LOGO-GODO" width="1000" height="550" />
-  <img src="https://github.com/user-attachments/assets/750eb6fb-18b9-49af-bc89-a224408ab418" alt="LOGO-GODO" width="1000" height="550" />
-  <img src="https://github.com/user-attachments/assets/abc825ac-d3d8-4b15-a1c8-1d5af8564ee5" alt="LOGO-GODO" width="1000" height="550" />
+<br>
+<h2>⚙️ Funcionalidades</h2>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Prioridad</th>
+      <th>Objetivo</th>
+      <th>Estado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ID0</td>
+      <td>Media</td>
+      <td>Registrar usuarios</td>
+      <td>Hecho</td>
+    </tr>
+    <tr>
+      <td>ID1</td>
+      <td>Media</td>
+      <td>Iniciar sesión</td>
+      <td>Hecho</td>
+    </tr>
+    <tr>
+      <td>ID2</td>
+      <td>Alta</td>
+      <td>Desplegar contenedores en la web</td>
+      <td>Hecho</td>
+    </tr>
+    <tr>
+      <td>ID3</td>
+      <td>Alta</td>
+      <td>Personalizar el S.O. del contenedor</td>
+      <td>Hecho</td>
+    </tr>
+    <tr>
+      <td>ID4</td>
+      <td>Alta</td>
+      <td>Descargar archivos</td>
+      <td>Hecho</td>
+    </tr>
+    <tr>
+      <td>ID5</td>
+      <td>Media</td>
+      <td>Pop up de cookies</td>
+      <td>Hecho</td>
+    </tr>
+    <tr>
+      <td>ID6</td>
+      <td>Media</td>
+      <td>Recuperar contraseña</td>
+      <td>Hecho</td>
+    </tr>
+    <tr>
+      <td>ID7</td>
+      <td>Media</td>
+      <td>Cambiar de usuario</td>
+      <td>Hecho</td>
+    </tr>
+    <tr>
+      <td>ID8</td>
+      <td>Media</td>
+      <td>Cambiar el email</td>
+      <td>Hecho</td>
+    </tr>
+  </tbody>
+</table>
+
   </details>
 </details>
 
