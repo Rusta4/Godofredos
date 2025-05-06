@@ -1445,84 +1445,70 @@ Ejabberd es una solución potente y flexible para la mensajería en tiempo real.
 
 
   <h2><br><br>💻 ARQUITECTURA DEL SISTEMA</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Componente de sistema</th>
-        <th>Tecnología o framework</th>
-        <th>Versión</th>
-        <th>Puerto</th>
-        <th>Descripción de uso o requisitos</th>
-        <th>Enlace a documentación o información adicional</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Hardware</td>
-        <td>Proxmox, Alpine, 2 Adaptadores de red (Proxmox), Pfsense</td>
-        <td>Proxmox: 8.3.1, Alpine: 3.21.2</td>
-        <td>Ens19:10.20.30.0, Ens18:100.77.20.0</td>
-        <td>Usaremos un proxmox para almacenar el pfsense y el Alpine. Dentro de este Alpine guardaremos los Docker. El proxmox lo configuraremos con dos adaptadores de red, uno para la red interna y otro para la externa.</td>
-        <td>Documentación oficial de Proxmox, Alpine y Pfsense</td>
-      </tr>
-      <tr>
-        <td>Sistema operativo</td>
-        <td>Proxmox, Alpine (Linux), Pfsense</td>
-        <td>Proxmox: 8.3.1, Alpine: 3.21.2</td>
-        <td>No</td>
-        <td>Proxmox para almacenar la MV de alpine y Pfsense. Alpine para almacenar los Docker.</td>
-        <td>Documentación oficial de Proxmox y Alpine</td>
-      </tr>
-      <tr>
-        <td>Interfaz de usuario (Frontend)</td>
-        <td>HTML, CSS, JS</td>
-        <td>HTML5, CSS3, ES1</td>
-        <td>No</td>
-        <td>Usaremos HTML para la estructura de la web, CSS para darle estilos y JS para que la web sea mucho más interactiva con el usuario.</td>
-        <td>Documentación de HTML, CSS y JS</td>
-      </tr>
-      <tr>
-        <td>Lógica de negocio (Backend)</td>
-        <td>Node.js, PHP</td>
-        <td>Node.js: 23.7.0, PHP: 8.4.3</td>
-        <td>3000</td>
-        <td>Para desplegar las MV necesitamos un backend, por lo que usaremos PHP y Node.js. Además, este backend también lo necesitamos para que el usuario pueda subir archivos a la web.</td>
-        <td>Documentación oficial de Node.js y PHP</td>
-      </tr>
-      <tr>
-        <td>Servidor web</td>
-        <td>Nginx</td>
-        <td>Nginx: 1.26.3</td>
-        <td>8082</td>
-        <td>Usamos un Docker con el S.O. de Nginx, y para llegar a la web hay que conectarse al pfsense a través del puerto 8082, donde opera el Docker de Nginx.</td>
-        <td>Documentación oficial de Nginx</td>
-      </tr>
-      <tr>
-        <td>Base de datos</td>
-        <td>MongoDB</td>
-        <td>8.0</td>
-        <td>Pendiente de configuración</td>
-        <td>Usaremos MongoDB para que los usuarios puedan registrarse, iniciar sesión y subir archivos a la web.</td>
-        <td>Documentación oficial de MongoDB</td>
-      </tr>
-      <tr>
-        <td>Sistema gestor de base de datos</td>
-        <td>MongoDB Shell</td>
-        <td>2.3.8</td>
-        <td>No</td>
-        <td>Usaremos la terminal para configurar toda la base de datos.</td>
-        <td>Documentación oficial de MongoDB Shell</td>
-      </tr>
-      <tr>
-        <td>Servicios de APIs</td>
-        <td>Pendiente de investigación</td>
-        <td>Pendiente</td>
-        <td>Pendiente</td>
-        <td>Aún estamos investigando qué podemos usar para configurar y desplegar una MV en la web, ya que es un proceso complicado. Lo único que tenemos claro hasta el momento es el backend y dónde se ejecutarán las configuraciones.</td>
-        <td>Pendiente de información</td>
-      </tr>
-    </tbody>
-  </table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Componente de sistema</th>
+      <th>Tecnología o framework</th>
+      <th>Versión</th>
+      <th>Puerto</th>
+      <th>Descripción de uso o requisitos</th>
+      <th>Enlace a documentación o información adicional</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Hardware</td>
+      <td>Proxmox, Alpine, Adaptador puente (Proxmox), Pfsense</td>
+      <td>Proxmox: 8.3.1, Alpine: 3.21.2</td>
+      <td>100.77.20.0/24</td>
+      <td>Usaremos un Proxmox para alojar el Pfsense y dos máquinas Alpine. El adaptador puente en Proxmox nos permite que ambas Alpines estén conectadas a la red 100.77.20.0/24.</td>
+      <td>Documentación oficial de Proxmox, Alpine y Pfsense</td>
+    </tr>
+    <tr>
+      <td>Sistema operativo</td>
+      <td>Proxmox, Alpine (Linux), Pfsense</td>
+      <td>Proxmox: 8.3.1, Alpine: 3.21.2</td>
+      <td>No</td>
+      <td>Proxmox sirve como hipervisor para ejecutar las máquinas virtuales. Alpine se usa como sistema base en los contenedores Docker. Pfsense actúa como firewall y gestor de red.</td>
+      <td>Documentación oficial de Proxmox y Alpine</td>
+    </tr>
+    <tr>
+      <td>Docker y orquestación</td>
+      <td>Docker, Docker Compose</td>
+      <td>Docker: 26.0.1, Compose: 2.24.5</td>
+      <td>Depende del contenedor</td>
+      <td>Utilizamos Docker para contenerizar servicios como el servidor web o el backend, y Docker Compose para gestionar múltiples contenedores y sus configuraciones desde un solo archivo YAML.</td>
+      <td><a href="https://docs.docker.com/compose/">Documentación oficial de Docker Compose</a></td>
+    </tr>
+    <tr>
+      <td>Interfaz de usuario (Frontend)</td>
+      <td>HTML, CSS, JS</td>
+      <td>HTML5, CSS3, ES1</td>
+      <td>No</td>
+      <td>HTML para la estructura de la web, CSS para los estilos visuales y JS para añadir interactividad en el navegador.</td>
+      <td>Documentación de HTML, CSS y JS</td>
+    </tr>
+    <tr>
+      <td>Lógica de negocio (Backend)</td>
+      <td>Node.js, PHP</td>
+      <td>Node.js: 23.7.0, PHP: 8.4.3</td>
+      <td>3000</td>
+      <td>Node.js y PHP permiten procesar peticiones del usuario, manejar la subida de archivos y desplegar máquinas virtuales desde la web.</td>
+      <td>Documentación oficial de Node.js y PHP</td>
+    </tr>
+    <tr>
+      <td>Servidor web</td>
+      <td>Nginx</td>
+      <td>Nginx: 1.26.3</td>
+      <td>8082</td>
+      <td>Se utiliza un contenedor Docker con Nginx para servir la web. El acceso se realiza a través del puerto 8082 configurado en Pfsense.</td>
+      <td>Documentación oficial de Nginx</td>
+    </tr>
+  </tbody>
+</table>
+
 </details>
 
 <details>
