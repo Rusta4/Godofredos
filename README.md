@@ -573,25 +573,32 @@ Nuestra arquitectura está basada en una red virtual (10.20.30.0/24), compuesta 
 ![image](https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/Diagrama-Proxmox.png)
 
 <h2>¿Qué es un servidor web?</h2>
-<p>Un servidor web es un software que se encarga de recibir las solicitudes que hacen los usuarios desde sus navegadores, generalmente a través de los protocolos HTTP o HTTPS, y responder con los recursos que se le piden, como páginas HTML, imágenes, archivos CSS o scripts JavaScript. En otras palabras, su función principal es gestionar las peticiones de los clientes y devolverles el contenido solicitado que se encuentra alojado en el servidor.
+<p>Un servidor web es un tipo de software cuya función principal es gestionar las solicitudes de los clientes, es decir, los navegadores web, y proporcionarles los recursos solicitados a través de la red. Estas solicitudes se realizan principalmente mediante los protocolos HTTP o HTTPS, que son los estándares utilizados para la transmisión de datos en la web.</p>
 
-En nuestro proyecto, el servidor web es una parte fundamental porque actúa como el puente entre el usuario y nuestra aplicación. Nosotros lo implementamos utilizando Node.js, con el paquete express, que nos permitió levantar un servidor local de forma rápida y sencilla.
+<p>Cuando un usuario escribe una URL en su navegador, como por ejemplo: www.godo.com, se inicia una secuencia en la que el navegador traduce esa dirección a una IP utilizando el sistema DNS. Luego, se envía una solicitud al servidor web correspondiente. Este servidor recibe la petición, interpreta qué recurso se solicita como una página HTML o una imagen, lo busca y lo devuelve al navegador, que finalmente lo presenta al usuario.</p>
 
-Este servidor es responsable de:
+<p>El contenido que puede entregar un servidor web no se limita solo a HTML. También puede incluir:</p>
+<ul>
+  <li>Archivos CSS para el diseño de la página.</li>
+  <li>Imágenes y archivos multimedia como videos o audios.</li>
+  <li>Scripts de cliente como JavaScript que agregan interactividad.</li>
+  <li>Archivos ejecutados en el servidor como PHP o Python para contenido dinámico.</li>
+  <li>Archivos descargables como PDF o ZIP.</li>
+</ul>
 
-      🕳️ Escuchar las peticiones que llegan desde el navegador del usuario.
-      
-      🕳️ Buscar los archivos solicitados en el sistema de archivos del servidor.
-      
-      🕳️ Responder con esos archivos si existen, o con un mensaje de error si no se encuentran.
-      
-      🕳️ Durante el desarrollo, también nos sirvió para probar cómo se comportaría la aplicación una vez desplegada en un entorno real, simulando lo que haría un servidor en internet.
+<p>En nuestro caso, el servidor web es una parte clave del proyecto. Utilizamos Node.js con el framework Express, lo que nos permitió levantar un servidor local de manera sencilla y flexible. Este servidor cumple con tareas como:</p>
+<ul>
+  <li>Escuchar y procesar las solicitudes que llegan desde el navegador.</li>
+  <li>Buscar los archivos solicitados dentro del sistema de archivos del servidor.</li>
+  <li>Responder con los archivos si existen, o mostrar un mensaje de error si no se encuentran.</li>
+  <li>Simular durante el desarrollo el comportamiento real que tendría nuestra aplicación una vez desplegada en internet.</li>
+</ul>
 
-Además, el servidor que usamos nos permitió organizar la estructura de nuestro proyecto, separar claramente el frontend (interfaz visual) de la lógica de entrega de archivos, y preparar todo para una posible futura publicación en un servidor real en la web.</p> 
+<p>Gracias a esta arquitectura, pudimos mantener una buena organización del proyecto, separando la parte visual (frontend) de la lógica de entrega de archivos, y dejamos preparado todo para un posible despliegue final en un entorno real.</p>
 <br>
 
 <h2>¿Qué es un hosting?</h2>
-<p>El hosting, o alojamiento web, es el servicio que permite almacenar los archivos de un sitio web en un servidor para que sean accesibles a través de internet. Los Hosting ofrecen espacio en sus servidores para que los sitios web, correos electrónicos y bases de datos estén disponibles las 24 horas del día. Los servicios de hosting pueden ser compartidos, dedicados o en la nube.</p> 
+<p>El hosting, o alojamiento web, es un servicio que permite almacenar los archivos de un sitio web en un servidor conectado a internet, para que cualquier persona pueda acceder a ellos desde cualquier lugar. Este servicio garantiza que el sitio esté disponible las 24 horas del día, los 7 días de la semana. Existen distintos tipos de hosting según las necesidades del proyecto: compartido, dedicado, o en la nube, cada uno con diferentes niveles de rendimiento, seguridad y escalabilidad.</p>
 <br>
   </details>
 
