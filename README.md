@@ -305,7 +305,7 @@ Con estas características, nuestra plataforma no solo facilitará la colaboraci
     <summary>&nbsp;&nbsp;&nbsp;&nbsp;🛜 <b>Diagrama de red</b></summary>
     <br>
     <p>El diagrama de red que presentamos en este proyecto es mucho más sencillo que el anterior. En el diagrama previo, todas las máquinas virtuales se encontraban en un entorno Proxmox, lo que generaba una dispersión mayor, incluso dentro de la simplicidad que Proxmox nos ofrece. En esta nueva versión, hemos optado por utilizar contenedores para reemplazar las máquinas virtuales, lo que nos permite una mayor unificación y organización, todo alojado en nuestra máquina con Alpine Linux. Además, hemos configurado un firewall en pfSense, el cual está ajustado para permitir el acceso a los recursos de los contenedores Docker en Alpine a través de puertos específicos, así como a la web alojada en Nginx.</p>
-    <img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/Diagrama-Red-Proyecto.png" alt="Diagrama de red" width="1375" height="735" />
+    <img src="https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/diagrama-red.png" alt="Diagrama de red" width="1375" height="735" />
   </details>
 
 
@@ -566,11 +566,30 @@ Antes de proceder a esta siguiente parte de pfSense, explicaremos el funcionamie
   <details>
   <summary><h2>🤖 Proxmox</h2></summary>
   <h2>Imagen Arquitectura</h2>
-<p>
-  
-Nuestra arquitectura está basada en una red virtual (10.20.30.0/24), compuesta por una máquina virtual (MV) que actúa como host para los contenedores Docker y otra MV con pfSense instalado. El pfSense gestiona la conexión a Internet para la red interna mediante reglas y reenvío de puertos, permitiendo que los usuarios externos accedan a los recursos internos a través de puertos específicos. Para ello, hemos configurado dos adaptadores de red: ens18 con una IP de clase 100.77.20.0/24 y ens19 con una IP dentro del rango de la red interna (10.20.30.0/24). En Proxmox, definimos estas dos redes mediante VMBR1 para la red interna (10.20.30.0/24) y VMBR0, que actúa como puente para la red de clase (100.77.20.0/24). A continuación, se muestra un diagrama con la configuración de Proxmox.</p>
 
-![image](https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/Diagrama-Proxmox.png)
+
+<p>
+Nuestra estructura de red se implementa dentro del aula, utilizando la subred <code>100.77.20.X/24</code>. Contamos con un ordenador principal que tiene instalado <strong>Proxmox</strong>, una plataforma de virtualización que permite crear y gestionar máquinas virtuales de manera eficiente.
+</p>
+
+<p>
+Dentro de Proxmox, hemos creado dos máquinas virtuales con el sistema operativo <strong>Alpine Linux</strong>. Estas máquinas están conectadas a la red mediante un <strong>adaptador en modo puente</strong> (bridge), lo que les permite comunicarse entre sí y con el resto de la red local del aula.
+</p>
+
+<p>
+Cada una de estas Alpine cumple una función específica dentro del proyecto:
+</p>
+<ul>
+  <li>Una máquina actúa como <strong>frontend</strong>, alojando el servidor web que muestra la interfaz del proyecto a los usuarios.</li>
+  <li>La otra funciona como <strong>backend</strong>, gestionando la lógica del sistema y respondiendo a las peticiones del frontend.</li>
+</ul>
+
+<p>
+Esta arquitectura permite separar claramente la capa visual del sistema de la lógica de negocio, lo cual facilita el desarrollo, la organización del código y una futura escalabilidad del proyecto.
+</p>
+<br>
+
+![image](https://github.com/Rusta4/Godofredos/blob/main/fotos_memoria/diagrama-red.png)
 
 <h2>¿Qué es un servidor web?</h2>
 <p>Un servidor web es un tipo de software cuya función principal es gestionar las solicitudes de los clientes, es decir, los navegadores web, y proporcionarles los recursos solicitados a través de la red. Estas solicitudes se realizan principalmente mediante los protocolos HTTP o HTTPS, que son los estándares utilizados para la transmisión de datos en la web.</p>
