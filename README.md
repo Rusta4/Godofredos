@@ -1079,13 +1079,13 @@ Esta arquitectura permite separar claramente la capa visual del sistema de la l�
 <details>
   <summary>&nbsp;&nbsp;&nbsp;&nbsp;📥 <b>Proxmox</b></summary>
   <br>
-  <h3>🧾 ¿Qué es Proxmox?</h3>
+  <h2>🧾 ¿Qué es Proxmox?</h2>
   <p>
     Proxmox VE es una plataforma de virtualización de código abierto que permite crear, ejecutar y gestionar máquinas virtuales 
     y contenedores desde una interfaz web fácil de usar. Es muy útil para montar laboratorios virtuales o entornos de producción ligeros.
   </p>
 
-  <h3>🛠️ Pasos de instalación</h3>
+  <h2>🛠️ Pasos de instalación</h2>
   <ol>
     <li>Descarga la ISO desde la <a href="https://www.proxmox.com/en/downloads" target="_blank">web oficial de Proxmox</a>.</li>
     <li>Crea un USB booteable con herramientas como Rufus o BalenaEtcher.</li>
@@ -1094,7 +1094,7 @@ Esta arquitectura permite separar claramente la capa visual del sistema de la l�
     <li>Accede a la interfaz web de Proxmox desde otro dispositivo a través de: <code>https://100.77.20.X:8006</code></li>
   </ol>
 
-  <h3>🔧 Configuración en nuestro entorno</h3>
+  <h2>🔧 Configuración en nuestro entorno</h2>
   <p>
     Hemos instalado Proxmox en un ordenador del aula con un adaptador de red en modo puente. Dentro de Proxmox tenemos:
     <ul>
@@ -1108,13 +1108,13 @@ Esta arquitectura permite separar claramente la capa visual del sistema de la l�
 <details>
   <summary>&nbsp;&nbsp;&nbsp;&nbsp;📥 <b>Docker-Compose</b></summary>
   <br>
-  <h3>🧾 ¿Qué es Docker Compose?</h3>
+  <h2>🧾 ¿Qué es Docker Compose?</h2>
   <p>
     Docker Compose es una herramienta que permite definir y ejecutar aplicaciones multicontenedor usando un archivo YAML.
     Facilita la automatización y el despliegue de entornos completos con una sola orden.
   </p>
 
-  <h3>🛠️ Pasos de instalación en Alpine</h3>
+  <h2>🛠️ Pasos de instalación en Alpine</h2>
   <ol>
     <li>Instala Docker:
       <pre><code>apk add docker</code></pre>
@@ -1132,7 +1132,7 @@ pip install docker-compose</code></pre>
     </li>
   </ol>
 
-  <h3>🔧 Configuración en nuestro entorno</h3>
+  <h2>🔧 Configuración en nuestro entorno</h2>
   <p>
     Hemos instalado Docker Compose en uno de los Alpine Linux que se ejecuta dentro de Proxmox. Gracias al adaptador puente,
     los contenedores pueden comunicarse entre sí y con el exterior a través de la red <code>100.77.20.0/24</code>. 
