@@ -1289,92 +1289,101 @@ Ejabberd es una solución potente y flexible para la mensajería en tiempo real.
   <br>
   <h2>⚙️ Funcionalidades</h2>
   <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Prioridad</th>
-        <th>Objetivo</th>
-        <th>Funcionalidad</th>
-        <th>Disparador</th>
-        <th>Fecha Entrega</th>
-        <th>Estado</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>ID0</td>
-        <td>Media</td>
-        <td>Desplegar la web</td>
-        <td>Desplegar la web del proyecto por la IP del pfsense y por el puerto 8082</td>
-        <td>No hay disparador, simplemente buscar por el navegador</td>
-        <td>03/02/2025</td>
-        <td>Hecho</td>
-      </tr>
-      <tr>
-        <td>ID1</td>
-        <td>Baja</td>
-        <td>Poder acceder al pfsense sin tener que deshabilitar el firewall</td>
-        <td>Configurar una regla del pfsense para poder acceder a su configuración sin necesidad de desactivar el firewall</td>
-        <td>No hay disparador, simplemente acceder por el navegador</td>
-        <td>14/02/2025</td>
-        <td>Pendiente</td>
-      </tr>
-      <tr>
-        <td>ID2</td>
-        <td>Media</td>
-        <td>Retocar pequeños detalles de la web</td>
-        <td>Retocar pequeños errores y bugs de la web. Principalmente con los archivos .js</td>
-        <td>Unos pop ups que se hacen js que a veces se bugean</td>
-        <td>20/02/2025</td>
-        <td>Pendiente</td>
-      </tr>
-      <tr>
-        <td>ID3</td>
-        <td>Media</td>
-        <td>Optimizar la base de datos</td>
-        <td>Optimizar la base de datos para que funcione mejor de lo que funcionaba antes, ya que también presentaba fallos.</td>
-        <td>-</td>
-        <td>28/02/2025</td>
-        <td>Pendiente</td>
-      </tr>
-      <tr>
-        <td>ID4</td>
-        <td>Media</td>
-        <td>Conexión a internet en la red interna</td>
-        <td>Permitir a la máquina Alpine que alberga todos los dockers tener acceso a internet.</td>
-        <td>-</td>
-        <td>28/02/2025</td>
-        <td>Pendiente</td>
-      </tr>
-      <tr>
-        <td>ID5</td>
-        <td>Baja</td>
-        <td>Poder hacer que el usuario suba archivos a la web</td>
-        <td>Hacer un pequeño uploader en la web para que el usuario pueda subir archivos al apartado de documentos</td>
-        <td>Un pequeño uploader con selector de archivos y un botón verde para subir el archivo</td>
-        <td>05/03/2025</td>
-        <td>Pendiente</td>
-      </tr>
-      <tr>
-        <td>ID6</td>
-        <td>Alta</td>
-        <td>Desplegar una MV en nuestra web</td>
-        <td>Que el usuario pueda ejecutar una MV en la web para que no tenga que ejecutarlo en local</td>
-        <td>Un botón verde que ponga “start” y que al darle se despliegue una MV.</td>
-        <td>31/03/2025</td>
-        <td>Pendiente</td>
-      </tr>
-      <tr>
-        <td>ID7</td>
-        <td>Alta</td>
-        <td>Que el usuario pueda elegir las especificaciones con las que quiere la MV</td>
-        <td>Desplegar una MV con las especificaciones elegidas por el usuario</td>
-        <td>Unos selectores desplegables con diferentes opciones para que el usuario pueda elegir</td>
-        <td>20/04/2025</td>
-        <td>Pendiente</td>
-      </tr>
-    </tbody>
-  </table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Prioridad</th>
+      <th>Objetivo</th>
+      <th>Funcionalidad</th>
+      <th>Disparador</th>
+      <th>Fecha Entrega</th>
+      <th>Estado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ID0</td>
+      <td>Media</td>
+      <td>Desplegar la web</td>
+      <td>Desplegar la web del proyecto por la IP del pfsense y por el puerto 8082</td>
+      <td>No hay disparador, simplemente buscar por el navegador</td>
+      <td>03/02/2025</td>
+      <td>Hecho</td>
+    </tr>
+    <tr>
+      <td>ID1</td>
+      <td>Media</td>
+      <td>Retocar pequeños detalles de la web</td>
+      <td>Retocar pequeños errores y bugs de la web. Principalmente con los archivos .js</td>
+      <td>Unos pop ups que se hacen js que a veces se bugean</td>
+      <td>20/02/2025</td>
+      <td>Hecho</td>
+    </tr>
+    <tr>
+      <td>ID2</td>
+      <td>Alta</td>
+      <td>Desplegar una MV en nuestra web</td>
+      <td>Que el usuario pueda ejecutar una MV en la web para que no tenga que ejecutarlo en local</td>
+      <td>Un botón verde que ponga “start” y que al darle se despliegue una MV.</td>
+      <td>31/03/2025</td>
+      <td>Hecho</td>
+    </tr>
+    <tr>
+      <td>ID3</td>
+      <td>Alta</td>
+      <td>Que el usuario pueda elegir las especificaciones con las que quiere la MV</td>
+      <td>Desplegar una MV con las especificaciones elegidas por el usuario</td>
+      <td>Unos selectores desplegables con diferentes opciones para que el usuario pueda elegir</td>
+      <td>20/04/2025</td>
+      <td>Hecho</td>
+    </tr>
+    <tr>
+      <td>ID4</td>
+      <td>Media</td>
+      <td>Optimizar la base de datos</td>
+      <td>Optimizar la base de datos para que funcione mejor de lo que funcionaba antes, ya que también presentaba fallos.</td>
+      <td>-</td>
+      <td>28/02/2025</td>
+      <td>Hecho</td>
+    </tr>
+    <tr>
+      <td>ID5</td>
+      <td>Alta</td>
+      <td>Descargar y visualizar archivos</td>
+      <td>Permitir al usuario descargar archivos desde la web y visualizarlos directamente si es posible.</td>
+      <td>Botón de descarga y previsualización integrada</td>
+      <td>--</td>
+      <td>Hecho</td>
+    </tr>
+    <tr>
+      <td>ID6</td>
+      <td>Media</td>
+      <td>Registrar usuarios</td>
+      <td>Crear un sistema de registro que permita a los usuarios crear una cuenta con sus datos básicos.</td>
+      <td>Formulario de registro</td>
+      <td>--</td>
+      <td>Hecho</td>
+    </tr>
+    <tr>
+      <td>ID7</td>
+      <td>Media</td>
+      <td>Iniciar sesión</td>
+      <td>Permitir a los usuarios acceder a su cuenta mediante un formulario de autenticación.</td>
+      <td>Formulario de inicio de sesión</td>
+      <td>--</td>
+      <td>Hecho</td>
+    </tr>
+    <tr>
+      <td>ID8</td>
+      <td>Alta</td>
+      <td>Diversificar recursos</td>
+      <td>Separar el frontend y el backend en dos máquinas Alpine diferentes para distribuir la carga.</td>
+      <td>Configuración en Proxmox con adaptador puente</td>
+      <td>--</td>
+      <td>Hecho</td>
+    </tr>
+  </tbody>
+</table>
 
   <h2><br><br>📝 Listado de Tareas</h2>
   
@@ -1395,15 +1404,7 @@ Ejabberd es una solución potente y flexible para la mensajería en tiempo real.
   </details>
 
   <details>
-    <summary><u>Objetivo 3: Acabar de configurar el pfsense</u></summary>
-    <ul>
-      <li>3.1 <b>[Adrià]</b> Aplicar las configuraciones necesarias para trabajar mejor. A parte de las que ya hay.</li>
-      <li>CP1.2 – A pesar de que se han configurado algunas reglas para que se vea la web por el puerto 8082, hay que acabar de configurar el pfsense para que haya internet en la red interna y se pueda acceder a la interfaz de configuración de este.</li>
-    </ul>
-  </details>
-
-  <details>
-    <summary><u>Objetivo 4: Acabar de configurar la base de datos</u></summary>
+    <summary><u>Objetivo 3: Acabar de configurar la base de datos</u></summary>
     <ul>
       <li>4.1 <b>[Nico]</b> Solventar ciertos errores de la base de datos</li>
       <li>CP1.2 – Hay que acabar de matizar y de concretar ciertos puntos con la BBDD para que todo funcione bien y se definan bien las configuraciones.</li>
@@ -1411,7 +1412,7 @@ Ejabberd es una solución potente y flexible para la mensajería en tiempo real.
   </details>
 
   <details>
-    <summary><u>Objetivo 5: Actualizar el github</u></summary>
+    <summary><u>Objetivo 4: Actualizar el github</u></summary>
     <ul>
       <li>5.1 <b>[Murphy]</b> Poner al día la memoria del GitHub.</li>
       <li>CP1.2 – A medida que vayamos acabando todas las tareas anteriores, las iremos actualizando en el GitHub.</li>
@@ -1419,7 +1420,7 @@ Ejabberd es una solución potente y flexible para la mensajería en tiempo real.
   </details>
 
   <details>
-    <summary><u>Objetivo 6: Mejorar la web del proyecto</u></summary>
+    <summary><u>Objetivo 5: Mejorar la web del proyecto</u></summary>
     <ul>
       <li>6.1 <b>[Murphy]</b> Reparar los bugs, errores y otras funciones.</li>
       <li>CP1.2 – A pesar de tener la web en un estado muy avanzado, tenemos aún ciertos puntos que mejorar, así como algunos archivos js que presentan algunos problemas.</li>
@@ -1427,7 +1428,7 @@ Ejabberd es una solución potente y flexible para la mensajería en tiempo real.
   </details>
 
   <details>
-    <summary><u>Objetivo 7: Desplegar una MV en la web</u></summary>
+    <summary><u>Objetivo 6: Desplegar una MV en la web</u></summary>
     <ul>
       <li>7.1 <b>[Nico, Adrià y Murphy]</b> Investigar cómo desplegar una MV para que el usuario pueda iniciarla en la web</li>
       <li>CP1.2 – La idea principal del proyecto es que el usuario pueda desplegar una MV en la web, sin necesidad de estar ejecutándola en local y, que además pueda elegir las especificaciones de la MV que quiera. Sin embargo, primero probaremos de desplegar la MV con unas características predefinidas y posteriormente le añadiremos la personalización.</li>
@@ -1435,7 +1436,7 @@ Ejabberd es una solución potente y flexible para la mensajería en tiempo real.
   </details>
 
   <details>
-    <summary><u>Objetivo 8: Personalizar la MV de la web</u></summary>
+    <summary><u>Objetivo 7: Personalizar la MV de la web</u></summary>
     <ul>
       <li>7.1 <b>[Nico, Adrià y Murphy]</b> Personalizar las características con las que se despliega la MV en la web.</li>
       <li>CP1.2 – Una vez que hemos logrado desplegar la MV en la web, el siguiente punto es que el usuario pueda elegir sistema operativo junto a componentes para que la MV se despliegue a su gusto y pueda realizar todas las configuraciones que el usuario quiera.</li>
